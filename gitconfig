@@ -1,0 +1,23 @@
+[alias]
+	ci = commit
+	cia = commit -a
+	l = log --pretty=format:'%Cred%h%Creset ▹ %Cgreen%s%Creset       [%ar by %an]'
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[user]
+	name = Walter Leibbrandt
+	email = git wrl co za
+[gui]
+	fontdiff = -family Courier -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitexcludes
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	file-view-hpane-position = 291
+	main-window-view = HistoryView
+	history-view-vpane-position = 799
+	file-view-vpane-position = 673
+[push]
+	default = matching

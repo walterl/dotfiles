@@ -1,0 +1,60 @@
+" Basic Settings
+lan C                             " Please use the default English
+set modeline                      " Use mode lines in files (see :help modeline)
+set relativenumber                " Show relative line numbers
+set nowrap                        " Don't wrap lines
+set ignorecase                    " Ignore case in searches
+set incsearch                     " Incremental search
+set hlsearch                      " Highlight matches as you type
+set bg=dark                       " I work on a console with a dark background
+set lazyredraw                    " Don't repaint when scripts are running
+set scrolloff=3                   " Keep 3 lines below and above the cursor
+set ruler                         " Line numbers and column the cursor is on
+set wildmenu                      " Show possibilities when pressing Tab in command mode
+set cursorline                    " Highlight the cursor line
+set guitablabel=%N/\ %t\ %M
+set cpoptions=aABceFsI            " Can't remember what these all mean
+set listchars=tab:>-,trail:_ list " Show tabs and trailing characters
+set hidden                        " For lusty explorer
+set autochdir                     " Automatically change to the current file's directory
+set winwidth=80                   " Windows will always be at least 80 chars (if possible)
+set foldmethod=indent             " Fold on indentation
+set complete-=i                   " from :help cpt: i: scan current and included files. It's very slow in Windows :(
+set switchbuf=useopen,usetab      " Try to move to other windows if changing buf
+set encoding=utf-8
+set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.pyo,*.swp
+" Tab handling
+set smarttab
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+" Messages, Info, Status
+set shortmess+=a                  " Use [+] [RO] [w] for modified, read-only, modified
+set laststatus=2                  " Always show statusline, even if only 1 window
+set report=0                      " Notify me whenever any lines have changed
+set confirm                       " Y-N-C prompt if closing with unsaved changes
+set showcmd                       " Show size of selected area in visual mode
+" Editing
+set backspace=2                   " Backspace over anything! (Super backspace!)
+set showmatch                     " Briefly jump to the previous matching paren
+set matchtime=2                   " For .2 seconds
+
+let mapleader = "\<Space>"        " Remap <Leader> to <Space>
+
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+elseif executable("ack-grep")
+    set grepprg=ack-grep\ --nogroup\ --nocolor
+endif
+
+syntax on                         " Enable syntax highlighting
+filetype plugin indent on
+colorscheme badwolf
+
+" Load pathogen plug-ins and make sure that help tags are up-to-date.
+execute pathogen#infect()
+execute pathogen#helptags()
+
+if filereadable(expand("$HOME") . "/.vimrc.local")
+    source $HOME/.vimrc.local
+endif

@@ -1,0 +1,21 @@
+[ui]
+username = Walter Leibbrandt
+verbose = True
+ignore.other = ~/hgignore
+
+[extensions]
+color    =
+convert  =
+fetch    =
+graphlog =
+hgk      =
+mq       =
+purge    =
+rebase   =
+shelve   = ~/hgshelve.py
+
+[alias]
+l = log --limit 10
+pure = pull --rebase
+
+%include ~/hgrc.local

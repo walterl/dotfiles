@@ -1,0 +1,14 @@
+*.py[oc]
+*.o
+*.so
+*.exe
+*.nexe
+*~
+.*.sw[op]
+.sw[op]
+.netrwhist
+.venv
+.agignore
+tags
+session.vim
+ignoreme
