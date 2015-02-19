@@ -1,17 +1,4 @@
 set bg=dark
-"colorscheme slate
-"colorscheme ego
-"colorscheme vilight
-"colorscheme ekinivim2
-"colorscheme liquidcarbon
-"colorscheme sorcerer
-"colorscheme mirodark
-"colorscheme eddie
-"colorscheme ambient
-"colorscheme superman
-"colorscheme harlequin
-"colorscheme badwolf
-"colorscheme kingtop
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10 " Use :set guifont=* for graphical selector
 set guioptions-=T  " Remove toolbar
