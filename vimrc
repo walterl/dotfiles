@@ -79,7 +79,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'Valloric/YouCompleteMe', {'do': './install.sh'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 Plug 'vim-scripts/diffchar.vim'
 Plug 'vim-scripts/showmarks--Politz'
 Plug 'vim-scripts/Smart-Home-Key'
