@@ -49,11 +49,88 @@ endif
 
 syntax on                         " Enable syntax highlighting
 filetype plugin indent on
-colorscheme badwolf
 
-" Load pathogen plug-ins and make sure that help tags are up-to-date.
-execute pathogen#infect()
-execute pathogen#helptags()
+call plug#begin('~/.vim/plugged')
+
+" Colors
+Plug 'sjl/badwolf'
+Plug 'junegunn/seoul256.vim'
+
+" Editing enhancement
+Plug 'chrisbra/NrrwRgn'
+Plug 'edsono/vim-dbext'
+Plug 'edsono/vim-matchit'
+Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
+Plug 'itchyny/vim-cursorword'
+Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'SirVer/ultisnips'
+Plug 'terryma/vim-expand-region'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'Valloric/YouCompleteMe', {'do': './install.sh'}
+Plug 'vim-scripts/diffchar.vim'
+Plug 'vim-scripts/showmarks--Politz'
+Plug 'vim-scripts/Smart-Home-Key'
+Plug 'vim-scripts/swap-parameters'
+Plug 'vim-scripts/vimwiki'
+Plug 'walterl/vim-airline'
+Plug 'wellle/targets.vim'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
+" CoffeeScript
+Plug 'kchmck/vim-coffee-script'
+" CSS
+Plug 'vim-scripts/Better-CSS-Syntax-for-Vim'
+" Dockerfile
+Plug 'ekalinin/Dockerfile.vim'
+" ferm - for Easy (iptables) Rule Making
+Plug 'cometsong/ferm.vim'
+" Git/GitHub
+Plug 'gregsexton/gitv'
+Plug 'junegunn/vim-github-dashboard'
+Plug 'mattn/gist-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/git-time-lapse'
+" Golang
+Plug 'jnwhiteh/vim-golang'
+" JavaScript
+Plug 'pangloss/vim-javascript'
+" Jinja
+Plug 'mitsuhiko/vim-jinja'
+" LaTex
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Mako
+Plug 'sophacles/vim-bundle-mako'
+" Markdown
+Plug 'tpope/vim-markdown'
+" nginx
+Plug 'vim-scripts/nginx.vim'
+" Python
+Plug 'ivanov/vim-ipython'
+Plug 'rkulla/pydiction'
+Plug 'vim-scripts/python.vim--Vasiliev'
+Plug 'vim-scripts/pythoncomplete'
+" reStructuredText
+Plug 'Rykka/riv.vim'
+" Sieve
+Plug 'vim-scripts/sieve.vim'
+
+call plug#end()
+
+colorscheme seoul256
 
 if filereadable(expand("$HOME") . "/.vimrc.local")
     source $HOME/.vimrc.local
