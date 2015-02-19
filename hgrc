@@ -12,10 +12,10 @@ hgk      =
 mq       =
 purge    =
 rebase   =
-shelve   = ~/hgshelve.py
+shelve   = ~/.hgshelve.py
 
 [alias]
 l = log --limit 10
 pure = pull --rebase
 
-%include ~/hgrc.local
+%include ~/.hgrc.local
