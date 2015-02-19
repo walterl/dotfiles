@@ -26,8 +26,11 @@ map  <silent> <F5>      :TagbarToggle<CR>
 imap <silent> <F5> <Esc>:TagbarToggle<CR>
 
 " VimWiki
+let g:vimwiki_dir_link = 'index'
 let g:vimwiki_folding = 1
 let g:vimwiki_fold_lists = 1
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_hl_cb_checked = 1
 
 " Tabularize maps
 vmap <Leader>a= :Tabularize /=<CR>
