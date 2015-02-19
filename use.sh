@@ -13,9 +13,17 @@ e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
 DOTHOME=$(echo $(cd "`dirname $0`" && pwd -P))
 BACKDIR="$DOTHOME/backup/dotfiles/$(date "+%Y_%m_%d-%H_%M_%S")/"
 THISFILE=$DOTHOME/$(basename $0)
+UNLINK=
+if [ "$1" = "-r" ]; then
+  UNLINK=1
+fi
 
 run() {
-  link_dotfiles
+  if [ -n "$UNLINK" ]; then
+    unlink_dotfiles
+  else
+    link_dotfiles
+  fi
   print_messages
 }
 
@@ -48,6 +56,23 @@ link_dotfiles() {
 
     ln -sf "${file#$HOME/}" ".$base"
     e_success "$base"
+  done
+}
+
+unlink_dotfiles() {
+  e_header "Unlinking files from home directory..."
+
+  cd "$HOME"
+  for file in $DOTHOME/[a-z]*; do
+    local base="$(basename $file)"
+    local dest="$HOME/.$base"
+
+    if [ ! -L $dest -o $(readlink -f $dest) != $file ]; then
+      continue
+    fi
+
+    rm "$dest"
+    e_error "$base"
   done
 }
 
