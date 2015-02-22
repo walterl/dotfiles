@@ -9,6 +9,7 @@ vnoremap <Leader>x "+x
 
 " Quick and easy escape from Insert Mode
 imap jj <Esc>
+vmap <Space>jj <Esc>
 
 " Move to end of yanked/pasted text
 vnoremap <silent> y y`]
