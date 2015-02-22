@@ -4,6 +4,7 @@ nnoremap c<Leader> c<Space>
 " Cut/Copy/Paste shortcuts
 vnoremap <Leader>y "+y
 noremap <Leader>p "+p
+noremap <Leader><S-p> "+P
 vnoremap <Leader>x "+x
 
 " Quick and easy escape from Insert Mode
