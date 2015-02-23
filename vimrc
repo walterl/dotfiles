@@ -57,6 +57,7 @@ Plug 'sjl/badwolf'
 Plug 'junegunn/seoul256.vim'
 
 " Editing enhancement
+Plug 'ap/vim-css-color'
 Plug 'chrisbra/NrrwRgn'
 Plug 'edsono/vim-dbext'
 Plug 'edsono/vim-matchit'
