@@ -107,6 +107,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/git-time-lapse'
     " Golang
     Plug 'jnwhiteh/vim-golang'
+    " HTML
+    Plug 'vim-scripts/HTML-AutoCloseTag'
     " JavaScript
     Plug 'pangloss/vim-javascript'
     " Jinja
