@@ -3,8 +3,10 @@
 " Most of the stuff from blog.sontek.net's VIm Python IDE tutorial
 " (http://blog.sontek.net/2008/05/11/python-with-a-modular-ide-vim/)
 
-setlocal foldmethod=indent "Fold on indentation
-setlocal foldignore= " Default is #, which causes comment lines to be ignored in folds
+setlocal foldmethod=indent  " Fold on indentation
+setlocal foldignore=  " Default is #, which causes comment lines to be ignored in folds
+setlocal foldcolumn=5  " Show fold information on the left of the window.
+setlocal foldminlines=2  " Don't fold single lines.
 setlocal omnifunc=pythoncomplete#Complete
 setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 setlocal makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
