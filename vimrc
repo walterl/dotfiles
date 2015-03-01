@@ -56,6 +56,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/seoul256.vim'
 
     " Editing enhancement
+    Plug 'AndrewRadev/sideways.vim'
     Plug 'ap/vim-css-color'
     Plug 'chrisbra/NrrwRgn'
     Plug 'edsono/vim-dbext'
@@ -83,7 +84,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/diffchar.vim'
     Plug 'vim-scripts/showmarks--Politz'
     Plug 'vim-scripts/Smart-Home-Key'
-    Plug 'vim-scripts/swap-parameters'
     Plug 'vim-scripts/vimwiki'
     Plug 'walterl/vim-airline'
     Plug 'wellle/targets.vim'
