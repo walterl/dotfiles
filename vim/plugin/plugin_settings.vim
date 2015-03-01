@@ -22,8 +22,8 @@ imap <silent> <F4> <Esc>:NERDTreeToggle<CR>
 let NERDTreeShowBookmarks = 1
 
 " Tagbar
-map  <silent> <F5>      :TagbarToggle<CR>
-imap <silent> <F5> <Esc>:TagbarToggle<CR>
+map  <silent> <S-F4>      :TagbarToggle<CR>
+imap <silent> <S-F4> <Esc>:TagbarToggle<CR>
 
 " VimWiki
 let g:vimwiki_dir_link = 'index'
