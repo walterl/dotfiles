@@ -132,7 +132,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/sieve.vim'
 call plug#end()
 
-colorscheme seoul256
+colorscheme badwolf
 
 if filereadable(expand("$HOME") . "/.vimrc.local")
     source $HOME/.vimrc.local
