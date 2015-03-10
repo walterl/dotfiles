@@ -88,3 +88,7 @@ nmap ga <Plug>(EasyAlign)
 " sideways.vim
 nnoremap <Leader>ah :SidewaysLeft<CR>
 nnoremap <Leader>al :SidewaysRight<CR>
+
+" python.vim--Vasiliev
+let python_highlight_all = 1
+let python_slow_sync = 1
