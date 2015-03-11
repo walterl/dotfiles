@@ -21,5 +21,7 @@
 	main-window-view = HistoryView
 	history-view-vpane-position = 799
 	file-view-vpane-position = 673
+[pull]
+	rebase = preserve
 [push]
 	default = matching
