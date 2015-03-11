@@ -3,6 +3,7 @@
 *.so
 *.exe
 *.nexe
+*.hi
 *~
 .*.sw[op]
 .sw[op]

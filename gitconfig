@@ -1,8 +1,10 @@
 [alias]
+	br = branch -avv
 	ci = commit
 	cia = commit -a
 	l = log --pretty=format:'%Cred%h%Creset ▹ %Cgreen%s%Creset       [%ar by %an]'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	st = status -sb
 [user]
 	name = Walter Leibbrandt
 	email = git wrl co za
