@@ -51,13 +51,11 @@ function update-repo() {
 }
 
 # Git funcs and aliases
-function gadd() { git add $@; }
-function gci()  { git commit $@; }
-function gdiff  { git diff $@ | colordiff; }
-function gpr()  { git pull --rebase $@ }
-function gst()  { git status $@; }
-alias gcitool='git gui citool'
-alias gst='git status'
+alias ga='git add'
+alias gci='git commit'
+alias gdiff='git diff --ignore-space-at-eol -b -w'
+alias gpr='git pull --rebase'
+alias gst='git st'
 
 # Set umask to make files non-world readable by default
 umask 007
