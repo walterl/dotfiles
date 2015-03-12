@@ -67,6 +67,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-easy-align'
     Plug 'justinmk/vim-sneak'
     Plug 'kien/ctrlp.vim'
+    Plug 'Konfekt/FastFold'
     Plug 'majutsushi/tagbar'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'nathanaelkane/vim-indent-guides'
