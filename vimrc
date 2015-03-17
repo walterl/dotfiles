@@ -130,6 +130,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'Rykka/riv.vim'
     " Sieve
     Plug 'vim-scripts/sieve.vim'
+    " SQL
+    Plug 'shmup/vim-sql-syntax'
 call plug#end()
 
 colorscheme badwolf
