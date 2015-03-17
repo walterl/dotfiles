@@ -100,9 +100,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ekalinin/Dockerfile.vim'
     " ferm - for Easy (iptables) Rule Making
     Plug 'cometsong/ferm.vim'
-    " Git/GitHub
+    " Git
     Plug 'gregsexton/gitv'
-    Plug 'junegunn/vim-github-dashboard'
     Plug 'mattn/gist-vim'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-scripts/git-time-lapse'
