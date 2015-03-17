@@ -57,7 +57,6 @@ call plug#begin('~/.vim/plugged')
 
     " Editing enhancement
     Plug 'AndrewRadev/sideways.vim'
-    Plug 'ap/vim-css-color'
     Plug 'chrisbra/NrrwRgn'
     Plug 'edsono/vim-dbext'
     Plug 'edsono/vim-matchit'
@@ -95,6 +94,7 @@ call plug#begin('~/.vim/plugged')
     " CoffeeScript
     Plug 'kchmck/vim-coffee-script'
     " CSS
+    Plug 'ap/vim-css-color'
     Plug 'vim-scripts/Better-CSS-Syntax-for-Vim'
     " Dockerfile
     Plug 'ekalinin/Dockerfile.vim'
