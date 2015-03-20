@@ -50,10 +50,11 @@ function update-repo() {
 	return 0
 }
 
-# Git funcs and aliases
+# Git aliases
 alias ga='git add'
 alias gci='git commit'
 alias gdiff='git diff --ignore-space-at-eol -b -w'
+alias gm='git merge --no-ff'
 alias gpr='git pull --rebase'
 alias gst='git st'
 
