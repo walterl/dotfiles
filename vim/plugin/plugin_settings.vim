@@ -93,3 +93,6 @@ nnoremap <Leader>al :SidewaysRight<CR>
 " python.vim--Vasiliev
 let python_highlight_all = 1
 let python_slow_sync = 1
+
+" easytags
+let g:easytags_async = 1
