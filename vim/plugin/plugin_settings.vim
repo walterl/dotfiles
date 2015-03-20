@@ -38,6 +38,7 @@ vmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a, :Tabularize /,<CR>
 
 " fugitive
+nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gs :Gstatus<CR>
 
 " gitv
