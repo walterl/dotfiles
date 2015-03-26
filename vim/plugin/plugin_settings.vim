@@ -40,6 +40,7 @@ vmap <Leader>a, :Tabularize /,<CR>
 " fugitive
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gS :Gstatus<CR><C-w>T
 
 " gitv
 let g:Gitv_OpenHorizontal = 1
