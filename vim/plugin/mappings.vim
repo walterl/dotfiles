@@ -8,8 +8,8 @@ noremap <Leader><S-p> "+P
 vnoremap <Leader>x "+x
 
 " Quick and easy escape from Insert Mode
-imap jj <Esc>
-vmap <Space>jj <Esc>
+imap jk <Esc>
+vmap <Space>jk <Esc>
 
 " Move to end of yanked/pasted text
 vnoremap <silent> y y`]
