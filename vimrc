@@ -87,7 +87,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/vimwiki'
     Plug 'walterl/vim-airline'
     Plug 'wellle/targets.vim'
-    Plug 'xolox/vim-easytags'
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-session'
 
