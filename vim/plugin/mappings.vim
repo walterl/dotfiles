@@ -25,12 +25,19 @@ nnoremap <Leader>, gT
 " Search in visual selection
 vnoremap <M-/> <Esc>/\%V
 
+" Select a line without trailing whitespace or linebreaks
+" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
+nnoremap <Leader>v <Esc>^vg_
+
 " Close buffers
 nmap <Leader>q :q<CR>
 nmap <Leader>wq :wq<CR>
 imap <C-q> <ESC>:bdelete<CR>
 nmap <C-q> :bdelete<CR>
 vmap <C-q> <ESC>:bdelete<CR>
+
+" Switch to previous buffer
+nmap <Leader>B :e#<CR>
 
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -65,6 +72,17 @@ map <silent> <C-k> zk
 map <silent><A-]> <C-w><C-]><C-w>T
 inoremap <Nul> <C-x><C-o>
 
+" Emacs style jump to end of line in insert mode
+" prevents conflict with autocomplete
+" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
+inoremap <Expr> <C-e> pumvisible() ? "\<C-e>" : "\<C-o>A"
+inoremap <C-a> <C-o>I
+
+" Open line above or below in insert mode
+" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
+inoremap <C-Enter> <C-o>o
+inoremap <C-S-Enter> <C-o>O
+
 " < >
 if &diff
 " easily handle diffing
@@ -92,3 +110,15 @@ nmap <silent> <Leader>fX :!xmllint --format "%" -o "%"<CR>
 
 " JSON formatting
 nmap <silent> <Leader>fj :%!python -m json.tool<CR>
+
+" Move lines up or down
+" (http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/)
+nmap <Leader>K ddkP
+nmap <Leader>J ddp
+
+vmap <Leader>K xkP`[V`]
+vmap <Leader>J xp`[V`]
+
+" bind K to grep word under cursor
+" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

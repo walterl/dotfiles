@@ -14,7 +14,7 @@ set wildmenu                      " Show possibilities when pressing Tab in comm
 set cursorline                    " Highlight the cursor line
 set guitablabel=%N/\ %t\ %M
 set cpoptions=aABceFsI            " Can't remember what these all mean
-set listchars=tab:>-,trail:_ list " Show tabs and trailing characters
+set listchars=tab:»—,trail:⋅ list " Show tabs and trailing characters
 set hidden                        " For lusty explorer
 set autochdir                     " Automatically change to the current file's directory
 set winwidth=80                   " Windows will always be at least 80 chars (if possible)
@@ -23,21 +23,26 @@ set complete-=i                   " from :help cpt: i: scan current and included
 set switchbuf=useopen,usetab      " Try to move to other windows if changing buf
 set encoding=utf-8
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.pyo,*.swp
-" Tab handling
 set smarttab
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
-" Messages, Info, Status
 set shortmess+=a                  " Use [+] [RO] [w] for modified, read-only, modified
 set laststatus=2                  " Always show statusline, even if only 1 window
 set report=0                      " Notify me whenever any lines have changed
 set confirm                       " Y-N-C prompt if closing with unsaved changes
 set showcmd                       " Show size of selected area in visual mode
-" Editing
 set backspace=2                   " Backspace over anything! (Super backspace!)
 set showmatch                     " Briefly jump to the previous matching paren
 set matchtime=2                   " For .2 seconds
+set timeoutlen=500                " Lowers leader and command timeout
+set directory=~/.vim/tmp          " Directory for swap/temp files
+set nobackup                      " Don't create backup files
+set nowb                          " Don't create write backups
+set noswapfile                    " Don't create swap files
+set viminfo+=n$HOME/.vim/tmp/viminfo
+set splitbelow                    " Split windows below the current window
+set splitright                    " Split vertical windows on the right
 
 let mapleader = "\<Space>"        " Remap <Leader> to <Space>
 
