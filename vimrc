@@ -285,6 +285,9 @@ vmap <C-q> <ESC>:bdelete<CR>
 " Switch to previous buffer
 nmap <Leader>B :e#<CR>
 
+" List buffers
+nmap <Leader>bl :buffers<CR>
+
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
