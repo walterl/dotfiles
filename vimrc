@@ -422,7 +422,7 @@ function! s:CloseHiddenBuffers()
   echon "Deleted " . l:tally . " buffers"
 endfun
 
-map <Leader>bc :CloseHiddenBuffers<CR>
+nmap <Leader>bc :CloseHiddenBuffers<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -519,7 +519,7 @@ vnoremap <silent> # :<C-U>
 
 " {{{ Toggle QuickFix window or location list
 " From http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
+command! -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
     cclose
@@ -530,7 +530,7 @@ function! QFixToggle(forced)
   endif
 endfunction
 
-command -bang -nargs=? LocList call LocListToggle(<bang>0)
+command! -bang -nargs=? LocList call LocListToggle(<bang>0)
 function! LocListToggle(forced)
   if exists("g:loclist_win") && a:forced == 0
     lclose
@@ -547,10 +547,10 @@ endfunction
 " {{{ Toggle hex editing mode
 " From http://vim.wikia.com/wiki/Improved_hex_editing
 " ex command for toggling hex mode - define mapping if desired
-command -bar Hexmode call ToggleHex()
+command! -bar Hexmode call ToggleHex()
 
 " helper function to toggle hex mode
-function ToggleHex()
+function! ToggleHex()
   " hex mode should be considered a read-only operation
   " save values for modified and read-only for restoration later,
   " and clear the read-only flag for now
