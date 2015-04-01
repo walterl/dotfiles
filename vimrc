@@ -321,7 +321,7 @@ inoremap <Nul> <C-x><C-o>
 " Emacs style jump to end of line in insert mode
 " prevents conflict with autocomplete
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-inoremap <Expr> <C-e> pumvisible() ? "\<C-e>" : "\<C-o>A"
+inoremap <expr> <C-e> pumvisible() ? "\<C-e>" : "\<C-o>A"
 inoremap <C-a> <C-o>I
 
 " Open line above or below in insert mode
@@ -399,7 +399,7 @@ nnoremap <C-n> :call NumberToggle()<CR>
 " {{{ Autoclose inactive buffers
 " (http://stackoverflow.com/questions/2974192/how-can-i-pare-down-vims-buffer-list-to-only-include-active-buffers)
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-command! -nargs=* Only call s:CloseHiddenBuffers()
+command! -nargs=* CloseHiddenBuffers call s:CloseHiddenBuffers()
 function! s:CloseHiddenBuffers()
   " figure out which buffers are visible in any tab
   let visible = {}
@@ -419,7 +419,7 @@ function! s:CloseHiddenBuffers()
   echon "Deleted " . l:tally . " buffers"
 endfun
 
-map <Leader>bc :call CloseHiddenBuffers()<CR>
+map <Leader>bc :CloseHiddenBuffers<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
