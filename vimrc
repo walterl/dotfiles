@@ -87,6 +87,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/vimwiki'
   Plug 'walterl/vim-airline'
   Plug 'wellle/targets.vim'
+  Plug 'xolox/vim-easytags'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
 
@@ -232,6 +233,7 @@ let python_highlight_all = 1
 let python_slow_sync = 1
 
 " easytags
+let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 " }}}
 
