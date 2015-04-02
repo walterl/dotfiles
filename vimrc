@@ -145,6 +145,7 @@ colorscheme badwolf
 " CtrlP
 let g:ctrlp_map = ",f"
 let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
 map <silent> ,b :CtrlPBuffer<CR>
 map <silent> ,m :CtrlPMixed<CR>
 map <silent> ,t :CtrlPBufTagAll<CR>
