@@ -158,13 +158,13 @@ endif
 " Above from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 
 " NERDTree
-map  <silent> <F4>      :NERDTreeToggle<CR>
-imap <silent> <F4> <Esc>:NERDTreeToggle<CR>
+map  <silent> <F2>      :NERDTreeToggle<CR>
+imap <silent> <F2> <Esc>:NERDTreeToggle<CR>
 let NERDTreeShowBookmarks = 1
 
 " Tagbar
-map  <silent> <S-F4>      :TagbarToggle<CR>
-imap <silent> <S-F4> <Esc>:TagbarToggle<CR>
+map  <silent> <F3>      :TagbarToggle<CR>
+imap <silent> <F3> <Esc>:TagbarToggle<CR>
 
 " VimWiki
 let g:vimwiki_dir_link = 'index'
@@ -288,8 +288,6 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Toggle folds
 nnoremap <C-f> za
 
-" Make
-map <F3> :w<CR>:make<CR>
 
 " Quickfix and location list
 map <silent> <Leader>ln :lnext<CR>zzzv
