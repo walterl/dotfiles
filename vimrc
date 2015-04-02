@@ -265,6 +265,10 @@ nnoremap <Leader>, gT
 " Search in visual selection
 vnoremap <M-/> <Esc>/\%V
 
+" Reselect visual selection after indent
+vnoremap < <gv
+vnoremap > >gv
+
 " Select a line without trailing whitespace or linebreaks
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
 nnoremap <Leader>v <Esc>^vg_
