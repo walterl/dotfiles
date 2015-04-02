@@ -61,7 +61,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/NrrwRgn'
   Plug 'edsono/vim-dbext'
   Plug 'edsono/vim-matchit'
-  Plug 'godlygeek/tabular'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
@@ -173,11 +172,6 @@ let g:vimwiki_folding = 1
 let g:vimwiki_fold_lists = 1
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 1
-
-" Tabularize maps
-vmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a, :Tabularize /,<CR>
 
 " fugitive
 nmap <Leader>gc :Gcommit<CR>
