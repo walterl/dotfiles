@@ -195,7 +195,7 @@ let g:session_autosave = 'no'
 let g:nrrw_rgn_vert = 1 " Open narrow region windows in *vertical* splits
 
 " Pydiction options
-let g:pydiction_location = '/home/walter/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = expand("$HOME") . '/.vim/plugged/pydiction/complete-dict'
 
 " showmarks
 " Note that ` and ' are switched, to replace the above (commented out) remapping.
