@@ -16,7 +16,6 @@ set guitablabel=%N/\ %t\ %M
 set cpoptions=aABceFsI            " Can't remember what these all mean
 set listchars=tab:»—,trail:⋅ list " Show tabs and trailing characters
 set hidden                        " For lusty explorer
-set autochdir                     " Automatically change to the current file's directory
 set winwidth=80                   " Windows will always be at least 80 chars (if possible)
 set foldmethod=indent             " Fold on indentation
 set complete-=i                   " from :help cpt: i: scan current and included files. It's very slow in Windows :(
@@ -295,6 +294,10 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Toggle folds
 nnoremap <C-f> za
 
+" Change working directory to the current file's directory
+" (http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file)
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>c. :cd ..<CR>:pwd<CR>
 
 " Quickfix and location list
 map <silent> <Leader>ln :lnext<CR>zzzv
