@@ -105,7 +105,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'vim-scripts/git-time-lapse'
   " Golang
-  Plug 'jnwhiteh/vim-golang'
+  Plug 'fatih/vim-go'
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " JavaScript
