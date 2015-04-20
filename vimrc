@@ -3,6 +3,7 @@ lan C                             " Please use the default English
 set modeline                      " Use mode lines in files (see :help modeline)
 set relativenumber                " Show relative line numbers
 set nowrap                        " Don't wrap lines
+set showbreak=↪                   " But when wrapped, show nice linebreak char
 set ignorecase                    " Ignore case in searches
 set incsearch                     " Incremental search
 set hlsearch                      " Highlight matches as you type
