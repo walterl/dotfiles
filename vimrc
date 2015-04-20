@@ -187,6 +187,8 @@ nmap <Leader>gv :Gitv<CR>
 " Syntastic
 let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['javascript']}
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_coffee_coffeelint_exec = expand("$HOME") . "/node_modules/.bin/coffeelint"
+let g:syntastic_javascript_jshint_exec = expand("$HOME") . "/node_modules/.bin/jshint"
 
 " Session
 let g:session_autosave = 'no'
