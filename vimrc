@@ -369,6 +369,10 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " is "far" from the current file's directory.
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
+
+" Use <C-k>/<C-j> to move up/down in command history
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
