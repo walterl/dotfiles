@@ -19,8 +19,10 @@ select-word-style bash
 export TERM=xterm-256color # More colorful terminal vim :)
 
 # Aliases
-alias ll='ls -al'
 alias ls='ls --color=auto '
+alias ll='ls -al'
+alias llh='ls -alh'
+alias lh='ls -sh'
 alias less='less -R'
 alias man='LC_ALL=C LANG=C man'
 alias now='date +%Y%m%d_%H%M%S'
