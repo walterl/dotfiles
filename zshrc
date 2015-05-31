@@ -64,10 +64,11 @@ alias gst='git st'
 umask 007
 
 # Setup paths
-[ -d $HOME/bin ]         && export PATH="$PATH:$HOME/bin"
-[ -d $HOME/.local/bin ]  && export PATH="$PATH:$HOME/.local/bin"
-[ -d $HOME/.rvm/bin ]    && export PATH="$PATH:$HOME/.rvm/bin"
-[ -d /usr/local/go/bin ] && export PATH="$PATH:/usr/local/go/bin"
+[ -d $HOME/bin ]               && export PATH="$PATH:$HOME/bin"
+[ -d $HOME/.local/bin ]        && export PATH="$PATH:$HOME/.local/bin"
+[ -d $HOME/.rvm/bin ]          && export PATH="$PATH:$HOME/.rvm/bin"
+[ -d $HOME/node_modules/.bin ] && export PATH="$PATH:$HOME/node_modules/.bin"
+[ -d /usr/local/go/bin ]       && export PATH="$PATH:/usr/local/go/bin"
 
 [ -d $HOME/src/code/python ] && export PYTHONPATH="$PYTHONPATH:$HOME/src/code/python"
 [ -d $HOME/src/go ]          && export GOPATH=$HOME/src/go && export PATH=$PATH:$GOPATH/bin
