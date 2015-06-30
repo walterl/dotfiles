@@ -68,7 +68,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'kien/ctrlp.vim'
   Plug 'Konfekt/FastFold'
   Plug 'majutsushi/tagbar'
-  Plug 'mattn/emmet-vim'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'Raimondi/delimitMate'
@@ -76,7 +75,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/syntastic'
   Plug 'SirVer/ultisnips'
   Plug 'terryma/vim-expand-region'
-  Plug 'terryma/vim-multiple-cursors'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
@@ -239,9 +237,6 @@ let python_slow_sync = 1
 " easytags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
-
-" emmet
-let g:user_emmet_leader_key='<Leader>e'
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
