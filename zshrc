@@ -60,6 +60,8 @@ alias gm='git merge --no-ff'
 alias gpr='git pull --rebase'
 alias gst='git st'
 
+alias ag='ag --nogroup'
+
 # Set umask to make files non-world readable by default
 umask 007
 
