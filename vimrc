@@ -279,6 +279,7 @@ nnoremap <Leader>v <Esc>^vg_
 
 " Close buffers
 nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
 nmap <Leader>wq :wq<CR>
 imap <C-q> <ESC>:bdelete<CR>
 nmap <C-q> :bdelete<CR>
@@ -289,6 +290,13 @@ nmap <Leader>B :e#<CR>
 
 " List buffers
 nmap <Leader>bl :buffers<CR>
+
+" Split current window
+nmap <Leader>H :split<CR>
+nmap <Leader>V :vsplit<CR>
+
+" Open current file in new tab
+nmap <Leader>dt :split<CR><C-w>T
 
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -333,8 +341,19 @@ inoremap <C-a> <C-o>I
 
 " Open line above or below in insert mode
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-inoremap <C-Enter> <C-o>o
-inoremap <C-S-Enter> <C-o>O
+inoremap <C-k> <C-o>O
+" Ctrl+j moves cursor to the end of the line below, while in insert mode
+inoremap <C-j> <C-o>j<C-o>$
+
+" Move in cursor around while in insert mode
+inoremap <M-h> <C-o>h
+inoremap <M-j> <C-o>j
+inoremap <M-k> <C-o>k
+inoremap <M-l> <C-o>l
+
+" Indent lines without leaving insert mode
+inoremap <M->> <C-o>>>
+inoremap <M-<> <C-o><<
 
 " Delete trailing spaces
 nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
