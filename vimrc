@@ -114,6 +114,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'mitsuhiko/vim-jinja'
   " LaTex
   Plug 'LaTeX-Box-Team/LaTeX-Box'
+  " LESS
+  Plug 'genoma/vim-less'
   " Mako
   Plug 'sophacles/vim-bundle-mako'
   " Markdown
