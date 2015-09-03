@@ -4,7 +4,7 @@ ZSH_THEME="combose"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(autojump git git-hubflow command-not-found pip python vagrant virtualenvwrapper)
+plugins=(autojump django git git-hubflow command-not-found pip python vagrant virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 # END oh-my-zsh
