@@ -177,6 +177,7 @@ let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 1
 
 " fugitive
+nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gS :Gstatus<CR><C-w>T
@@ -279,26 +280,23 @@ vnoremap > >gv
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
 nnoremap <Leader>v <Esc>^vg_
 
-" Close buffers
+" Buffers
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>wq :wq<CR>
-imap <C-q> <ESC>:bdelete<CR>
-nmap <C-q> :bdelete<CR>
-vmap <C-q> <ESC>:bdelete<CR>
-
+nmap <Leader>bl :buffers<CR>
+nmap <Leader>bd :bdelete<CR>
+nmap <Leader>bn :bnext<CR>
+nmap <Leader>bp :bprev<CR>
 " Switch to previous buffer
 nmap <Leader>B :e#<CR>
-
-" List buffers
-nmap <Leader>bl :buffers<CR>
 
 " Split current window
 nmap <Leader>H :split<CR>
 nmap <Leader>V :vsplit<CR>
 
 " Open current file in new tab
-nmap <Leader>dt :split<CR><C-w>T
+nmap <Leader>ts :split<CR><C-w>T
 
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -381,6 +379,10 @@ nmap <Leader>J ddp
 
 vmap <Leader>K xkP`[V`]
 vmap <Leader>J xp`[V`]
+
+" Select pasted text
+" (http://vim.wikia.com/wiki/Selecting_your_pasted_text)
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " bind K to grep word under cursor
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
