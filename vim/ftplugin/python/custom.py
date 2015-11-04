@@ -10,6 +10,7 @@ for p in sys.path:
 
 BREAKPOINT = 'import ipdb as pdb; pdb.set_trace()'
 
+
 def eval_buffer():
     eval(compile('\n'.join(vim.current.buffer), '', 'exec'), globals())
 
@@ -29,7 +30,7 @@ def toggle_breakpoint():
 def set_breakpoint():
     linenum = int(vim.eval('line(".")'))
     whitespace = re.search('^(\s*)', vim.current.line).group(1)
-    mark = '%(m)s Breakpoint %(m)s' % {'m': '#' * 10}
+    mark = '%(m)s Breakpoint %(m)s' % {'m': '#' * 8}
     ins_line = '%s%s  %s' % (whitespace, BREAKPOINT, mark)
     vim.current.buffer.append(ins_line, linenum-1)
     vim.command('write')
