@@ -396,6 +396,12 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 " Use <C-k>/<C-j> to move up/down in command history
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" {{{ Abbreviations
+" Typing aides
+iabbrev improt import
+iabbrev fucntion function
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
