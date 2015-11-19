@@ -100,6 +100,7 @@ call plug#begin('~/.vim/plugged')
   " ferm - for Easy (iptables) Rule Making
   Plug 'cometsong/ferm.vim'
   " Git
+  Plug 'airblade/vim-gitgutter'
   Plug 'gregsexton/gitv'
   Plug 'mattn/gist-vim'
   Plug 'tpope/vim-fugitive'
