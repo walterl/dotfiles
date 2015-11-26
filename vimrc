@@ -84,7 +84,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/diffchar.vim'
   Plug 'vim-scripts/showmarks--Politz'
   Plug 'vim-scripts/Smart-Home-Key'
-  Plug 'vim-scripts/vimwiki'
+  Plug 'vimwiki/vimwiki'
   Plug 'walterl/vim-airline'
   Plug 'wellle/targets.vim'
   Plug 'xolox/vim-easytags'
