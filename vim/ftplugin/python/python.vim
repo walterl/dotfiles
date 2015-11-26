@@ -5,7 +5,6 @@
 
 setlocal foldmethod=indent  " Fold on indentation
 setlocal foldignore=  " Default is #, which causes comment lines to be ignored in folds
-setlocal foldcolumn=5  " Show fold information on the left of the window.
 setlocal foldminlines=2  " Don't fold single lines.
 setlocal omnifunc=pythoncomplete#Complete
 setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
