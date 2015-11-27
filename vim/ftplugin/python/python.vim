@@ -17,7 +17,7 @@ else
 endif
 
 if v:version >= 703
-	setlocal colorcolumn=80,90,100
+	setlocal colorcolumn=72,80
 endif
 
 pyfile $HOME/.vim/ftplugin/python/custom.py
