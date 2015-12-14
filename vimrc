@@ -63,6 +63,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'edsono/vim-matchit'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
+  Plug 'jonhiggs/vim-readline'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
   Plug 'kien/ctrlp.vim'
@@ -241,6 +242,25 @@ let python_slow_sync = 1
 " easytags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
+
+" vim-readline
+imap <C-a>      <C-O>:ReadlineBeginningOfLine<CR>
+imap <C-b>      <C-O>:ReadlineBackwardChar<CR>
+imap <C-d>      <C-O>:ReadlineDeleteChar<CR>
+imap <C-e>      <C-O>:ReadlineEndOfLine<CR>
+imap <C-f>      <C-O>:ReadlineForwardChar<CR>
+imap <C-k>      <C-O>:ReadlineKillLine<CR>
+imap <C-t>      <C-O>:ReadlineTransposeChars<CR>
+imap <C-u>      <C-O>:ReadlineUnixLineDiscard<CR>
+imap <C-w>      <C-O>:ReadlineUnixWordRubout<CR>
+imap <C-x><BS>  <C-O>:ReadlineBackwardKillLine<CR>
+imap <M-BS>     <C-O>:ReadlineBackwardKillWord<CR>
+imap <M-b>      <C-O>:ReadlineBackwardWord<CR>
+imap <M-d>      <C-O>:ReadlineKillWord<CR>
+imap <M-f>      <C-O>:ReadlineForwardWord<CR>
+imap <M-l>      <C-O>:ReadlineDowncaseWord<CR>
+imap <M-t>      <C-O>:ReadlineTransposeWords<CR>
+imap <M-u>      <C-O>:ReadlineUpcaseWord<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
