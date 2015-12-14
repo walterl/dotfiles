@@ -1,6 +1,6 @@
 # oh-my-zsh setup:
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="combose"
+# ZSH_THEME="combose"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
@@ -8,6 +8,9 @@ plugins=(autojump django git git-hubflow command-not-found pip python vagrant vi
 
 source $ZSH/oh-my-zsh.sh
 # END oh-my-zsh
+
+source $HOME/.liquidpromptrc
+source $HOME/.liquidprompt/liquidprompt
 
 # zsh options
 unsetopt share_history
