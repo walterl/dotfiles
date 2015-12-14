@@ -179,6 +179,7 @@ let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 1
 
 " fugitive
+nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gs :Gstatus<CR>
@@ -287,8 +288,6 @@ nnoremap <silent> p p`]
 " Navigate tabs
 nnoremap <Leader>[ gt
 nnoremap <Leader>] gT
-nnoremap <Leader>. gt
-nnoremap <Leader>, gT
 
 " Search in visual selection
 vnoremap <M-/> <Esc>/\%V
@@ -309,6 +308,8 @@ nmap <Leader>bl :buffers<CR>
 nmap <Leader>bd :bdelete<CR>
 nmap <Leader>bn :bnext<CR>
 nmap <Leader>bp :bprev<CR>
+nnoremap <Leader>. :bnext<CR>
+nnoremap <Leader>, :bprev<CR>
 " Switch to previous buffer
 nmap <Leader>B :e#<CR>
 
@@ -417,12 +418,15 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 " Use <C-k>/<C-j> to move up/down in command history
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+" }}}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " {{{ Abbreviations
 " Typing aides
 iabbrev improt import
 iabbrev fucntion function
+iabbrev sefl self
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
