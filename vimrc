@@ -304,6 +304,7 @@ nnoremap <Leader>v <Esc>^vg_
 " Buffers
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
+nmap <Leader>W :w<CR>
 nmap <Leader>wq :wq<CR>
 nmap <Leader>bl :buffers<CR>
 nmap <Leader>bd :bdelete<CR>
