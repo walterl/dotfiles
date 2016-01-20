@@ -74,6 +74,8 @@ umask 007
 [ -d $HOME/.rvm/bin ]          && export PATH="$PATH:$HOME/.rvm/bin"
 [ -d $HOME/node_modules/.bin ] && export PATH="$PATH:$HOME/node_modules/.bin"
 [ -d /usr/local/go/bin ]       && export PATH="$PATH:/usr/local/go/bin"
+# Add relative node bin directories
+export PATH="$PATH:node_modules/.bin"
 
 [ -d $HOME/src/code/python ] && export PYTHONPATH="$PYTHONPATH:$HOME/src/code/python"
 [ -d $HOME/src/go ]          && export GOPATH=$HOME/src/go && export PATH=$PATH:$GOPATH/bin
