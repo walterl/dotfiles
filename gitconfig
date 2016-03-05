@@ -25,3 +25,9 @@
 	rebase = preserve
 [push]
 	default = matching
+[merge]
+	tool = mymeld
+	conflictstyle = diff3
+	ff = no
+[mergetool "mymeld"]
+	cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
