@@ -71,7 +71,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-startify'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'Raimondi/delimitMate'
+  " Plug 'Raimondi/delimitMate'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
   Plug 'SirVer/ultisnips'
@@ -346,9 +347,8 @@ inoremap <Nul> <C-x><C-o>
 inoremap <expr> <C-e> pumvisible() ? "\<C-e>" : "\<C-o>A"
 inoremap <C-a> <C-o>I
 
-" Open line above or below in insert mode
-" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-inoremap <C-k> <C-o>O
+" `cc` the line above the current one without leaving insert mode
+inoremap <C-k> <C-o>k<C-o>cc
 " Ctrl+j moves cursor to the end of the line below, while in insert mode
 inoremap <C-j> <C-o>j<C-o>$
 
