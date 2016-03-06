@@ -68,6 +68,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kien/ctrlp.vim'
   Plug 'Konfekt/FastFold'
   Plug 'majutsushi/tagbar'
+  Plug 'mhinz/vim-startify'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'Raimondi/delimitMate'
@@ -242,6 +243,8 @@ let python_slow_sync = 1
 " easytags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
+
+let g:startify_session_dir = '~/.vim/sessions'
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
