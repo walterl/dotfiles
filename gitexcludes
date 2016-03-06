@@ -13,5 +13,5 @@
 .coverage
 tags
 session.vim
-ignoreme
+ignoreme*
 .vagrant
