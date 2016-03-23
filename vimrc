@@ -495,7 +495,7 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" {{{ Rembmer cursor positions
+" {{{ Remember cursor positions
 " From http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
 autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
