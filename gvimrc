@@ -1,4 +1,4 @@
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10 " Use :set guifont=* for graphical selector
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9 " Use :set guifont=* for graphical selector
 set guioptions-=T  " Remove toolbar
 set guioptions-=e  " Remove GUI tab bar
 set guioptions-=m  " Remove menu bar
