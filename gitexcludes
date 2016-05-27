@@ -15,3 +15,4 @@ tags
 session.vim
 ignoreme*
 .vagrant
+.ipynb_checkpoints
