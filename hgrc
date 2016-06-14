@@ -1,7 +1,7 @@
 [ui]
 username = Walter Leibbrandt
 verbose = True
-ignore.other = ~/hgignore
+ignore.other = ~/.hgignore
 
 [extensions]
 color    =
