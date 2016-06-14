@@ -244,6 +244,9 @@ let python_slow_sync = 1
 " easytags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
+
+" vim-gitgutter
+nmap <leader>gg :GitGutterToggle<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
