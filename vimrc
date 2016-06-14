@@ -112,6 +112,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " JavaScript
   Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
   " Jinja
   Plug 'mitsuhiko/vim-jinja'
   " LaTex
