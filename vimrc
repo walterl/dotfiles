@@ -61,6 +61,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/NrrwRgn'
   Plug 'edsono/vim-dbext'
   Plug 'edsono/vim-matchit'
+  Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
@@ -149,6 +150,7 @@ colorscheme badwolf
 " CtrlP
 let g:ctrlp_map = ",f"
 let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
 map <silent> ,b :CtrlPBuffer<CR>
 map <silent> ,m :CtrlPMixed<CR>
