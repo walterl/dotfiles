@@ -410,6 +410,7 @@ cnoremap <C-k> <Up>
 " Typing aides
 iabbrev improt import
 iabbrev fucntion function
+iabbrev Noen None
 iabbrev sefl self
 " }}}
 
