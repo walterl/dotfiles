@@ -298,7 +298,7 @@ nmap <Leader>bp :bprev<CR>
 nnoremap <Leader>. :bnext<CR>
 nnoremap <Leader>, :bprev<CR>
 " Switch to previous buffer
-nmap <Leader>B :e#<CR>
+nnoremap <Leader>/ :e#<CR>
 
 " Split current window
 nmap <Leader>H :split<CR>
