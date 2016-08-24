@@ -22,7 +22,7 @@ set foldmethod=indent             " Fold on indentation
 set complete-=i                   " from :help cpt: i: scan current and included files. It's very slow in Windows :(
 set switchbuf=useopen,usetab      " Try to move to other windows if changing buf
 set encoding=utf-8
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.pyo,*.swp
+set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.pyo,*.swp,*/node_modules/*
 set smarttab
 set softtabstop=4
 set shiftwidth=4
