@@ -312,6 +312,10 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Toggle folds
 nnoremap <C-f> za
+" Refresh folds by (re)setting fold method
+" This correctly recalculates folds after 'foldmethod' gets set to 'custom'.
+" This shouldn't be necessary, but happens enough to warrant a mapping.
+nnoremap <Leader>FF :set foldmethod=syntax<CR>
 
 " Change working directory to the current file's directory
 " (http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file)
