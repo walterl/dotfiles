@@ -59,8 +59,6 @@ call plug#begin('~/.vim/plugged')
   " Editing enhancement
   Plug 'AndrewRadev/sideways.vim'
   Plug 'chrisbra/NrrwRgn'
-  Plug 'edsono/vim-dbext'
-  Plug 'edsono/vim-matchit'
   Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
@@ -83,7 +81,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
   Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
+  Plug 'vim-scripts/dbext.vim'
   Plug 'vim-scripts/diffchar.vim'
+  Plug 'vim-scripts/matchit.zip'
   Plug 'vim-scripts/showmarks--Politz'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'vimwiki/vimwiki'
