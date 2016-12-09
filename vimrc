@@ -130,9 +130,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/nginx.vim'
   " Python
   Plug 'hdima/python-syntax'
-  Plug 'ivanov/vim-ipython'
-  Plug 'rkulla/pydiction'
-  Plug 'vim-scripts/pythoncomplete'
+  Plug 'klen/python-mode'
   " reStructuredText
   Plug 'Rykka/riv.vim'
   " Sieve
@@ -254,6 +252,10 @@ let g:easytags_async = 1
 
 " vim-gitgutter
 nmap <leader>gg :GitGutterToggle<CR>
+
+" python-mode
+let g:pymode_doc_bind = 'Q'
+let g:pymode_breakpoint_bind = '<leader>db'
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
