@@ -79,6 +79,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
   Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
   Plug 'vim-scripts/dbext.vim'
@@ -311,12 +312,10 @@ nmap <Leader>w :w<CR>
 nmap <Leader>e :w<CR>
 nmap <Leader>wq :wq<CR>
 nmap <Leader>x :bdelete<CR>
-nmap <Leader>bn :bnext<CR>
-nmap <Leader>bp :bprev<CR>
-nnoremap <Leader>. :bnext<CR>
-nnoremap <Leader>, :bprev<CR>
 " Switch to previous buffer
 nnoremap <Leader>/ :e#<CR>
+" Open scratchpad
+nmap <silent> <Leader>bS :tabnew<CR>:set buftype=nofile<CR>
 
 " Split current window
 nmap <Leader>H :split<CR>
@@ -341,12 +340,8 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <Leader>c. :cd ..<CR>:pwd<CR>
 
 " Quickfix and location list
-map <silent> <Leader>ln :lnext<CR>zzzv
-map <silent> <Leader>lp :lprev<CR>zzzv
 map <silent> <Leader>ll :ll<CR>zzzv
 map <silent> <Leader>ls :LocList<CR>zzzv
-map <silent> <Leader>cn :cnext<CR>zzzv
-map <silent> <Leader>cp :cprev<CR>zzzv
 map <silent> <Leader>cc :cc<CR>zzzv
 map <silent> <Leader>cs :QFix<CR>zzzv
 
@@ -388,9 +383,6 @@ inoremap <M-<> <C-o><<
 " Delete trailing spaces
 nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
 
-" Open scratchpad
-nmap <silent> <Leader>bS :tabnew<CR>:set buftype=nofile<CR>
-
 " Set indentations
 nmap <silent> <Leader>in2 :set ts=2 sts=2 sw=2<CR>
 nmap <silent> <Leader>in4 :set ts=4 sts=4 sw=4<CR>
@@ -401,14 +393,6 @@ nmap <silent> <Leader>fX :!xmllint --format "%" -o "%"<CR>
 
 " JSON formatting
 nmap <silent> <Leader>fj :%!python -m json.tool<CR>
-
-" Move lines up or down
-" (http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/)
-nmap <Leader>K ddkP
-nmap <Leader>J ddp
-
-vmap <Leader>K xkP`[V`]
-vmap <Leader>J xp`[V`]
 
 " Select pasted text
 " (http://vim.wikia.com/wiki/Selecting_your_pasted_text)
