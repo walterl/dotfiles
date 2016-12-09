@@ -63,7 +63,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
-  Plug 'kien/ctrlp.vim'
   Plug 'Konfekt/FastFold'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
@@ -90,6 +89,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'wellle/targets.vim'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
+
+  " CtrlP
+  Plug 'kien/ctrlp.vim'
+  Plug 'ivalkeen/vim-ctrlp-tjump'
+  Plug 'jasoncodes/ctrlp-modified.vim'
 
   " CoffeeScript
   Plug 'kchmck/vim-coffee-script'
@@ -154,6 +158,10 @@ map <silent> ,g :CtrlP %:p:h<CR>
 map <silent> ,b :CtrlPBuffer<CR>
 map <silent> ,m :CtrlPMixed<CR>
 map <silent> ,t :CtrlPBufTagAll<CR>
+map <silent> ,o :CtrlPModified<CR>
+map <silent> ,O :CtrlPBranch<CR>
+map <silent> ,j :CtrlPtjump<CR>
+vmap <silent> ,j :CtrlPtjumpVisual<CR>
 if executable("ag")
   let g:ctrp_user_command = 'ag %s -l --nocolor -g ""'
 else
