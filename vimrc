@@ -54,7 +54,6 @@ filetype plugin indent on         " Load filetype specific plug-ins and indentat
 call plug#begin('~/.vim/plugged')
   " Colors
   Plug 'sjl/badwolf'
-  Plug 'junegunn/seoul256.vim'
 
   " Editing enhancement
   Plug 'AndrewRadev/sideways.vim'
@@ -69,7 +68,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'majutsushi/tagbar'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
-  " Plug 'Raimondi/delimitMate'
   Plug 'jiangmiao/auto-pairs'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
