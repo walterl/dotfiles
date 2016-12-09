@@ -57,6 +57,7 @@ call plug#begin('~/.vim/plugged')
 
   " Editing enhancement
   Plug 'AndrewRadev/sideways.vim'
+  Plug 'bkad/CamelCaseMotion'
   Plug 'chrisbra/NrrwRgn'
   Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'honza/vim-snippets'
@@ -146,6 +147,16 @@ call plug#end()
 " Settings and mappings related to plug-ins
 
 colorscheme badwolf
+
+" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 
 " CtrlP
 let g:ctrlp_map = ",f"
