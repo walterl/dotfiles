@@ -129,9 +129,9 @@ call plug#begin('~/.vim/plugged')
   " nginx
   Plug 'vim-scripts/nginx.vim'
   " Python
+  Plug 'hdima/python-syntax'
   Plug 'ivanov/vim-ipython'
   Plug 'rkulla/pydiction'
-  Plug 'vim-scripts/python.vim--Vasiliev'
   Plug 'vim-scripts/pythoncomplete'
   " reStructuredText
   Plug 'Rykka/riv.vim'
@@ -244,7 +244,7 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <Leader>ah :SidewaysLeft<CR>
 nnoremap <Leader>al :SidewaysRight<CR>
 
-" python.vim--Vasiliev
+" python-syntax
 let python_highlight_all = 1
 let python_slow_sync = 1
 
