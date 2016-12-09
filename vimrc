@@ -70,6 +70,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'rickhowe/diffchar.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
   Plug 'SirVer/ultisnips'
@@ -81,7 +82,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-vinegar'
   Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
   Plug 'vim-scripts/dbext.vim'
-  Plug 'vim-scripts/diffchar.vim'
   Plug 'vim-scripts/matchit.zip'
   Plug 'vim-scripts/showmarks--Politz'
   Plug 'vim-scripts/Smart-Home-Key'
