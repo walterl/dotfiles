@@ -310,8 +310,6 @@ nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>e :w<CR>
 nmap <Leader>wq :wq<CR>
-nmap <Leader>bl :buffers<CR>
-nmap <Leader>bd :bdelete<CR>
 nmap <Leader>x :bdelete<CR>
 nmap <Leader>bn :bnext<CR>
 nmap <Leader>bp :bprev<CR>
