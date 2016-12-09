@@ -65,6 +65,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'justinmk/vim-sneak'
   Plug 'kien/ctrlp.vim'
   Plug 'Konfekt/FastFold'
+  Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -87,7 +88,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vimwiki/vimwiki'
   Plug 'walterl/vim-airline'
   Plug 'wellle/targets.vim'
-  Plug 'xolox/vim-easytags'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
 
