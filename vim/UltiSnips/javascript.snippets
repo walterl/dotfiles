@@ -1,6 +1,45 @@
 priority -49
 
 # Snippets for ExtJS
-snippet sf "Ext.String.format()"
-Ext.String.format('${0}');
+snippet esf "Ext.String.format()"
+Ext.String.format('$0');
+endsnippet
+
+
+# Snippets for ReactJS (ES6)
+snippet ri "import React from 'react'"
+import React from 'react';
+endsnippet
+
+snippet rcla "React component class"
+class ${1:MyComponent} extends React.Component {
+	render() {
+		return (
+			${2:<div>$3$0</div>}
+		);
+	}
+}
+endsnippet
+
+snippet rcom "React presentational component"
+const ${1:MyComponent} = (props) => {
+	return (
+		<div>$0</div>
+	);
+};
+endsnippet
+
+snippet rcon "Connect React component to Redux"
+${1:export default} connect(
+	(state) => {
+		return {
+			${2}
+		};
+	},
+	(dispatch) => {
+		return {
+			${3}
+		};
+	}
+)(${4:Component}$0);
 endsnippet
