@@ -14,5 +14,6 @@
 tags
 session.vim
 ignoreme*
+.ropeproject
 .vagrant
 .ipynb_checkpoints
