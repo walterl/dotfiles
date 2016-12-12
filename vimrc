@@ -268,6 +268,7 @@ nmap <leader>gg :GitGutterToggle<CR>
 " python-mode
 let g:pymode_doc_bind = 'Q'
 let g:pymode_breakpoint_bind = '<leader>db'
+let g:pymode_rope_complete_on_dot = 0
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
