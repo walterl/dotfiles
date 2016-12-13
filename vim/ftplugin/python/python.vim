@@ -13,9 +13,7 @@ else
 	setlocal equalprg=$HOME/.vim/ftplugin/python/reindent3.py
 endif
 
-if v:version >= 703
-	setlocal colorcolumn=72,80
-endif
+setlocal colorcolumn=72,80
 
 " Avoid unindentation of Python comments
 inoremap # X#
