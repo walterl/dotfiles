@@ -4,3 +4,4 @@ setlocal softtabstop=4
 setlocal expandtab
 setlocal equalprg=$HOME/.virtualenvs/jsbeautifier/bin/js-beautify\ --stdin
 setlocal foldmethod=syntax
+setlocal colorcolumn=80
