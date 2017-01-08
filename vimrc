@@ -2,6 +2,7 @@
 lan C                             " Please use the default English
 set modeline                      " Use mode lines in files (see :help modeline)
 set relativenumber                " Show relative line numbers
+set number                        " Show current line number
 set nowrap                        " Don't wrap lines
 set showbreak=↪                   " But when wrapped, show nice linebreak char
 set ignorecase                    " Ignore case in searches
@@ -427,31 +428,6 @@ if executable("ag")
 elseif executable("ack-grep")
   set grepprg=ack-grep\ --nogroup\ --nocolor
 endif
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" {{{ Automatically switch between relative and absolute line numbers
-" (from http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/ - see comments)
-autocmd FocusLost * :set number
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-autocmd CursorMoved * :set relativenumber
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" {{{ Toggle relative/absolute line numbers
-" Toggle line numbers between relative and absolute
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
