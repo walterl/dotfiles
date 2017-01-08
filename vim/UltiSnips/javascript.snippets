@@ -1,8 +1,15 @@
 priority -49
 
+# General JavaScript snippets
+snippet { "Code block"
+$1 {
+	${VISUAL}$0
+}
+endsnippet
+
 # Snippets for ExtJS
 snippet esf "Ext.String.format()"
-Ext.String.format('$0');
+Ext.String.format('${VISUAL}$0');
 endsnippet
 
 
