@@ -100,6 +100,7 @@ umask 007
 # Add relative node bin directories
 export PATH="$PATH:node_modules/.bin"
 
+[ -f $HOME/.startup.py ]     && export PYTHONSTARTUP="$HOME/.startup.py"
 [ -d $HOME/src/code/python ] && export PYTHONPATH="$PYTHONPATH:$HOME/src/code/python"
 [ -d $HOME/src/go ]          && export GOPATH=$HOME/src/go && export PATH=$PATH:$GOPATH/bin
 
