@@ -98,6 +98,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'ivalkeen/vim-ctrlp-tjump'
   Plug 'jasoncodes/ctrlp-modified.vim'
 
+  " Clojure
+  Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+  Plug 'kien/rainbow_parentheses.vim'
   " CoffeeScript
   Plug 'kchmck/vim-coffee-script'
   " CSS
