@@ -60,6 +60,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/sideways.vim'
   Plug 'bkad/CamelCaseMotion'
   Plug 'chrisbra/NrrwRgn'
+  Plug 'dhruvasagar/vim-table-mode'
   Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
