@@ -6,6 +6,3 @@ set guioptions-=i  " Remove vim icon
 set guioptions-=r  " Remove right-hand scrollbars
 set guioptions-=L  " Remove left-hand scrollbars
 set winaltkeys=no
-
-map <silent> <A-,> gT
-map <silent> <A-.> gt
