@@ -7,6 +7,5 @@ set guioptions-=r  " Remove right-hand scrollbars
 set guioptions-=L  " Remove left-hand scrollbars
 set winaltkeys=no
 
-inoremap <C-Space> <C-x><C-o>
 map <silent> <A-,> gT
 map <silent> <A-.> gt
