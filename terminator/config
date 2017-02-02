@@ -1,0 +1,36 @@
+[global_config]
+  enabled_plugins = APTURLHandler,
+[keybindings]
+  next_tab = <Primary><Alt>period
+  go_up = <Shift><Alt>k
+  resize_up = <Alt><Super>Up
+  resize_left = <Alt><Super>Left
+  move_tab_right = <Primary><Shift>Right
+  prev_tab = <Primary><Alt>comma
+  go_down = <Shift><Alt>j
+  move_tab_left = <Primary><Shift>Left
+  go_right = <Shift><Alt>l
+  new_tab = <Primary><Shift>n
+  go_left = <Shift><Alt>h
+  go_next = <Primary><Shift><Alt>n
+  resize_right = <Alt><Super>Right
+  resize_down = <Alt><Super>Down
+  edit_window_title = <Primary><Shift>t
+[profiles]
+  [[default]]
+    use_system_font = False
+    background_darkness = 0.78
+    background_type = transparent
+    background_image = None
+    scroll_on_output = False
+    font = DejaVu Sans Mono for Powerline 11
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
