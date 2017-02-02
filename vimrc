@@ -348,17 +348,12 @@ map <silent> <Leader>cc :cc<CR>zzzv
 map <silent> <Leader>cs :QFix<CR>zzzv
 
 " Switch windows
-map <silent> <A-h> <C-w>h
-map <silent> <A-l> <C-w>l
-map <silent> <A-j> <C-w>j
-map <silent> <A-k> <C-w>k
 
 " Move up and down by folds
 map <silent> <C-j> zj
 map <silent> <C-k> zk
 
 " Tag navigation
-map <silent><A-]> <C-w><C-]><C-w>T
 inoremap <Nul> <C-x><C-o>
 
 " Emacs style jump to end of line in insert mode
