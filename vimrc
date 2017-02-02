@@ -294,8 +294,8 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " Navigate tabs
-nnoremap [a gT
-nnoremap ]a gt
+nnoremap [r gT
+nnoremap ]r gt
 
 " Search in visual selection
 vnoremap <M-/> <Esc>/\%V
