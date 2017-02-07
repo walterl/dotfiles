@@ -83,7 +83,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
   Plug 'vim-scripts/dbext.vim'
   Plug 'vim-scripts/matchit.zip'
   Plug 'vim-scripts/showmarks--Politz'
@@ -136,6 +135,7 @@ call plug#begin('~/.vim/plugged')
   " nginx
   Plug 'vim-scripts/nginx.vim'
   " Python
+  Plug 'davidhalter/jedi-vim'
   Plug 'hdima/python-syntax'
   Plug 'klen/python-mode'
   " reStructuredText
@@ -269,7 +269,9 @@ nmap <leader>gg :GitGutterToggle<CR>
 " python-mode
 let g:pymode_doc_bind = 'Q'
 let g:pymode_breakpoint_bind = '<leader>db'
-let g:pymode_rope_complete_on_dot = 0
+" Disable Rope in favour of jedi-vim
+let g:pymode_rope = 0
+" let g:pymode_rope_complete_on_dot = 0
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
