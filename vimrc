@@ -397,9 +397,9 @@ nmap <silent> <Leader>fj :%!python -m json.tool<CR>
 " (http://vim.wikia.com/wiki/Selecting_your_pasted_text)
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" bind K to grep word under cursor
+" grep word under cursor
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-nnoremap K :grep! "\b(<C-R><C-W>)\b"<CR>:cw<CR>
+nnoremap <Leader>G :grep! "\b(<C-R><C-W>)\b"<CR>:cw<CR>
 
 " Expand %% to the current file's directory in commands. This is useful if CWD
 " is "far" from the current file's directory.
