@@ -106,3 +106,6 @@ export PATH="$PATH:node_modules/.bin"
 
 # Load host-specific stuff...
 [ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
