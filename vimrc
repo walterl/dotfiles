@@ -269,6 +269,10 @@ nmap <leader>gg :GitGutterToggle<CR>
 " python-mode
 let g:pymode_doc_bind = 'Q'
 let g:pymode_breakpoint_bind = '<leader>db'
+" Prefer flake8 over pymode's default linters
+if executable("flake8")
+  let g:pymode_lint_checkers = ['flake8']
+endif
 " Disable Rope in favour of jedi-vim
 let g:pymode_rope = 0
 " let g:pymode_rope_complete_on_dot = 0
