@@ -66,6 +66,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
+  Plug 'kana/vim-textobj-user'
+  Plug 'kana/vim-textobj-line'
   Plug 'Konfekt/FastFold'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
