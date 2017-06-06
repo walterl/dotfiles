@@ -78,6 +78,9 @@ function man() {
 			man "$@"
 }
 
+# Run Clojure from the command-line
+alias clj='java -cp .lein/self-installs/leiningen-2.7.1-standalone.jar clojure.main'
+
 # Git aliases
 alias ga='git add'
 alias gci='git commit'
