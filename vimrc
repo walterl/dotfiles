@@ -61,6 +61,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'bkad/CamelCaseMotion'
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
@@ -184,6 +185,9 @@ else
     \ }
 endif
 " Above from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+
+" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " NERDTree
 map  <silent> <F2>      :NERDTreeToggle<CR>
