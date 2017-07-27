@@ -62,7 +62,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
@@ -87,7 +86,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer'}
   Plug 'vim-scripts/dbext.vim'
   Plug 'vim-scripts/matchit.zip'
   Plug 'vim-scripts/showmarks--Politz'
