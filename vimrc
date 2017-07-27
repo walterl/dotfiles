@@ -63,7 +63,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'ervandew/supertab'
-  Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
@@ -73,6 +72,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Konfekt/FastFold'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
+  Plug 'mattn/emmet-vim'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jiangmiao/auto-pairs'
@@ -99,6 +99,7 @@ call plug#begin('~/.vim/plugged')
 
   " CtrlP
   Plug 'kien/ctrlp.vim'
+  Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'ivalkeen/vim-ctrlp-tjump'
   Plug 'jasoncodes/ctrlp-modified.vim'
 
