@@ -15,5 +15,6 @@
 .vagrant
 .venv
 ignoreme*
+node_modules
 session.vim
 tags
