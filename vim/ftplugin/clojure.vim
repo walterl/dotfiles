@@ -12,7 +12,7 @@ function! s:fireplaceK() abort
   endif
 endfunction
 
-nnoremap <Leader>E :Eval<CR>
+nnoremap <Leader>E :%Eval<CR>
 vnoremap <Leader>E :Eval<CR>
 
 nnoremap <Plug>FireplaceK :<C-R>=<SID>fireplaceK()<CR><CR>
