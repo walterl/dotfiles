@@ -125,3 +125,5 @@ fi
 export EDITOR="`which gvim` -f"
 export PATH="$PATH:$HOME/.local/bin"
 export PYTHONPATH="$HOME/src/code/python:$HOME/.local/lib/python2.7/site-packages"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
