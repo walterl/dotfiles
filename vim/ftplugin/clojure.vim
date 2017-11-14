@@ -17,3 +17,6 @@ vnoremap <Leader>E :Eval<CR>
 
 nnoremap <Plug>FireplaceK :<C-R>=<SID>fireplaceK()<CR><CR>
 nmap <buffer> K <Plug>FireplaceK
+
+" Don't automatically insert closing '
+let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
