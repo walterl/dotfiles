@@ -13,7 +13,7 @@ set lazyredraw                    " Don't repaint when scripts are running
 set scrolloff=3                   " Keep 3 lines below and above the cursor
 set ruler                         " Line numbers and column the cursor is on
 set wildmenu                      " Show possibilities when pressing Tab in command mode
-set cursorline                    " Highlight the cursor line
+set cursorline cursorcolumn       " Highlight the cursor line and column
 set guitablabel=%N/\ %t\ %M
 set cpoptions=aABceFsI            " Can't remember what these all mean
 set listchars=tab:»—,trail:⋅ list " Show tabs and trailing characters
@@ -44,9 +44,11 @@ set noswapfile                    " Don't create swap files
 set viminfo+=n$HOME/.vim/tmp/viminfo
 set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
+set formatoptions+=j              " Join lines in comment blocks correctly
 let mapleader = "\<Space>"        " Remap <Leader> to <Space>
 syntax on                         " Enable syntax highlighting
 filetype plugin indent on         " Load filetype specific plug-ins and indentation scripts
+match ErrorMsg '\s\+$'            " Highlight trailing space
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
