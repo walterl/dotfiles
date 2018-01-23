@@ -6,34 +6,26 @@ set number                        " Show current line number
 set nowrap                        " Don't wrap lines
 set showbreak=↪                   " But when wrapped, show nice linebreak char
 set ignorecase                    " Ignore case in searches
-set incsearch                     " Incremental search
 set hlsearch                      " Highlight matches as you type
 set bg=dark                       " I work on a console with a dark background
 set lazyredraw                    " Don't repaint when scripts are running
-set scrolloff=3                   " Keep 3 lines below and above the cursor
-set ruler                         " Line numbers and column the cursor is on
-set wildmenu                      " Show possibilities when pressing Tab in command mode
 set cursorline cursorcolumn       " Highlight the cursor line and column
 set guitablabel=%N/\ %t\ %M
 set cpoptions=aABceFsI            " Can't remember what these all mean
-set listchars=tab:»—,trail:⋅ list " Show tabs and trailing characters
+set listchars=tab:»—,trail:⋅,nbsp:⋄  " Show tabs and trailing characters
+set list
 set hidden                        " For lusty explorer
 set winwidth=80                   " Windows will always be at least 80 chars (if possible)
 set foldmethod=indent             " Fold on indentation
-set complete-=i                   " from :help cpt: i: scan current and included files. It's very slow in Windows :(
 set switchbuf=useopen,usetab      " Try to move to other windows if changing buf
-set encoding=utf-8
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.pyo,*.swp,*/node_modules/*
-set smarttab
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 set shortmess+=a                  " Use [+] [RO] [w] for modified, read-only, modified
-set laststatus=2                  " Always show statusline, even if only 1 window
 set report=0                      " Notify me whenever any lines have changed
 set confirm                       " Y-N-C prompt if closing with unsaved changes
 set showcmd                       " Show size of selected area in visual mode
-set backspace=2                   " Backspace over anything! (Super backspace!)
 set showmatch                     " Briefly jump to the previous matching paren
 set matchtime=2                   " For .2 seconds
 set timeoutlen=500                " Lowers leader and command timeout
@@ -44,10 +36,7 @@ set noswapfile                    " Don't create swap files
 set viminfo+=n$HOME/.vim/tmp/viminfo
 set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
-set formatoptions+=j              " Join lines in comment blocks correctly
 let mapleader = "\<Space>"        " Remap <Leader> to <Space>
-syntax on                         " Enable syntax highlighting
-filetype plugin indent on         " Load filetype specific plug-ins and indentation scripts
 match ErrorMsg '\s\+$'            " Highlight trailing space
 " }}}
 
@@ -59,6 +48,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sjl/badwolf'
 
   " Editing enhancement
+  Plug 'tpope/vim-sensible'
   Plug 'AndrewRadev/sideways.vim'
   Plug 'bkad/CamelCaseMotion'
   Plug 'chrisbra/NrrwRgn'
@@ -338,9 +328,6 @@ nmap <Leader>V :vsplit<CR>
 
 " Open current file in new tab
 nmap <Leader>ts :split<CR><C-w>T
-
-" <C-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Toggle folds
 nnoremap <C-f> za
