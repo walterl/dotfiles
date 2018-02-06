@@ -270,9 +270,10 @@ let g:pymode_doc_bind = 'Q'
 let g:pymode_breakpoint_bind = '<leader>db'
 " Disable pymode's linting in favour of Syntastic
 let g:pymode_lint = 0
-" Disable Rope in favour of YCM
-let g:pymode_rope = 0
+" Disable Rope completion in favour of YCM
+let g:pymode_rope_completion = 0
 " let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_regenerate_on_write = 0
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
