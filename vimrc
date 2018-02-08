@@ -368,15 +368,6 @@ inoremap <C-k> <C-o>k<C-o>cc
 " Ctrl+j moves cursor to the end of the line below, while in insert mode
 inoremap <C-j> <C-o>j<C-o>$
 
-" Move in cursor around while in insert mode
-inoremap <M-h> <C-o>h
-inoremap <M-j> <C-o>j
-inoremap <M-k> <C-o>k
-inoremap <M-l> <C-o>l
-
-" Indent lines without leaving insert mode
-inoremap <M->> <C-o>>>
-inoremap <M-<> <C-o><<
 
 " Delete trailing spaces
 nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
