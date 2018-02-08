@@ -54,6 +54,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'haya14busa/incsearch.vim'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
@@ -264,6 +265,15 @@ let g:easytags_async = 1
 
 " vim-gitgutter
 nmap <leader>gg :GitGutterToggle<CR>
+
+" incsearch
+" From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
+let g:incsearch#do_not_save_error_message_history = 1 " do not store incsearch errors in history
+let g:incsearch#consistent_n_direction = 1            " when searching backward, do not invert meaning of n and N
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/  <Plug>(incsearch-stay)
 
 " python-mode
 let g:pymode_doc_bind = 'Q'
