@@ -50,6 +50,7 @@ call plug#begin('~/.vim/plugged')
   " Editing enhancement
   Plug 'tpope/vim-sensible'
   Plug 'AndrewRadev/sideways.vim'
+  Plug 'AndrewRadev/splitjoin.vim'
   Plug 'bkad/CamelCaseMotion'
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
@@ -274,6 +275,14 @@ let g:incsearch#consistent_n_direction = 1            " when searching backward,
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/  <Plug>(incsearch-stay)
+
+" splitjoin
+" From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
+noremap <Leader>j :SplitjoinJoin<CR>
+noremap <Leader>J :SplitjoinSplit<CR>
 
 " python-mode
 let g:pymode_doc_bind = 'Q'
