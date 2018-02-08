@@ -130,6 +130,7 @@ call plug#begin('~/.vim/plugged')
   " Mako
   Plug 'sophacles/vim-bundle-mako'
   " Markdown
+  Plug 'SidOfc/mkdx'
   Plug 'tpope/vim-markdown'
   " nginx
   Plug 'vim-scripts/nginx.vim'
@@ -283,6 +284,9 @@ let g:splitjoin_join_mapping = ''
 
 noremap <Leader>j :SplitjoinJoin<CR>
 noremap <Leader>J :SplitjoinSplit<CR>
+
+" Mkdx
+let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
 
 " python-mode
 let g:pymode_doc_bind = 'Q'
