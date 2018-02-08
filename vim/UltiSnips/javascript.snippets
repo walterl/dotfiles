@@ -14,8 +14,17 @@ endsnippet
 
 
 # Snippets for ReactJS (ES6)
+snippet pi "import PropTypes from 'prop-types'"
+import PropTypes from 'prop-types';
+endsnippet
+
 snippet ri "import React from 'react'"
 import React from 'react';
+endsnippet
+
+snippet rxi "import React from 'react'"
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 endsnippet
 
 snippet rcla "React component class"
@@ -29,24 +38,20 @@ class ${1:MyComponent} extends React.Component {
 endsnippet
 
 snippet rcom "React presentational component"
-const ${1:MyComponent} = (props) => {
+const ${1:MyComponent} = (${2:props}) => {
 	return (
-		<div>$0</div>
+		${3:<div>$0</div>}
 	);
 };
 endsnippet
 
 snippet rcon "Connect React component to Redux"
 ${1:export default} connect(
-	(state) => {
-		return {
-			${2}
-		};
-	},
-	(dispatch) => {
-		return {
-			${3}
-		};
-	}
+	state => ({
+		${2}
+	}),
+	dispatch => bindActionCreators({
+		${3}
+	}, dispatch),
 )(${4:Component}$0);
 endsnippet
