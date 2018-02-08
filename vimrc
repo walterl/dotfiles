@@ -368,6 +368,14 @@ inoremap <C-k> <C-o>k<C-o>cc
 " Ctrl+j moves cursor to the end of the line below, while in insert mode
 inoremap <C-j> <C-o>j<C-o>$
 
+" Go to start/end of line with H and L
+" From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
+noremap H ^
+noremap L $
+
+" make Y consistent with C and D
+" From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
+nnoremap Y y$
 
 " Delete trailing spaces
 nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
