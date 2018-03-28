@@ -85,6 +85,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/matchit.zip'
   Plug 'vim-scripts/showmarks--Politz'
   Plug 'vim-scripts/Smart-Home-Key'
+  Plug 'vim-scripts/toggle_words.vim'
   Plug 'vimwiki/vimwiki'
   Plug 'walterl/vim-airline'
   Plug 'wellle/targets.vim'
@@ -297,6 +298,9 @@ let g:pymode_lint = 0
 let g:pymode_rope_completion = 0
 " let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_regenerate_on_write = 0
+
+" toggle_words.vim
+nmap <silent> <M-t> :ToggleWord
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
