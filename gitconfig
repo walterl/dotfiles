@@ -31,3 +31,12 @@
 	ff = no
 [mergetool "mymeld"]
 	cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
+[hubflow "branch"]
+	master = master
+	develop = develop
+[hubflow "prefix"]
+	feature = feature-
+	release = release-
+	hotfix = hotfix-
+	support = support-
+	versiontag = 
