@@ -304,7 +304,7 @@ let g:pymode_rope_completion = 0
 let g:pymode_rope_regenerate_on_write = 0
 
 " toggle_words.vim
-nmap <silent> <M-t> :ToggleWord
+nmap <silent> <M-t> :ToggleWord<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
