@@ -269,6 +269,9 @@ let g:easytags_async = 1
 " vim-gitgutter
 nmap <leader>gg :GitGutterToggle<CR>
 
+" vim-gutentags
+let g:gutentags_ctags_exclude = ['.git', 'node_modules']
+
 " incsearch
 " From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
 let g:incsearch#do_not_save_error_message_history = 1 " do not store incsearch errors in history
