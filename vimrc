@@ -282,14 +282,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/  <Plug>(incsearch-stay)
 
-" splitjoin
-" From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
-let g:splitjoin_split_mapping = ''
-let g:splitjoin_join_mapping = ''
-
-noremap <Leader>j :SplitjoinJoin<CR>
-noremap <Leader>J :SplitjoinSplit<CR>
-
 " Mkdx
 let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
 
