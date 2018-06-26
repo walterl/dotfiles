@@ -190,6 +190,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " NERDTree
 map  <silent> <F2>      :NERDTreeToggle<CR>
 imap <silent> <F2> <Esc>:NERDTreeToggle<CR>
+
+let NERDTreeIgnore=['\~$', '\.exe$', '\.py[co]$', '\.s?o$', '\.sw[op]$']
 let NERDTreeShowBookmarks = 1
 
 " Tagbar
