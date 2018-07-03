@@ -4,6 +4,9 @@ ZSH=$HOME/.oh-my-zsh
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
+# $WORKON_HOME is required by oh-my-zsh's virtualenvwrapper plugin
+export WORKON_HOME=$HOME/.virtualenvs
+
 plugins=(autojump django git git-hubflow command-not-found pip python vagrant virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
