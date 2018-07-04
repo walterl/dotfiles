@@ -79,7 +79,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer'}
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --js-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'vim-scripts/toggle_words.vim'
