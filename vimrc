@@ -107,7 +107,6 @@ call plug#begin('~/.vim/plugged')
   " Jinja
   Plug 'mitsuhiko/vim-jinja'
   " Python
-  Plug 'hdima/python-syntax'
   Plug 'klen/python-mode'
   " reStructuredText
   Plug 'Rykka/riv.vim'
