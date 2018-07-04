@@ -251,7 +251,10 @@ let g:pymode_rope_completion = 0
 let g:pymode_rope_regenerate_on_write = 0
 
 " toggle_words.vim
-nmap <silent> <M-t> :ToggleWord<CR>
+nmap <silent> <Leader>ff :ToggleWord<CR>
+
+" Use SmartHomeKey to toggle between ^ and 0
+nmap <silent> 0 :SmartHomeKey<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -280,7 +283,7 @@ nnoremap [r gT
 nnoremap ]r gt
 
 " Search in visual selection
-vnoremap <M-/> <Esc>/\%V
+vnoremap <C-?> <Esc>/\%V
 
 " Reselect visual selection after indent
 vnoremap < <gv
@@ -347,8 +350,7 @@ nmap <silent> <Leader>in2 :set ts=2 sts=2 sw=2<CR>
 nmap <silent> <Leader>in4 :set ts=4 sts=4 sw=4<CR>
 
 " xmllint
-nmap <silent> <Leader>fx :g//d<CR>:r!xmllint --format "%"<CR>ggdd:w<CR>
-nmap <silent> <Leader>fX :!xmllint --format "%" -o "%"<CR>
+nmap <silent> <Leader>fX :%!xmllint --format -<CR>
 
 " JSON formatting
 nmap <silent> <Leader>fj :%!python -m json.tool<CR>
