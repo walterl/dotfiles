@@ -302,10 +302,6 @@ vnoremap <M-/> <Esc>/\%V
 vnoremap < <gv
 vnoremap > >gv
 
-" Select a line without trailing whitespace or linebreaks
-" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-nnoremap <Leader>v <Esc>^vg_
-
 " Buffers
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
@@ -316,10 +312,6 @@ nmap <Leader>x :bdelete<CR>
 nnoremap <Leader>/ :e#<CR>
 " Open scratchpad
 nmap <silent> <Leader>bS :tabnew<CR>:set buftype=nofile<CR>
-
-" Split current window
-nmap <Leader>H :split<CR>
-nmap <Leader>V :vsplit<CR>
 
 " Open current file in new tab
 nmap <Leader>ts :split<CR><C-w>T
@@ -350,12 +342,6 @@ map <silent> <C-k> zk
 
 " Tag navigation
 inoremap <Nul> <C-x><C-o>
-
-" Emacs style jump to end of line in insert mode
-" prevents conflict with autocomplete
-" (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-inoremap <expr> <C-e> pumvisible() ? "\<C-e>" : "\<C-o>A"
-inoremap <C-a> <C-o>I
 
 " `cc` the line above the current one without leaving insert mode
 inoremap <C-k> <C-o>k<C-o>cc
