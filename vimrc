@@ -607,31 +607,6 @@ vnoremap <M-x> :<C-U>Hexmode<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" {{{ Remember searches per window
-function! s:restoreSearchPattern()
-  if exists('w:search_pattern')
-    call setreg('/', w:search_pattern)
-  endif
-endfunction
-
-function! s:saveSearchPattern()
-  let w:search_pattern = getreg('/')
-endfunction
-
-autocmd WinEnter * call s:restoreSearchPattern()
-autocmd WinLeave * call s:saveSearchPattern()
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" {{{ Load machine-specific vimrc
-if filereadable(expand("$HOME") . "/.vimrc.local")
-  source $HOME/.vimrc.local
-endif
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " {{{ Diff current buffer with saved file
 " From https://stackoverflow.com/a/749320
 function! s:DiffWithSaved()
@@ -642,6 +617,14 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+" }}}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" {{{ Load machine-specific vimrc
+if filereadable(expand("$HOME") . "/.vimrc.local")
+  source $HOME/.vimrc.local
+endif
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
