@@ -71,18 +71,19 @@ call plug#begin('~/.vim/plugged')
   Plug 'rickhowe/diffchar.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
+  Plug 'sheerun/vim-polyglot'
   Plug 'SirVer/ultisnips'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'tpope/vim-db'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer'}
+  Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'vim-scripts/toggle_words.vim'
   Plug 'vimwiki/vimwiki'
-  Plug 'walterl/vim-airline'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
 
@@ -95,40 +96,16 @@ call plug#begin('~/.vim/plugged')
   " Clojure
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
   Plug 'kien/rainbow_parentheses.vim'
-  " CoffeeScript
-  Plug 'kchmck/vim-coffee-script'
-  " CSS
-  Plug 'vim-scripts/Better-CSS-Syntax-for-Vim'
-  " Dockerfile
-  Plug 'ekalinin/Dockerfile.vim'
-  " ferm - for Easy (iptables) Rule Making
-  Plug 'cometsong/ferm.vim'
   " Git
   Plug 'airblade/vim-gitgutter'
   Plug 'gregsexton/gitv'
   Plug 'mattn/gist-vim'
   Plug 'tpope/vim-fugitive'
   Plug 'vim-scripts/git-time-lapse'
-  " Golang
-  Plug 'fatih/vim-go'
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
-  " JavaScript
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
   " Jinja
   Plug 'mitsuhiko/vim-jinja'
-  " LaTex
-  Plug 'LaTeX-Box-Team/LaTeX-Box'
-  " LESS
-  Plug 'genoma/vim-less'
-  " Mako
-  Plug 'sophacles/vim-bundle-mako'
-  " Markdown
-  Plug 'SidOfc/mkdx'
-  Plug 'tpope/vim-markdown'
-  " nginx
-  Plug 'vim-scripts/nginx.vim'
   " Python
   Plug 'hdima/python-syntax'
   Plug 'klen/python-mode'
