@@ -1,36 +1,44 @@
 [global_config]
   enabled_plugins = APTURLHandler,
 [keybindings]
-  next_tab = <Primary><Alt>period
-  go_up = <Shift><Alt>k
-  resize_up = <Alt><Super>Up
-  resize_left = <Alt><Super>Left
-  move_tab_right = <Primary><Shift>Right
-  prev_tab = <Primary><Alt>comma
+  edit_window_title = <Primary><Shift>t
   go_down = <Shift><Alt>j
-  move_tab_left = <Primary><Shift>Left
-  go_right = <Shift><Alt>l
-  new_tab = <Primary><Shift>n
   go_left = <Shift><Alt>h
   go_next = <Primary><Shift><Alt>n
-  resize_right = <Alt><Super>Right
+  go_right = <Shift><Alt>l
+  go_up = <Shift><Alt>k
+  move_tab_left = <Primary><Shift>Left
+  move_tab_right = <Primary><Shift>Right
+  new_tab = <Primary><Shift>n
+  next_tab = <Primary><Alt>period
+  prev_tab = <Primary><Alt>comma
   resize_down = <Alt><Super>Down
-  edit_window_title = <Primary><Shift>t
-[profiles]
-  [[default]]
-    use_system_font = False
-    background_darkness = 0.78
-    background_type = transparent
-    background_image = None
-    scroll_on_output = False
-    font = DejaVu Sans Mono for Powerline 11
-    scrollback_infinite = True
+  resize_left = <Alt><Super>Left
+  resize_right = <Alt><Super>Right
+  resize_up = <Alt><Super>Up
+  switch_to_tab_1 = <Primary>1
+  switch_to_tab_2 = <Primary>2
+  switch_to_tab_3 = <Primary>3
+  switch_to_tab_4 = <Primary>4
+  switch_to_tab_5 = <Primary>5
+  switch_to_tab_6 = <Primary>6
+  switch_to_tab_7 = <Primary>7
+  switch_to_tab_8 = <Primary>8
+  switch_to_tab_9 = <Primary>9
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.78
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = DejaVu Sans Mono for Powerline 11
+    scrollback_infinite = True
+    use_system_font = False
