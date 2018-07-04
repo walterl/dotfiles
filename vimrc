@@ -52,11 +52,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/sideways.vim'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'b4winckler/vim-angry'
-  Plug 'bkad/CamelCaseMotion'
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'haya14busa/incsearch.vim'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
   Plug 'junegunn/vim-easy-align'
@@ -74,22 +72,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
   Plug 'SirVer/ultisnips'
-  Plug 'terryma/vim-expand-region'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-db'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
-  Plug 'tpope/vim-vinegar'
   Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer'}
-  Plug 'vim-scripts/matchit.zip'
-  Plug 'vim-scripts/showmarks--Politz'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'vim-scripts/toggle_words.vim'
   Plug 'vimwiki/vimwiki'
   Plug 'walterl/vim-airline'
-  Plug 'wellle/targets.vim'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
 
@@ -154,12 +147,6 @@ call plug#end()
 " Settings and mappings related to plug-ins
 
 colorscheme badwolf
-
-" CamelCaseMotion
-map <silent> \w <Plug>CamelCaseMotion_w
-map <silent> \b <Plug>CamelCaseMotion_b
-map <silent> \e <Plug>CamelCaseMotion_e
-map <silent> \ge <Plug>CamelCaseMotion_ge
 
 " CtrlP
 let g:ctrlp_map = ",f"
@@ -230,21 +217,12 @@ let g:nrrw_rgn_vert = 1 " Open narrow region windows in *vertical* splits
 " Pydiction options
 let g:pydiction_location = expand("$HOME") . '/.vim/plugged/pydiction/complete-dict'
 
-" showmarks
-" Note that ` and ' are switched, to replace the above (commented out) remapping.
-nnoremap ` :ShowMarksOnce<CR>'
-nnoremap ' :ShowMarksOnce<CR>`
-
 " vim-airline options
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#tab_nr_type = 1
-
-" vim-expand-region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-]>"
@@ -274,15 +252,6 @@ nmap <leader>gg :GitGutterToggle<CR>
 
 " vim-gutentags
 let g:gutentags_ctags_exclude = ['.git', 'node_modules']
-
-" incsearch
-" From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
-let g:incsearch#do_not_save_error_message_history = 1 " do not store incsearch errors in history
-let g:incsearch#consistent_n_direction = 1            " when searching backward, do not invert meaning of n and N
-
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/  <Plug>(incsearch-stay)
 
 " Mkdx
 let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
