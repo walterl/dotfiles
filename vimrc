@@ -214,9 +214,6 @@ let g:session_autosave = 'no'
 " NrrwRgn options
 let g:nrrw_rgn_vert = 1 " Open narrow region windows in *vertical* splits
 
-" Pydiction options
-let g:pydiction_location = expand("$HOME") . '/.vim/plugged/pydiction/complete-dict'
-
 " vim-airline options
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -229,12 +226,6 @@ let g:UltiSnipsExpandTrigger="<c-]>"
 let g:UltiSnipsJumpForwardTrigger="<c-]>"
 let g:UltiSnipsJumpBackwardTrigger="<c-[>"
 
-" easyalign
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " sideways.vim
 nnoremap <Leader>ah :SidewaysLeft<CR>
 nnoremap <Leader>al :SidewaysRight<CR>
@@ -243,18 +234,11 @@ nnoremap <Leader>al :SidewaysRight<CR>
 let python_highlight_all = 1
 let python_slow_sync = 1
 
-" easytags
-let g:easytags_auto_highlight = 0
-let g:easytags_async = 1
-
 " vim-gitgutter
 nmap <leader>gg :GitGutterToggle<CR>
 
 " vim-gutentags
 let g:gutentags_ctags_exclude = ['.git', 'node_modules']
-
-" Mkdx
-let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
 
 " python-mode
 let g:pymode_doc_bind = 'Q'
@@ -333,8 +317,6 @@ map <silent> <Leader>ll :ll<CR>zzzv
 map <silent> <Leader>ls :LocList<CR>zzzv
 map <silent> <Leader>cc :cc<CR>zzzv
 map <silent> <Leader>cs :QFix<CR>zzzv
-
-" Switch windows
 
 " Move up and down by folds
 map <silent> <C-j> zj
