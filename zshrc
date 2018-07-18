@@ -92,7 +92,7 @@ alias gst='git st'
 alias ag='ag --nogroup'
 
 # Set umask to make files non-world readable by default
-umask 007
+umask 027
 
 # Setup paths
 [ -d $HOME/bin ]               && export PATH="$PATH:$HOME/bin"
