@@ -82,6 +82,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'vimwiki/vimwiki'
+  Plug 'whiteinge/diffconflicts'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
 
