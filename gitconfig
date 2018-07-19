@@ -19,11 +19,16 @@
 [push]
 	default = matching
 [merge]
-	tool = mymeld
+	tool = diffconflicts
 	conflictstyle = diff3
 	ff = no
 [mergetool "mymeld"]
 	cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
+[mergetool "diffconflicts"]
+	cmd = vi -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
 [hubflow "branch"]
 	master = master
 	develop = develop
