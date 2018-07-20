@@ -8,6 +8,7 @@
 .*.sw[op]
 .sw[op]
 .agignore
+.ignore
 .coverage
 .ipynb_checkpoints
 .netrwhist
