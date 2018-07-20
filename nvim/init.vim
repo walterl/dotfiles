@@ -44,7 +44,6 @@ match ErrorMsg '\s\+$'            " Highlight trailing space
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  "Plug 'sjl/badwolf'
   Plug 'morhetz/gruvbox'
 
   " Editing enhancement
@@ -114,14 +113,9 @@ call plug#begin('~/.config/nvim/plugged')
   " SQL
   Plug 'shmup/vim-sql-syntax'
 
-
   " Code completion
   Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
   Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-  " Plug 'natebosch/vim-lsc'
-  " let g:lsc_server_commands = {'python': 'pyls'}
-  " let g:lsc_auto_map = v:true
-
 call plug#end()
 " }}}
 
