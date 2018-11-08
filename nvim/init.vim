@@ -76,7 +76,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'roxma/nvim-yarp'
   Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdtree'
-  Plug 'sheerun/vim-polyglot'
   Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
@@ -108,6 +107,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'junegunn/gv.vim'
   Plug 'vim-scripts/git-time-lapse'
+  " Go
+  Plug 'fatih/vim-go'
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " Jinja
@@ -121,6 +122,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/sieve.vim'
   " SQL
   Plug 'shmup/vim-sql-syntax'
+
+  " vim-polyglot can misbehave if loaded before language specific plugins
+  Plug 'sheerun/vim-polyglot'
 
   " Code completion
   Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
