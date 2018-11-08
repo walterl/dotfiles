@@ -73,6 +73,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jiangmiao/auto-pairs'
   Plug 'rickhowe/diffchar.vim'
+  Plug 'roxma/nvim-yarp'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
   Plug 'SirVer/ultisnips'
@@ -120,7 +121,9 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Code completion
   Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+  Plug 'ncm2/ncm2'
+  Plug 'ncm2/ncm2-bufword'
+  Plug 'ncm2/ncm2-ultisnips'
 call plug#end()
 " }}}
 
@@ -154,9 +157,9 @@ nnoremap <silent> gR :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <silent> gS :call LanguageClient#workspace_symbol()<CR>
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy', 'matcher_length'])
+" NCM2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
