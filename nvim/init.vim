@@ -62,6 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-line'
   Plug 'Konfekt/FastFold'
+  Plug 'liuchengxu/vim-which-key'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
   Plug 'mattn/emmet-vim'
@@ -264,6 +265,11 @@ let g:splitjoin_join_mapping = ''
 
 nmap <Leader>sj :SplitjoinSplit<cr>
 nmap <Leader>sk :SplitjoinJoin<cr>
+
+" vim-which-key
+if !exists('g:loaded_vim_which_key')
+  nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
+endif
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
