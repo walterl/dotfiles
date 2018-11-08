@@ -218,6 +218,9 @@ nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gS :Gstatus<CR><C-w>T
 
+" git-time-lapse
+nmap <Leader>gt :call TimeLapse()<CR>
+
 " Session
 let g:session_directory = '~/.local/share/nvim/sessions'
 let g:session_autosave = 'no'
