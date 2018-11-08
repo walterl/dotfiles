@@ -139,12 +139,14 @@ colorscheme gruvbox
 
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
+      \'clojure': ['clojure-lsp'],
       \'go': ['go-langserver'],
       \'javascript': ['javascript-typescript-stdio'],
       \'javascript.jsx': ['javascript-typescript-stdio'],
       \'python': ['pyls'],
       \}
 let g:LanguageClient_rootMarkers = {
+      \'clojure': ['project.clj'],
       \'javascript': ['package.json'],
       \'javascript.jsx': ['package.json'],
       \'python': ['setup.py'],
