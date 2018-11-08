@@ -262,8 +262,8 @@ nmap <silent> 0 :SmartHomeKey<CR>
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
 
-nmap sj :SplitjoinSplit<cr>
-nmap sk :SplitjoinJoin<cr>
+nmap <Leader>sj :SplitjoinSplit<cr>
+nmap <Leader>sk :SplitjoinJoin<cr>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
