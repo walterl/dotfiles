@@ -74,11 +74,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'rickhowe/diffchar.vim'
   Plug 'roxma/nvim-yarp'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
   Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
+  Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
@@ -112,6 +114,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mitsuhiko/vim-jinja'
   " Python
   Plug 'klen/python-mode'
+  Plug 'tmhedberg/SimpylFold'
   " reStructuredText
   Plug 'Rykka/riv.vim'
   " Sieve
