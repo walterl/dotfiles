@@ -37,6 +37,9 @@ set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
 let mapleader = "\<Space>"        " Remap <Leader> to <Space>
 match ErrorMsg '\s\+$'            " Highlight trailing space
+
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
