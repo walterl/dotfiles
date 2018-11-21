@@ -256,6 +256,11 @@ nnoremap <Leader>al :SidewaysRight<CR>
 let python_highlight_all = 1
 let python_slow_sync = 1
 
+" SimpylFold
+" Not sure why, but this keeps vim from stalling at 100% CPU when opening
+" certain Python files.
+let g:SimpylFold_docstring_preview = 1
+
 " vim-gitgutter
 nmap <leader>gg :GitGutterToggle<CR>
 
