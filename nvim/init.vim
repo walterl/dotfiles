@@ -109,6 +109,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/git-time-lapse'
   " Go
   Plug 'fatih/vim-go'
+  " HTTP
+  Plug 'vim-scripts/httplog'
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " Jinja
@@ -117,7 +119,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'klen/python-mode'
   Plug 'tmhedberg/SimpylFold'
   " reStructuredText
-  Plug 'Rykka/riv.vim'
+  Plug 'Rykka/riv.vim', {'for': 'rst'}
   " Sieve
   Plug 'vim-scripts/sieve.vim'
   " SQL
