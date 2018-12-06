@@ -219,6 +219,7 @@ let g:vimwiki_folding = 1
 let g:vimwiki_fold_lists = 1
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 1
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 " fugitive
 nmap <Leader>gb :Gblame<CR>
