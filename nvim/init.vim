@@ -409,8 +409,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " grep word under cursor
 " (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-nnoremap <Leader>G :lgrep! "\b(<C-R><C-W>)\b"<CR>:lw<CR>
-vnoremap <Leader>G "sy:lgrep! "\b(<C-R>s)\b"<CR>:lw<CR>
+nnoremap <Leader>G :grep! "\b(<C-R><C-W>)\b"<CR>:lw<CR>
+vnoremap <Leader>G "sy:grep! "\b(<C-R>s)\b"<CR>:lw<CR>
 
 " Expand %% to the current file's directory in commands. This is useful if CWD
 " is "far" from the current file's directory.
