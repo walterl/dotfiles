@@ -160,6 +160,8 @@ let g:LanguageClient_rootMarkers = {
       \'*': ['.git', '.hg', '.svn'],
       \}
 
+let g:LanguageClient_diagnosticsList = "Location"
+
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gca :call LanguageClient#textDocument_codeAction()<CR>
