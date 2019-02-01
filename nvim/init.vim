@@ -413,11 +413,13 @@ nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
 nmap <silent> <Leader>in2 :set ts=2 sts=2 sw=2<CR>
 nmap <silent> <Leader>in4 :set ts=4 sts=4 sw=4<CR>
 
-" xmllint
-nmap <silent> <Leader>fX :%!xmllint --format -<CR>
+nmap <silent> <Leader>fm :set ft=markdown<CR>
 
 " JSON formatting
-nmap <silent> <Leader>fj :%!python -m json.tool<CR>
+nmap <silent> <Leader>Fj :%!python -m json.tool<CR>
+
+" XML formatting (xmllint)
+nmap <silent> <Leader>FX :%!xmllint --format -<CR>
 
 " Select pasted text
 " (http://vim.wikia.com/wiki/Selecting_your_pasted_text)
