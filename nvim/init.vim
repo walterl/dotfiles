@@ -352,7 +352,7 @@ nnoremap [r gT
 nnoremap ]r gt
 
 " Search in visual selection
-vnoremap <Leader>/ <Esc>/\%V
+vnoremap / <Esc>/\%V
 
 " Reselect visual selection after indent
 vnoremap < <gv
