@@ -232,14 +232,12 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " NERDTree
 map  <silent> <F2>      :NERDTreeToggle<CR>
-imap <silent> <F2> <Esc>:NERDTreeToggle<CR>
 
 let NERDTreeIgnore=['\~$', '\.exe$', '\.py[co]$', '\.s?o$', '\.sw[op]$']
 let NERDTreeShowBookmarks = 1
 
 " Tagbar
 map  <silent> <F3>      :TagbarToggle<CR>
-imap <silent> <F3> <Esc>:TagbarToggle<CR>
 
 " VimWiki
 let g:vimwiki_dir_link = 'index'
@@ -367,11 +365,6 @@ nmap <Leader>wq :wq<CR>
 nmap <Leader>x :bdelete<CR>
 " Switch to previous buffer
 nnoremap <Leader>/ :e#<CR>
-" Open scratchpad
-nmap <silent> <Leader>bS :tabnew<CR>:set buftype=nofile<CR>
-
-" Open current file in new tab
-nmap <Leader>ts :split<CR><C-w>T
 
 " Window splitting
 nmap <Leader>S :split<CR>
@@ -379,10 +372,6 @@ nmap <Leader>V :vsplit<CR>
 
 " Toggle folds
 nnoremap <C-f> za
-" Refresh folds by (re)setting fold method
-" This correctly recalculates folds after 'foldmethod' gets set to 'custom'.
-" This shouldn't be necessary, but happens enough to warrant a mapping.
-nnoremap <Leader>FF :set foldmethod=syntax<CR>
 
 " Change working directory to the current file's directory
 " (http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file)
