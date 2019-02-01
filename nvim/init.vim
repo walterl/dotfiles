@@ -60,6 +60,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
+  Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
   Plug 'kana/vim-textobj-user'
