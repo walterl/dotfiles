@@ -262,7 +262,8 @@ let g:session_directory = '~/.local/share/nvim/sessions'
 let g:session_autosave = 'no'
 
 " NrrwRgn options
-let g:nrrw_rgn_vert = 1 " Open narrow region windows in *vertical* splits
+let g:nrrw_rgn_vert = 1
+let g:nrrw_rgn_wdth = 80
 
 " vim-airline options
 let g:airline_powerline_fonts = 1
@@ -298,9 +299,9 @@ let g:gutentags_ctags_exclude = ['.git', 'node_modules']
 " python-mode
 let g:pymode_doc_bind = 'Q'
 let g:pymode_breakpoint_bind = '<leader>db'
-" Disable pymode's linting in favour of vim-lsc
+" Disable pymode's linting in favour of LanguageClient
 let g:pymode_lint = 0
-" Disable Rope completion in favour of YCM
+" Disable Rope completion in favour of NCM2
 let g:pymode_rope_completion = 0
 " let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_regenerate_on_write = 0
