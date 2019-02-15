@@ -330,6 +330,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " {{{ Mappings
+" Center cursor after jumping
+nmap g; g;zvzz
+nmap g, g,zvzz
+nmap n nzvzz
+nmap N Nzvzz
+nmap * *zvzz
+
 " Since <Leader> is <Space>, we need a mapping to keep c<Space> behaviour
 nnoremap c<Leader> c<Space>
 
@@ -381,10 +388,10 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <Leader>c. :cd ..<CR>:pwd<CR>
 
 " Quickfix and location list
-map <silent> <Leader>ll :ll<CR>zzzv
-map <silent> <Leader>ls :LocList<CR>zzzv
-map <silent> <Leader>cc :cc<CR>zzzv
-map <silent> <Leader>cs :QFix<CR>zzzv
+map <silent> <Leader>ll :ll<CR>zvzz
+map <silent> <Leader>ls :LocList<CR>zvzz
+map <silent> <Leader>cc :cc<CR>zvzz
+map <silent> <Leader>cs :QFix<CR>zvzz
 
 " Move up and down by folds
 map <silent> <C-j> zj
@@ -416,11 +423,10 @@ nmap <silent> <Leader>in4 :set ts=4 sts=4 sw=4<CR>
 
 nmap <silent> <Leader>fm :set ft=markdown<CR>
 
-" JSON formatting
+" Formatting with external tools
 nmap <silent> <Leader>Fj :%!python -m json.tool<CR>
-
-" XML formatting (xmllint)
-nmap <silent> <Leader>FX :%!xmllint --format -<CR>
+nmap <silent> <Leader>Fs :%!sqlformat --reindent -<CR>
+nmap <silent> <Leader>Fx :%!xmllint --format -<CR>
 
 " Select pasted text
 " (http://vim.wikia.com/wiki/Selecting_your_pasted_text)
@@ -448,6 +454,7 @@ cnoremap <C-k> <Up>
 iabbrev improt import
 iabbrev fucntion function
 iabbrev Noen None
+iabbrev NOne None
 iabbrev sefl self
 " }}}
 
