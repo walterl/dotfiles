@@ -1,4 +1,7 @@
 RainbowParenthesesActivate
+RainbowParenthesesLoadRound
+
+set foldmethod=syntax
 
 " Copied from fireplace.vim, because it's more useful than the default K
 " mapping I have in my main vimrc.
