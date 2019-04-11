@@ -47,7 +47,9 @@ let g:python3_host_prog = '/usr/bin/python3'
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  Plug 'rakr/vim-one'
+  Plug 'sjl/badwolf'
+  " Plug 'morhetz/gruvbox'
+  " Plug 'rakr/vim-one'
 
   " Editing enhancement
   Plug 'tpope/vim-sensible'
@@ -159,10 +161,10 @@ if (empty($TMUX))
   endif
 endif
 
-let g:one_allow_italics = 1
-let g:airline_theme = 'one'
+" let g:one_allow_italics = 1
 
-colorscheme one
+let g:airline_theme = 'badwolf'
+colorscheme badwolf
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
