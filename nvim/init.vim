@@ -241,7 +241,7 @@ map  <silent> <F3>      :TagbarToggle<CR>
 
 " VimWiki
 let g:vimwiki_dir_link = 'index'
-let g:vimwiki_folding = 1
+let g:vimwiki_folding = 'syntax'
 let g:vimwiki_fold_lists = 1
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 1
