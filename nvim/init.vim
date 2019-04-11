@@ -324,6 +324,10 @@ nmap <Leader>sk :SplitjoinJoin<cr>
 if !exists('g:loaded_vim_which_key')
   nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
 endif
+
+" vim-polyglot
+" For rst files
+let g:rst_fold_enabled = 1
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
