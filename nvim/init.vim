@@ -121,8 +121,6 @@ call plug#begin('~/.config/nvim/plugged')
   " Python
   Plug 'klen/python-mode'
   Plug 'tmhedberg/SimpylFold'
-  " reStructuredText
-  Plug 'Rykka/riv.vim', {'for': 'rst'}
   " Sieve
   Plug 'vim-scripts/sieve.vim'
   " SQL
