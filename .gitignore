@@ -5,6 +5,5 @@ irssi/log/*
 tags.*
 *vim/plugged
 *vim/sessions/*
-*vim/spell/en.utf-8.add
-*vim/spell/en.utf-8.add.spl
+*vim/spell
 *vim/tmp
