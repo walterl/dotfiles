@@ -105,7 +105,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Clojure
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
   Plug 'kien/rainbow_parentheses.vim'
-  Plug 'kovisoft/paredit', {'for': 'clojure'}
+  Plug 'guns/vim-sexp', {'for': 'clojure'}
+  Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
   " Git
   Plug 'airblade/vim-gitgutter'
   Plug 'mattn/gist-vim'
