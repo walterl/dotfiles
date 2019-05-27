@@ -18,6 +18,7 @@ set winwidth=80                   " Windows will always be at least 80 chars (if
 set foldmethod=indent             " Fold on indentation
 set switchbuf=useopen,usetab      " Try to move to other windows if changing buf
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.pyo,*.swp,*/node_modules/*
+set wildmode=longest:full,full
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
