@@ -178,7 +178,7 @@ colorscheme kuroi
 
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
-      \'clojure': ['clojure-lsp'],
+      \'clojure': ['bash', '-c', 'clojure-lsp'],
       \'go': ['go-langserver'],
       \'javascript': ['javascript-typescript-stdio'],
       \'javascript.jsx': ['javascript-typescript-stdio'],
