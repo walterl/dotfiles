@@ -48,7 +48,8 @@ let g:python3_host_prog = '/usr/bin/python3'
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  Plug 'sjl/badwolf'
+  Plug 'aonemd/kuroi.vim'
+  " Plug 'sjl/badwolf'
   " Plug 'morhetz/gruvbox'
   " Plug 'rakr/vim-one'
 
@@ -165,8 +166,9 @@ endif
 
 " let g:one_allow_italics = 1
 
-let g:airline_theme = 'badwolf'
-colorscheme badwolf
+" let g:airline_theme = 'badwolf'
+" colorscheme badwolf
+colorscheme kuroi
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
