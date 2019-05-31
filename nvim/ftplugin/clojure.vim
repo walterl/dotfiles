@@ -1,5 +1,4 @@
-RainbowParenthesesActivate
-RainbowParenthesesLoadRound
+RainbowToggle
 
 set foldmethod=syntax
 

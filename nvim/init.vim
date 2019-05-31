@@ -106,7 +106,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Clojure
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-  Plug 'kien/rainbow_parentheses.vim'
+  Plug 'luochen1990/rainbow'
   Plug 'guns/vim-sexp', {'for': 'clojure'}
   Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
   " Git
@@ -206,6 +206,9 @@ nnoremap <silent> gS :call LanguageClient#workspace_symbol()<CR>
 " NCM2
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
+
+" Rainbow
+let g:rainbow_active = 0 " Enable with :RainbowToggle
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
