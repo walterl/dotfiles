@@ -11,6 +11,7 @@
 .ignore
 .coverage
 .ipynb_checkpoints
+.lsp
 .netrwhist
 .ropeproject
 .vagrant
