@@ -108,7 +108,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
   " Git
   Plug 'airblade/vim-gitgutter'
-  Plug 'mattn/gist-vim'
   Plug 'tpope/vim-fugitive'
   Plug 'junegunn/gv.vim'
   Plug 'vim-scripts/git-time-lapse'
