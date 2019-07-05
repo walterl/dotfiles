@@ -97,7 +97,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'xolox/vim-session'
 
   " CtrlP
-  Plug 'kien/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'FelikZ/ctrlp-py-matcher'
   Plug 'ivalkeen/vim-ctrlp-tjump'
   Plug 'jasoncodes/ctrlp-modified.vim'
@@ -216,8 +216,8 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
 map <silent> ,g :CtrlP %:p:h<CR>
 map <silent> ,b :CtrlPBuffer<CR>
-map <silent> ,m :CtrlPMixed<CR>
 map <silent> ,t :CtrlPBufTagAll<CR>
+map <silent> ,T :CtrlPTag<CR>
 map <silent> ,o :CtrlPModified<CR>
 map <silent> ,O :CtrlPBranch<CR>
 map <silent> ,j :CtrlPtjump<CR>
