@@ -120,6 +120,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " Jinja
   Plug 'mitsuhiko/vim-jinja'
+  " Markdown
+  Plug 'plasticboy/vim-markdown'
   " Python
   Plug 'klen/python-mode'
   Plug 'tmhedberg/SimpylFold'
