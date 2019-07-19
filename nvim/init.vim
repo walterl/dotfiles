@@ -65,6 +65,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'hgiesel/vim-motion-sickness'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
+  Plug 'janko/vim-test'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
