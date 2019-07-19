@@ -1,0 +1,23 @@
+{
+  "suggest.snippetIndicator": "🍦",
+  "languageserver": {
+    "clojure-lsp": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "initializationOptions": {
+      }
+    },
+    "go-langserver": {
+      "command": "go-langserver",
+      "filetypes": ["go"]
+    },
+    "pyls": {
+      "command": "pyls",
+      "filetypes": ["python"],
+      "rootPatterns": ["setup.py", "requirements.txt"]
+    }
+  }
+}

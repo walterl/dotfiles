@@ -130,10 +130,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
   " Code completion
-  Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-  Plug 'ncm2/ncm2'
-  Plug 'ncm2/ncm2-bufword'
-  Plug 'ncm2/ncm2-ultisnips'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 " }}}
 
@@ -168,36 +165,30 @@ colorscheme tender
 " {{{ Plugin settings
 " Settings and mappings related to plug-ins
 
-" LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-      \'clojure': ['bash', '-c', 'clojure-lsp'],
-      \'go': ['go-langserver'],
-      \'javascript': ['javascript-typescript-stdio'],
-      \'javascript.jsx': ['javascript-typescript-stdio'],
-      \'python': ['pyls'],
-      \}
-let g:LanguageClient_rootMarkers = {
-      \'clojure': ['project.clj'],
-      \'javascript': ['package.json'],
-      \'javascript.jsx': ['package.json'],
-      \'python': ['setup.py'],
-      \'*': ['.git', '.hg', '.svn'],
-      \}
+" coc.nvim
+nmap <silent> <leader>od <Plug>(coc-definition)
+nmap <silent> <leader>or <Plug>(coc-references)
+nmap <silent> <leader>oR <Plug>(coc-rename)
 
-let g:LanguageClient_diagnosticsList = "Location"
+nmap <silent> <leader>of :call CocAction('format')<CR>
+xmap <silent> <leader>of <Plug>(coc-format-selected)
+vmap <silent> <leader>of <Plug>(coc-format-selected)
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gca :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> gR :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> gS :call LanguageClient#workspace_symbol()<CR>
+nmap <silent> <leader>oa <Plug>(coc-codeaction)
+xmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
+vmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
 
-" NCM2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+nmap <silent> <leader>oF <Plug>(coc-fix-current)
+
+nmap <silent> <leader>ot <Plug>(coc-range-select)
+nmap <silent> <leader>oT <Plug>(coc-range-select-backword)
+
+nmap <silent> ]g :CocNext<CR>
+nmap <silent> [g :CocPrev<CR>
+nmap <silent> <leader>olr :CocListResume<CR>
+
+nmap <silent> K :call CocAction('doHover')<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Rainbow
 let g:rainbow_active = 0 " Enable with :RainbowToggle
