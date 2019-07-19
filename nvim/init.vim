@@ -65,6 +65,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'hgiesel/vim-motion-sickness'
   Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
@@ -95,12 +97,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'whiteinge/diffconflicts'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
-
-  " CtrlP
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'FelikZ/ctrlp-py-matcher'
-  Plug 'ivalkeen/vim-ctrlp-tjump'
-  Plug 'jasoncodes/ctrlp-modified.vim'
 
   " Clojure
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
@@ -209,40 +205,30 @@ let g:rainbow_active = 0 " Enable with :RainbowToggle
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" CtrlP
-let g:ctrlp_map = ",f"
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-map <silent> ,g :CtrlP %:p:h<CR>
-map <silent> ,b :CtrlPBuffer<CR>
-map <silent> ,t :CtrlPBufTagAll<CR>
-map <silent> ,T :CtrlPTag<CR>
-map <silent> ,o :CtrlPModified<CR>
-map <silent> ,O :CtrlPBranch<CR>
-map <silent> ,j :CtrlPtjump<CR>
-vmap <silent> ,j :CtrlPtjumpVisual<CR>
-if executable("ag")
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
-" Above from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+" fzf
+map <silent> ,f :Files<CR>
+map <silent> ,d :Files %:p:h<CR>
+map <silent> ,b :Buffers<CR>
+map <silent> ,t :BTags<CR>
+map <silent> ,T :Tags<CR>
+map <silent> ,g :GFiles<CR>
+map <silent> ,G :GFiles?<CR>
+map <silent> ,c :Commits<CR>
+map <silent> ,C :BCommits<CR>
+map <silent> ,h :History<CR>
+map <silent> ,s :Snippets<nop>
 
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " NERDTree
-map  <silent> <F2>      :NERDTreeToggle<CR>
+map <silent> <F2> :NERDTreeToggle<CR>
 
 let NERDTreeIgnore=['\~$', '\.exe$', '\.py[co]$', '\.s?o$', '\.sw[op]$']
 let NERDTreeShowBookmarks = 1
 
 " Tagbar
-map  <silent> <F3>      :TagbarToggle<CR>
+map <silent> <F3> :TagbarToggle<CR>
 
 " VimWiki
 let g:vimwiki_dir_link = 'index'
