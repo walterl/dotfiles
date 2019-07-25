@@ -169,6 +169,7 @@ colorscheme tender
 nmap <silent> <leader>od <Plug>(coc-definition)
 nmap <silent> <leader>or <Plug>(coc-references)
 nmap <silent> <leader>oR <Plug>(coc-rename)
+nmap <silent> gR <Plug>(coc-rename)
 
 nmap <silent> <leader>of :call CocAction('format')<CR>
 xmap <silent> <leader>of <Plug>(coc-format-selected)
@@ -300,6 +301,13 @@ endif
 " vim-polyglot
 " For rst files
 let g:rst_fold_enabled = 1
+
+" vim-test
+nmap <silent> <leader>Tt :TestNearest<CR>
+nmap <silent> <leader>TT :TestFile<CR>
+nmap <silent> <leader>Ta :TestSuite<CR>
+nmap <silent> <leader>Tl :TestLast<CR>
+nmap <silent> <leader>Tg :TestVisit<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
