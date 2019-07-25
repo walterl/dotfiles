@@ -167,6 +167,7 @@ colorscheme tender
 
 " coc.nvim
 nmap <silent> <leader>od <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>or <Plug>(coc-references)
 nmap <silent> <leader>oR <Plug>(coc-rename)
 nmap <silent> gR <Plug>(coc-rename)
