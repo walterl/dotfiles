@@ -36,6 +36,7 @@ set noswapfile                    " Don't create swap files
 set viminfo+=n$HOME/.config/nvim/tmp/viminfo
 set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 let mapleader = "\<Space>"        " Remap <Leader> to <Space>
 match ErrorMsg '\s\+$'            " Highlight trailing space
 
