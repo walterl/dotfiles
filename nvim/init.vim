@@ -49,11 +49,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  Plug 'aonemd/kuroi.vim'
-  Plug 'jacoborus/tender.vim'
-  Plug 'sjl/badwolf'
-  Plug 'morhetz/gruvbox'
-  Plug 'rakr/vim-one'
+  Plug 'sainnhe/gruvbox-material'
 
   " Editing enhancement
   Plug 'tpope/vim-sensible'
@@ -157,8 +153,7 @@ if (empty($TMUX))
   endif
 endif
 
-let g:airline_theme = 'tender'
-colorscheme tender
+colorscheme gruvbox-material
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
