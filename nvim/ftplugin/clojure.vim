@@ -1,6 +1,7 @@
 RainbowToggle
 
 set foldmethod=syntax
+let maplocalleader='Y'
 
 " Copied from fireplace.vim, because it's more useful than the default K
 " mapping I have in my main vimrc.
