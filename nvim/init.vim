@@ -126,7 +126,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
   " Code completion
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  if !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['NVIM_DISABLE_COC'] == "1")
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  endif
 call plug#end()
 " }}}
 
@@ -161,31 +163,33 @@ colorscheme gruvbox-material
 " Settings and mappings related to plug-ins
 
 " coc.nvim
-nmap <silent> <leader>od <Plug>(coc-definition)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> <leader>or <Plug>(coc-references)
-nmap <silent> <leader>oR <Plug>(coc-rename)
-nmap <silent> gR <Plug>(coc-rename)
+if exists("g:did_coc_loaded") && g:did_coc_loaded
+  nmap <silent> <leader>od <Plug>(coc-definition)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> <leader>or <Plug>(coc-references)
+  nmap <silent> <leader>oR <Plug>(coc-rename)
+  nmap <silent> gR <Plug>(coc-rename)
 
-nmap <silent> <leader>of :call CocAction('format')<CR>
-xmap <silent> <leader>of <Plug>(coc-format-selected)
-vmap <silent> <leader>of <Plug>(coc-format-selected)
+  nmap <silent> <leader>of :call CocAction('format')<CR>
+  xmap <silent> <leader>of <Plug>(coc-format-selected)
+  vmap <silent> <leader>of <Plug>(coc-format-selected)
 
-nmap <silent> <leader>oa <Plug>(coc-codeaction)
-xmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
-vmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
+  nmap <silent> <leader>oa <Plug>(coc-codeaction)
+  xmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
+  vmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
 
-nmap <silent> <leader>oF <Plug>(coc-fix-current)
+  nmap <silent> <leader>oF <Plug>(coc-fix-current)
 
-nmap <silent> <leader>ot <Plug>(coc-range-select)
-nmap <silent> <leader>oT <Plug>(coc-range-select-backword)
+  nmap <silent> <leader>ot <Plug>(coc-range-select)
+  nmap <silent> <leader>oT <Plug>(coc-range-select-backword)
 
-nmap <silent> ]g :CocNext<CR>
-nmap <silent> [g :CocPrev<CR>
-nmap <silent> <leader>olr :CocListResume<CR>
+  nmap <silent> ]g :CocNext<CR>
+  nmap <silent> [g :CocPrev<CR>
+  nmap <silent> <leader>olr :CocListResume<CR>
 
-nmap <silent> K :call CocAction('doHover')<CR>
-autocmd CursorHold * silent call CocActionAsync('highlight')
+  nmap <silent> K :call CocAction('doHover')<CR>
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
 
 " Rainbow
 let g:rainbow_active = 0 " Enable with :RainbowToggle
