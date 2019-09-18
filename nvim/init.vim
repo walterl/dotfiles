@@ -96,6 +96,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'xolox/vim-session'
 
   " Clojure
+  Plug 'clojure-vim/async-clj-omni'
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
   Plug 'luochen1990/rainbow'
   Plug 'guns/vim-sexp', {'for': 'clojure'}
