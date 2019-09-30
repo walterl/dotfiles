@@ -127,7 +127,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
   " Code completion
-  if !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['NVIM_DISABLE_COC'] == "1")
+  if exists('environ') && !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['NVIM_DISABLE_COC'] == "1")
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endif
 call plug#end()
@@ -165,7 +165,7 @@ colorscheme gruvbox-material
 " Settings and mappings related to plug-ins
 
 " coc.nvim
-if exists("g:did_coc_loaded") && g:did_coc_loaded
+if exists('environ') && !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['NVIM_DISABLE_COC'] == "1")
   nmap <silent> <leader>od <Plug>(coc-definition)
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> <leader>or <Plug>(coc-references)
