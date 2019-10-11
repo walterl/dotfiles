@@ -57,9 +57,11 @@ function prettier-diff {
 
 function ssl() {
 	host=$1
-	port=$2
+	shift
+	port=$1
+	shift
 	[ -z $port ] && port=443
-	openssl s_client -connect $host:$port
+	openssl s_client -connect $host:$port $@
 }
 
 # Update only a given apt repo
