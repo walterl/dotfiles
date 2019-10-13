@@ -49,7 +49,8 @@ let g:python3_host_prog = '/usr/bin/python3'
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  Plug 'sainnhe/gruvbox-material'
+  " Plug 'sjl/badwolf'
+  Plug 'morhetz/gruvbox'
 
   " Editing enhancement
   Plug 'tpope/vim-sensible'
@@ -156,7 +157,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme gruvbox-material
+colorscheme gruvbox
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
