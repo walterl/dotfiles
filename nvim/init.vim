@@ -213,6 +213,9 @@ map <silent> ,C :BCommits<CR>
 map <silent> ,h :History<CR>
 map <silent> ,s :Snippets<nop>
 
+" vim-markdown
+let g:vim_markdown_no_default_key_mappings = 1
+
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
