@@ -90,7 +90,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/Smart-Home-Key'
-  Plug 'vimwiki/vimwiki'
   Plug 'w0rp/ale'
   Plug 'whiteinge/diffconflicts'
   Plug 'xolox/vim-misc'
@@ -227,14 +226,6 @@ let NERDTreeShowBookmarks = 1
 
 " Tagbar
 map <silent> <F3> :TagbarToggle<CR>
-
-" VimWiki
-let g:vimwiki_dir_link = 'index'
-let g:vimwiki_folding = 'syntax'
-let g:vimwiki_fold_lists = 1
-let g:vimwiki_hl_headers = 1
-let g:vimwiki_hl_cb_checked = 1
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 " fugitive
 nmap <Leader>gb :Gblame<CR>
