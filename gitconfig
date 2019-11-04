@@ -12,6 +12,8 @@
 	fontdiff = -family Courier -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 [color]
 	ui = auto
+[commit]
+	verbose = true
 [core]
 	excludesfile = ~/.gitexcludes
 [pull]
