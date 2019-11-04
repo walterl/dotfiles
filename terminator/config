@@ -1,6 +1,8 @@
 [global_config]
   enabled_plugins = APTURLHandler,
 [keybindings]
+  broadcast_all = None
+  broadcast_group = None
   edit_window_title = <Primary><Shift>t
   go_down = <Shift><Alt>j
   go_left = <Shift><Alt>h
