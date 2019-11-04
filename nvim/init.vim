@@ -177,7 +177,7 @@ if exists('*environ') && !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['
   nmap <silent> [g :CocPrev<CR>
   nmap <silent> <leader>olr :CocListResume<CR>
 
-  nmap <silent> K :call CocAction('doHover')<CR>
+  nmap <silent> <leader>K :call CocAction('doHover')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
 
