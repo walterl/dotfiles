@@ -413,6 +413,10 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 " Use <C-k>/<C-j> to move up/down in command history
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+
+" <M-b>/<M-f> to move back/forward a word, in command mode
+cnoremap <M-b> <C-Left>
+cnoremap <M-f> <C-Right>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
