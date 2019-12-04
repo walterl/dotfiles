@@ -69,6 +69,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
+  Plug 'knsh14/vim-github-link'
   Plug 'Konfekt/FastFold'
   Plug 'liuchengxu/vim-which-key'
   Plug 'ludovicchabant/vim-gutentags'
@@ -297,6 +298,10 @@ nmap <silent> <leader>TT :TestFile<CR>
 nmap <silent> <leader>Ta :TestSuite<CR>
 nmap <silent> <leader>Tl :TestLast<CR>
 nmap <silent> <leader>Tg :TestVisit<CR>
+
+" vim-github-link
+vmap <leader>YB :GetCurrentBranchLink<CR>
+vmap <leader>YC :GetCurrentCommitLink<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
