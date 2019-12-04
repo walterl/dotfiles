@@ -266,7 +266,10 @@ nmap <leader>gg :GitGutterToggle<CR>
 let g:gutentags_ctags_exclude = ['.git', 'node_modules']
 
 " toggle_words.vim
-let g:toggle_words_dict = {'python': [['assertTrue', 'assertFalse']]}
+let g:toggle_words_dict = {
+  \ 'clojure': [['true?', 'false?']],
+  \ 'python': [['assertTrue', 'assertFalse']]
+  \}
 nmap <silent> <Leader>ff :ToggleWord<CR>
 
 " Use SmartHomeKey to toggle between ^ and 0

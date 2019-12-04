@@ -1,7 +1,9 @@
 set foldmethod=syntax
 
-nnoremap <Leader>E :%Eval<CR>
-vnoremap <Leader>E :Eval<CR>
+" cloJure mappings
+nnoremap <Leader>je :%Eval<CR>
+vnoremap <Leader>je :Eval<CR>
+nnoremap <Leader>jp cpaF<C-o>
 
 " Don't automatically insert closing '
 let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
