@@ -121,6 +121,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mitsuhiko/vim-jinja'
   " Markdown
   Plug 'plasticboy/vim-markdown'
+  Plug 'walterl/listoggle'
   " Python
   Plug 'tmhedberg/SimpylFold'
   " Sieve
