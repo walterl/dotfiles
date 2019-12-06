@@ -36,7 +36,7 @@ set noswapfile                    " Don't create swap files
 set viminfo+=n$HOME/.config/nvim/tmp/viminfo
 set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
-set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+set diffopt=vertical,filler,internal,algorithm:histogram,indent-heuristic
 if has("nvim-0.5.0")
   set pumblend=20                 " Transparency for pop-up menu
   set winblend=20                 " Transparency for floating windows
