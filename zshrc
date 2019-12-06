@@ -26,11 +26,11 @@ export TERM=xterm-256color # More colorful terminal vim :)
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 # Aliases
@@ -51,7 +51,6 @@ alias digs='dig +short'
 alias synhl='pygmentize -f console256 -g' # Syntax highlighting
 
 function prettier-diff {
-	filename=$1
 	prettier "$1" | colordiff "$1" -
 }
 
@@ -62,17 +61,6 @@ function ssl() {
 	shift
 	[ -z $port ] && port=443
 	openssl s_client -connect $host:$port $@
-}
-
-# Update only a given apt repo
-function update-repo() {
-	if [ ! -f /etc/apt/sources.list.d/$1 ]; then
-		echo "No such file: /etc/apt/sources.list.d/$1"
-		return 1
-	fi
-	sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/$1" \
-		-o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
-	return 0
 }
 
 # Colourise man pages
@@ -115,10 +103,23 @@ export PATH="$PATH:node_modules/.bin"
 [ -d $HOME/src/code/python ] && export PYTHONPATH="$PYTHONPATH:$HOME/src/code/python"
 [ -d $HOME/src/go ]          && export GOPATH=$HOME/src/go && export PATH=$PATH:$GOPATH/bin
 
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set editor
+if [ -n "$EDITOR" ]; then
+	for editor in nvim vim vi; do
+		command -v $editor && break
+	done
+	echo export EDITOR=$editor
+	unset editor
+fi
+
+# Load nvm if available
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Load host-specific stuff...
 [ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# vim:ts=4 sts=4 sw=4
