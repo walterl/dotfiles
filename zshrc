@@ -107,11 +107,11 @@ export PATH="$PATH:node_modules/.bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set editor
-if [ -n "$EDITOR" ]; then
+if [ -z "$EDITOR" ]; then
 	for editor in nvim vim vi; do
-		command -v $editor && break
+		command -v $editor > /dev/null && break
 	done
-	echo export EDITOR=$editor
+	export EDITOR=$(command -v $editor)
 	unset editor
 fi
 
