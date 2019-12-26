@@ -120,8 +120,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Jinja
   Plug 'mitsuhiko/vim-jinja'
   " Markdown
-  Plug 'plasticboy/vim-markdown'
-  Plug 'walterl/listoggle'
+  Plug 'gabrielelana/vim-markdown'
   " Python
   Plug 'tmhedberg/SimpylFold'
   " Sieve
@@ -208,11 +207,9 @@ map <silent> ,h :History<CR>
 map <silent> ,s :Snippets<nop>
 
 " vim-markdown
-let g:vim_markdown_no_default_key_mappings = 1
-let g:vim_markdown_folding_level = 3
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_new_list_item_indent = 2
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_conceal = 1
+let g:markdown_enable_folding = 1
 
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
