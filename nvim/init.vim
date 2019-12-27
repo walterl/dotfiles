@@ -64,6 +64,11 @@ function! s:flag_is_set(flag)
   return index(g:nvim_env_flags, a:flag) > -1
 endfunction
 
+function! s:has_plugin(plugin)
+  return index(keys(g:plugs), a:plugin) > -1
+endfunction
+" }}}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " {{{ Plugins
@@ -172,8 +177,7 @@ colorscheme gruvbox
 " {{{ Plugin settings
 " Settings and mappings related to plug-ins
 
-" coc.nvim
-if exists('*environ') && !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['NVIM_DISABLE_COC'] == "1")
+if s:has_plugin('coc.nvim')
   nmap <silent> <leader>od <Plug>(coc-definition)
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> <leader>or <Plug>(coc-references)
@@ -201,86 +205,138 @@ if exists('*environ') && !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
 
-" Rainbow
-let g:rainbow_active = 0 " Enable with :RainbowToggle
+if s:has_plugin('rainbow')
+  let g:rainbow_active = 0 " Enable with :RainbowToggle
+endif
 
-" SuperTab
-let g:SuperTabDefaultCompletionType = "<c-n>"
+if s:has_plugin('supertab')
+  let g:SuperTabDefaultCompletionType = "<c-n>"
+endif
 
-" fzf
-map <silent> ,f :Files<CR>
-map <silent> ,d :Files %:p:h<CR>
-map <silent> ,b :Buffers<CR>
-map <silent> ,t :BTags<CR>
-map <silent> ,T :Tags<CR>
-map <silent> ,g :GFiles<CR>
-map <silent> ,G :GFiles?<CR>
-map <silent> ,c :Commits<CR>
-map <silent> ,C :BCommits<CR>
-map <silent> ,h :History<CR>
-map <silent> ,s :Snippets<nop>
+if s:has_plugin('fzf')
+  map <silent> ,f :Files<CR>
+  map <silent> ,d :Files %:p:h<CR>
+  map <silent> ,b :Buffers<CR>
+  map <silent> ,t :BTags<CR>
+  map <silent> ,T :Tags<CR>
+  map <silent> ,g :GFiles<CR>
+  map <silent> ,G :GFiles?<CR>
+  map <silent> ,c :Commits<CR>
+  map <silent> ,C :BCommits<CR>
+  map <silent> ,h :History<CR>
+  map <silent> ,s :Snippets<nop>
+endif
 
-" vim-markdown
-let g:markdown_enable_mappings = 0
-let g:markdown_enable_conceal = 1
-let g:markdown_enable_folding = 1
+if s:has_plugin('editorconfig-vim')
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+endif
 
-" EditorConfig
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+if s:has_plugin('nerdtree')
+  map <silent> <F2> :NERDTreeToggle<CR>
 
-" NERDTree
-map <silent> <F2> :NERDTreeToggle<CR>
+  let NERDTreeIgnore=['\~$', '\.exe$', '\.py[co]$', '\.s?o$', '\.sw[op]$']
+  let NERDTreeShowBookmarks = 1
+endif
 
-let NERDTreeIgnore=['\~$', '\.exe$', '\.py[co]$', '\.s?o$', '\.sw[op]$']
-let NERDTreeShowBookmarks = 1
+if s:has_plugin('tagbar')
+  map <silent> <F3> :TagbarToggle<CR>
+endif
 
-" Tagbar
-map <silent> <F3> :TagbarToggle<CR>
+if s:has_plugin('vim-fugitive')
+  nmap <Leader>gb :Gblame<CR>
+  nmap <Leader>gd :Gdiff<CR>
+  nmap <Leader>gc :Gcommit<CR>
+  nmap <Leader>gs :Gstatus<CR>
+  nmap <Leader>gS :Gstatus<CR><C-w>T
+endif
 
-" fugitive
-nmap <Leader>gb :Gblame<CR>
-nmap <Leader>gd :Gdiff<CR>
-nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gS :Gstatus<CR><C-w>T
+if s:has_plugin('git-time-lapse')
+  nmap <Leader>gt :call TimeLapse()<CR>
+endif
 
-" git-time-lapse
-nmap <Leader>gt :call TimeLapse()<CR>
+if s:has_plugin('vim-session')
+  let g:session_directory = '~/.local/share/nvim/sessions'
+  let g:session_autosave = 'no'
+endif
 
-" Session
-let g:session_directory = '~/.local/share/nvim/sessions'
-let g:session_autosave = 'no'
+if s:has_plugin('NrrwRgn')
+  let g:nrrw_rgn_vert = 1
+  let g:nrrw_rgn_wdth = 80
+endif
 
-" NrrwRgn options
-let g:nrrw_rgn_vert = 1
-let g:nrrw_rgn_wdth = 80
+if s:has_plugin('vim-airline')
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_close_button = 0
+  let g:airline#extensions#tabline#fnamemod = ':t'
+  let g:airline#extensions#tabline#tab_nr_type = 1
+endif
 
-" vim-airline options
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#tab_nr_type = 1
+if s:has_plugin('ultisnips')
+  let g:UltiSnipsExpandTrigger="<c-]>"
+  let g:UltiSnipsJumpForwardTrigger="<c-]>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-[>"
+endif
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-]>"
-let g:UltiSnipsJumpForwardTrigger="<c-]>"
-let g:UltiSnipsJumpBackwardTrigger="<c-[>"
+if s:has_plugin('sideways.vim')
+  nnoremap <Leader>ah :SidewaysLeft<CR>
+  nnoremap <Leader>al :SidewaysRight<CR>
+endif
 
-" sideways.vim
-nnoremap <Leader>ah :SidewaysLeft<CR>
-nnoremap <Leader>al :SidewaysRight<CR>
+if s:has_plugin('SimpylFold')
+  " Not sure why, but this keeps vim from stalling at 100% CPU when opening
+  " certain Python files.
+  let g:SimpylFold_docstring_preview = 1
+endif
 
-" SimpylFold
-" Not sure why, but this keeps vim from stalling at 100% CPU when opening
-" certain Python files.
-let g:SimpylFold_docstring_preview = 1
+if s:has_plugin('vim-gitgutter')
+  nmap <leader>gg :GitGutterToggle<CR>
+endif
 
-" vim-gitgutter
-nmap <leader>gg :GitGutterToggle<CR>
+if s:has_plugin('vim-gutentags')
+  let g:gutentags_ctags_exclude = ['.git', 'node_modules']
+endif
 
-" vim-gutentags
-let g:gutentags_ctags_exclude = ['.git', 'node_modules']
+if s:has_plugin('Smart-Home-Key')
+  " Use SmartHomeKey to toggle between ^ and 0
+  nmap <silent> 0 :SmartHomeKey<CR>
+endif
+
+if s:has_plugin('splitjoin.vim')
+  let g:splitjoin_split_mapping = ''
+  let g:splitjoin_join_mapping = ''
+
+  nmap <Leader>sj :SplitjoinSplit<cr>
+  nmap <Leader>sk :SplitjoinJoin<cr>
+endif
+
+if s:has_plugin('vim-which-key')
+  if !exists('g:loaded_vim_which_key')
+    nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
+  endif
+endif
+
+if s:has_plugin('vim-polyglot')
+  " Markdown
+  let g:markdown_enable_mappings = 0
+  let g:markdown_enable_conceal = 1
+  let g:markdown_enable_folding = 1
+  " RST
+  let g:rst_fold_enabled = 1
+endif
+
+if s:has_plugin('vim-test')
+  nmap <silent> <leader>Tt :TestNearest<CR>
+  nmap <silent> <leader>TT :TestFile<CR>
+  nmap <silent> <leader>Ta :TestSuite<CR>
+  nmap <silent> <leader>Tl :TestLast<CR>
+  nmap <silent> <leader>Tg :TestVisit<CR>
+endif
+
+if s:has_plugin('vim-github-link')
+  vmap <leader>YB :GetCurrentBranchLink<CR>
+  vmap <leader>YC :GetCurrentCommitLink<CR>
+endif
 
 " toggle_words.vim
 let g:toggle_words_dict = {
@@ -288,36 +344,6 @@ let g:toggle_words_dict = {
   \ 'python': [['assertTrue', 'assertFalse']]
   \}
 nmap <silent> <Leader>ff :ToggleWord<CR>
-
-" Use SmartHomeKey to toggle between ^ and 0
-nmap <silent> 0 :SmartHomeKey<CR>
-
-" Splitjoin
-let g:splitjoin_split_mapping = ''
-let g:splitjoin_join_mapping = ''
-
-nmap <Leader>sj :SplitjoinSplit<cr>
-nmap <Leader>sk :SplitjoinJoin<cr>
-
-" vim-which-key
-if !exists('g:loaded_vim_which_key')
-  nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
-endif
-
-" vim-polyglot
-" For rst files
-let g:rst_fold_enabled = 1
-
-" vim-test
-nmap <silent> <leader>Tt :TestNearest<CR>
-nmap <silent> <leader>TT :TestFile<CR>
-nmap <silent> <leader>Ta :TestSuite<CR>
-nmap <silent> <leader>Tl :TestLast<CR>
-nmap <silent> <leader>Tg :TestVisit<CR>
-
-" vim-github-link
-vmap <leader>YB :GetCurrentBranchLink<CR>
-vmap <leader>YC :GetCurrentCommitLink<CR>
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
