@@ -41,7 +41,7 @@ if has('nvim-0.5.0')
   set pumblend=20                 " Transparency for pop-up menu
   set winblend=20                 " Transparency for floating windows
 endif
-let mapleader = '\<Space>'        " Remap <Leader> to <Space>
+let mapleader = "\<Space>"        " Remap <Leader> to <Space>
 match ErrorMsg '\s\+$'            " Highlight trailing space
 
 let g:python_host_prog = '/usr/bin/python'
@@ -518,7 +518,7 @@ autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
   if &filetype !~ 'svn\|commit\c'
     if line("'\"") > 0 && line ("'\"") <= line('$')
-      exe 'normal! g`\"'
+      exe 'normal! g`"'
       normal! zz
     endif
   end
