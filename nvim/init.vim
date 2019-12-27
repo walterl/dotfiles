@@ -55,10 +55,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 " Run the following for non-dev users
 " echo export NVIM_ENV_FLAGS="nodev" >> ~/.zshrc.local
 
-let g:nvim_env_flags = []
-if exists('*environ') && has_key(environ(), 'NVIM_ENV_FLAGS')
-  let g:nvim_env_flags = split(environ()['NVIM_ENV_FLAGS'])
-endif
+let g:nvim_env_flags = split($NVIM_ENV_FLAGS)
 
 function! s:flag_is_set(flag)
   return index(g:nvim_env_flags, a:flag) > -1
