@@ -37,11 +37,11 @@ set viminfo+=n$HOME/.config/nvim/tmp/viminfo
 set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
 set diffopt=vertical,filler,internal,algorithm:histogram,indent-heuristic
-if has("nvim-0.5.0")
+if has('nvim-0.5.0')
   set pumblend=20                 " Transparency for pop-up menu
   set winblend=20                 " Transparency for floating windows
 endif
-let mapleader = "\<Space>"        " Remap <Leader> to <Space>
+let mapleader = '\<Space>'        " Remap <Leader> to <Space>
 match ErrorMsg '\s\+$'            " Highlight trailing space
 
 let g:python_host_prog = '/usr/bin/python'
@@ -161,7 +161,7 @@ call plug#end()
 
 " {{{ Color scheme settings
 " Settings related to the color scheme
-if (has("termguicolors"))
+if has('termguicolors')
   "For Neovim > 0.1.5 and Vim > patch 7.4.1799: https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162
   "Based on Vim patch 7.4.1770 (`guicolors` option): https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
   " https://github.com/neovim/neovim/wiki/Following-HEAD#20160511
@@ -178,30 +178,30 @@ colorscheme gruvbox
 " Settings and mappings related to plug-ins
 
 if s:has_plugin('coc.nvim')
-  nmap <silent> <leader>od <Plug>(coc-definition)
+  nmap <silent> <Leader>od <Plug>(coc-definition)
   nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> <leader>or <Plug>(coc-references)
-  nmap <silent> <leader>oR <Plug>(coc-rename)
+  nmap <silent> <Leader>or <Plug>(coc-references)
+  nmap <silent> <Leader>oR <Plug>(coc-rename)
   nmap <silent> gR <Plug>(coc-rename)
 
-  nmap <silent> <leader>of :call CocAction('format')<CR>
-  xmap <silent> <leader>of <Plug>(coc-format-selected)
-  vmap <silent> <leader>of <Plug>(coc-format-selected)
+  nmap <silent> <Leader>of :call CocAction('format')<CR>
+  xmap <silent> <Leader>of <Plug>(coc-format-selected)
+  vmap <silent> <Leader>of <Plug>(coc-format-selected)
 
-  nmap <silent> <leader>oa <Plug>(coc-codeaction)
-  xmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
-  vmap <silent> <leader>oa <Plug>(coc-codeaction-selected)
+  nmap <silent> <Leader>oa <Plug>(coc-codeaction)
+  xmap <silent> <Leader>oa <Plug>(coc-codeaction-selected)
+  vmap <silent> <Leader>oa <Plug>(coc-codeaction-selected)
 
-  nmap <silent> <leader>oF <Plug>(coc-fix-current)
+  nmap <silent> <Leader>oF <Plug>(coc-fix-current)
 
-  nmap <silent> <leader>ot <Plug>(coc-range-select)
-  nmap <silent> <leader>oT <Plug>(coc-range-select-backword)
+  nmap <silent> <Leader>ot <Plug>(coc-range-select)
+  nmap <silent> <Leader>oT <Plug>(coc-range-select-backword)
 
   nmap <silent> ]g :CocNext<CR>
   nmap <silent> [g :CocPrev<CR>
-  nmap <silent> <leader>olr :CocListResume<CR>
+  nmap <silent> <Leader>olr :CocListResume<CR>
 
-  nmap <silent> <leader>K :call CocAction('doHover')<CR>
+  nmap <silent> <Leader>K :call CocAction('doHover')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
 
@@ -210,7 +210,7 @@ if s:has_plugin('rainbow')
 endif
 
 if s:has_plugin('supertab')
-  let g:SuperTabDefaultCompletionType = "<c-n>"
+  let g:SuperTabDefaultCompletionType = '<C-n>'
 endif
 
 if s:has_plugin('fzf')
@@ -224,7 +224,7 @@ if s:has_plugin('fzf')
   map <silent> ,c :Commits<CR>
   map <silent> ,C :BCommits<CR>
   map <silent> ,h :History<CR>
-  map <silent> ,s :Snippets<nop>
+  map <silent> ,s :Snippets<CR>
 endif
 
 if s:has_plugin('editorconfig-vim')
@@ -273,9 +273,9 @@ if s:has_plugin('vim-airline')
 endif
 
 if s:has_plugin('ultisnips')
-  let g:UltiSnipsExpandTrigger="<c-]>"
-  let g:UltiSnipsJumpForwardTrigger="<c-]>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-[>"
+  let g:UltiSnipsExpandTrigger='<C-]>'
+  let g:UltiSnipsJumpForwardTrigger='<C-]>'
+  let g:UltiSnipsJumpBackwardTrigger='<C-[>'
 endif
 
 if s:has_plugin('sideways.vim')
@@ -290,7 +290,7 @@ if s:has_plugin('SimpylFold')
 endif
 
 if s:has_plugin('vim-gitgutter')
-  nmap <leader>gg :GitGutterToggle<CR>
+  nmap <Leader>gg :GitGutterToggle<CR>
 endif
 
 if s:has_plugin('vim-gutentags')
@@ -306,8 +306,8 @@ if s:has_plugin('splitjoin.vim')
   let g:splitjoin_split_mapping = ''
   let g:splitjoin_join_mapping = ''
 
-  nmap <Leader>sj :SplitjoinSplit<cr>
-  nmap <Leader>sk :SplitjoinJoin<cr>
+  nmap <Leader>sj :SplitjoinSplit<CR>
+  nmap <Leader>sk :SplitjoinJoin<CR>
 endif
 
 if s:has_plugin('vim-which-key')
@@ -326,16 +326,16 @@ if s:has_plugin('vim-polyglot')
 endif
 
 if s:has_plugin('vim-test')
-  nmap <silent> <leader>Tt :TestNearest<CR>
-  nmap <silent> <leader>TT :TestFile<CR>
-  nmap <silent> <leader>Ta :TestSuite<CR>
-  nmap <silent> <leader>Tl :TestLast<CR>
-  nmap <silent> <leader>Tg :TestVisit<CR>
+  nmap <silent> <Leader>Tt :TestNearest<CR>
+  nmap <silent> <Leader>TT :TestFile<CR>
+  nmap <silent> <Leader>Ta :TestSuite<CR>
+  nmap <silent> <Leader>Tl :TestLast<CR>
+  nmap <silent> <Leader>Tg :TestVisit<CR>
 endif
 
 if s:has_plugin('vim-github-link')
-  vmap <leader>YB :GetCurrentBranchLink<CR>
-  vmap <leader>YC :GetCurrentCommitLink<CR>
+  vmap <Leader>YB :GetCurrentBranchLink<CR>
+  vmap <Leader>YC :GetCurrentCommitLink<CR>
 endif
 
 " toggle_words.vim
@@ -484,9 +484,9 @@ iabbrev sefl self
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " {{{ Use ag/ack-grep for the :grep command
-if executable("ag")
+if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
-elseif executable("ack-grep")
+elseif executable('ack-grep')
   set grepprg=ack-grep\ --nogroup\ --nocolor
 endif
 " }}}
@@ -502,7 +502,7 @@ au InsertLeave * if pumvisible() == 0|pclose|endif
 
 " {{{ Persist undo
 " From http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
-if exists("&undodir")
+if exists('&undodir')
   set undofile
   let &undodir=&directory
   set undolevels=500
@@ -517,8 +517,8 @@ endif
 autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
   if &filetype !~ 'svn\|commit\c'
-    if line("'\"") > 0 && line ("'\"") <= line("$")
-      exe "normal! g`\""
+    if line("'\"") > 0 && line ("'\"") <= line('$')
+      exe 'normal! g`\"'
       normal! zz
     endif
   end
@@ -545,25 +545,25 @@ vnoremap <silent> # :<C-U>
 
 " {{{ Toggle QuickFix window or location list
 " From http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
-command! -bang -nargs=? QFix call QFixToggle(<bang>0)
+command! -bang -nargs=? QFix call QFixToggle(<Bang>0)
 function! QFixToggle(forced)
-  if exists("g:qfix_win") && a:forced == 0
+  if exists('g:qfix_win') && a:forced == 0
     cclose
     unlet g:qfix_win
   else
     copen 10
-    let g:qfix_win = bufnr("$")
+    let g:qfix_win = bufnr('$')
   endif
 endfunction
 
-command! -bang -nargs=? LocList call LocListToggle(<bang>0)
+command! -bang -nargs=? LocList call LocListToggle(<Bang>0)
 function! LocListToggle(forced)
-  if exists("g:loclist_win") && a:forced == 0
+  if exists('g:loclist_win') && a:forced == 0
     lclose
     unlet g:loclist_win
   else
     lopen 10
-    let g:loclist_win = bufnr("$")
+    let g:loclist_win = bufnr('$')
   endif
 endfunction
 " }}}
