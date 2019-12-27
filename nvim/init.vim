@@ -50,6 +50,22 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" {{{ Environment
+
+" Run the following for non-dev users
+" echo export NVIM_ENV_FLAGS="nodev" >> ~/.zshrc.local
+
+let g:nvim_env_flags = []
+if exists('*environ') && has_key(environ(), 'NVIM_ENV_FLAGS')
+  let g:nvim_env_flags = split(environ()['NVIM_ENV_FLAGS'])
+endif
+
+function! s:flag_is_set(flag)
+  return index(g:nvim_env_flags, a:flag) > -1
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
@@ -65,25 +81,18 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'editorconfig/editorconfig-vim'
   Plug 'ervandew/supertab'
   Plug 'hgiesel/vim-motion-sickness'
-  Plug 'honza/vim-snippets'
   Plug 'itchyny/vim-cursorword'
-  Plug 'janko/vim-test'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'justinmk/vim-sneak'
-  Plug 'knsh14/vim-github-link'
   Plug 'Konfekt/FastFold'
   Plug 'liuchengxu/vim-which-key'
-  Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
-  Plug 'mattn/emmet-vim'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdtree'
-  Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-eunuch'
@@ -94,44 +103,52 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/Smart-Home-Key'
-  Plug 'w0rp/ale'
   Plug 'whiteinge/diffconflicts'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
 
-  " Clojure
-  Plug 'clojure-vim/async-clj-omni'
-  Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-  Plug 'luochen1990/rainbow'
-  Plug 'guns/vim-sexp', {'for': 'clojure'}
-  Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
   " Git
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'junegunn/gv.vim'
   Plug 'vim-scripts/git-time-lapse'
-  " Go
-  Plug 'fatih/vim-go'
   " HTTP
   Plug 'vim-scripts/httplog'
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
-  " Jinja
-  Plug 'mitsuhiko/vim-jinja'
-  " Python
-  Plug 'tmhedberg/SimpylFold'
   " Sieve
   Plug 'vim-scripts/sieve.vim'
   " SQL
   Plug 'shmup/vim-sql-syntax'
 
-  " vim-polyglot can misbehave if loaded before language specific plugins
-  Plug 'sheerun/vim-polyglot'
+  if !s:flag_is_set('nodev')
+    Plug 'honza/vim-snippets'
+    Plug 'janko/vim-test'
+    Plug 'knsh14/vim-github-link'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'mattn/emmet-vim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'SirVer/ultisnips'
+    Plug 'w0rp/ale'
 
-  " Code completion
-  if exists('*environ') && !(has_key(environ(), 'NVIM_DISABLE_COC') && environ()['NVIM_DISABLE_COC'] == "1")
+    " Clojure
+    Plug 'clojure-vim/async-clj-omni'
+    Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+    Plug 'luochen1990/rainbow'
+    Plug 'guns/vim-sexp', {'for': 'clojure'}
+    Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+    " Go
+    Plug 'fatih/vim-go'
+    " Jinja
+    Plug 'mitsuhiko/vim-jinja'
+    " Python
+    Plug 'tmhedberg/SimpylFold'
+    " Code completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endif
+
+  " vim-polyglot can misbehave if loaded before language specific plugins
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 
