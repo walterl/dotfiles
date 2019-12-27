@@ -81,7 +81,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mattn/emmet-vim'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'roxma/nvim-yarp'
   Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdtree'
   Plug 'SirVer/ultisnips'
