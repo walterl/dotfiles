@@ -203,7 +203,7 @@ if s:has_plugin('coc.nvim')
 endif
 
 if s:has_plugin('rainbow')
-  let g:rainbow_active = 0 " Enable with :RainbowToggle
+  let g:rainbow_active = 1 " Toggle with :RainbowToggle
 endif
 
 if s:has_plugin('supertab')
