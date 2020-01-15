@@ -448,6 +448,7 @@ nmap <silent> <Leader>in4 :set ts=4 sts=4 sw=4<CR>
 nmap <silent> <Leader>fm :set ft=markdown<CR>
 
 " Formatting with external tools
+nmap <silent> <Leader>Fh :%!tidy -q -i --show-errors 0 -w 80<CR>
 nmap <silent> <Leader>Fj :%!python -m json.tool<CR>
 nmap <silent> <Leader>Fs :%!sqlformat --reindent -<CR>
 nmap <silent> <Leader>Fx :%!xmllint --format -<CR>
