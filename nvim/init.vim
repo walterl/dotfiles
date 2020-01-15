@@ -118,6 +118,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/httplog'
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
+  " Markdown
+  Plug 'gabrielelana/vim-markdown'
   " Sieve
   Plug 'vim-scripts/sieve.vim'
   " SQL
@@ -294,6 +296,12 @@ if s:has_plugin('vim-gutentags')
   let g:gutentags_ctags_exclude = ['.git', 'node_modules']
 endif
 
+if s:has_plugin('vim-markdown')
+  let g:markdown_enable_mappings = 0
+  let g:markdown_enable_conceal = 1
+  let g:markdown_enable_folding = 1
+endif
+
 if s:has_plugin('Smart-Home-Key')
   " Use SmartHomeKey to toggle between ^ and 0
   nmap <silent> 0 :SmartHomeKey<CR>
@@ -314,10 +322,8 @@ if s:has_plugin('vim-which-key')
 endif
 
 if s:has_plugin('vim-polyglot')
-  " Markdown
-  let g:markdown_enable_mappings = 0
-  let g:markdown_enable_conceal = 1
-  let g:markdown_enable_folding = 1
+  let g:polyglot_disabled = ['markdown']
+
   " RST
   let g:rst_fold_enabled = 1
 endif
