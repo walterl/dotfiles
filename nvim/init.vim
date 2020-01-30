@@ -324,7 +324,7 @@ if s:has_plugin('vim-polyglot')
   let g:polyglot_disabled = ['markdown']
 
   " Clojure
-  let g:clojure_align_subforms = 0
+  let g:clojure_align_subforms = 1
   " RST
   let g:rst_fold_enabled = 1
 endif
