@@ -485,6 +485,7 @@ iabbrev fucntion function
 iabbrev Noen None
 iabbrev NOne None
 iabbrev sefl self
+iabbrev :shrug: ¯\_(ツ)_/¯
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
