@@ -245,8 +245,7 @@ if s:has_plugin('vim-fugitive')
   nmap <Leader>gb :Gblame<CR>
   nmap <Leader>gd :Gdiff<CR>
   nmap <Leader>gc :Gcommit<CR>
-  nmap <Leader>gs :Gstatus<CR>
-  nmap <Leader>gS :Gstatus<CR><C-w>T
+  nmap <Leader>gs :tab Gstatus<CR>
 endif
 
 if s:has_plugin('git-time-lapse')
