@@ -34,6 +34,7 @@ set nobackup                      " Don't create backup files
 set nowb                          " Don't create write backups
 set noswapfile                    " Don't create swap files
 set viminfo+=n$HOME/.config/nvim/tmp/viminfo
+set runtimepath+=$HOME/.config/nvim.local
 set splitbelow                    " Split windows below the current window
 set splitright                    " Split vertical windows on the right
 set diffopt=vertical,filler,internal,algorithm:histogram,indent-heuristic
