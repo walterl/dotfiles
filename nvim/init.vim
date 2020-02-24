@@ -380,7 +380,13 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" Navigate tabs
+" Switch windows
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Right> <C-w>l
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Down> <C-w>j
+
+" Switch tabs
 nnoremap [r gT
 nnoremap ]r gt
 
