@@ -122,7 +122,8 @@ call plug#begin('~/.config/nvim/plugged')
   " HTML
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " Markdown
-  Plug 'gabrielelana/vim-markdown'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'walterl/listoggle'
   " Sieve
   Plug 'vim-scripts/sieve.vim'
   " SQL
@@ -299,9 +300,11 @@ if s:has_plugin('vim-gutentags')
 endif
 
 if s:has_plugin('vim-markdown')
-  let g:markdown_enable_mappings = 0
-  let g:markdown_enable_conceal = 1
-  let g:markdown_enable_folding = 1
+  let g:vim_markdown_no_default_key_mappings = 1
+  let g:vim_markdown_folding_level = 3
+  let g:vim_markdown_follow_anchor = 1
+  let g:vim_markdown_strikethrough = 1
+  let g:vim_markdown_new_list_item_indent = 2
 endif
 
 if s:has_plugin('Smart-Home-Key')
@@ -324,8 +327,6 @@ if s:has_plugin('vim-which-key')
 endif
 
 if s:has_plugin('vim-polyglot')
-  let g:polyglot_disabled = ['markdown']
-
   " Clojure
   let g:clojure_align_subforms = 1
   " RST
