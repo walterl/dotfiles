@@ -106,6 +106,10 @@ export PATH="$PATH:node_modules/.bin"
 # Load host-specific stuff...
 [ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
 
+# Enable vi-mode
+VIMODE="$(dirname $(readlink -f ~/.zshrc))/vi-mode.zsh"
+[ -f $VIMODE ] && source $VIMODE
+
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -121,8 +125,5 @@ fi
 # Load nvm if available
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-VIMODE="$(dirname $(readlink -f ~/.zshrc))/vi-mode.zsh"
-[ -f $VIMODE ] && source $VIMODE
 
 # vim:ts=4 sts=4 sw=4
