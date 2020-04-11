@@ -103,6 +103,9 @@ export PATH="$PATH:node_modules/.bin"
 [ -d $HOME/src/code/python ] && export PYTHONPATH="$PYTHONPATH:$HOME/src/code/python"
 [ -d $HOME/src/go ]          && export GOPATH=$HOME/src/go && export PATH=$PATH:$GOPATH/bin
 
+# Load host-specific stuff...
+[ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
+
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -118,8 +121,5 @@ fi
 # Load nvm if available
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Load host-specific stuff...
-[ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
 
 # vim:ts=4 sts=4 sw=4
