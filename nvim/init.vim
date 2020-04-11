@@ -326,8 +326,6 @@ if s:has_plugin('vim-which-key')
 endif
 
 if s:has_plugin('vim-polyglot')
-  " Clojure
-  let g:clojure_align_subforms = 1
   " RST
   let g:rst_fold_enabled = 1
 endif
