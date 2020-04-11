@@ -93,3 +93,32 @@ function vi_mode_status() {
         echo "$VI_INSERT_MODE_INDICATOR"
     fi
 }
+
+#############################
+# Bindings copied from emacs keymap (`bindkey -LM emacs`)
+
+bindkey -M viins "^A" vi-beginning-of-line
+bindkey -M viins "^B" vi-backward-char
+bindkey -M viins "^E" vi-end-of-line
+bindkey -M viins "^F" vi-forward-char
+bindkey -M viins "^N" down-line-or-history
+bindkey -M viins "^O" accept-line-and-down-history
+bindkey -M viins "^P" up-line-or-history
+bindkey -M viins "^S" history-incremental-search-forward
+bindkey -M viins "^Y" yank
+bindkey -M viins "^['" quote-line
+bindkey -M viins "^[," _history-complete-newer
+bindkey -M viins "^[-" neg-argument
+bindkey -M viins "^[." insert-last-word
+bindkey -M viins "^[/" _history-complete-older
+bindkey -M viins "^[b" backward-word
+bindkey -M viins "^[c" capitalize-word
+bindkey -M viins "^[d" kill-word
+bindkey -M viins "^[f" forward-word
+bindkey -M viins "^[g" get-line
+bindkey -M viins "^[t" transpose-words
+bindkey -M viins "^[u" up-case-word
+bindkey -M viins "^[w" kill-region
+bindkey -M viins "^[x" execute-named-cmd
+bindkey -M viins "^[y" yank-pop
+bindkey -M viins "^[z" execute-last-named-cmd
