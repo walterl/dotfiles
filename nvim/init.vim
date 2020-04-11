@@ -225,8 +225,10 @@ if s:has_plugin('fzf')
   map <silent> ,G :GFiles?<CR>
   map <silent> ,c :Commits<CR>
   map <silent> ,C :BCommits<CR>
-  map <silent> ,h :History<CR>
   map <silent> ,s :Snippets<CR>
+  map <silent> ,h :History<CR>
+  map <silent> ,: :History :<CR>
+  map <silent> ,/ :History /<CR>
 endif
 
 if s:has_plugin('editorconfig-vim')
