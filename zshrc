@@ -122,4 +122,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+VIMODE="$(dirname $(readlink -f ~/.zshrc))/vi-mode.zsh"
+[ -f $VIMODE ] && source $VIMODE
+
 # vim:ts=4 sts=4 sw=4
