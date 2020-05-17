@@ -221,11 +221,15 @@ if s:has_plugin('fzf')
   map <silent> ,b :Buffers<CR>
   map <silent> ,t :BTags<CR>
   map <silent> ,T :Tags<CR>
+  map <silent> ,s :Snippets<CR>
+  map <silent> ,l :BLines<CR>
+  map <silent> ,L :Lines<CR>
+
   map <silent> ,g :GFiles<CR>
   map <silent> ,G :GFiles?<CR>
   map <silent> ,c :Commits<CR>
   map <silent> ,C :BCommits<CR>
-  map <silent> ,s :Snippets<CR>
+
   map <silent> ,h :History<CR>
   map <silent> ,: :History :<CR>
   map <silent> ,/ :History /<CR>
