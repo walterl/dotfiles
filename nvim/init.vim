@@ -29,7 +29,7 @@ set showcmd                       " Show size of selected area in visual mode
 set showmatch                     " Briefly jump to the previous matching paren
 set matchtime=2                   " For .2 seconds
 set timeoutlen=500                " Lowers leader and command timeout
-set directory=~/.vim/tmp          " Directory for swap/temp files
+set directory=~/.config/nvim/tmp  " Directory for swap/temp files
 set nobackup                      " Don't create backup files
 set nowb                          " Don't create write backups
 set noswapfile                    " Don't create swap files
