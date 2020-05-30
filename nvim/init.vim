@@ -181,6 +181,8 @@ colorscheme gruvbox
 
 if s:has_plugin('ale')
   let g:ale_linters = {'clojure': ['clj-kondo']}
+  nmap [a :ALEPrevious<CR>
+  nmap ]a :ALENext<CR>
 endif
 
 if s:has_plugin('coc.nvim')
