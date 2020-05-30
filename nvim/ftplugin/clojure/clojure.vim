@@ -9,3 +9,4 @@ nmap <Leader>jc (i#_<Esc>
 
 " Don't automatically insert closing ' or `
 let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
+let b:coc_diagnostic_disable = 1

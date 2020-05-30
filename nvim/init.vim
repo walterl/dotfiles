@@ -179,6 +179,10 @@ colorscheme gruvbox
 " {{{ Plugin settings
 " Settings and mappings related to plug-ins
 
+if s:has_plugin('ale')
+  let g:ale_linters = {'clojure': ['clj-kondo']}
+endif
+
 if s:has_plugin('coc.nvim')
   nmap <silent> <Leader>od <Plug>(coc-definition)
   nmap <silent> gd <Plug>(coc-definition)
