@@ -122,7 +122,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-scripts/HTML-AutoCloseTag'
   " Markdown
   Plug 'plasticboy/vim-markdown'
-  Plug 'walterl/listoggle'
+  Plug 'walterl/downtools'
   " Sieve
   Plug 'vim-scripts/sieve.vim'
   " SQL
