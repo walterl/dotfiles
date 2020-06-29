@@ -3,6 +3,7 @@ set foldmethod=syntax
 " cloJure mappings
 nnoremap <Leader>je :%Eval<CR>
 vnoremap <Leader>je :Eval<CR>
+nmap <Leader>jd ]<C-d>
 nmap <Leader>jf cpp
 nmap <Leader>jj cpaF
 nmap <Leader>jc (i#_<Esc>
