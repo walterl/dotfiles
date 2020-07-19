@@ -239,6 +239,11 @@ if s:has_plugin('fzf')
   map <silent> ,/ :History /<CR>
 endif
 
+if s:has_plugin('vim-easy-align')
+  nmap <Leader>aa <Plug>(EasyAlign)
+  vmap <Enter> <Plug>(EasyAlign)
+endif
+
 if s:has_plugin('editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 endif
