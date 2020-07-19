@@ -185,7 +185,6 @@ if s:has_plugin('ale')
 endif
 
 if s:has_plugin('coc.nvim')
-  nmap <silent> <Leader>od <Plug>(coc-definition)
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> <Leader>or <Plug>(coc-references)
   nmap <silent> <Leader>oR <Plug>(coc-rename)
