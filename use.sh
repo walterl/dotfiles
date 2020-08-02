@@ -50,7 +50,7 @@ link_dotfiles() {
   fi
 
   cd "$destdir"
-  for file in $srcdir/[a-z]*; do
+  for file in $srcdir/[a-zA-Z]*; do
     local base="$(basename $file)"
     local dest="$destdir/.$base"
 
@@ -90,7 +90,7 @@ unlink_dotfiles() {
   e_header "Unlinking files from home directory..."
 
   cd "$HOME"
-  for file in $DOTHOME/[a-z]*; do
+  for file in $DOTHOME/[a-zA-Z]*; do
     local base="$(basename $file)"
     local dest="$HOME/.$base"
 
