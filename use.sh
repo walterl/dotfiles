@@ -52,7 +52,7 @@ link_dotfiles() {
   cd "$destdir"
   for file in $srcdir/[a-zA-Z]*; do
     local base="$(basename $file)"
-    local dest="$destdir/.$base"
+    local dest="$destdir/$prefix$base"
 
     # Skip if $file refers to this file.
     if test "$file" -ef "$THISFILE"; then
@@ -73,7 +73,7 @@ link_dotfiles() {
       mv "$dest" "$BACKDIR"
     fi
 
-    ln -sf "${file}" "$prefix$base"
+    ln -sf "${file}" "$dest"
     e_success "$base"
   done
 }
