@@ -107,7 +107,7 @@ export PATH="$PATH:node_modules/.bin"
 [ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
 
 # Enable vi-mode
-VIMODE="$(dirname $(readlink -f ~/.zshrc))/vi-mode.zsh"
+VIMODE="$(dirname $(readlink -f ~/.zshrc))/_vi-mode.zsh"
 [ -f $VIMODE ] && source $VIMODE
 
 # Load fzf
