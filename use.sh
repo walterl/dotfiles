@@ -20,11 +20,15 @@ fi
 
 run() {
   if [ -n "$UNLINK" ]; then
+    e_header "Unlinking files from home directory..."
     unlink_dotfiles
+    unlink_subdir_files
   else
     e_header "Linking files into home directory..."
     link_dotfiles
     link_subdir_files
+
+    e_header "Performing post-link initializations..."
     post_link_cmds
   fi
   print_messages
@@ -74,12 +78,11 @@ link_subdir_files() {
     [ -d $subdir ] || continue # Only process sub-dirs (not files)
     local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
     [ -d $dest ] || mkdir -p $dest
-    link_dotfiles $subdir $dest "" "$BACKDIR/$dest"
+    link_dotfiles $subdir $dest "$BACKDIR/$dest"
   done
 }
 
 post_link_cmds() {
-  e_header "Performing post-link initializations..."
   if command -v nvim; then
     nvim +PlugInstall +qa
     e_success "nvim +PlugInstall +qa"
@@ -87,19 +90,33 @@ post_link_cmds() {
 }
 
 unlink_dotfiles() {
-  e_header "Unlinking files from home directory..."
+  local srcdir=${1:-$DOTHOME}
+  local destdir=${2:-$HOME}
+  if [[ "$destdir" == "$HOME" ]]; then
+    local prefix="."
+  else
+    local prefix=""
+  fi
 
-  cd "$HOME"
-  for file in $DOTHOME/[a-zA-Z]*; do
+  cd "$destdir"
+  for file in $srcdir/[a-zA-Z]*; do
     local base="$(basename $file)"
-    local dest="$HOME/.$base"
+    local dest="$destdir/$prefix$base"
 
-    if [ ! -L $dest -o $(readlink -f $dest) != $file ]; then
+    if [ ! -L "$dest" -o "$(readlink -f "$dest")" != "$file" ]; then
       continue
     fi
 
     rm "$dest"
     e_error "$base"
+  done
+}
+
+unlink_subdir_files() {
+  for subdir in $DOTHOME/_*; do
+    [ -d $subdir ] || continue # Only process sub-dirs (not files)
+    local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
+    unlink_dotfiles $subdir $dest
   done
 }
 
