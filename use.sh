@@ -25,6 +25,7 @@ run() {
     e_header "Linking files into home directory..."
     link_dotfiles
     link_subdir_files
+    post_link_cmds
   fi
   print_messages
 }
@@ -75,6 +76,14 @@ link_dotfiles() {
     ln -sf "${file}" "$prefix$base"
     e_success "$base"
   done
+}
+
+post_link_cmds() {
+  e_header "Performing post-link initializations..."
+  if command -v nvim; then
+    nvim +PlugInstall +qa
+    e_success "nvim +PlugInstall +qa"
+  fi
 }
 
 unlink_dotfiles() {
