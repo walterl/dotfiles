@@ -22,18 +22,36 @@ run() {
   if [ -n "$UNLINK" ]; then
     unlink_dotfiles
   else
+    e_header "Linking files into home directory..."
     link_dotfiles
+    link_subdir_files
   fi
   print_messages
 }
 
-link_dotfiles() {
-  e_header "Linking files into home directory..."
+link_subdir_files() {
+  for subdir in $DOTHOME/_*; do
+    [ -d $subdir ] || continue # Only process sub-dirs (not files)
+    local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
+    [ -d $dest ] || mkdir -p $dest
+    link_dotfiles $subdir $dest "" "$BACKDIR/$dest"
+  done
+}
 
-  cd "$HOME"
-  for file in $DOTHOME/[a-z]*; do
+link_dotfiles() {
+  local srcdir=${1:-$DOTHOME}
+  local destdir=${2:-$HOME}
+  local backdir=${3:-$BACKDIR}
+  if [[ "$destdir" == "$HOME" ]]; then
+    local prefix="."
+  else
+    local prefix=""
+  fi
+
+  cd "$destdir"
+  for file in $srcdir/[a-z]*; do
     local base="$(basename $file)"
-    local dest="$HOME/.$base"
+    local dest="$destdir/.$base"
 
     # Skip if $file refers to this file.
     if test "$file" -ef "$THISFILE"; then
@@ -48,13 +66,13 @@ link_dotfiles() {
 
     # Back up file if it exists.
     if [[ -e "$dest" ]]; then
-      e_arrow "Backing up $HOME/$base."
+      e_arrow "Backing up $destdir/$base."
       inform_about_backup=1
       mkdir -p "$BACKDIR"
       mv "$dest" "$BACKDIR"
     fi
 
-    ln -sf "${file#$HOME/}" ".$base"
+    ln -sf "${file}" "$prefix$base"
     e_success "$base"
   done
 }
