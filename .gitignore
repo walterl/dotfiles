@@ -2,8 +2,9 @@ backup
 fonts/.uuid
 irssi/away.log
 irssi/log/*
+tags
 tags.*
-*vim/plugged
-*vim/sessions/*
-*vim/spell
-*vim/tmp
+_config/nvim/plugged
+_config/nvim/sessions/*
+_config/nvim/spell
+_config/nvim/tmp
