@@ -30,15 +30,6 @@ run() {
   print_messages
 }
 
-link_subdir_files() {
-  for subdir in $DOTHOME/_*; do
-    [ -d $subdir ] || continue # Only process sub-dirs (not files)
-    local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
-    [ -d $dest ] || mkdir -p $dest
-    link_dotfiles $subdir $dest "" "$BACKDIR/$dest"
-  done
-}
-
 link_dotfiles() {
   local srcdir=${1:-$DOTHOME}
   local destdir=${2:-$HOME}
@@ -75,6 +66,15 @@ link_dotfiles() {
 
     ln -sf "${file}" "$dest"
     e_success "$base"
+  done
+}
+
+link_subdir_files() {
+  for subdir in $DOTHOME/_*; do
+    [ -d $subdir ] || continue # Only process sub-dirs (not files)
+    local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
+    [ -d $dest ] || mkdir -p $dest
+    link_dotfiles $subdir $dest "" "$BACKDIR/$dest"
   done
 }
 
