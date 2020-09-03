@@ -138,11 +138,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'w0rp/ale'
 
     " Clojure
+    Plug 'tpope/vim-dispatch'
+    Plug 'radenling/vim-dispatch-neovim'
+    Plug 'clojure-vim/vim-jack-in'
     Plug 'clojure-vim/async-clj-omni'
     Plug 'tpope/vim-fireplace', {'for': 'clojure'}
     Plug 'luochen1990/rainbow'
     Plug 'guns/vim-sexp', {'for': 'clojure'}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+    Plug 'Olical/conjure', {'tag': 'v4.3.1'}
     " Go
     Plug 'fatih/vim-go'
     " Jinja
@@ -185,6 +189,8 @@ if s:has_plugin('ale')
 endif
 
 if s:has_plugin('coc.nvim')
+  let g:coc_global_extensions = ['coc-conjure']
+
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> <Leader>or <Plug>(coc-references)
   nmap <silent> <Leader>oR <Plug>(coc-rename)
@@ -207,8 +213,11 @@ if s:has_plugin('coc.nvim')
   nmap <silent> [g :CocPrev<CR>
   nmap <silent> <Leader>olr :CocListResume<CR>
 
-  nmap <silent> <Leader>K :call CocAction('doHover')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
+
+if s:has_plugin('conjure')
+  let g:conjure#log#hud#height = 0.6
 endif
 
 if s:has_plugin('rainbow')
