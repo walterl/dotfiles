@@ -1,4 +1,5 @@
 [global_config]
+  borderless = True
   enabled_plugins = APTURLHandler,
 [keybindings]
   broadcast_all = None
@@ -44,4 +45,5 @@
     cursor_color = "#aaaaaa"
     font = Fira Code 10
     scrollback_infinite = True
+    show_titlebar = False
     use_system_font = False
