@@ -146,7 +146,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'luochen1990/rainbow'
     Plug 'guns/vim-sexp', {'for': 'clojure'}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
-    Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+    Plug 'Olical/conjure'
     " Go
     Plug 'fatih/vim-go'
     " Jinja
