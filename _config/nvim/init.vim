@@ -412,6 +412,10 @@ nnoremap <C-Down> <C-w>j
 nnoremap [r gT
 nnoremap ]r gt
 
+" Move tabs left/right
+nmap <C-S-PageUp> :tabm -<CR>
+nmap <C-S-PageDown> :tabm +<CR>
+
 " Search in visual selection
 vnoremap / <Esc>/\%V
 
