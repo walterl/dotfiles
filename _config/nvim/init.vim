@@ -71,8 +71,7 @@ endfunction
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  " Plug 'sjl/badwolf'
-  Plug 'morhetz/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
 
   " Editing enhancement
   Plug 'tpope/vim-sensible'
@@ -173,8 +172,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
-let g:gruvbox_italic = 1
-colorscheme gruvbox
+colorscheme PaperColor
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
