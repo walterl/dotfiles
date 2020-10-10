@@ -216,6 +216,7 @@ endif
 
 if s:has_plugin('conjure')
   let g:conjure#log#hud#height = 0.6
+  let g:conjure#client#clojure#nrepl#completion#with_context = v:false
 endif
 
 if s:has_plugin('rainbow')
