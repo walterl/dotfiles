@@ -146,6 +146,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'guns/vim-sexp', {'for': 'clojure'}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
     Plug 'Olical/conjure'
+    Plug 'walterl/centerfold'
     " Fennel
     Plug 'Olical/aniseed'
     Plug 'bakpakin/fennel.vim'

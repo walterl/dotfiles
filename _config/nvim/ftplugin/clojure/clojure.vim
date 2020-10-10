@@ -5,6 +5,7 @@ nmap <Leader>jd <Plug>FireplaceDjump
 nmap <Leader>jS <Plug>FireplaceDsplit
 nmap <Leader>jt <Plug>FireplaceDtabjump
 nmap <Leader>jc (i#_<Esc>
+nmap <silent> <Leader>jj vaF:CenterFold<CR>
 
 " Swap multiple selected elements:
 vmap <buffer> <e <Plug>(sexp_swap_element_backward)
