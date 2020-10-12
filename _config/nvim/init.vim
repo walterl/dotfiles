@@ -193,7 +193,7 @@ endif
 if s:has_plugin('coc.nvim')
   let g:coc_global_extensions = ['coc-conjure']
 
-  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> <C-g>d <Plug>(coc-definition)
   nmap <silent> <Leader>or <Plug>(coc-references)
   nmap <silent> <Leader>oR <Plug>(coc-rename)
   nmap <silent> gR <Plug>(coc-rename)
