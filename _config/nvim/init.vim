@@ -141,9 +141,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'w0rp/ale'
 
     " Clojure
+    Plug 'clojure-vim/clojure.vim'
     Plug 'clojure-vim/vim-jack-in'
     Plug 'clojure-vim/async-clj-omni'
     Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+    Plug 'guns/vim-clojure-highlight'
     Plug 'guns/vim-sexp', {'for': ['clojure', 'fennel']}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['clojure', 'fennel']}
     Plug 'Olical/conjure'
@@ -225,6 +227,10 @@ endif
 
 if s:has_plugin('vim-sexp')
   let g:sexp_filetypes = 'clojure,fennel,scheme,lisp,timl'
+endif
+
+if s:has_plugin('clojure.vim')
+  let g:clojure_align_subforms = 1
 endif
 
 if s:has_plugin('rainbow')
@@ -358,6 +364,8 @@ if s:has_plugin('vim-which-key')
 endif
 
 if s:has_plugin('vim-polyglot')
+  let g:polyglot_disabled = ['clojure']
+
   " RST
   let g:rst_fold_enabled = 1
 endif
