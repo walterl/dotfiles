@@ -91,9 +91,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'justinmk/vim-sneak'
   Plug 'Konfekt/FastFold'
   Plug 'liuchengxu/vim-which-key'
+  Plug 'luochen1990/rainbow'
   Plug 'majutsushi/tagbar'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'radenling/vim-dispatch-neovim'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
@@ -102,9 +104,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-dispatch'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/Smart-Home-Key'
+  Plug 'walterl/centerfold'
   Plug 'whiteinge/diffconflicts'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
@@ -137,16 +141,12 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'w0rp/ale'
 
     " Clojure
-    Plug 'tpope/vim-dispatch'
-    Plug 'radenling/vim-dispatch-neovim'
     Plug 'clojure-vim/vim-jack-in'
     Plug 'clojure-vim/async-clj-omni'
     Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-    Plug 'luochen1990/rainbow'
     Plug 'guns/vim-sexp', {'for': ['clojure', 'fennel']}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['clojure', 'fennel']}
     Plug 'Olical/conjure'
-    Plug 'walterl/centerfold'
     " Fennel
     Plug 'Olical/aniseed'
     Plug 'bakpakin/fennel.vim'
