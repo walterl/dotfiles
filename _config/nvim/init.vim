@@ -77,6 +77,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'AndrewRadev/sideways.vim'
   Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'chaoren/vim-wordmotion'
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'editorconfig/editorconfig-vim'
@@ -94,12 +95,15 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'luochen1990/rainbow'
   Plug 'majutsushi/tagbar'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'Olical/AnsiEsc'
   Plug 'jiangmiao/auto-pairs'
   Plug 'radenling/vim-dispatch-neovim'
   Plug 'scrooloose/nerdtree'
+  Plug 'simnalamburt/vim-mundo'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
@@ -344,6 +348,10 @@ if s:has_plugin('vim-markdown')
   let g:vim_markdown_new_list_item_indent = 2
 endif
 
+if s:has_plugin('vim-mundo')
+  nmap <Leader>u :MundoToggle<CR>
+endif
+
 if s:has_plugin('Smart-Home-Key')
   " Use SmartHomeKey to toggle between ^ and 0
   nmap <silent> 0 :SmartHomeKey<CR>
@@ -498,6 +506,7 @@ nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
 nmap <silent> <Leader>in2 :set ts=2 sts=2 sw=2<CR>
 nmap <silent> <Leader>in4 :set ts=4 sts=4 sw=4<CR>
 
+nmap <silent> <Leader>fc :AnsiEsc<CR>
 nmap <silent> <Leader>fm :set ft=markdown<CR>
 
 " Formatting with external tools
