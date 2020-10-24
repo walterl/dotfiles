@@ -448,6 +448,9 @@ nmap <Leader>V :vsplit<CR>
 " Toggle folds
 nnoremap <C-f> za
 
+" Open all folds for top-level fold under the cursor
+nmap zB zCzO
+
 " Change working directory to the current file's directory
 " (http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file)
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
