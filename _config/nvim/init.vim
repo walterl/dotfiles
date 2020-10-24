@@ -112,7 +112,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/Smart-Home-Key'
-  Plug 'walterl/centerfold'
   Plug 'whiteinge/diffconflicts'
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-session'
@@ -143,6 +142,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'SirVer/ultisnips'
     Plug 'w0rp/ale'
+    Plug 'walterl/centerfold'
 
     " Clojure
     Plug 'clojure-vim/clojure.vim'
