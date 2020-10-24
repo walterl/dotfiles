@@ -9,10 +9,13 @@
 .sw[op]
 .agignore
 .ignore
+
+.clj-kondo
 .coverage
 .ipynb_checkpoints
 .lsp
 .netrwhist
+.projections.json
 .ropeproject
 .vagrant
 .venv
