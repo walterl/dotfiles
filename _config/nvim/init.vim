@@ -167,6 +167,7 @@ call plug#begin('~/.config/nvim/plugged')
   endif
 
   " vim-polyglot can misbehave if loaded before language specific plugins
+  let g:polyglot_disabled = ['clojure']
   Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
@@ -372,8 +373,6 @@ if s:has_plugin('vim-which-key')
 endif
 
 if s:has_plugin('vim-polyglot')
-  let g:polyglot_disabled = ['clojure']
-
   " RST
   let g:rst_fold_enabled = 1
 endif
