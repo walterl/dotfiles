@@ -443,6 +443,11 @@ nnoremap ]r gt
 nmap <C-S-PageUp> :tabm -<CR>
 nmap <C-S-PageDown> :tabm +<CR>
 
+" Duplicate tab
+nmap <Leader>td <C-w>s<C-w>T
+" New tab
+nmap <Leader>tn :tabe<CR>
+
 " Search in visual selection
 vnoremap / <Esc>/\%V
 
