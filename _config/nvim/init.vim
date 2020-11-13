@@ -78,7 +78,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'AndrewRadev/sideways.vim'
   Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'chaoren/vim-wordmotion'
   Plug 'chrisbra/NrrwRgn'
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'editorconfig/editorconfig-vim'
