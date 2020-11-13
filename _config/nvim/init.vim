@@ -41,7 +41,8 @@ if has('nvim-0.5.0')
   set pumblend=20                 " Transparency for pop-up menu
   set winblend=20                 " Transparency for floating windows
 endif
-let mapleader = "\<Space>"        " Remap <Leader> to <Space>
+let mapleader = "\<Space>"
+let maplocalleader = "\<BS>"
 match ErrorMsg '\s\+$'            " Highlight trailing space
 
 let g:python_host_prog = '/usr/bin/python'
