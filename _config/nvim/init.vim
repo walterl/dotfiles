@@ -509,6 +509,7 @@ nnoremap Y y$
 nmap <silent> <Leader>ds :%s/\s\+$//e<CR>
 " Delete ANSI color coding: http://vim.1045645.n5.nabble.com/how-to-strip-color-code-from-stdin-tp1174762p1174771.html
 nmap <silent> <Leader>dc :%s/\e\[[[:digit:];]*m//g<CR>
+vmap <silent> <Leader>dc :s/\e\[[[:digit:];]*m//g<CR>
 
 " Set indentations
 nmap <silent> <Leader>in2 :set ts=2 sts=2 sw=2<CR>
