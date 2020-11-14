@@ -117,3 +117,4 @@ bindkey -M viins "^[6" digit-argument
 bindkey -M viins "^[7" digit-argument
 bindkey -M viins "^[8" digit-argument
 bindkey -M viins "^[9" digit-argument
+bindkey -M vicmd "z" edit-command-line
