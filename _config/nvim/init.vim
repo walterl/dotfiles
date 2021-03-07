@@ -93,7 +93,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Konfekt/FastFold'
   Plug 'liuchengxu/vim-which-key'
   Plug 'luochen1990/rainbow'
-  Plug 'majutsushi/tagbar'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'Olical/AnsiEsc'
   Plug 'jiangmiao/auto-pairs'
