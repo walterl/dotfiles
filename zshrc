@@ -12,8 +12,13 @@ plugins=(autojump command-not-found django dotenv git git-hubflow lein pip pytho
 source $ZSH/oh-my-zsh.sh
 # END oh-my-zsh
 
-source $HOME/.liquidpromptrc
-source $HOME/.liquidprompt/liquidprompt
+# Fancy prompt
+if [ -x $HOME/.local/bin/starship ]; then
+	eval "$($HOME/.local/bin/starship init zsh)"
+else
+	source $HOME/.liquidpromptrc
+	source $HOME/.liquidprompt/liquidprompt
+fi
 
 # zsh options
 unsetopt share_history
