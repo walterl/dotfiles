@@ -548,6 +548,9 @@ cnoremap <C-k> <Up>
 " <M-b>/<M-f> to move back/forward a word, in command mode
 cnoremap <M-b> <C-Left>
 cnoremap <M-f> <C-Right>
+
+" Insert date and time
+nnoremap <Leader>Id "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
