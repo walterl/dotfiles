@@ -234,10 +234,6 @@ if s:has_plugin('vim-sexp')
   let g:sexp_filetypes = 'clojure,fennel,scheme,lisp,timl'
 endif
 
-if s:has_plugin('clojure.vim')
-  let g:clojure_align_subforms = 1
-endif
-
 if s:has_plugin('rainbow')
   let g:rainbow_active = 1 " Toggle with :RainbowToggle
 endif
