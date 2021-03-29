@@ -488,11 +488,6 @@ map <silent> <C-k> zk
 " Tag navigation
 inoremap <Nul> <C-x><C-o>
 
-" `cc` the line above the current one without leaving insert mode
-inoremap <C-k> <C-o>k<C-o>cc
-" Ctrl+j moves cursor to the end of the line below, while in insert mode
-inoremap <C-j> <C-o>j<C-o>$
-
 " Go to start/end of line with H and L
 " From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
 noremap H ^
