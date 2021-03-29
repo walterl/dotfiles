@@ -197,6 +197,10 @@ if HasPlugin('ale')
   nmap ]a :ALENext<CR>
 endif
 
+if HasPlugin('centerfold')
+  nmap <silent> <Leader>jj vaF:CenterFold<CR>zCzO
+endif
+
 if HasPlugin('coc.nvim')
   let g:coc_global_extensions = ['coc-conjure']
 
