@@ -200,10 +200,12 @@ endif
 if s:has_plugin('coc.nvim')
   let g:coc_global_extensions = ['coc-conjure']
 
-  nmap <silent> <C-g>d <Plug>(coc-definition)
-  nmap <silent> <Leader>or <Plug>(coc-references)
-  nmap <silent> <Leader>oR <Plug>(coc-rename)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gr <Plug>(coc-references)
   nmap <silent> gR <Plug>(coc-rename)
+
+  nmap <silent> [g <Plug>(coc-diagnostics-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostics-next)
 
   nmap <silent> <Leader>of :call CocAction('format')<CR>
   xmap <silent> <Leader>of <Plug>(coc-format-selected)
@@ -214,12 +216,11 @@ if s:has_plugin('coc.nvim')
   vmap <silent> <Leader>oa <Plug>(coc-codeaction-selected)
 
   nmap <silent> <Leader>oF <Plug>(coc-fix-current)
+  nmap <silent> K <Cmd>call CocActionAsync('doHover')<CR>
 
-  nmap <silent> <Leader>ot <Plug>(coc-range-select)
-  nmap <silent> <Leader>oT <Plug>(coc-range-select-backword)
+  nmap <silent> <Leader>os <Plug>(coc-range-select)
+  nmap <silent> <Leader>oS <Plug>(coc-range-select-backword)
 
-  nmap <silent> ]g :CocNext<CR>
-  nmap <silent> [g :CocPrev<CR>
   nmap <silent> <Leader>olr :CocListResume<CR>
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -228,6 +229,7 @@ endif
 if s:has_plugin('conjure')
   let g:conjure#log#hud#height = 0.6
   let g:conjure#client#clojure#nrepl#completion#with_context = v:false
+  let g:conjure#mapping#doc_word = ["KK"]
 endif
 
 if s:has_plugin('vim-sexp')
