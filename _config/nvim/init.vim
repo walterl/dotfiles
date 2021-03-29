@@ -63,7 +63,7 @@ function! s:flag_is_set(flag)
   return index(g:nvim_env_flags, a:flag) > -1
 endfunction
 
-function! s:has_plugin(plugin)
+function! HasPlugin(plugin)
   return index(keys(g:plugs), a:plugin) > -1
 endfunction
 " }}}
@@ -192,12 +192,12 @@ colorscheme PaperColor
 " {{{ Plugin settings
 " Settings and mappings related to plug-ins
 
-if s:has_plugin('ale')
+if HasPlugin('ale')
   nmap [a :ALEPrevious<CR>
   nmap ]a :ALENext<CR>
 endif
 
-if s:has_plugin('coc.nvim')
+if HasPlugin('coc.nvim')
   let g:coc_global_extensions = ['coc-conjure']
 
   nmap <silent> gd <Plug>(coc-definition)
@@ -226,25 +226,25 @@ if s:has_plugin('coc.nvim')
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
 
-if s:has_plugin('conjure')
+if HasPlugin('conjure')
   let g:conjure#log#hud#height = 0.6
   let g:conjure#client#clojure#nrepl#completion#with_context = v:false
   let g:conjure#mapping#doc_word = ["KK"]
 endif
 
-if s:has_plugin('vim-sexp')
+if HasPlugin('vim-sexp')
   let g:sexp_filetypes = 'clojure,fennel,scheme,lisp,timl'
 endif
 
-if s:has_plugin('rainbow')
+if HasPlugin('rainbow')
   let g:rainbow_active = 1 " Toggle with :RainbowToggle
 endif
 
-if s:has_plugin('supertab')
+if HasPlugin('supertab')
   let g:SuperTabDefaultCompletionType = '<C-n>'
 endif
 
-if s:has_plugin('fzf')
+if HasPlugin('fzf')
   map <silent> ,f :Files<CR>
   map <silent> ,d :Files %:p:h<CR>
   map <silent> ,b :Buffers<CR>
@@ -264,48 +264,48 @@ if s:has_plugin('fzf')
   map <silent> ,/ :History /<CR>
 endif
 
-if s:has_plugin('vim-easy-align')
+if HasPlugin('vim-easy-align')
   nmap <Leader>aa <Plug>(EasyAlign)
   vmap <Enter> <Plug>(EasyAlign)
 endif
 
-if s:has_plugin('editorconfig-vim')
+if HasPlugin('editorconfig-vim')
   let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 endif
 
-if s:has_plugin('nerdtree')
+if HasPlugin('nerdtree')
   map <silent> <F2> :NERDTreeToggle<CR>
 
   let NERDTreeIgnore=['\~$', '\.exe$', '\.py[co]$', '\.s?o$', '\.sw[op]$']
   let NERDTreeShowBookmarks = 1
 endif
 
-if s:has_plugin('tagbar')
+if HasPlugin('tagbar')
   map <silent> <F3> :TagbarToggle<CR>
 endif
 
-if s:has_plugin('vim-fugitive')
+if HasPlugin('vim-fugitive')
   nmap <Leader>gb :Gblame<CR>
   nmap <Leader>gd :Gdiff<CR>
   nmap <Leader>gc :Gcommit<CR>
   nmap <Leader>gs :tab Gstatus<CR>
 endif
 
-if s:has_plugin('git-time-lapse')
+if HasPlugin('git-time-lapse')
   nmap <Leader>gt :call TimeLapse()<CR>
 endif
 
-if s:has_plugin('vim-session')
+if HasPlugin('vim-session')
   let g:session_directory = '~/.local/share/nvim/sessions'
   let g:session_autosave = 'no'
 endif
 
-if s:has_plugin('NrrwRgn')
+if HasPlugin('NrrwRgn')
   let g:nrrw_rgn_vert = 1
   let g:nrrw_rgn_wdth = 80
 endif
 
-if s:has_plugin('vim-airline')
+if HasPlugin('vim-airline')
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 0
   let g:airline#extensions#tabline#show_splits = 0
@@ -314,32 +314,32 @@ if s:has_plugin('vim-airline')
   let g:airline#extensions#tabline#tab_nr_type = 1
 endif
 
-if s:has_plugin('ultisnips')
+if HasPlugin('ultisnips')
   let g:UltiSnipsExpandTrigger='<C-]>'
   let g:UltiSnipsJumpForwardTrigger='<C-]>'
   let g:UltiSnipsJumpBackwardTrigger='<C-[>'
 endif
 
-if s:has_plugin('sideways.vim')
+if HasPlugin('sideways.vim')
   nnoremap <Leader>ah :SidewaysLeft<CR>
   nnoremap <Leader>al :SidewaysRight<CR>
 endif
 
-if s:has_plugin('SimpylFold')
+if HasPlugin('SimpylFold')
   " Not sure why, but this keeps vim from stalling at 100% CPU when opening
   " certain Python files.
   let g:SimpylFold_docstring_preview = 1
 endif
 
-if s:has_plugin('vim-gitgutter')
+if HasPlugin('vim-gitgutter')
   nmap <Leader>gg :GitGutterToggle<CR>
 endif
 
-if s:has_plugin('vim-gutentags')
+if HasPlugin('vim-gutentags')
   let g:gutentags_ctags_exclude = ['.git', 'node_modules']
 endif
 
-if s:has_plugin('vim-markdown')
+if HasPlugin('vim-markdown')
   let g:vim_markdown_no_default_key_mappings = 1
   " let g:vim_markdown_folding_level = 3
   let g:vim_markdown_follow_anchor = 1
@@ -348,16 +348,16 @@ if s:has_plugin('vim-markdown')
   let g:vim_markdown_auto_insert_bullets = 0
 endif
 
-if s:has_plugin('vim-mundo')
+if HasPlugin('vim-mundo')
   nmap <Leader>u :MundoToggle<CR>
 endif
 
-if s:has_plugin('Smart-Home-Key')
+if HasPlugin('Smart-Home-Key')
   " Use SmartHomeKey to toggle between ^ and 0
   nmap <silent> 0 :SmartHomeKey<CR>
 endif
 
-if s:has_plugin('splitjoin.vim')
+if HasPlugin('splitjoin.vim')
   let g:splitjoin_split_mapping = ''
   let g:splitjoin_join_mapping = ''
 
@@ -365,20 +365,20 @@ if s:has_plugin('splitjoin.vim')
   nmap <Leader>sk :SplitjoinJoin<CR>
 endif
 
-if s:has_plugin('vim-which-key')
+if HasPlugin('vim-which-key')
   if !exists('g:loaded_vim_which_key')
     nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
   endif
 endif
 
-if s:has_plugin('vim-polyglot')
+if HasPlugin('vim-polyglot')
   " RST
   let g:rst_fold_enabled = 1
   " Terraform
   let g:terraform_fmt_on_save = 1
 endif
 
-if s:has_plugin('vim-test')
+if HasPlugin('vim-test')
   nmap <silent> <Leader>Tt :TestNearest<CR>
   nmap <silent> <Leader>TT :TestFile<CR>
   nmap <silent> <Leader>Ta :TestSuite<CR>
@@ -386,7 +386,7 @@ if s:has_plugin('vim-test')
   nmap <silent> <Leader>Tg :TestVisit<CR>
 endif
 
-if s:has_plugin('vim-github-link')
+if HasPlugin('vim-github-link')
   vmap <Leader>YB :GetCurrentBranchLink<CR>
   vmap <Leader>YC :GetCurrentCommitLink<CR>
 endif
