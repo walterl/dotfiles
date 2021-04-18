@@ -184,6 +184,16 @@ if has('termguicolors')
   set termguicolors
 endif
 
+let g:PaperColor_Theme_Options = {
+\  'theme': {
+\    'default.dark': {
+\      'override': {
+\        'folded_fg': ['#808080', '244'],
+\        'folded_bg': ['#303030', '236']
+\      }
+\    }
+\  }
+\}
 colorscheme PaperColor
 " }}}
 
@@ -243,6 +253,7 @@ endif
 
 if HasPlugin('rainbow')
   let g:rainbow_active = 1 " Toggle with :RainbowToggle
+  let g:rainbow_conf = {'guifgs': ['DeepSkyBlue', 'darkorange3', 'LawnGreen', 'ivory1', 'firebrick', 'MistyRose1', 'maroon1']}
 endif
 
 if HasPlugin('supertab')
