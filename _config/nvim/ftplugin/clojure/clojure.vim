@@ -27,3 +27,7 @@ endif
 " Don't automatically insert closing ' or `
 let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 let b:coc_diagnostic_disable = 1
+if executable('jet')
+  " Format with jet
+  nmap <Leader>Fe <Cmd>%!jet --pretty<CR>
+endif
