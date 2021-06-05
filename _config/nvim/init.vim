@@ -562,7 +562,10 @@ cnoremap <M-b> <C-Left>
 cnoremap <M-f> <C-Right>
 
 " Insert date and time
-nnoremap <Leader>Id "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
+nnoremap <Leader>IT "=strftime("%Y-%m-%d %H:%M:%S")<CR>p
+nnoremap <Leader>Id "=strftime("%Y-%m-%d")<CR>p
+nnoremap <Leader>Iy <Cmd>r!date '+\%Y-\%m-\%d' -d yesterday<CR>
+nnoremap <Leader>It "=strftime("%H:%M:%S")<CR>p
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
