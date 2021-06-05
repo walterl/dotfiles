@@ -1,5 +1,14 @@
 set foldmethod=syntax
 
+if HasPlugin('coc.nvim')
+  let b:coc_diagnostic_disable = 1
+endif
+
+if HasPlugin('auto-pairs')
+  " Don't automatically insert closing ' or `
+  let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
+endif
+
 " cloJure mappings
 nmap <Leader>jc (i#_<Esc>
 
@@ -24,9 +33,6 @@ if HasPlugin('conjure')
   imap <silent> <C-k> <Cmd>ConjureDocWord<CR>
 endif
 
-" Don't automatically insert closing ' or `
-let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
-let b:coc_diagnostic_disable = 1
 if executable('jet')
   " Format with jet
   nmap <Leader>Fe <Cmd>%!jet --pretty<CR>
