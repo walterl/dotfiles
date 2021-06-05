@@ -1,4 +1,4 @@
-set foldmethod=syntax
+setlocal foldmethod=syntax
 
 if HasPlugin('coc.nvim')
   let b:coc_diagnostic_disable = 1
