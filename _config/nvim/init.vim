@@ -195,6 +195,9 @@ let g:PaperColor_Theme_Options = {
 \  }
 \}
 colorscheme PaperColor
+
+" Make background transparent
+hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
