@@ -149,11 +149,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'clojure-vim/clojure.vim'
     Plug 'clojure-vim/vim-jack-in'
     Plug 'clojure-vim/async-clj-omni'
-    Plug 'tpope/vim-fireplace', {'for': 'clojure'}
     Plug 'guns/vim-clojure-highlight'
     Plug 'guns/vim-sexp', {'for': ['clojure', 'fennel']}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['clojure', 'fennel']}
     Plug 'Olical/conjure'
+    Plug 'walterl/conjure-macroexpand'
     " Fennel
     Plug 'Olical/aniseed'
     Plug 'bakpakin/fennel.vim'
