@@ -5,13 +5,13 @@
 
 set -E
 
-e_header()   { echo -e "\n\033[1m$@\033[0m"; }
-e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
-e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
-e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
+e_header()  { echo -e "\n\033[1m$@\033[0m"; }
+e_success() { echo -e " \033[1;32m✔\033[0m  $@"; }
+e_error()   { echo -e " \033[1;31m✖\033[0m  $@"; }
+e_arrow()   { echo -e " \033[1;33m➜\033[0m  $@"; }
 
 DOTHOME=$(echo $(cd "`dirname $0`" && pwd -P))
-BACKDIR="$DOTHOME/backup/dotfiles/$(date "+%Y_%m_%d-%H_%M_%S")/"
+BACKDIR="$DOTHOME/backup/dotfiles/$(date "+%Y_%m_%d-%H_%M_%S")"
 THISFILE=$DOTHOME/$(basename $0)
 UNLINK=
 if [ "$1" = "-r" ]; then
@@ -22,12 +22,9 @@ run() {
   if [ -n "$UNLINK" ]; then
     e_header "Unlinking files from home directory..."
     unlink_dotfiles
-    unlink_subdir_files
   else
     e_header "Linking files into home directory..."
     link_dotfiles
-    link_subdir_files
-
     e_header "Performing post-link initializations..."
     post_link_cmds
   fi
@@ -35,100 +32,141 @@ run() {
 }
 
 link_dotfiles() {
-  local srcdir=${1:-$DOTHOME}
-  local destdir=${2:-$HOME}
-  local backdir=${3:-$BACKDIR}
-  if [[ "$destdir" == "$HOME" ]]; then
-    local prefix="."
-  else
-    local prefix=""
-  fi
+  mklink "bashrc"
+  mklink "dircolors"
+  mklink "gitconfig"
+  mklink "gitexcludes"
+  # I haven't used hg in ages
+  # mklink "hgignore"
+  # mklink "hgrc"
+  # mklink "hgshelve.py"
+  mklink "liquidprompt"
+  mklink "liquidpromptrc"
+  mklink "oh-my-zsh"
+  mklink "startup.py" # Controlled by $PYTHONSTARTUP
+  mklink "tmux.conf"
+  mklink "vimrc"
+  mklink "zshrc"
 
-  cd "$destdir"
-  for file in $srcdir/[a-zA-Z]*; do
-    local base="$(basename $file)"
-    local dest="$destdir/$prefix$base"
+  mklink "_config/alacritty" ".config"
+  mklink "_config/nvim" ".config"
+  mklink "_config/starship.toml" ".config"
+  mklink "_config/terminator" ".config"
 
-    # Skip if $file refers to this file.
-    if test "$file" -ef "$THISFILE"; then
-      continue
-    fi
-
-    # Skip if link is the same.
-    if test "$file" -ef "$dest"; then
-      e_success "$base"
-      continue
-    fi
-
-    # Back up file if it exists.
-    if [[ -e "$dest" ]]; then
-      e_arrow "Backing up $destdir/$base."
-      inform_about_backup=1
-      mkdir -p "$BACKDIR"
-      mv "$dest" "$BACKDIR"
-    fi
-
-    ln -sf "${file}" "$dest"
-    e_success "$base"
-  done
+  mklink "_fonts/DejaVu Sans Mono for Powerline.ttf" ".fonts"
+  mklink "_fonts/DejaVu Sans Mono Bold for Powerline.ttf" ".fonts"
+  mklink "_fonts/DejaVu Sans Mono Bold Oblique for Powerline.ttf" ".fonts"
+  mklink "_fonts/DejaVu Sans Mono Oblique for Powerline.ttf" ".fonts"
+  mklink "_fonts/PowerlineSymbols.otf" ".fonts"
 }
 
-link_subdir_files() {
-  for subdir in $DOTHOME/_*; do
-    [ -d $subdir ] || continue # Only process sub-dirs (not files)
-    local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
-    [ -d $dest ] || mkdir -p $dest
-    link_dotfiles $subdir $dest "$BACKDIR/$dest"
-  done
+unlink_dotfiles() {
+  rmlink "bashrc"
+  rmlink "dircolors"
+  rmlink "gitconfig"
+  rmlink "gitexcludes"
+  # I haven't used hg in ages
+  # rmlink "hgignore"
+  # rmlink "hgrc"
+  # rmlink "hgshelve.py"
+  rmlink "liquidprompt"
+  rmlink "liquidpromptrc"
+  rmlink "oh-my-zsh"
+  rmlink "startup.py" # Controlled by $PYTHONSTARTUP
+  rmlink "tmux.conf"
+  rmlink "vimrc"
+  rmlink "zshrc"
+
+  rmlink "_config/alacritty" ".config"
+  rmlink "_config/nvim" ".config"
+  rmlink "_config/starship.toml" ".config"
+  rmlink "_config/terminator" ".config"
+
+  rmlink "_fonts/DejaVu Sans Mono for Powerline.ttf" ".fonts"
+  rmlink "_fonts/DejaVu Sans Mono Bold for Powerline.ttf" ".fonts"
+  rmlink "_fonts/DejaVu Sans Mono Bold Oblique for Powerline.ttf" ".fonts"
+  rmlink "_fonts/DejaVu Sans Mono Oblique for Powerline.ttf" ".fonts"
+  rmlink "_fonts/PowerlineSymbols.otf" ".fonts"
+}
+
+mklink() {
+  local file="$DOTHOME/$1"
+  local reldestdir="$2"
+  local backdir="$BACKDIR/$2"
+
+  if [ -n "$reldestdir" ]; then
+    destdir="$HOME/$reldestdir"
+    [ ! -d "$destdir" ] && mkdir -p "$destdir"
+  else
+    destdir="$HOME"
+  fi
+
+  [[ "$destdir" == "$HOME" ]] && local prefix="." || local prefix=""
+
+  cd "$destdir"
+  local base="$(basename $file)"
+  local dest="$destdir/$prefix$base"
+  [ -n "$reldestdir" ] && local reldest="$reldestdir/$prefix$base" || local reldest="$prefix$base"
+
+  # Skip if $file refers to this file.
+  if test "$file" -ef "$THISFILE"; then
+    return
+  fi
+
+  # Skip if link is the same.
+  if test "$file" -ef "$dest"; then
+    e_arrow "$reldest [already exists]"
+    return
+  fi
+
+  # Back up file if it exists.
+  if [[ -e "$dest" ]]; then
+    e_arrow "Backing up $reldest."
+    inform_about_backup=1
+    mkdir -p "$backdir"
+    mv "$dest" "$backdir"
+  fi
+
+  ln -sf "${file}" "$dest"
+  e_success "$reldest"
+}
+
+rmlink() {
+  local file="$DOTHOME/$1"
+  local reldestdir="$2"
+
+  if [ -n "$reldestdir" ]; then
+    destdir="$HOME/$reldestdir"
+    [ ! -d "$destdir" ] && mkdir -p "$destdir"
+  else
+    destdir="$HOME"
+  fi
+
+  [[ "$destdir" == "$HOME" ]] && local prefix="." || local prefix=""
+
+  local base="$(basename $file)"
+  local dest="$destdir/$prefix$base"
+  [ -n "$reldestdir" ] && local reldest="$reldestdir/$prefix$base" || local reldest="$prefix$base"
+
+  if [ ! -L "$dest" -o "$(readlink -f "$dest")" != "$file" ]; then
+    e_arrow "$reldest [skipped]"
+    return
+  fi
+
+  rm "$dest"
+  e_error "$reldest"
 }
 
 post_link_cmds() {
-  if command -v nvim; then
+  if command -v nvim > /dev/null; then
     nvim +PlugInstall +qa
     e_success "nvim +PlugInstall +qa"
   fi
 }
 
-unlink_dotfiles() {
-  local srcdir=${1:-$DOTHOME}
-  local destdir=${2:-$HOME}
-  if [[ "$destdir" == "$HOME" ]]; then
-    local prefix="."
-  else
-    local prefix=""
-  fi
-
-  cd "$destdir"
-  for file in $srcdir/[a-zA-Z]*; do
-    local base="$(basename $file)"
-    local dest="$destdir/$prefix$base"
-
-    if [ ! -L "$dest" -o "$(readlink -f "$dest")" != "$file" ]; then
-      continue
-    fi
-
-    rm "$dest"
-    e_error "$base"
-  done
-}
-
-unlink_subdir_files() {
-  for subdir in $DOTHOME/_*; do
-    [ -d $subdir ] || continue # Only process sub-dirs (not files)
-    local dest="$HOME/${${${subdir#$DOTHOME}/_/.}/#\//}"
-    unlink_dotfiles $subdir $dest
-  done
-}
-
 print_messages() {
   if [[ $inform_about_backup == 1 ]]; then
     echo "\nBackups were moved to $BACKDIR\n"
-  fi
-
-  if [[ $first_run == 1 ]]; then
-    echo "\nInstallation complete! You can relogin now."
-  else
-    echo # it's visually better ;)
   fi
 }
 
