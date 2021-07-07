@@ -1,0 +1,28 @@
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+
+[username]
+format = "[$user]($style):"
+show_always = true
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[git_status]
+modified = "Δ${count}"
+conflicted = "⚠${count}"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = "∑${count}"
+style = "bold 208"
+
+[nodejs]
+disabled = true
+
+[python]
+format = '[${symbol}${pyenv_prefix}${version}( {$virtualenv})]($style) '
+
+[time]
+disabled = false
