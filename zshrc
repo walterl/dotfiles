@@ -12,9 +12,15 @@ plugins=(autojump command-not-found django dotenv git git-hubflow lein pip pytho
 source $ZSH/oh-my-zsh.sh
 # END oh-my-zsh
 
+# Setup paths
+[ -d $HOME/bin ]         && export PATH="$PATH:$HOME/bin"
+[ -d $HOME/.local/bin ]  && export PATH="$PATH:$HOME/.local/bin"
+[ -d $HOME/.rvm/bin ]    && export PATH="$PATH:$HOME/.rvm/bin"
+[ -d /usr/local/go/bin ] && export PATH="$PATH:/usr/local/go/bin"
+
 # Fancy prompt
-if [ -x $HOME/.local/bin/starship ]; then
-	eval "$($HOME/.local/bin/starship init zsh)"
+if command -v starship > /dev/null; then
+	eval "$(starship init zsh)"
 else
 	source $HOME/.liquidpromptrc
 	source $HOME/.liquidprompt/liquidprompt
@@ -95,11 +101,6 @@ alias ag='ag --nogroup'
 # Set umask to make files non-world readable by default
 umask 027
 
-# Setup paths
-[ -d $HOME/bin ]               && export PATH="$PATH:$HOME/bin"
-[ -d $HOME/.local/bin ]        && export PATH="$PATH:$HOME/.local/bin"
-[ -d $HOME/.rvm/bin ]          && export PATH="$PATH:$HOME/.rvm/bin"
-[ -d /usr/local/go/bin ]       && export PATH="$PATH:/usr/local/go/bin"
 # Add relative node bin directories
 export PATH="$PATH:node_modules/.bin"
 [ -d $HOME/node_modules/.bin ] && export PATH="$PATH:$HOME/node_modules/.bin"
