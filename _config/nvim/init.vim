@@ -386,8 +386,6 @@ endif
 if HasPlugin('vim-polyglot')
   " RST
   let g:rst_fold_enabled = 1
-  " Terraform
-  let g:terraform_fmt_on_save = 1
 endif
 
 if HasPlugin('vim-test')
