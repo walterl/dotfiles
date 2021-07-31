@@ -27,6 +27,8 @@ run() {
     link_dotfiles
     e_header "Performing post-link initializations..."
     post_link_cmds
+    e_header "Loading dconf configs..."
+    load_dconf
   fi
   print_messages
 }
@@ -162,6 +164,10 @@ post_link_cmds() {
     nvim +PlugInstall +qa
     e_success "nvim +PlugInstall +qa"
   fi
+}
+
+load_dconf() {
+  dconf load /apps/guake/ < dconf/guake.dconf
 }
 
 print_messages() {
