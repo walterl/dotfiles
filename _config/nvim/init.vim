@@ -207,6 +207,7 @@ if HasPlugin('centerfold')
 endif
 
 if HasPlugin('coc.nvim')
+  let g:coc_default_semantic_highlight_groups = 1
   let g:coc_global_extensions = ['coc-conjure', 'coc-clojure']
 
   nmap <silent> gd <Plug>(coc-definition)
