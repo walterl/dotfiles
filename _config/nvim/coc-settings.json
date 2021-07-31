@@ -1,4 +1,5 @@
 {
+  "coc.preferences.jumpCommand": "split",
   "suggest.snippetIndicator": "🍦",
 
   "python.linting.pylintEnabled": false,
