@@ -73,7 +73,7 @@ endfunction
 " {{{ Plugins
 call plug#begin('~/.config/nvim/plugged')
   " Colors
-  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'drewtempelmeyer/palenight.vim'
 
   " Editing enhancement
   Plug 'tpope/vim-sensible'
@@ -184,17 +184,9 @@ if has('termguicolors')
   set termguicolors
 endif
 
-let g:PaperColor_Theme_Options = {
-\  'theme': {
-\    'default.dark': {
-\      'override': {
-\        'folded_fg': ['#808080', '244'],
-\        'folded_bg': ['#303030', '236']
-\      }
-\    }
-\  }
-\}
-colorscheme PaperColor
+colorscheme palenight
+call palenight#set_highlight('CocSem_type', {'fg': palenight#GetColors()['dark_red']})
+call palenight#set_highlight('CocSem_variable', {'fg': palenight#GetColors()['yellow']})
 
 " Make background transparent
 hi Normal guibg=NONE ctermbg=NONE
