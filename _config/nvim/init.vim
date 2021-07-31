@@ -96,6 +96,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'luochen1990/rainbow'
   Plug 'machakann/vim-highlightedyank'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'p00f/nvim-ts-rainbow'
   Plug 'Olical/AnsiEsc'
   Plug 'jiangmiao/auto-pairs'
   Plug 'radenling/vim-dispatch-neovim'
@@ -196,6 +198,26 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " {{{ Plugin settings
 " Settings and mappings related to plug-ins
+
+if HasPlugin('nvim-treesitter-DISABLED')
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = true,
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    colors = {'DeepSkyBlue', 'darkorange3', 'LawnGreen', 'ivory1', 'firebrick', 'MistyRose1', 'maroon1'},
+  }
+}
+EOF
+endif
 
 if HasPlugin('ale')
   nmap [a :ALEPrevious<CR>
