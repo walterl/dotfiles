@@ -6,6 +6,7 @@
   "python.linting.enabled": true,
 
   "languageserver": {
+    /* Superceded by coc-clojure
     "clojure-lsp": {
       "command": "clojure-lsp",
       "filetypes": ["clojure"],
@@ -14,6 +15,7 @@
       "initializationOptions": {
       }
     },
+    */
     "go-langserver": {
       "command": "go-langserver",
       "filetypes": ["go"]
