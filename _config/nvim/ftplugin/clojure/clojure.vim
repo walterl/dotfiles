@@ -1,5 +1,8 @@
 setlocal foldmethod=syntax
 
+" Turn keyword into keyword-var map entry: turns `:foo|` (| is cursor position) into `:foo foo`
+imap <C-l> <Esc>BywPlr<Space>E
+
 if HasPlugin('ale')
   ALEDisableBuffer
 endif
