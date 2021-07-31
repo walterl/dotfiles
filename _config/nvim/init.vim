@@ -213,8 +213,8 @@ if HasPlugin('coc.nvim')
   nmap <silent> gr <Plug>(coc-references)
   nmap <silent> gR <Plug>(coc-rename)
 
-  nmap <silent> [g <Plug>(coc-diagnostics-prev)
-  nmap <silent> ]g <Plug>(coc-diagnostics-next)
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> <Leader>oD :call CocAction('diagnosticToggleBuffer')<CR>
 
   nmap <silent> <Leader>of :call CocAction('format')<CR>
