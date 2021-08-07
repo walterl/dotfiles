@@ -43,5 +43,10 @@ endif
 
 if executable('jet')
   " Format with jet
-  nmap <Leader>Fe <Cmd>%!jet --pretty<CR>
+  nnoremap <Leader>Fe <Cmd>%!jet --pretty<CR>
+  vnoremap <silent> <leader>E y<Cmd>call PrettyJetSplit()<CR>
+  " Shortcut: in normal mode, placing your cursor inside the top level of an EDN
+  " map and using this mapping results in visually selecting the EDN map and
+  " doing the PrettyJetSplit thing above.
+  nnoremap <silent> <leader>EF va}y<Cmd>call PrettyJetSplit()<CR>
 endif

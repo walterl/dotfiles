@@ -19,9 +19,3 @@ function! PrettyJetSplit() abort
   %!jet --pretty
   normal! zR
 endfunction
-
-vnoremap <silent> <leader>E y<Cmd>call PrettyJetSplit()<CR>
-" Shortcut: in normal mode, placing your cursor inside the top level of an EDN
-" map and using this mapping results in visually selecting the EDN map and doing
-" the PrettyJetSplit thing above.
-nnoremap <silent> <leader>EF va}y<Cmd>call PrettyJetSplit()<CR>
