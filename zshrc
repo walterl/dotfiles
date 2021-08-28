@@ -21,9 +21,6 @@ source $ZSH/oh-my-zsh.sh
 # Fancy prompt
 if command -v starship > /dev/null; then
 	eval "$(starship init zsh)"
-else
-	source $HOME/.liquidpromptrc
-	source $HOME/.liquidprompt/liquidprompt
 fi
 
 # zsh options

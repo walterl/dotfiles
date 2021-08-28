@@ -42,8 +42,6 @@ link_dotfiles() {
   # mklink "hgignore"
   # mklink "hgrc"
   # mklink "hgshelve.py"
-  mklink "liquidprompt"
-  mklink "liquidpromptrc"
   mklink "oh-my-zsh"
   mklink "startup.py" # Controlled by $PYTHONSTARTUP
   mklink "tmux.conf"
@@ -71,8 +69,6 @@ unlink_dotfiles() {
   # rmlink "hgignore"
   # rmlink "hgrc"
   # rmlink "hgshelve.py"
-  rmlink "liquidprompt"
-  rmlink "liquidpromptrc"
   rmlink "oh-my-zsh"
   rmlink "startup.py" # Controlled by $PYTHONSTARTUP
   rmlink "tmux.conf"
