@@ -1,11 +1,10 @@
 {
-  "coc.preferences.jumpCommand": "split",
   "callHierarchy.splitCommand": "bel 10sp",
   "suggest.snippetIndicator": "🍦",
   "suggest.removeDuplicateItems": true,
   "coc.source.conjure.priority": 999999,
 
-  "python.linting.pylintEnabled": false,
+  "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
 
