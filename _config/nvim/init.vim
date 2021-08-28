@@ -664,11 +664,4 @@ function! LocListToggle(forced)
 endfunction
 " }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" {{{ Insert copied HTML as Markdown
-map <Leader>M :r!xclip -selection clipboard -o -t text/html \| pandoc -f html -t markdown --no-wrap 2> /dev/null<CR>
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim:fdm=marker:sw=2
