@@ -99,6 +99,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'Olical/AnsiEsc'
   Plug 'jiangmiao/auto-pairs'
   Plug 'radenling/vim-dispatch-neovim'
+  Plug 'romainl/vim-qf'
   Plug 'scrooloose/nerdtree'
   Plug 'simnalamburt/vim-mundo'
   Plug 'tpope/vim-commentary'
