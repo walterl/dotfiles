@@ -228,6 +228,9 @@ if HasPlugin('coc.nvim')
   xmap <silent> <Leader>oa <Plug>(coc-codeaction-selected)
   vmap <silent> <Leader>oa <Plug>(coc-codeaction-selected)
 
+  nmap <silent> <Leader>oci :call CocAction('showIncomingCalls')<CR>
+  nmap <silent> <Leader>oco :call CocAction('showOutgoingCalls')<CR>
+
   nmap <silent> <Leader>oF <Plug>(coc-fix-current)
   nmap <silent> K <Cmd>call CocActionAsync('doHover')<CR>
 

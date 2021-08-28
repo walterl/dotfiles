@@ -1,5 +1,6 @@
 {
   "coc.preferences.jumpCommand": "split",
+  "callHierarchy.splitCommand": "bel 10sp",
   "suggest.snippetIndicator": "🍦",
 
   "python.linting.pylintEnabled": false,
