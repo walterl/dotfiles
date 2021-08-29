@@ -79,7 +79,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias rvim='gvim --remote-tab'
 alias wn='dict -d wn'
 # some more ls aliases
 alias ll='ls -alF'
@@ -122,7 +121,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export EDITOR="`which gvim` -f"
+export EDITOR="$(command -v nvim || command -v vim || command -v vi)"
 export PATH="$PATH:$HOME/.local/bin"
 export PYTHONPATH="$HOME/src/code/python:$HOME/.local/lib/python2.7/site-packages"
 
