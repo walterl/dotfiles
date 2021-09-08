@@ -185,6 +185,10 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" Slightly lighter (and bluer) grey, to increase contrast with dark/greyish backgrounds
+let g:palenight_color_overrides = {
+  \ "comment_grey": { "gui": "#7583D1", "cterm": "59", "cterm16": "15" }
+  \}
 colorscheme palenight
 call palenight#set_highlight('CocSem_type', {'fg': palenight#GetColors()['dark_red']})
 call palenight#set_highlight('CocSem_variable', {'fg': palenight#GetColors()['yellow']})
