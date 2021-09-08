@@ -303,10 +303,10 @@ if HasPlugin('tagbar')
 endif
 
 if HasPlugin('vim-fugitive')
-  nmap <Leader>gb :Gblame<CR>
-  nmap <Leader>gd :Gdiff<CR>
-  nmap <Leader>gc :Gcommit<CR>
-  nmap <Leader>gs :tab Gstatus<CR>
+  nmap <Leader>gb :Git blame<CR>
+  nmap <Leader>gd :Gdiffsplit<CR>
+  nmap <Leader>gc :Git commit<CR>
+  nmap <Leader>gs :tab Git<CR>
 endif
 
 if HasPlugin('git-time-lapse')
