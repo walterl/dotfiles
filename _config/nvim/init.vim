@@ -212,6 +212,7 @@ if HasPlugin('coc.nvim')
   let g:coc_global_extensions = ['coc-conjure', 'coc-clojure']
 
   nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gD <Cmd>call CocActionAsync('jumpDefinition', 'pedit')<CR>
   nmap <silent> gr <Plug>(coc-references-used)
   nmap <silent> g<C-r> <Plug>(coc-references)
   nmap <silent> gR <Plug>(coc-rename)
