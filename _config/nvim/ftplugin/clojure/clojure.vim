@@ -41,6 +41,10 @@ if HasPlugin('conjure')
   imap <silent> <C-k> <Cmd>ConjureDocWord<CR>
 endif
 
+if HasPlugin('coc.nvim')
+  setl formatexpr=CocAction('formatSelected')
+endif
+
 if executable('jet')
   " Format with jet
   nnoremap <Leader>Fe <Cmd>%!jet --pretty<CR>

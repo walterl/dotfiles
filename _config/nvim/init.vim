@@ -226,8 +226,6 @@ if HasPlugin('coc.nvim')
   nmap <silent> <Leader>oD :call CocAction('diagnosticToggleBuffer')<CR>
 
   nmap <silent> <Leader>of :call CocAction('format')<CR>
-  xmap <silent> <Leader>of <Plug>(coc-format-selected)
-  vmap <silent> <Leader>of <Plug>(coc-format-selected)
 
   nmap <silent> <Leader>oa <Plug>(coc-codeaction)
   xmap <silent> <Leader>oa <Plug>(coc-codeaction-selected)
