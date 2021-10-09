@@ -250,6 +250,10 @@ if HasPlugin('conjure')
   let g:conjure#client#clojure#nrepl#completion#with_context = v:false
   let g:conjure#mapping#doc_word = ["KK"]
   let g:conjure#highlight#enabled = v:true
+  if has('nvim')
+    " winhighlight is nvim-only
+    autocmd BufEnter conjure-log-*.cljc setlocal winhighlight=Normal:CocListWhiteBlack
+  endif
 endif
 
 if HasPlugin('vim-sexp')
