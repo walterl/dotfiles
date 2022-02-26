@@ -5,6 +5,7 @@ set number                        " Show current line number
 set nowrap                        " Don't wrap lines
 set showbreak=↪                   " But when wrapped, show nice linebreak char
 set ignorecase                    " Ignore case in searches
+set smartcase                     " ... unless search pattern contains upper case chars
 set hlsearch                      " Highlight matches as you type
 set bg=dark                       " I work on a console with a dark background
 set lazyredraw                    " Don't repaint when scripts are running
