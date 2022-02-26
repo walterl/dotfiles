@@ -50,6 +50,21 @@ if HasPlugin('coc.nvim')
   setl formatexpr=CocAction('formatSelected')
 endif
 
+if HasPlugin('vim-projectionist')
+  let g:projectionist_heuristics = {
+        \  "deps.edn|project.clj": {
+        \    "src/*.clj": {
+        \      "type": "source",
+        \      "alternate": "test/{}_test.clj"
+        \    },
+        \    "test/*_test.clj": {
+        \      "type": "test",
+        \      "alternate": "src/{}.clj"
+        \    }
+        \  }
+        \}
+endif
+
 if executable('jet')
   " Format with jet
   nnoremap <Leader>Fe <Cmd>%!jet --pretty<CR>
