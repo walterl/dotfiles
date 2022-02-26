@@ -12,8 +12,13 @@ if HasPlugin('auto-pairs')
   let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 endif
 
-" cloJure mappings
+""" cloJure mappings
+" Comment out current form
 nmap <Leader>jc (i#_<Esc>
+" Insert Rich comment above current line
+nmap <Leader>jC O(comment<CR><CR>,,,)<CR><Up><Up><Space><Space>
+" Use current element/form as value in new `let`-form
+nmap <Leader>jl <LocalLeader>wlet<Esc>W<LocalLeader>e[
 
 if HasPlugin('vim-fireplace')
   nmap <Leader>jd <Plug>FireplaceDjump
