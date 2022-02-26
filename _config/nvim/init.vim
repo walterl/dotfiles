@@ -467,7 +467,7 @@ nmap <C-S-PageUp> :tabm -<CR>
 nmap <C-S-PageDown> :tabm +<CR>
 
 " Duplicate tab
-nmap <Leader>td <C-w>s<C-w>T
+nmap <Leader>td :tab split
 " New tab
 nmap <Leader>tn :tabe<CR>
 
