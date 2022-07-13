@@ -150,7 +150,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     " Clojure
     Plug 'clojure-vim/clojure.vim'
     Plug 'clojure-vim/vim-jack-in'
-    Plug 'clojure-vim/async-clj-omni'
     Plug 'guns/vim-clojure-highlight'
     Plug 'guns/vim-sexp', {'for': ['clojure', 'fennel']}
     Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['clojure', 'fennel']}
@@ -168,10 +167,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     " Code completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endif
-
-  " vim-polyglot can misbehave if loaded before language specific plugins
-  let g:polyglot_disabled = ['clojure']
-  Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 
@@ -396,11 +391,6 @@ if HasPlugin('vim-which-key')
   if !exists('g:loaded_vim_which_key')
     nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
   endif
-endif
-
-if HasPlugin('vim-polyglot')
-  " RST
-  let g:rst_fold_enabled = 1
 endif
 
 if HasPlugin('vim-test')
