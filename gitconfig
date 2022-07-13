@@ -16,6 +16,11 @@
 	verbose = true
 [core]
 	excludesfile = ~/.gitexcludes
+[diff]
+	mnemonicprefix = true
+	renames = copies
+[grep]
+	lineNumber = true
 [pull]
 	rebase = preserve
 [push]
@@ -31,12 +36,3 @@
 	trustExitCode = true
 [mergetool]
 	keepBackup = false
-[hubflow "branch"]
-	master = master
-	develop = develop
-[hubflow "prefix"]
-	feature = feature-
-	release = release-
-	hotfix = hotfix-
-	support = support-
-	versiontag = 
