@@ -56,6 +56,7 @@ alias xo='xdg-open'
 alias ncv='nc -vv'
 alias digs='dig +short'
 alias synhl='pygmentize -f console256 -g' # Syntax highlighting
+alias t='tree -hp'
 
 function prettier-diff {
 	prettier "$1" | colordiff "$1" -
@@ -86,6 +87,7 @@ function man() {
 
 # Git aliases
 alias ga='git add'
+alias gbranch='git rev-parse --abbrev-ref HEAD'
 alias gci='git commit'
 alias gdiff='git diff --ignore-space-at-eol -b -w'
 alias gm='git merge --no-ff'
