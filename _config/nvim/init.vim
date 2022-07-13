@@ -243,14 +243,15 @@ if HasPlugin('coc.nvim')
 endif
 
 if HasPlugin('conjure')
-  let g:conjure#log#hud#height = 0.6
+  let g:conjure#client#clojure#nrepl#connection#auto_repl#enabled = v:false
   let g:conjure#client#clojure#nrepl#completion#with_context = v:false
-  let g:conjure#mapping#doc_word = ["KK"]
   let g:conjure#highlight#enabled = v:true
-  if has('nvim')
-    " winhighlight is nvim-only
-    autocmd BufEnter conjure-log-*.cljc setlocal winhighlight=Normal:CocListWhiteBlack
-  endif
+  let g:conjure#log#hud#height = 0.6
+  let g:conjure#mapping#doc_word = ["KK"]
+
+  imap <C-k> <Cmd>ConjureDocWord<CR>
+
+  autocmd BufEnter conjure-log-*.cljc setlocal winhighlight=Normal:CocListWhiteBlack
 endif
 
 if HasPlugin('vim-sexp')
