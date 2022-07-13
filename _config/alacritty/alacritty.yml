@@ -1,6 +1,7 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 window:
   decorations: none
+  opacity: 0.80
 
 font:
   normal:
@@ -23,7 +24,6 @@ font:
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
 
-background_opacity: 0.80
 colors:
   # Default colors
   primary:
