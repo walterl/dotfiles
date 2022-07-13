@@ -13,10 +13,11 @@ nmap gx <Plug>Markdown_OpenUrlUnderCursor
 nmap <Leader>lg EF/yEBi[#<C-r>"]<Esc>lvESbF/x
 
 if executable("pandoc")
-  command! -buffer -nargs=0 ConvertToHTML :exe "!pandoc -t html % -o %:r.html" | :e %:r.html
+  command! -buffer -nargs=0 WriteHTML :exe "!pandoc -t html % -o %:r.html"
+  command! -buffer -nargs=0 EditHTML :WriteHTML | :e %:r.html
 
   " Insert copied HTML as Markdown
   if executable("xclip")
-    nmap <Leader>M :r!xclip -selection clipboard -o -t text/html \| pandoc -f html -t markdown --wrap=none 2> /dev/null<CR>
+    nmap <Leader>M <Cmd>r!xclip -selection clipboard -o -t text/html \| pandoc -f html -t markdown --wrap=none 2> /dev/null<CR>
   endif
 endif

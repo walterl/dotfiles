@@ -1,4 +1,4 @@
-" Based on ftplugin/clojure/clojure.vim
+" Based on ftplugin/clojure.vim
 
 set foldmethod=syntax
 

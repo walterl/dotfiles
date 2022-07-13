@@ -100,7 +100,9 @@ let g:default_toggle_words_dict = {'*': [
     \ [],
     \ ],  }
 
-let g:toggle_words_dict = {'python': [['assertTrue', 'assertFalse']]}
+if !exists("g:toggle_words_dict")
+    let g:toggle_words_dict = {'python': [['assertTrue', 'assertFalse']]}
+endif
 
 function! s:ToggleWord()
     let cur_filetype = &filetype
