@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 # $WORKON_HOME is required by oh-my-zsh's virtualenvwrapper plugin
 export WORKON_HOME=$HOME/.virtualenvs
 
-plugins=(autojump command-not-found django dotenv git git-hubflow lein pip python vagrant virtualenvwrapper)
+plugins=(autojump command-not-found dotenv git pip python virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 # END oh-my-zsh
