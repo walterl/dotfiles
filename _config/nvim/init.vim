@@ -72,7 +72,7 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " {{{ Plugins
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/nvim/site/plugged')
   " Colors
   Plug 'drewtempelmeyer/palenight.vim'
 
