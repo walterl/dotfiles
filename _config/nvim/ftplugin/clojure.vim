@@ -27,15 +27,14 @@ if HasPlugin('vim-projectionist')
 lua <<EOF
 vim.g.projectionist_heuristics = vim.tbl_extend('force', vim.g.projectionist_heuristics, {
   ['deps.edn|project.clj'] = {
-    ['src/*.clj'] = { type = 'source', alternative = 'test/{}_test.clj' },
-    ['test/*_test.clj'] = { type = 'test', alternative = 'src/{}.clj' },
-    },
+    ['src/*.clj'] = { type = 'source', alternate = 'test/{}_test.clj' },
+    ['test/*_test.clj'] = { type = 'test', alternate = 'src/{}.clj' },
+  },
   ['shadow-cljs.edn'] = {
-    ['src/main/**/*.cljs'] = { type = 'source', alternative = 'src/test/{}_test.cljs' },
-    ['src/test/**/*_test.cljs'] = { type = 'test', alternative = 'src/main/{}.cljs' },
-    },
-  }
-)
+    ['src/main/**/*.cljs'] = { type = 'source', alternate = 'src/test/{}_test.cljs' },
+    ['src/test/**/*_test.cljs'] = { type = 'test', alternate = 'src/main/{}.cljs' },
+  },
+})
 EOF
 endif
 
