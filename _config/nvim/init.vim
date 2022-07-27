@@ -447,6 +447,9 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" Enable italics
+let g:palenight_terminal_italics = 1
+
 " Slightly lighter (and bluer) grey, to increase contrast with dark/greyish backgrounds
 let g:palenight_color_overrides = {
   \ "comment_grey": { "gui": "#7583D1", "cterm": "59", "cterm16": "15" }
