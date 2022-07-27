@@ -393,6 +393,9 @@ EOF
   nnoremap ,g <Cmd>Telescope git_files<CR>
   nnoremap ,gb <Cmd>Telescope git_bcommits<CR>
   nnoremap ,gs <Cmd>Telescope git_status<CR>
+
+  " https://github.com/nvim-telescope/telescope.nvim/issues/991#issuecomment-882059894
+  autocmd! FileType TelescopeResults setlocal nofoldenable
 endif
 
 "" toggle_words.vim
