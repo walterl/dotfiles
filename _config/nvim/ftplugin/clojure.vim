@@ -1,4 +1,6 @@
-" setlocal foldmethod=syntax
+let g:clojure_discard_macro=1 " Style forms commented out with #_ reader macro
+let g:clojure_fold=1
+setlocal foldnestmax=1
 
 """ cloJure mappings
 " Turn keyword into keyword-var map entry: turns `:foo|` (| is cursor position) into `:foo foo`
