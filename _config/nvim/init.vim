@@ -76,6 +76,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'machakann/vim-highlightedyank'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'scrooloose/nerdtree'
+  Plug 'stevearc/dressing.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
   Plug 'tpope/vim-eunuch'
@@ -317,9 +318,9 @@ lua <<EOF
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lf', "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lj', "<Cmd>lua vim.diagnostic.goto_next({ wrap = false })<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lk', "<Cmd>lua vim.diagnostic.goto_prev({ wrap = false })<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>la', "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'v', '<Leader>la', [[<Cmd>'<,'>vim.lsp.buf.code_action()<CR>]], opts)
       -- Telescope
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>la', "<Cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'v', '<Leader>la', [[<Cmd>'<,'>Telescope lsp_range_code_actions theme=cursor<CR>]], opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lw', "<Cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lr', "<Cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>li', "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
@@ -359,13 +360,13 @@ endif
 
 if HasPlugin('telescope.nvim')
 lua <<EOF
-  require('telescope').setup {
+  require("telescope").setup {
     defaults = {
-      file_ignore_patterns = {'node_modules'},
+      file_ignore_patterns = {"node_modules"},
     },
     pickers = {
       find_files = {
-        find_command = {'rg', '--files', '--iglob', '!.git', '--hidden'},
+        find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"},
       },
     },
   }
