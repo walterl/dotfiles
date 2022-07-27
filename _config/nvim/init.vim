@@ -149,6 +149,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     " Markdown
     Plug 'plasticboy/vim-markdown'
     Plug 'walterl/downtools'
+
+    " Terraform
+    Plug 'hashivim/vim-terraform'
   endif
 call plug#end()
 " }}}
