@@ -12,8 +12,3 @@ setlocal colorcolumn=72,80
 
 " Avoid unindentation of Python comments
 inoremap # X#
-
-" Configure IndentGuides
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-IndentGuidesEnable
