@@ -294,7 +294,7 @@ endif
 
 if HasPlugin('nvim-lspconfig')
 lua <<EOF
-  require('lspconfig').clojure_lsp.setup {
+  local config = {
     handlers = {
       ['textDocument/publishDiagnostics'] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics,
@@ -336,6 +336,8 @@ lua <<EOF
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>li', "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
     end,
   }
+  require('lspconfig').clojure_lsp.setup(config)
+  require('lspconfig').pylsp.setup(config)
 EOF
 endif
 
