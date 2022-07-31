@@ -38,10 +38,6 @@ link_dotfiles() {
   mklink "dircolors"
   mklink "gitconfig"
   mklink "gitexcludes"
-  # I haven't used hg in ages
-  # mklink "hgignore"
-  # mklink "hgrc"
-  # mklink "hgshelve.py"
   mklink "oh-my-zsh"
   mklink "startup.py" # Controlled by $PYTHONSTARTUP
   mklink "tmux.conf"
@@ -65,10 +61,6 @@ unlink_dotfiles() {
   rmlink "dircolors"
   rmlink "gitconfig"
   rmlink "gitexcludes"
-  # I haven't used hg in ages
-  # rmlink "hgignore"
-  # rmlink "hgrc"
-  # rmlink "hgshelve.py"
   rmlink "oh-my-zsh"
   rmlink "startup.py" # Controlled by $PYTHONSTARTUP
   rmlink "tmux.conf"
