@@ -148,6 +148,10 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'mattn/emmet-vim'
 
     " Markdown
+    "Plug 'davidgranstrom/nvim-markdown-preview'
+    " Until https://github.com/davidgranstrom/nvim-markdown-preview/pull/21 is
+    " merged.
+    Plug 'walterl/nvim-markdown-preview', { 'branch': 'set-liveserver-root' }
     Plug 'plasticboy/vim-markdown'
     Plug 'walterl/downtools'
 
@@ -280,6 +284,12 @@ lua <<EOF
     sources = cmp_srcs,
   }
 EOF
+endif
+
+if HasPlugin('nvim-markdown-preview')
+  let g:nvim_markdown_preview_liveserver_extra_args = [
+        \ '--browser=chromium-temp.sh',
+        \ '--port=59999']
 endif
 
 if HasPlugin('nvim-lspconfig')
