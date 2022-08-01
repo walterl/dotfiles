@@ -338,6 +338,7 @@ lua <<EOF
   }
   require('lspconfig').clojure_lsp.setup(config)
   require('lspconfig').pylsp.setup(config)
+  require('lspconfig').tsserver.setup(config)
 EOF
 endif
 
