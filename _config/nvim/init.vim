@@ -363,6 +363,7 @@ lua <<EOF
       opts = { noremap = true }
       vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-j>', "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ld', "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lt', "<Cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lh', "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -378,6 +379,8 @@ lua <<EOF
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lw', "<Cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lr', "<Cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>li', "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ly', "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lY', "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", opts)
     end,
   }
   require('lspconfig').clojure_lsp.setup(config)
