@@ -66,9 +66,11 @@ EOF
 " {{{ Plugins
 call plug#begin('~/.local/share/nvim/site/plugged')
   " General
+  Plug 'alvarosevilla95/luatab.nvim'
   Plug 'chrisbra/NrrwRgn'
   Plug 'junegunn/goyo.vim'
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'ggandor/leap.nvim'
   Plug 'hgiesel/vim-motion-sickness'
   Plug 'itchyny/vim-cursorword'
   Plug 'jiangmiao/auto-pairs'
@@ -80,6 +82,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'stevearc/dressing.nvim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
+  Plug 'kristijanhusak/vim-dadbod-ui'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
@@ -111,6 +114,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-symbols.nvim'
 
   if !s:flag_is_set('nodev')
     Plug 'AndrewRadev/sideways.vim'
@@ -188,6 +192,11 @@ if HasPlugin('git-time-lapse')
   nmap <Leader>gt <Cmd>call TimeLapse()<CR>
 endif
 
+if HasPlugin('leap.nvim')
+  lua require('leap').setup {}
+  lua require('leap').set_default_keymaps()
+endif
+
 if HasPlugin('lualine.nvim')
 lua <<EOF
   local function lsp_connection()
@@ -234,6 +243,10 @@ lua <<EOF
     },
   }
 EOF
+endif
+
+if HasPlugin('luatab.nvim')
+  lua require('luatab').setup {}
 endif
 
 if HasPlugin('nerdtree')
