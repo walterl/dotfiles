@@ -138,6 +138,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     " cmp
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'PaterJason/cmp-conjure'
+    "" snippet support
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
 
     " Clojure
     Plug 'clojure-vim/clojure.vim'
@@ -277,6 +280,11 @@ lua <<EOF
 
   local cmp = require('cmp')
   cmp.setup {
+    snippet = {
+      expand = function(args)
+        vim.fn['vsnip#anonymous'](args.body)
+      end,
+    },
     formatting = {
       format = function(entry, item)
         item.menu = cmp_src_menu_items[entry.source] or ''
