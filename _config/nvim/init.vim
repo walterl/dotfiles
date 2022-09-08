@@ -72,6 +72,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'hgiesel/vim-motion-sickness'
   Plug 'itchyny/vim-cursorword'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'kylechui/nvim-surround'
   Plug 'liuchengxu/vim-which-key'
   Plug 'machakann/vim-highlightedyank'
   Plug 'nvim-lualine/lualine.nvim'
@@ -82,7 +83,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
-  Plug 'tpope/vim-surround'
   Plug 'vim-scripts/httplog'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'whiteinge/diffconflicts'
@@ -340,6 +340,10 @@ lua <<EOF
   require('lspconfig').pylsp.setup(config)
   require('lspconfig').tsserver.setup(config)
 EOF
+endif
+
+if HasPlugin('nvim-surround')
+  lua require('nvim-surround').setup {}
 endif
 
 if HasPlugin('nvim-treesitter')
