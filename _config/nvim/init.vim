@@ -144,7 +144,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 
     " Clojure
     Plug 'clojure-vim/clojure.vim'
-    Plug 'guns/vim-clojure-highlight'
     Plug 'Olical/conjure'
     Plug 'walterl/conjure-macroexpand'
     "" vim-jack-in
