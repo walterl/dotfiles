@@ -440,6 +440,8 @@ EOF
   nnoremap ,/ <Cmd>Telescope search_history<CR>
   nnoremap ,: <Cmd>Telescope command_history<CR>
   nnoremap ,h <Cmd>Telescope help_tags<CR>
+  nnoremap ,m <Cmd>Telescope marks<CR>
+  nnoremap ,s <Cmd>lua require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji'} }<CR>
   nnoremap ,R <Cmd>Telescope resume<CR>
 
   nnoremap ,b <Cmd>Telescope buffers<CR>
