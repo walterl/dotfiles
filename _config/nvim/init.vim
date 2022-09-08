@@ -104,6 +104,14 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'vim-scripts/git-time-lapse'
 
+  " Markdown
+  "Plug 'davidgranstrom/nvim-markdown-preview'
+  " Until https://github.com/davidgranstrom/nvim-markdown-preview/pull/21 is
+  " merged.
+  Plug 'walterl/nvim-markdown-preview'
+  Plug 'preservim/vim-markdown'
+  Plug 'walterl/downtools'
+
   " Sieve
   Plug 'vim-scripts/sieve.vim'
 
@@ -150,14 +158,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 
     " HTML
     Plug 'mattn/emmet-vim'
-
-    " Markdown
-    "Plug 'davidgranstrom/nvim-markdown-preview'
-    " Until https://github.com/davidgranstrom/nvim-markdown-preview/pull/21 is
-    " merged.
-    Plug 'walterl/nvim-markdown-preview', { 'branch': 'set-liveserver-root' }
-    Plug 'plasticboy/vim-markdown'
-    Plug 'walterl/downtools'
 
     " Terraform
     Plug 'hashivim/vim-terraform'
