@@ -89,6 +89,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'vim-scripts/httplog'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'whiteinge/diffconflicts'
+  Plug 'walterl/curlod'
 
   " Completion with cmp
   Plug 'hrsh7th/cmp-buffer'
@@ -145,6 +146,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     " Clojure
     Plug 'clojure-vim/clojure.vim'
     Plug 'Olical/conjure'
+    Plug 'walterl/conjure-efroot'
     Plug 'walterl/conjure-macroexpand'
     "" vim-jack-in
     Plug 'tpope/vim-dispatch'
