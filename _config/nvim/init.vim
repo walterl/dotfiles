@@ -172,6 +172,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Plugin config
 if HasPlugin('ale')
+  let g:ale_enabled = 0
   nmap [a <Cmd>ALEPrevious<CR>
   nmap ]a <Cmd>ALENext<CR>
 endif
