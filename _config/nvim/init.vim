@@ -217,31 +217,52 @@ lua <<EOF
       theme = 'palenight',
       icons_enabled = true,
       section_separators = {"", ""},
-      component_separators = {"", ""},
+      component_separators = {"", ""},
     },
     sections = {
-      lualine_a = {},
-      lualine_b = { {'mode', { upper = true }} },
-      lualine_c = { {'FugitiveHead'}, {'filename', { filestatus = true, path = 1 }} },
+      lualine_a = { {'mode'} },
+      lualine_b = {},
+      lualine_c = {
+        { "branch", icon = "" },
+        {'diff'},
+        {'filename',
+          filestatus = true,
+          path = 1,
+          symbols = {
+            modified = " ",
+            readonly = " ",
+            unnamed = "  "
+          },
+        },
+      },
       lualine_x = {
         {
-          "diagnostics",
+          'diagnostics',
           {
             sections = {'error', 'warn', 'info', 'hint'},
             sources = {'nvim_lsp'},
+            symbols = { error='', warn='', info='', hint='' }
           },
         },
         {lsp_connection},
-        'location',
         'filetype',
       },
-      lualine_y = {'encoding'},
-      lualine_z = {},
+      lualine_y = {},
+      lualine_z = {
+        {
+          "progress",
+          separator = { left = "", right = "" }
+        },
+        {
+          "location",
+          padding = { left = 0, right = 0},
+        },
+      },
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { {'filename', { filestatus = true, path = 1 }} },
+      lualine_c = { {'filename', filestatus = true, path = 1} },
       lualine_x = {},
       lualine_y = {},
       lualine_z = {},
@@ -363,6 +384,10 @@ lua <<EOF
   require('lspconfig').pylsp.setup(config)
   require('lspconfig').tsserver.setup(config)
 EOF
+  sign define DiagnosticSignHint text=💡
+  sign define DiagnosticSignInfo text=ℹ️
+  sign define DiagnosticSignWarn text=⚠️
+  sign define DiagnosticSignError text=🛑
 endif
 
 if HasPlugin('nvim-surround')
@@ -450,6 +475,15 @@ if HasPlugin('vim-fugitive')
 endif
 
 if HasPlugin('vim-gitgutter')
+  let g:gitgutter_floating_window_options = {
+        \ 'relative': 'cursor',
+        \ 'row': 1,
+        \ 'col': 0,
+        \ 'width': 42,
+        \ 'height': &previewheight,
+        \ 'style': 'minimal',
+        \ 'border': 'rounded'
+        \ }
   nmap <Leader>gg <Cmd>GitGutterToggle<CR>
 endif
 
@@ -495,14 +529,19 @@ let g:palenight_terminal_italics = 1
 
 " Slightly lighter (and bluer) grey, to increase contrast with dark/greyish backgrounds
 let g:palenight_color_overrides = {
-  \ "comment_grey": { "gui": "#7583D1", "cterm": "59", "cterm16": "15" }
-  \}
+      \ "comment_grey": { "gui": "#7583D1", "cterm": "59", "cterm16": "15"},
+      \ "cursor_grey": { "gui": "#232830", "cterm":"236", "cterm16": "8" },
+      \ }
 
 " Load color scheme
 colorscheme palenight
 
 " Make background transparent
 hi Normal guibg=NONE ctermbg=NONE
+" Make floating windows a bit more pronounced
+hi FloatBorder guifg=#4B5263 guibg=#2C323C ctermbg=237
+" Color window separators the same as inactive status lines
+hi WinSeparator guifg=#3E4452 guibg=#3E4452 ctermbg=237
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
