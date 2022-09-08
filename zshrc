@@ -130,4 +130,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+# Limit width of man pages for easier reading -- man(1)
+export MANWIDTH=120
+
 # vim:ts=4 sts=4 sw=4
