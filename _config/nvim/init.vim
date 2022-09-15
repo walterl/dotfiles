@@ -216,16 +216,14 @@ lua <<EOF
     options = {
       theme = 'palenight',
       icons_enabled = true,
-      section_separators = {"", ""},
-      component_separators = {"", ""},
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
     },
     sections = {
-      lualine_a = { {'mode'} },
-      lualine_b = {},
-      lualine_c = {
-        { "branch", icon = "" },
-        {'diff'},
-        {'filename',
+      lualine_a = {'mode'},
+      lualine_b = {
+        {
+          'filename',
           filestatus = true,
           path = 1,
           symbols = {
@@ -235,34 +233,33 @@ lua <<EOF
           },
         },
       },
+      lualine_c = {
+        {'branch', icon = ""},
+        {'diff'},
+      },
       lualine_x = {
         {
           'diagnostics',
           {
             sections = {'error', 'warn', 'info', 'hint'},
             sources = {'nvim_lsp'},
-            symbols = { error='', warn='', info='', hint='' }
+            symbols = {error='', warn='', info='', hint=''}
           },
         },
         {lsp_connection},
+      },
+      lualine_y = {
         'filetype',
       },
-      lualine_y = {},
       lualine_z = {
-        {
-          "progress",
-          separator = { left = "", right = "" }
-        },
-        {
-          "location",
-          padding = { left = 0, right = 0},
-        },
+        {'progress'},
+        {'location', padding = { left = 0, right = 0}},
       },
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { {'filename', filestatus = true, path = 1} },
+      lualine_c = {{'filename', filestatus = true, path = 1}},
       lualine_x = {},
       lualine_y = {},
       lualine_z = {},
