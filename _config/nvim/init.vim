@@ -200,6 +200,7 @@ if HasPlugin('conjure')
   imap <C-k> <Cmd>ConjureDocWord<CR>
 
   autocmd BufEnter conjure-log-* setlocal winhighlight=Normal:lualine_c_normal
+  autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)
 endif
 
 if HasPlugin('git-time-lapse')
