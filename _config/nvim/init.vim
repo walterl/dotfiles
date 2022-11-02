@@ -82,7 +82,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'itchyny/vim-cursorword'
   Plug 'jiangmiao/auto-pairs'
   Plug 'kylechui/nvim-surround'
-  Plug 'liuchengxu/vim-which-key'
+  Plug 'folke/which-key.nvim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'scrooloose/nerdtree'
@@ -519,10 +519,17 @@ if HasPlugin('vim-sexp-mappings-for-regular-people')
   vmap >e <Plug>(sexp_swap_element_forward)
 endif
 
-if HasPlugin('vim-which-key')
-  nnoremap <silent> <Leader> :WhichKey '<C-v><Leader>'<CR>
-  nnoremap <silent> <LocalLeader> :WhichKey '<C-v><LocalLeader>'<CR>
-  nnoremap <silent> , :WhichKey '<C-v>,'<CR>
+if HasPlugin('which-key.nvim')
+lua << EOF
+  require('which-key').setup {
+    plugins = {
+      presets = {
+        operators = false,
+      }
+    }
+  }
+EOF
+  " nnoremap <silent> <LocalLeader> :WhichKey '<LocalLeader>'<CR>
 endif
 " }}}
 
