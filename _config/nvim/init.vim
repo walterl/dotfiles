@@ -394,10 +394,11 @@ lua <<EOF
   require('lspconfig').pylsp.setup(config)
   require('lspconfig').tsserver.setup(config)
 EOF
-  sign define DiagnosticSignHint text=💡
-  sign define DiagnosticSignInfo text=ℹ️
-  sign define DiagnosticSignWarn text=⚠️
-  sign define DiagnosticSignError text=🛑
+
+  sign define DiagnosticSignHint text=⍰ texthl=DiagnosticSignHint
+  sign define DiagnosticSignInfo text=ⓘ texthl=DiagnosticSignInfo
+  sign define DiagnosticSignWarn text=⚠ texthl=DiagnosticSignWarn
+  sign define DiagnosticSignError text=✕ texthl=DiagnosticSignError
 endif
 
 if HasPlugin('nvim-surround')
