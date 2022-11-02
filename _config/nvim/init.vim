@@ -371,21 +371,21 @@ lua <<EOF
       vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-j>', "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lr', "<Cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lR', "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>li', "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ld', "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lt', "<Cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lh', "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ln', "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lw', "<Cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>le', "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lq', "<Cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lf', "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lj', "<Cmd>lua vim.diagnostic.goto_next({ wrap = false })<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lk', "<Cmd>lua vim.diagnostic.goto_prev({ wrap = false })<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lf', "<Cmd>lua vim.lsp.buf.formatting()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>la', "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'v', '<Leader>la', [[<Cmd>'<,'>vim.lsp.buf.code_action()<CR>]], opts)
-      -- Telescope
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lw', "<Cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lr', "<Cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>li', "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ly', "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lY', "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", opts)
     end,
@@ -414,7 +414,7 @@ lua <<EOF
   require('nvim-treesitter.configs').setup {
     highlight = {enable = true},
     indent = {enable = true},
-    ensure_installed = {'clojure'},
+    ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'lua', 'python', 'typescript'},
   }
 EOF
 endif
@@ -450,6 +450,7 @@ EOF
 
   nnoremap ,/ <Cmd>Telescope search_history<CR>
   nnoremap ,: <Cmd>Telescope command_history<CR>
+  nnoremap ,c <Cmd>Telescope commands<CR>
   nnoremap ,h <Cmd>Telescope help_tags<CR>
   nnoremap ,m <Cmd>Telescope marks<CR>
   nnoremap ,s <Cmd>lua require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji'} }<CR>
@@ -512,6 +513,11 @@ if HasPlugin('vim-markdown')
   let g:vim_markdown_auto_insert_bullets = 0
 endif
 
+if HasPlugin('vim-motion-sickness')
+  let g:sickness#expression#use_default_maps = 0
+  let g:sickness#field#use_default_maps = 0
+endif
+
 if HasPlugin('vim-sexp')
   let g:sexp_enable_insert_mode_mappings = 0
   let g:sexp_filetypes = "clojure,scheme,lisp,timl,fennel,janet"
@@ -569,9 +575,10 @@ hi WinSeparator guifg=#3E4452 guibg=#3E4452 ctermbg=237
 " Center cursor after jumping
 nmap g; g;zvzz
 nmap g, g,zvzz
-nmap n nzvzz
-nmap N Nzvzz
-nmap * *zvzz
+" Commented out, because it removes the very useful search count '[1/5]' ('shortmess')
+"nmap <silent> n nzvzz
+"nmap N Nzvzz
+"nmap * *zvzz
 
 " Cut/Copy/Paste shortcuts
 vnoremap <Leader>y "+y
