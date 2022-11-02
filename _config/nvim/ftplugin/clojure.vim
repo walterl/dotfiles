@@ -2,6 +2,8 @@ let g:clojure_discard_macro=1 " Style forms commented out with #_ reader macro
 let g:clojure_fold=1
 setlocal foldnestmax=1
 
+autocmd BufWrite <buffer> :%s/\s\+$//e
+
 """ cloJure mappings
 " Turn keyword into keyword-var map entry: turns `:foo|` (| is cursor position) into `:foo foo`
 imap <C-l> <Esc>BywPlr<Space>E
@@ -55,6 +57,18 @@ if HasPlugin('vim-sexp-mappings-for-regular-people')
   nmap <Leader>je yaf<Plug>(sexp_move_to_prev_top_element)%o<CR>(comment,<Left><CR><CR><Up><Esc>p==
   " Wrap current element in :keys destructuring map
   nmap <Leader>jk <Plug>(sexp_curly_head_wrap_element):keys [] :as<Esc>F[
+  " Wrap current element in an anonymous function
+  nmap <Leader>ja i#<Esc>lyswb%
+  " Change 'x y' line into '(def x y)'
+  nmap <Leader>jD ^v2ESb0adef <Esc>==^
+
+  lua <<EOF
+  vim.api.nvim_buf_set_keymap(
+    0, "n",
+    "<Leader>jD", "^v2ESb0adef <Esc>==^",
+    { desc = 'Change current line to "(def x y)" from "x y"' }
+  )
+EOF
 endif
 
 if executable('jet')
