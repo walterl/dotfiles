@@ -13,7 +13,7 @@ set showbreak=↪                          " But when wrapped, show nice linebre
 set hlsearch                             " Highlight matches as you type
 set cursorline                           " Highlight the cursor line
 set cursorcolumn                         " Highlight the cursor column
-set listchars=tab:»—,trail:⋅,nbsp:⋄      " Show tabs and trailing characters
+set listchars=tab:»—,trail:⋄,nbsp:⋅      " Show tabs and trailing characters
 set list
 set winwidth=80                          " Windows will always be at least 80 chars (if possible)
 set tabstop=4
@@ -32,6 +32,13 @@ set splitright                           " Split vertical windows on the right
 set updatetime=2000
 set pumblend=20                          " Transparency for pop-up menu
 set winblend=20                          " Transparency for floating windows
+
+" Highlight trailing space
+augroup TrailingSpace
+  au!
+  au VimEnter,WinEnter * highlight link TrailingSpaces ErrorMsg
+  au VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
