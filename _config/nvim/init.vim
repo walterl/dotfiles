@@ -93,6 +93,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
+  Plug 'tpope/vim-unimpaired'
   Plug 'vim-scripts/httplog'
   Plug 'vim-scripts/Smart-Home-Key'
   Plug 'whiteinge/diffconflicts'
@@ -155,6 +156,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'Olical/conjure'
     Plug 'walterl/conjure-efroot'
     Plug 'walterl/conjure-macroexpand'
+    Plug 'walterl/conjure-locstack'
     "" vim-jack-in
     Plug 'tpope/vim-dispatch'
     Plug 'radenling/vim-dispatch-neovim'
