@@ -547,6 +547,7 @@ lua << EOF
   require('which-key').setup {
     plugins = {
       presets = {
+        motions = false,
         operators = false,
       }
     }
