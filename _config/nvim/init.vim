@@ -193,7 +193,7 @@ if HasPlugin('alpha-nvim')
 endif
 
 if HasPlugin('centerfold')
-  nmap <silent> <Leader>jj vaF<Cmd>CenterFold<CR>zCzO
+  nmap <silent> <Leader>jj vaF:CenterFold<CR>zCzO
 endif
 
 if HasPlugin('conjure')
