@@ -36,3 +36,5 @@
 	trustExitCode = true
 [mergetool]
 	keepBackup = false
+[init]
+	defaultBranch = master
