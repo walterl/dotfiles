@@ -83,6 +83,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'kylechui/nvim-surround'
   Plug 'folke/which-key.nvim'
+  Plug 'goolord/alpha-nvim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'scrooloose/nerdtree'
@@ -157,6 +158,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'walterl/conjure-efroot'
     Plug 'walterl/conjure-macroexpand'
     Plug 'walterl/conjure-locstack'
+    Plug 'walterl/conjure-tapdance'
     "" vim-jack-in
     Plug 'tpope/vim-dispatch'
     Plug 'radenling/vim-dispatch-neovim'
@@ -186,6 +188,10 @@ if HasPlugin('ale')
   nmap ]a <Cmd>ALENext<CR>
 endif
 
+if HasPlugin('alpha-nvim')
+  lua require'alpha'.setup(require'alpha.themes.startify'.config)
+endif
+
 if HasPlugin('centerfold')
   nmap <silent> <Leader>jj vaF<Cmd>CenterFold<CR>zCzO
 endif
@@ -201,6 +207,13 @@ if HasPlugin('conjure')
 
   autocmd BufEnter conjure-log-* setlocal winhighlight=Normal:lualine_c_normal
   autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)
+endif
+
+if HasPlugin('conjure-tapdance')
+  nnoremap <silent> <Leader>jT <Cmd>TapForm<CR>
+  nnoremap <silent> <Leader>jt <Cmd>TapWord<CR>
+  vnoremap <silent> <Leader>jt :TapV<CR>
+  nnoremap <silent> <Leader>jte <Cmd>TapExc<CR>
 endif
 
 if HasPlugin('git-time-lapse')
