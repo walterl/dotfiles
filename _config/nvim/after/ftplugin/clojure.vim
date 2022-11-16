@@ -1,2 +1,2 @@
-setlocal lispwords+=fdef
+setlocal lispwords+=fdef,go-loop
 setlocal iskeyword+='
