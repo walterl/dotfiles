@@ -23,3 +23,5 @@ ignoreme*
 node_modules
 session.vim
 tags
+
+_clojure/.cpcache/
