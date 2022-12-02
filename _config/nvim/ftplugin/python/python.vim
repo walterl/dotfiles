@@ -13,3 +13,18 @@ setlocal colorcolumn=72,80
 
 " Avoid unindentation of Python comments
 inoremap # X#
+
+" Wrapping stuff in parens/brackets/braces, similar to vim-sexp
+nmap <LocalLeader>w ysiwb
+nmap <LocalLeader>e[ ysiw[
+nmap <LocalLeader>e] ysiw]
+nmap <LocalLeader>e{ ysiw}
+nmap <LocalLeader>e} ysiw{
+
+vmap <LocalLeader>w SbF(
+nmap <LocalLeader>e[ S[F[
+nmap <LocalLeader>e] S]F[
+nmap <LocalLeader>e{ S}F{
+nmap <LocalLeader>e} S{F{
+
+nmap <LocalLeader>el vil<LocalLeader>E
