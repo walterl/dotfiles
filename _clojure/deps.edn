@@ -9,11 +9,11 @@
    :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :portal
-  {:extra-deps {djblue/portal {:mvn/version "0.33.0"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.35.0"}}}
 
   :nrepl+portal
   {:extra-deps {cider/cider-nrepl {:mvn/version "0.28.7"}
-                djblue/portal {:mvn/version "0.33.0"}}
+                djblue/portal {:mvn/version "0.35.0"}}
    :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware portal.nrepl/wrap-portal]"]}
 
   :reveal
@@ -24,6 +24,6 @@
 
   :debug
   {:extra-deps {;; https://jpmonettas.github.io/flow-storm-debugger/user_guide.html#_clojure
-                com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.1.263"}
-                com.github.jpmonettas/flow-storm-inst {:mvn/version "3.1.263"}}}
+                com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.2.283"}
+                com.github.jpmonettas/flow-storm-inst {:mvn/version "3.2.283"}}}
   }}
