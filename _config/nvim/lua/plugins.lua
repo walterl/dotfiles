@@ -500,13 +500,16 @@ require('packer').startup(function(use)
       vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
       require('nvim-treesitter.configs').setup {
-        highlight = {enable = true},
+        highlight = {
+          enable = true,
+          disable = { 'clojure' }, -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
+        },
         indent = {
           enable = true,
           disable = { 'python' }, -- Doesn't work ¯\_(ツ)_/¯
         },
         ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'lua', 'python', 'typescript'},
-        additional_vim_regex_highlighting = true,
+        --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
       }
     end,
   }
