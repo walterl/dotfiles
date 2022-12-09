@@ -14,6 +14,11 @@ nmap <Leader>jC O(comment<CR><CR>,,,)<CR><Up><Up><Space><Space>
 " Use current element/form as value in new `let`-form
 nmap <Leader>jl <LocalLeader>wlet<Esc>W<LocalLeader>e[
 
+function HasPlugin(plugin)
+  let plugs = luaeval('packer_plugins')
+  return index(keys(l:plugs), a:plugin) > -1 && l:plugs[a:plugin]['loaded']
+endfunction
+
 if HasPlugin('ale')
   ALEDisableBuffer
 endif
