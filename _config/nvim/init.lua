@@ -115,6 +115,7 @@ map('n', '<C-S-PageDown>', '<Cmd>tabm +<CR>')
 
 map('n', '<Leader>td', '<Cmd>tab split<CR>') -- Duplicate tab
 map('n', '<Leader>tn', '<Cmd>tabe<CR>') -- New tab
+map('n', '<Leader>.', '<Cmd>tabnext #<CR>', noremap) -- Switch to last accessed tab
 
 map('v', '/', '<Esc>/\\%V', noremap) -- Search in visual selection
 
