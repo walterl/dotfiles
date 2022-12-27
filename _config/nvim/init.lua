@@ -84,9 +84,9 @@ hi WinSeparator guifg=#3E4452 guibg=#3E4452 ctermbg=237
 map('n', 'g;', 'g;zvzz')
 map('n', 'g,', 'g,zvzz')
 -- Commented out, because it removes the very useful search count '[1/5]' ('shortmess')
---map('n', 'n', 'nzvzz', silent)
---map('n', 'N', 'Nzvzz')
---map('n', '*', '*zvzz')
+map('n', 'n', 'nzvzz', silent)
+map('n', 'N', 'Nzvzz')
+map('n', '*', '*zvzz')
 
 -- Cut/Copy/Paste shortcuts
 map('v', '<Leader>y', '"+y', noremap)
