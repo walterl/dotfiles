@@ -504,6 +504,7 @@ require('packer').startup(function(use)
       require('lspconfig').clojure_lsp.setup(config)
       require('lspconfig').pylsp.setup(config)
       require('lspconfig').tsserver.setup(config)
+      require('lspconfig').ltex.setup(config)
 
       vim.cmd [[
       sign define DiagnosticSignHint text=⍰ texthl=DiagnosticSignHint
