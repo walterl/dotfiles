@@ -113,13 +113,10 @@ map('n', ']r', 'gt', noremap)
 map('n', '<C-S-PageUp>', '<Cmd>tabm -<CR>')
 map('n', '<C-S-PageDown>', '<Cmd>tabm +<CR>')
 
--- Duplicate tab
-map('n', '<Leader>td', '<Cmd>tab split<CR>')
--- New tab
-map('n', '<Leader>tn', '<Cmd>tabe<CR>')
+map('n', '<Leader>td', '<Cmd>tab split<CR>') -- Duplicate tab
+map('n', '<Leader>tn', '<Cmd>tabe<CR>') -- New tab
 
--- Search in visual selection
-map('v', '/', '<Esc>/\\%V', noremap)
+map('v', '/', '<Esc>/\\%V', noremap) -- Search in visual selection
 
 -- Reselect visual selection after indent
 map('v', '<', '<gv', noremap)
@@ -131,18 +128,18 @@ map('n', '<Leader>w', '<Cmd>w<CR>')
 map('n', '<Leader>e', '<Cmd>w<CR>')
 map('n', '<Leader>wq', '<Cmd>wq<CR>')
 map('n', '<Leader>x', '<Cmd>bdelete<CR>')
--- Switch to previous buffer
-map('n', '<Leader>/', '<Cmd>e#<CR>', noremap)
+map('n', '<Leader>/', '<Cmd>e#<CR>', noremap) -- Switch to previous buffer
 
 -- Window splitting
 map('n', '<Leader>S', '<Cmd>split<CR>')
 map('n', '<Leader>V', '<Cmd>vsplit<CR>')
 
--- Toggle folds
-map('n', '<C-f>', 'za', noremap)
+map('n', '<C-f>', 'za', noremap) -- Toggle folds
+map('n', 'zB', 'zCzO') -- Open all folds for top-level fold under the cursor
 
--- Open all folds for top-level fold under the cursor
-map('n', 'zB', 'zCzO')
+-- Move up and down by folds
+map('', '<C-j>', 'zj', silent)
+map('', '<C-k>', 'zk', silent)
 
 -- Change working directory to the current file's directory
 -- (http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file)
@@ -155,21 +152,15 @@ map('n', '<Leader>ls', function() vim.call('ToggleList', 'Location List', 'l') e
 map('n', '<Leader>cc', '<Cmd>cc<CR>zvzz', noremap_silent)
 map('n', '<Leader>cs', function() vim.call('ToggleList', 'Quickfix List', 'c') end, noremap_silent)
 
--- Move up and down by folds
-map('', '<C-j>', 'zj', silent)
-map('', '<C-k>', 'zk', silent)
-
 -- Go to start/end of line with H and L
 -- From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
 map('', 'H', '^', noremap)
 map('', 'L', '$', noremap)
 
--- make Y consistent with C and D
 -- From https://github.com/SidOfc/dotfiles/blob/master/.vimrc
-map('n', 'Y', 'y$', noremap)
+map('n', 'Y', 'y$', noremap) -- make Y consistent with C and D
 
--- Delete trailing spaces
-map('n', '<Leader>ds', '<Cmd>%s/\\s\\+$//e<CR>', silent)
+map('n', '<Leader>ds', '<Cmd>%s/\\s\\+$//e<CR>', silent) -- Delete trailing spaces
 
 -- Set indentations
 map('n', '<Leader>in2', '<Cmd>set ts=2 sts=2 sw=2<CR>')
@@ -236,8 +227,7 @@ iabbrev sefl self
 iabbrev :shrug: ¯\_(ツ)_/¯
 ]]
 
--- toggle_words.vim
-map('n', '<Leader>T', '<Cmd>ToggleWord<CR>', silent)
+map('n', '<Leader>T', '<Cmd>ToggleWord<CR>', silent) -- toggle_words.vim
 -- }}}
 
 -- {{{ Miscellaneous functionality
