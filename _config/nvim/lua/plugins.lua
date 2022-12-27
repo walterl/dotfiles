@@ -517,7 +517,6 @@ require('packer').startup(function(use)
 
   use_dev {
     'nvim-treesitter/nvim-treesitter',
-    --disable = true,
     run = ':TSUpdate',
     config = function()
       -- https://github.com/nvim-treesitter/nvim-treesitter#folding
@@ -532,6 +531,15 @@ require('packer').startup(function(use)
         indent = {
           enable = true,
           disable = { 'python' }, -- Doesn't work ¯\_(ツ)_/¯
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_decremental = '-',
+            node_incremental = '+',
+            scope_incremental = '.',
+          },
         },
         ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'lua', 'python', 'typescript'},
         --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
