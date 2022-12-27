@@ -581,13 +581,6 @@ require('packer').startup(function(use)
     end,
   }
 
-  --- vim-jack-in
-  use_dev 'tpope/vim-dispatch'
-
-  use_dev 'radenling/vim-dispatch-neovim'
-
-  use_dev 'clojure-vim/vim-jack-in'
-
   --- sexp
   use_dev {
     'guns/vim-sexp',
