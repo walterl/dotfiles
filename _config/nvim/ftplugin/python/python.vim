@@ -19,10 +19,11 @@ nmap <LocalLeader>e] ysiw]
 nmap <LocalLeader>e{ ysiw}
 nmap <LocalLeader>e} ysiw{
 
-vmap <LocalLeader>w SbF(
-nmap <LocalLeader>e[ S[F[
-nmap <LocalLeader>e] S]F[
-nmap <LocalLeader>e{ S}F{
-nmap <LocalLeader>e} S{F{
+vmap <LocalLeader>w Sb`<
+vmap <LocalLeader>e[ S[`<
+vmap <LocalLeader>e] S]`<
+vmap <LocalLeader>e{ S}`<
+vmap <LocalLeader>e} S{`<
 
+" Execute current line (ignores indent)
 nmap <LocalLeader>el vil<LocalLeader>E
