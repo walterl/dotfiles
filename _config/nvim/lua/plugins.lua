@@ -47,15 +47,32 @@ require('packer').startup(function(use)
     end,
   }
 
-  use 'junegunn/goyo.vim'
-
-  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('which-key').setup {
+        plugins = {
+          presets = {
+            motions = false,
+            operators = false,
+          }
+        }
+      }
+    end,
+  }
 
   use {
     'ggandor/leap.nvim',
     config = function()
       require('leap').setup {}
       require('leap').set_default_keymaps()
+    end,
+  }
+
+  use {
+    'goolord/alpha-nvim',
+    config = function()
+      require'alpha'.setup(require'alpha.themes.startify'.config)
     end,
   }
 
@@ -72,30 +89,17 @@ require('packer').startup(function(use)
   use 'jiangmiao/auto-pairs'
 
   use {
+    'junegunn/goyo.vim',
+    config = function()
+    end,
+  }
+
+  use 'kyazdani42/nvim-web-devicons'
+
+  use {
     'kylechui/nvim-surround',
     config = function()
       require('nvim-surround').setup {}
-    end,
-  }
-
-  use {
-    'folke/which-key.nvim',
-    config = function()
-      require('which-key').setup {
-        plugins = {
-          presets = {
-            motions = false,
-            operators = false,
-          }
-        }
-      }
-    end,
-  }
-
-  use {
-    'goolord/alpha-nvim',
-    config = function()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
     end,
   }
 
@@ -432,21 +436,21 @@ require('packer').startup(function(use)
       local config = {
         handlers = {
           ['textDocument/publishDiagnostics'] = vim.lsp.with(
-          vim.lsp.diagnostic.on_publish_diagnostics,
-          {
-            severity_sort = true,
-            update_in_insert = false,
-            underline = true,
-            virtual_text = false,
-          }
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            {
+              severity_sort = true,
+              update_in_insert = false,
+              underline = true,
+              virtual_text = false,
+            }
           ),
           ['textDocument/hover'] = vim.lsp.with(
-          vim.lsp.handlers.hover,
-          { border = 'single' }
+            vim.lsp.handlers.hover,
+            { border = 'single' }
           ),
           ['textDocument/signatureHelp'] = vim.lsp.with(
-          vim.lsp.handlers.signature_help,
-          { border = 'single' }
+            vim.lsp.handlers.signature_help,
+            { border = 'single' }
           ),
         },
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
