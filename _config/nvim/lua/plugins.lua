@@ -91,6 +91,9 @@ require('packer').startup(function(use)
   use {
     'junegunn/goyo.vim',
     config = function()
+      vim.cmd [[
+      command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide()
+      ]]
     end,
   }
 
