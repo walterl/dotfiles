@@ -79,6 +79,10 @@ if HasPlugin('vim-sexp-mappings-for-regular-people')
 EOF
 endif
 
+if HasPlugin('conjure')
+  imap <buffer> <C-k> <Cmd>ConjureDocWord<CR>
+endif
+
 if executable('jet')
   " Format with jet
   nnoremap <Leader>Fe <Cmd>%!jet --pretty<CR>

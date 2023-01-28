@@ -590,7 +590,6 @@ require('packer').startup(function(use)
       vim.g['conjure#log#hud#height'] = 0.6
       vim.g['conjure#client#clojure#nrepl#completion#with_context'] = false
 
-      map('i', '<C-k>', '<Cmd>ConjureDocWord<CR>')
       map('n', 'gD', '<Cmd>ConjureDefWord<CR>')
 
       vim.api.nvim_create_autocmd('BufEnter', {
