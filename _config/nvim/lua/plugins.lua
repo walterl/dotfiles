@@ -255,15 +255,29 @@ require('packer').startup(function(use)
         buffer = 'buff',
         conjure = 'conj',
         nvim_lsp = 'lsp',
+        nvim_lsp_signature_help = 'sig',
         path = 'path',
       }
 
-      local cmp_srcs = {{name = 'buffer'}, {name = 'path'}}
+      local sources = {
+        {name = 'buffer'},
+        {name = 'path'},
+        {name = 'latex_symbols', option = {strategy = 0}}
+      }
+
       if not flag_is_set('nodev') then
-        cmp_srcs = vim.list_extend(cmp_srcs, {{name = 'nvim_lsp'}, {name = 'conjure'}})
+        sources = vim.list_extend(
+          sources,
+          {
+            {name = 'nvim_lsp'},
+            {name = 'conjure'},
+            {name = 'nvim_lsp_signature_help'},
+          }
+        )
       end
 
       local cmp = require('cmp')
+      local lspkind = require('lspkind')
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -272,8 +286,21 @@ require('packer').startup(function(use)
         },
         formatting = {
           format = function(entry, item)
-            item.menu = cmp_src_menu_items[entry.source] or ''
-            return item
+            if vim.tbl_contains({ 'path' }, entry.source.name) then
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+              if icon then
+                item.kind = icon
+                item.kind_hl_group = hl_group
+                return item
+              end
+            end
+
+            item.menu = cmp_src_menu_items[entry.source.name] or entry.source.name or ''
+            if item.menu then
+              item.menu = '[' .. item.menu .. ']'
+            end
+
+            return lspkind.cmp_format({ mode = 'symbol_text' })(entry, item)
           end,
         },
         mapping = {
@@ -287,12 +314,14 @@ require('packer').startup(function(use)
           ['<C-e>'] = cmp.mapping.close(),
           ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert }),
         },
-        sources = cmp_srcs,
+        sources = sources,
       }
     end,
   }
   use {'hrsh7th/cmp-buffer', requires = 'hrsh7th/nvim-cmp'}
   use {'hrsh7th/cmp-path', requires = 'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lsp-signature-help', requires = 'hrsh7th/nvim-cmp'}
+  use {'onsails/lspkind.nvim', requires = 'hrsh7th/nvim-cmp'}
 
   -- Colors
   use {
