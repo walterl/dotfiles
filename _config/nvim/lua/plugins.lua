@@ -279,6 +279,9 @@ require('packer').startup(function(use)
       local cmp = require('cmp')
       local lspkind = require('lspkind')
       cmp.setup {
+        view = {
+          entries = {name = 'custom', selection_order = 'near_cursor'}
+        },
         snippet = {
           expand = function(args)
             vim.fn['vsnip#anonymous'](args.body)
