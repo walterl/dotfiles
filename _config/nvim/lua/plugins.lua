@@ -196,6 +196,20 @@ require('packer').startup(function(use)
   }
 
   use {
+    'pappasam/nvim-repl',
+    config = function()
+      vim.g.repl_filetype_commands = {
+        javascript = 'deno',
+        python = 'ipython',
+      }
+      map('n', '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap)
+      map('n', '<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap)
+      map('n', '<Leader>rr', '<Plug>ReplSendLine')
+      map('v', '<Leader>re', '<Plug>ReplSendVisual')
+    end,
+  }
+
+  use {
     'scrooloose/nerdtree',
     config = function()
       map('', '<F2>', '<Cmd>NERDTreeToggle<CR>', silent)
