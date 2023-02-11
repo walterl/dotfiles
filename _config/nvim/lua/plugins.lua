@@ -88,6 +88,8 @@ require('packer').startup(function(use)
 
   use 'jiangmiao/auto-pairs'
 
+  use 'JuliaEditorSupport/julia-vim'
+
   use {
     'junegunn/goyo.vim',
     config = function()
@@ -200,6 +202,7 @@ require('packer').startup(function(use)
     config = function()
       vim.g.repl_filetype_commands = {
         javascript = 'deno',
+        julia = 'julia',
         python = 'ipython',
       }
       map('n', '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap)
@@ -324,6 +327,7 @@ require('packer').startup(function(use)
   use {'hrsh7th/cmp-buffer', requires = 'hrsh7th/nvim-cmp'}
   use {'hrsh7th/cmp-path', requires = 'hrsh7th/nvim-cmp'}
   use {'hrsh7th/cmp-nvim-lsp-signature-help', requires = 'hrsh7th/nvim-cmp'}
+  use {'kdheepak/cmp-latex-symbols', requires = 'hrsh7th/nvim-cmp'}
   use {'onsails/lspkind.nvim', requires = 'hrsh7th/nvim-cmp'}
 
   -- Colors
