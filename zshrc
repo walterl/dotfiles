@@ -56,7 +56,8 @@ alias xo='xdg-open'
 alias ncv='nc -vv'
 alias digs='dig +short'
 alias synhl='pygmentize -f console256 -g' # Syntax highlighting
-alias t='tree -Fhp'
+alias t='tree -Fh'
+alias tt='tree -Fhp'
 
 function prettier-diff {
 	prettier "$1" | colordiff "$1" -
