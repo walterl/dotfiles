@@ -603,6 +603,7 @@ require('packer').startup(function(use)
         end,
       }
       require('lspconfig').clojure_lsp.setup(config)
+      require('lspconfig').julials.setup(config)
       require('lspconfig').ltex.setup(ext(config, { filetypes = { 'tex', 'bib', 'markdown', 'rst' }}))
       require('lspconfig').pylsp.setup(config)
       require('lspconfig').tsserver.setup(config)
@@ -642,7 +643,7 @@ require('packer').startup(function(use)
             scope_incremental = '.',
           },
         },
-        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'lua', 'python', 'typescript'},
+        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript'},
         --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
       }
     end,
@@ -687,6 +688,10 @@ require('packer').startup(function(use)
       vim.g['conjure#client#clojure#nrepl#connection#auto_repl#enabled'] = false
       vim.g['conjure#log#hud#height'] = 0.6
       vim.g['conjure#client#clojure#nrepl#completion#with_context'] = false
+      vim.g['conjure#filetypes'] = {
+        "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
+        "python", "rust",
+      }
 
       map('n', 'gD', '<Cmd>ConjureDefWord<CR>')
 
