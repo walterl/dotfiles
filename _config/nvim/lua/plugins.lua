@@ -207,7 +207,7 @@ require('packer').startup(function(use)
     'pappasam/nvim-repl',
     config = function()
       vim.g.repl_filetype_commands = {
-        javascript = 'deno',
+        javascript = 'node',
         julia = 'julia',
         python = 'ipython',
       }
