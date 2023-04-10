@@ -18,6 +18,7 @@ vim.opt.showbreak='↪' -- But when wrapped, show nice linebreak char
 vim.opt.hlsearch = true -- Highlight matches as you type
 vim.opt.cursorline = true -- Highlight the cursor line
 vim.opt.cursorcolumn = true -- Highlight the cursor column
+vim.opt.scrolloff = 3 -- Keep 3 lines below and above the cursor
 vim.opt.listchars = {tab = '»—', trail = '⋄', nbsp = '⋅'} -- Show tabs and trailing characters
 vim.opt.list = true
 vim.opt.winwidth = 80 -- Windows will always be at least 80 chars (if possible)
