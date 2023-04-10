@@ -531,6 +531,27 @@ require('packer').startup(function(use)
         return vim.tbl_extend('force', a, b)
       end
 
+      --- BEGIN peek_definition
+      -- Based on code from https://teddit.net/r/neovim/comments/jsdox0/builtin_lsp_preview_definition_under_cursor/gbymsts/#c
+      local function preview_location_callback(_, result, query)
+        if result == nil or vim.tbl_isempty(result) then
+          require('vim.lsp.log').info(query, 'Definition not found')
+          print('Definition not found')
+          return nil
+        end
+        if vim.tbl_islist(result) then
+          vim.lsp.util.preview_location(result[1])
+        else
+          vim.lsp.util.preview_location(result)
+        end
+      end
+
+      function peek_definition()
+        local params = vim.lsp.util.make_position_params()
+        return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
+      end
+      --- END peek_definition
+
       local config = {
         handlers = {
           ['textDocument/publishDiagnostics'] = vim.lsp.with(
@@ -558,6 +579,7 @@ require('packer').startup(function(use)
           end
           opts = { noremap = true, buffer = bufnr }
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ext(opts, { desc="Go to definition" }))
+          vim.keymap.set('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('i', '<C-j>', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
@@ -581,11 +603,9 @@ require('packer').startup(function(use)
         end,
       }
       require('lspconfig').clojure_lsp.setup(config)
+      require('lspconfig').ltex.setup(ext(config, { filetypes = { 'tex', 'bib', 'markdown', 'rst' }}))
       require('lspconfig').pylsp.setup(config)
       require('lspconfig').tsserver.setup(config)
-      require('lspconfig').ltex.setup(
-        vim.tbl_extend('force', config, { filetypes = { 'tex', 'bib', 'markdown', 'rst' }})
-      )
 
       vim.cmd [[
       sign define DiagnosticSignHint text=⍰ texthl=DiagnosticSignHint
