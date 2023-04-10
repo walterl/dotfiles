@@ -527,6 +527,10 @@ require('packer').startup(function(use)
   use_dev {
     'neovim/nvim-lspconfig',
     config = function()
+      function ext(a, b)
+        return vim.tbl_extend('force', a, b)
+      end
+
       local config = {
         handlers = {
           ['textDocument/publishDiagnostics'] = vim.lsp.with(
@@ -553,27 +557,27 @@ require('packer').startup(function(use)
             return function() require('telescope.builtin')[fn_name]() end
           end
           opts = { noremap = true, buffer = bufnr }
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ext(opts, { desc="Go to definition" }))
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('i', '<C-j>', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', '<Leader>lr', tel_builtin_fn('lsp_references'), opts)
-          vim.keymap.set('n', '<Leader>lR', vim.lsp.buf.references, opts)
-          vim.keymap.set('n', '<Leader>li', tel_builtin_fn('lsp_implementations'), opts)
-          vim.keymap.set('n', '<Leader>ld', vim.lsp.buf.declaration, opts)
-          vim.keymap.set('n', '<Leader>lt', vim.lsp.buf.type_definition, opts)
-          vim.keymap.set('n', '<Leader>lh', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
+          vim.keymap.set('n', '<Leader>lR', vim.lsp.buf.references, ext(opts, { desc="LSP References QF" }))
+          vim.keymap.set('n', '<Leader>li', tel_builtin_fn('lsp_implementations'), ext(opts, { desc="LSP Implementations" }))
+          vim.keymap.set('n', '<Leader>ld', vim.lsp.buf.declaration, ext(opts, { desc="LSP Declarations" }))
+          vim.keymap.set('n', '<Leader>lt', vim.lsp.buf.type_definition, ext(opts, { desc="LSP Type Definition" }))
+          vim.keymap.set('n', '<Leader>lh', vim.lsp.buf.signature_help, ext(opts, { desc="LSP Signature" }))
           vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set('n', '<Leader>ln', vim.lsp.buf.rename, opts)
-          vim.keymap.set('n', '<Leader>lw', tel_builtin_fn('diagnostics'), opts)
-          vim.keymap.set('n', '<Leader>le', vim.diagnostic.open_float, opts)
-          vim.keymap.set('n', '<Leader>lq', vim.diagnostic.setloclist, opts)
-          vim.keymap.set('n', '<Leader>lj', function() vim.diagnostic.goto_next({ wrap = false }) end, opts)
-          vim.keymap.set('n', '<Leader>lk', function() vim.diagnostic.goto_prev({ wrap = false }) end, opts)
-          vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.formatting, opts)
-          vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('v', '<Leader>la', [[<Cmd>'<,'>lua vim.lsp.buf.code_action()<CR>]], opts)
-          vim.keymap.set('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols'), opts)
-          vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_workspace_symbols'), opts)
+          vim.keymap.set('n', '<Leader>ln', vim.lsp.buf.rename, ext(opts, { desc="LSP Rename" }))
+          vim.keymap.set('n', '<Leader>lw', tel_builtin_fn('diagnostics'), ext(opts, { desc="LSP Diagnostics" }))
+          vim.keymap.set('n', '<Leader>le', vim.diagnostic.open_float, ext(opts, { desc="LSP Show diagnostic" }))
+          vim.keymap.set('n', '<Leader>lq', vim.diagnostic.setloclist, ext(opts, { desc="LSP Diagnostics LocList" }))
+          vim.keymap.set('n', '<Leader>lj', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
+          vim.keymap.set('n', '<Leader>lk', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
+          vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.formatting, ext(opts, { desc="LSP Format" }))
+          vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
+          vim.keymap.set('v', '<Leader>la', [[<Cmd>'<,'>lua vim.lsp.buf.code_action()<CR>]], ext(opts, { desc="LSP Code action menu" }))
+          vim.keymap.set('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols'), ext(opts, { desc="LSP Doc symbols" }))
+          vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_workspace_symbols'), ext(opts, { desc="LSP Workspace symbols" }))
         end,
       }
       require('lspconfig').clojure_lsp.setup(config)
