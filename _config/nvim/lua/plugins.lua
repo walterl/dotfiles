@@ -495,6 +495,19 @@ require('packer').startup(function(use)
   use_dev 'AndrewRadev/splitjoin.vim'
 
   use_dev {
+    'ckolkey/ts-node-action',
+    requires = { 'nvim-treesitter' },
+    config = function()
+      require("ts-node-action").setup {
+        ['*'] = {
+          ['arguments'] = require('ts-node-action.actions').toggle_multiline(),
+        },
+      }
+      map('n', 'X', require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+    end
+  }
+
+  use_dev {
     'knsh14/vim-github-link',
     config = function()
       map('v', '<Leader>YB', '<Cmd>GetCurrentBranchLink<CR>')
