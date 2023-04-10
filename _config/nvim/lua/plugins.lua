@@ -222,8 +222,10 @@ require('packer').startup(function(use)
     'scrooloose/nerdtree',
     config = function()
       map('', '<F2>', '<Cmd>NERDTreeToggle<CR>', silent)
+      map('', '<S-F2>', '<Cmd>NERDTreeToggle %<CR>', silent)
       vim.g.NERDTreeIgnore = {'\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$'}
       vim.g.NERDTreeShowBookmarks = 1
+      vim.g.NERDTreeShowLineNumbers = 1
     end,
   }
 
