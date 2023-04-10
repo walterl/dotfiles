@@ -104,7 +104,13 @@ require('packer').startup(function(use)
   use {
     'kylechui/nvim-surround',
     config = function()
-      require('nvim-surround').setup {}
+      require('nvim-surround').setup({
+        surrounds = {
+          -- Markdown links!
+          ["l"] = { add = function() return { { '[' }, { ']()' } } end },
+          ["L"] = { add = function() return { { '[](' }, { ')' } } end },
+        },
+      })
     end,
   }
 
