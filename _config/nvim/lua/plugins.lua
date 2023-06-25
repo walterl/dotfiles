@@ -633,7 +633,7 @@ require('packer').startup(function(use)
         },
         indent = {
           enable = true,
-          disable = { 'python' }, -- Doesn't work ¯\_(ツ)_/¯
+          disable = { 'javascript', 'python' },
         },
         incremental_selection = {
           enable = true,
