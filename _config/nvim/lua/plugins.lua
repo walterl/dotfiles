@@ -72,8 +72,9 @@ require('packer').startup(function(use)
   use {
     'goolord/alpha-nvim',
     config = function()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
+      require'alpha'.setup(require'alpha_startify_gst'.config)
     end,
+    requires = 'walterl/alpha_startify_gst',
   }
 
   use {
