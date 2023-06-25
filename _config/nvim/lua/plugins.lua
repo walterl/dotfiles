@@ -605,7 +605,12 @@ require('packer').startup(function(use)
       }
       require('lspconfig').clojure_lsp.setup(config)
       require('lspconfig').julials.setup(config)
-      require('lspconfig').ltex.setup(ext(config, { filetypes = { 'tex', 'bib', 'markdown', 'rst' }}))
+      require('lspconfig').ltex.setup(
+        vim.tbl_extend('force', config, {
+          filetypes = { 'tex', 'bib', 'markdown', 'rst' },
+          settings = { ltex = { language = "en" } },
+        })
+      )
       require('lspconfig').pylsp.setup(config)
       require('lspconfig').tsserver.setup(config)
 
