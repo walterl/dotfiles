@@ -95,7 +95,7 @@ alias gm='git merge --no-ff'
 alias gpr='git pull --rebase'
 alias gst='git st'
 
-alias ag='ag --nogroup'
+alias ag='ag --nogroup --hidden'
 
 # Set umask to make files non-world readable by default
 umask 027
