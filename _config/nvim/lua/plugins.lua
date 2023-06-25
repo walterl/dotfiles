@@ -223,7 +223,7 @@ require('packer').startup(function(use)
     'scrooloose/nerdtree',
     config = function()
       map('', '<F2>', '<Cmd>NERDTreeToggle<CR>', silent)
-      map('', '<S-F2>', '<Cmd>NERDTreeToggle %<CR>', silent)
+      map('', '<F3>', '<Cmd>NERDTreeToggle %<CR>', silent)
       vim.g.NERDTreeIgnore = {'\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$'}
       vim.g.NERDTreeShowBookmarks = 1
       vim.g.NERDTreeShowLineNumbers = 1
@@ -658,7 +658,7 @@ require('packer').startup(function(use)
   use_dev 'tpope/vim-projectionist'
 
   use_dev {
-    'w0rp/ale',
+    'dense-analysis/ale',
     config = function()
       vim.g.ale_enabled = 0
       map('n', '[a', '<Cmd>ALEPrevious<CR>')
