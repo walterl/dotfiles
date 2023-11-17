@@ -230,6 +230,7 @@ require('packer').startup(function(use)
         javascript = 'node',
         julia = 'julia',
         python = 'ipython',
+        typescript = 'deno',
       }
       map('n', '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap)
       map('n', '<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap)
