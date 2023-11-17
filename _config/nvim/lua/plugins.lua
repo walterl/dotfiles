@@ -109,6 +109,16 @@ require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup {
+        easing_function = 'quartic',
+        mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'}, -- Default without <C-f>, which I remapped
+      }
+    end
+  }
+
   use 'kyazdani42/nvim-web-devicons'
 
   use {
