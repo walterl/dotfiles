@@ -284,11 +284,10 @@ require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     config = function()
       local cmp_src_menu_items = {
-        buffer = 'buff',
-        conjure = 'conj',
+        buffer = 'buf',
+        latex_symbols = 'texsym',
         nvim_lsp = 'lsp',
         nvim_lsp_signature_help = 'sig',
-        path = 'path',
       }
 
       local sources = {
@@ -299,12 +298,11 @@ require('packer').startup(function(use)
 
       if not flag_is_set('nodev') then
         sources = vim.list_extend(
-          sources,
           {
             {name = 'nvim_lsp'},
-            {name = 'conjure'},
             {name = 'nvim_lsp_signature_help'},
-          }
+          },
+          sources
         )
       end
 
@@ -695,8 +693,6 @@ require('packer').startup(function(use)
 
   -- cmp
   use_dev {'hrsh7th/cmp-nvim-lsp', requires = 'hrsh7th/nvim-cmp'}
-
-  use_dev {'PaterJason/cmp-conjure', requires = {'hrsh7th/nvim-cmp', 'Olical/conjure'}}
 
   --- snippet support
   use_dev {'hrsh7th/cmp-vsnip', requires = 'hrsh7th/nvim-cmp'}
