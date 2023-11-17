@@ -103,6 +103,7 @@ require('packer').startup(function(use)
   use {
     'junegunn/goyo.vim',
     config = function()
+      vim.g.goyo_width = 100
       vim.cmd [[
       command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide() | lua MiniMap.close()
       ]]
@@ -367,6 +368,7 @@ require('packer').startup(function(use)
   -- Git
   use {
     'airblade/vim-gitgutter',
+    branch = 'main',
     config = function()
       vim.g.gitgutter_floating_window_options = {
         relative = 'cursor',
@@ -659,10 +661,13 @@ require('packer').startup(function(use)
         },
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(_client, bufnr)
+          vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
           function tel_builtin_fn(fn_name, builtin_opts)
             return function() require('telescope.builtin')[fn_name](builtin_opts) end
           end
           opts = { noremap = true, buffer = bufnr }
+          symbols_opts = { fname_width = 50, symbol_width = 50 }
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ext(opts, { desc="Go to definition" }))
           vim.keymap.set('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
