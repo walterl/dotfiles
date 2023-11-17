@@ -735,7 +735,10 @@ require('packer').startup(function(use)
       require('nvim-treesitter.configs').setup {
         highlight = {
           enable = true,
-          disable = { 'clojure' }, -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
+          disable = {
+            'clojure', -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
+            'julia', -- Breaks julia-vim's matchit integration
+          },
         },
         indent = {
           enable = true,
