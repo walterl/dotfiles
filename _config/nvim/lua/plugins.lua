@@ -659,8 +659,8 @@ require('packer').startup(function(use)
         },
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(_client, bufnr)
-          function tel_builtin_fn(fn_name)
-            return function() require('telescope.builtin')[fn_name]() end
+          function tel_builtin_fn(fn_name, builtin_opts)
+            return function() require('telescope.builtin')[fn_name](builtin_opts) end
           end
           opts = { noremap = true, buffer = bufnr }
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ext(opts, { desc="Go to definition" }))
@@ -683,8 +683,8 @@ require('packer').startup(function(use)
           vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
           vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
           vim.keymap.set('v', '<Leader>la', [[<Cmd>'<,'>lua vim.lsp.buf.code_action()<CR>]], ext(opts, { desc="LSP Code action menu" }))
-          vim.keymap.set('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols'), ext(opts, { desc="LSP Doc symbols" }))
-          vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_workspace_symbols'), ext(opts, { desc="LSP Workspace symbols" }))
+          vim.keymap.set('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc="LSP Doc symbols" }))
+          vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc="LSP Workspace symbols" }))
         end,
       }
       require('lspconfig').clojure_lsp.setup(config)
