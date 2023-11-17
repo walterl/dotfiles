@@ -104,7 +104,7 @@ require('packer').startup(function(use)
     'junegunn/goyo.vim',
     config = function()
       vim.cmd [[
-      command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide()
+      command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide() | lua MiniMap.close()
       ]]
     end,
   }
@@ -131,26 +131,6 @@ require('packer').startup(function(use)
           ["L"] = { add = function() return { { '[](' }, { ')' } } end },
         },
       })
-    end,
-  }
-
-  use {
-    'kevinhwang91/nvim-hlslens',
-    config = function()
-      require('hlslens').setup()
-
-      local kopts = {noremap = true, silent = true}
-
-      vim.api.nvim_set_keymap('n', 'n',
-        [[<Cmd>execute('normal! ' . v:count1 . 'nzvzz')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        kopts)
-      vim.api.nvim_set_keymap('n', 'N',
-        [[<Cmd>execute('normal! ' . v:count1 . 'Nzvzz')<CR><Cmd>lua require('hlslens').start()<CR>]],
-        kopts)
-      vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-      vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
     end,
   }
 
@@ -534,6 +514,82 @@ require('packer').startup(function(use)
       }
       map('n', 'X', require("ts-node-action").node_action, { desc = "Trigger Node Action" })
     end
+  }
+
+  use_dev {
+    'echasnovski/mini.map',
+    branch = 'stable',
+    config = function()
+      local map = require('mini.map')
+
+      map.setup {
+        symbols = {
+          encode = map.gen_encode_symbols.dot('4x2'),
+        },
+        integrations = {
+          map.gen_integration.builtin_search(),
+          map.gen_integration.diagnostic(),
+        }
+      }
+
+      function open_minimap()
+        MiniMap.open()
+        vim.w.minimap_closed = 0
+      end
+
+      function close_minimap()
+        MiniMap.close()
+        vim.w.minimap_closed = 1
+      end
+
+      function toggle_minimap()
+        MiniMap.toggle()
+        if MiniMap.current.win_data[1] then
+          vim.w.minimap_closed = 0
+        else
+          vim.w.minimap_closed = 1
+        end
+      end
+
+      function on_winenter()
+        if vim.w.minimap_closed and MiniMap.current.win_data[1] then
+          MiniMap.close()
+        else
+          MiniMap.open()
+        end
+      end
+
+      vim.keymap.set('n', '<Leader>mc', close_minimap, { desc = "MiniMap » Close" })
+      vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = "MiniMap » Toggle focus" })
+      vim.keymap.set('n', '<Leader>mm', toggle_minimap, { desc = "MiniMap » Toggle Open/Close" })
+      vim.keymap.set('n', '<Leader>mo', open_minimap, { desc = "MiniMap » Open" })
+      vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, { desc = "MiniMap » Refresh" })
+      vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, { desc = "MiniMap » Toggle side" })
+
+      vim.api.nvim_create_autocmd('WinEnter', {
+        callback = on_winenter,
+      })
+    end,
+  }
+
+  use_dev {
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require('hlslens').setup()
+
+      local kopts = {noremap = true, silent = true}
+
+      vim.api.nvim_set_keymap('n', 'n',
+        [[<Cmd>execute('normal! ' . v:count1 . 'nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
+        kopts)
+      vim.api.nvim_set_keymap('n', 'N',
+        [[<Cmd>execute('normal! ' . v:count1 . 'Nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
+        kopts)
+      vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
+      vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
+      vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
+      vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
+    end,
   }
 
   use_dev {
