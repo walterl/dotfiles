@@ -16,6 +16,11 @@ nmap <Leader>jc (i#_<Esc>
 nmap <Leader>jC O(comment<CR><CR>,,,)<CR><Up><Up><Space><Space>
 " Use current element/form as value in new `let`-form
 nmap <Leader>jl <LocalLeader>wlet<Esc>W<LocalLeader>e[
+" Execute a def binding the selected value to the symbol preceding it. E.g. selelct `x (inc 1)` to execute `(def x (inc 1))`
+" Meant for `def`-ing intermediate values in `let` binding vectors.
+vmap <Leader>jd <LocalLeader>wdef <Esc><LocalLeader>eeu
+" Execute (type ...) on the element under the cursor
+nmap <Leader>jy <LocalLeader>wtype<Esc><LocalLeader>eeu
 
 function HasPlugin(plugin)
   let plugs = luaeval('packer_plugins')
