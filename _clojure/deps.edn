@@ -26,4 +26,8 @@
   {:extra-deps {;; https://github.com/flow-storm/flow-storm-debugger#artifacts
                 com.github.flow-storm/flow-storm-dbg {:mvn/version "3.8.6"}
                 com.github.flow-storm/flow-storm-inst {:mvn/version "3.8.6"}}}
+
+  :profiler
+  {:extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "1.1.1"}}
+   :jvm-opts ["-Djdk.attach.allowAttachSelf"]}
   }}
