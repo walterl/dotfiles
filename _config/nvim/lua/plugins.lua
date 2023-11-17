@@ -404,6 +404,13 @@ require('packer').startup(function(use)
   use 'junegunn/gv.vim'
 
   use {
+    'mbbill/undotree',
+    config = function()
+      map('n', '<leader>u', vim.cmd.UndotreeToggle)
+    end
+  }
+
+  use {
     'tpope/vim-fugitive',
     config = function()
       map('n', '<Leader>gb', '<Cmd>Git blame<CR>')
