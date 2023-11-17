@@ -779,8 +779,9 @@ require('packer').startup(function(use)
 
   use_dev {
     'walterl/centerfold',
+    after = 'vim-sexp', -- For mapping
     config = function()
-      map('n', '<Leader>jj', 'vaF:CenterFold<CR>zCzO', silent)
+      map('n', '<Leader>jj', 'v<Plug>(sexp_outer_top_list)<Esc><Cmd>CenterFold<CR>', silent)
     end,
   }
 
