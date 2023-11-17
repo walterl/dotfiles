@@ -716,6 +716,7 @@ require('packer').startup(function(use)
 
   use_dev {
     'Olical/conjure',
+    requires = 'Olical/aniseed',
     config = function()
       vim.g['conjure#mapping#doc_word'] = "K"
       vim.g['conjure#client#clojure#nrepl#eval#auto_require'] = false
@@ -772,7 +773,7 @@ require('packer').startup(function(use)
   }
 
   -- Fennel
-  use_dev 'Olical/aniseed'
+  use_dev { 'Olical/aniseed', requires = 'bakpakin/fennel.vim' }
 
   use_dev 'bakpakin/fennel.vim'
 
