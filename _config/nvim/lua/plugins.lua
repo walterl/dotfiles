@@ -35,7 +35,16 @@ require('packer').startup(function(use)
   use {
     'alvarosevilla95/luatab.nvim',
     config = function()
-      require('luatab').setup {}
+      require('luatab').setup {
+        windowCount = function(index)
+          local nwins = 0
+          local success, wins = pcall(vim.api.nvim_tabpage_list_wins, index)
+          if success then
+            for _ in pairs(wins) do nwins = nwins + 1 end
+          end
+          return index .. ' ' .. (nwins > 1 and '(' .. nwins .. ') ' or '')
+        end,
+      }
     end,
   }
 
