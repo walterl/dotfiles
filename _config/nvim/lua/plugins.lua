@@ -459,6 +459,7 @@ require('packer').startup(function(use)
       require("telescope").setup {
         defaults = {
           file_ignore_patterns = {"node_modules"},
+          scroll_strategy = "limit",
         },
         pickers = {
           find_files = {
