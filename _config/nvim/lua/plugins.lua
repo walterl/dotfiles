@@ -687,10 +687,27 @@ require('packer').startup(function(use)
           vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc="LSP Workspace symbols" }))
         end,
       }
+
       require('lspconfig').clojure_lsp.setup(config)
-      require('lspconfig').julials.setup(config)
+      require('lspconfig').julials.setup((function()
+        local julia_config = vim.deepcopy(config)
+        julia_config.capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown' }
+        julia_config.capabilities.textDocument.codeAction = {
+          dynamicRegistration = true,
+          codeActionLiteralSupport = {
+            codeActionKind = {
+              valueSet = (function()
+                local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
+                table.sort(res)
+                return res
+              end)(),
+            },
+          },
+        }
+        return julia_config
+      end)())
       require('lspconfig').ltex.setup(
-        vim.tbl_extend('force', config, {
+        ext(config, {
           filetypes = { 'tex', 'bib', 'markdown', 'rst' },
           settings = { ltex = { language = "en" } },
         })
