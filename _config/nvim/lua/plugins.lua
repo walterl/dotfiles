@@ -683,6 +683,8 @@ require('packer').startup(function(use)
     end,
   }
 
+  use_dev 'nvim-treesitter/nvim-treesitter-context'
+
   use_dev 'tpope/vim-projectionist'
 
   use_dev {
