@@ -120,6 +120,11 @@ map('n', '<C-S-PageDown>', '<Cmd>tabm +<CR>')
 map('n', '<Leader>td', '<Cmd>tab split<CR>') -- Duplicate tab
 map('n', '<Leader>tn', '<Cmd>tabe<CR>') -- New tab
 map('n', '<Leader>.', '<Cmd>tabnext #<CR>', noremap) -- Switch to last accessed tab
+map('n', '<M-1>', '<Cmd>tabfirst<CR>')
+map('n', '<M-0>', '<Cmd>tablast<CR>')
+for x = 2,9 do
+  map('n', string.format('<M-%d>', x), string.format('<Cmd>tabnext %d<CR>', x))
+end
 
 map('v', '/', '<Esc>/\\%V', noremap) -- Search in visual selection
 
