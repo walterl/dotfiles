@@ -105,7 +105,7 @@ require('packer').startup(function(use)
     config = function()
       vim.g.goyo_width = 100
       vim.cmd [[
-      command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide() | lua MiniMap.close()
+      command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide(); MiniMap.close()
       ]]
     end,
   }
