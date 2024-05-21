@@ -640,7 +640,7 @@ require('packer').startup(function(use)
             {
               severity_sort = true,
               update_in_insert = false,
-              underline = true,
+              underline = false,
               virtual_text = false,
             }
           ),
