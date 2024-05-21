@@ -484,12 +484,6 @@ require('packer').startup(function(use)
       map('n', ',g', '<Cmd>Telescope git_files<CR>', noremap)
       map('n', ',gb', '<Cmd>Telescope git_bcommits<CR>', noremap)
       map('n', ',gs', '<Cmd>Telescope git_status<CR>', noremap)
-
-      -- https://github.com/nvim-telescope/telescope.nvim/issues/991#issuecomment-882059894
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'TelescopeResults',
-        callback = function() vim.bo.foldenable = false end
-      })
     end,
   }
 
