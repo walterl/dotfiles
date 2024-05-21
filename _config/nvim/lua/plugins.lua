@@ -12,6 +12,8 @@ end
 local packer_bootstrap = ensure_packer()
 
 require('packer').startup(function(use)
+  is_older_than_nvim_0_10_0 = vim.version.lt(vim.version(), vim.version.parse("0.10.0"))
+
   use_dev = function(x)
     if not flag_is_set('nodev') then
       use(x)
@@ -662,9 +664,14 @@ require('packer').startup(function(use)
           end
           opts = { noremap = true, buffer = bufnr }
           symbols_opts = { fname_width = 50, symbol_width = 50 }
+
+          if is_older_than_nvim_0_10_0 then
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+            vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
+            vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
+          end
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ext(opts, { desc="Go to definition" }))
           vim.keymap.set('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('i', '<C-j>', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
           vim.keymap.set('n', '<Leader>lR', vim.lsp.buf.references, ext(opts, { desc="LSP References QF" }))
@@ -679,8 +686,6 @@ require('packer').startup(function(use)
           vim.keymap.set('n', '<Leader>lw', tel_builtin_fn('diagnostics'), ext(opts, { desc="LSP Diagnostics" }))
           vim.keymap.set('n', '<Leader>le', vim.diagnostic.open_float, ext(opts, { desc="LSP Show diagnostic" }))
           vim.keymap.set('n', '<Leader>lq', vim.diagnostic.setloclist, ext(opts, { desc="LSP Diagnostics LocList" }))
-          vim.keymap.set('n', '<Leader>lj', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
-          vim.keymap.set('n', '<Leader>lk', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
           vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
           vim.keymap.set('v', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
           vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
