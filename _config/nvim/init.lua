@@ -38,7 +38,7 @@ vim.opt.splitright = true -- Split vertical windows on the right
 vim.opt.updatetime = 1000
 vim.opt.pumblend = 20 -- Transparency for pop-up menu
 vim.opt.winblend = 20 -- Transparency for floating windows
-vim.opt.mouse = nil -- :help disable-mouse
+vim.opt.mouse = '' -- :help disable-mouse
 
 -- Highlight trailing space
 vim.cmd [[
