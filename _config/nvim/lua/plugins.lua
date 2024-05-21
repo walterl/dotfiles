@@ -670,7 +670,7 @@ require('packer').startup(function(use)
             vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
             vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
           end
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ext(opts, { desc="Go to definition" }))
+          vim.keymap.set('n', 'gd', tel_builtin_fn('lsp_definitions'), ext(opts, { desc="LSP definitions" }))
           vim.keymap.set('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
           vim.keymap.set('i', '<C-j>', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
