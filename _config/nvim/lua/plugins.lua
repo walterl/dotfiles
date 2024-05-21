@@ -530,28 +530,28 @@ require('packer').startup(function(use)
 
       function open_minimap()
         MiniMap.open()
-        vim.w.minimap_closed = 0
+        vim.w.minimap_opened = 0
       end
 
       function close_minimap()
         MiniMap.close()
-        vim.w.minimap_closed = 1
+        vim.w.minimap_opened = 1
       end
 
       function toggle_minimap()
         MiniMap.toggle()
         if MiniMap.current.win_data[1] then
-          vim.w.minimap_closed = 0
+          vim.w.minimap_opened = 0
         else
-          vim.w.minimap_closed = 1
+          vim.w.minimap_opened = 1
         end
       end
 
       function on_winenter()
-        if vim.w.minimap_closed and MiniMap.current.win_data[1] then
-          MiniMap.close()
-        else
+        if vim.w.minimap_opened and MiniMap.current.win_data[1] then
           MiniMap.open()
+        else
+          MiniMap.close()
         end
       end
 
