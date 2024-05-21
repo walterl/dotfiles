@@ -243,11 +243,10 @@ map('n', '<Leader>T', '<Cmd>ToggleWord<CR>', silent) -- toggle_words.vim
 -- {{{ Miscellaneous functionality
 -- Use rg/ag/ack-grep for the :grep command
 if vim.fn.executable('rg') then
-  vim.opt.grepprg = 'rg --vimgrep'
+  -- XXX This is the default in nvim >= 0.10.0
+  vim.opt.grepprg = 'rg --vimgrep -uu'
 elseif vim.fn.executable('ag') then
   vim.opt.grepprg = 'ag --nogroup --nocolor'
-elseif vim.fn.executable('ack-grep') then
-  vim.opt.grepprg = 'ack-grep --nogroup --nocolor'
 end
 
 -- Persist undo
