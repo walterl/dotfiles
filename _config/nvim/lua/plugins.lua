@@ -526,6 +526,14 @@ require('packer').startup(function(use)
   }
 
   use_dev {
+    'echasnovski/mini.align',
+    version = '*',
+    config = function()
+      require('mini.align').setup()
+    end
+  }
+
+  use_dev {
     'echasnovski/mini.map',
     branch = 'stable',
     config = function()
