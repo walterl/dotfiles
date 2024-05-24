@@ -9,6 +9,10 @@ local ensure_packer = function()
   return false
 end
 
+function ext(a, b)
+  return vim.tbl_extend('force', a, b)
+end
+
 local packer_bootstrap = ensure_packer()
 
 require('packer').startup(function(use)
@@ -459,33 +463,40 @@ require('packer').startup(function(use)
         },
       }
 
-      map('n', ',/', '<Cmd>Telescope search_history<CR>', noremap)
-      map('n', ',:', '<Cmd>Telescope command_history<CR>', noremap)
-      map('n', ',c', '<Cmd>Telescope commands<CR>', noremap)
-      map('n', ',h', '<Cmd>Telescope help_tags<CR>', noremap)
-      map('n', ',m', '<Cmd>Telescope marks<CR>', noremap)
+      local builtin = require('telescope.builtin')
+
+      map('n', ',/', builtin.search_history, ext(noremap, { desc = "Search history" }))
+      map('n', ',:', builtin.command_history, ext(noremap, { desc = "Command history" }))
+      map('n', ',c', builtin.commands, ext(noremap, { desc = "Commands" }))
+      map('n', ',h', builtin.help_tags, ext(noremap, { desc = "Help tags" }))
+      map('n', ',m', builtin.marks, ext(noremap, { desc = "Marks" }))
+      map('n', ',k', builtin.keymaps, ext(noremap, { desc = "Neovim keymaps" }))
+      map('n', ',S', builtin.spell_suggest, ext(noremap, { desc = "Spelling suggestions" }))
       map('n', ',s', function()
-        require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji'} }
-      end, noremap)
-      map('n', ',R', '<Cmd>Telescope resume<CR>', noremap)
+        builtin.symbols{ sources = {'emoji', 'kaomoji'} }
+      end, ext(noremap, { desc = "Emoji" }))
+      map('n', ',R', builtin.resume, ext(noremap, { desc = "Resume last search" }))
 
-      map('n', ',b', '<Cmd>Telescope buffers<CR>', noremap)
-      map('n', ',B', '<Cmd>Telescope oldfiles<CR>', noremap)
-      map('n', ',d', '<Cmd>Telescope find_files search_dirs=["%:h"]<CR>', noremap)
-      map('n', ',f', '<Cmd>Telescope find_files<CR>', noremap)
-      map('n', ',G', '<Cmd>Telescope live_grep<CR>', noremap)
-      map('n', ',L', '<Cmd>Telescope current_buffer_fuzzy_find<CR>', noremap)
+      map('n', ',b', builtin.buffers, ext(noremap, { desc = "Buffers" }))
+      map('n', ',B', builtin.oldfiles, ext(noremap, { desc = "Previously open files" }))
+      map('n', ',d', function()
+        builtin.find_files{ search_dirs = { "%:h" } }
+      end, ext(noremap, { desc = "Files in current buffer's dir" }))
+      map('n', ',f', builtin.find_files, ext(noremap, { desc = "Files in cwd" }))
+      map('n', ',G', builtin.live_grep, ext(noremap, { desc = "Live grep" }))
+      map('n', ',L', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
 
-      map('n', ',j', '<Cmd>Telescope jumplist<CR>', noremap)
-      map('n', ',l', '<Cmd>Telescope loclist<CR>', noremap)
-      map('n', ',q', '<Cmd>Telescope quickfix<CR>', noremap)
+      map('n', ',j', builtin.jumplist, ext(noremap, { desc = "Jump list" }))
+      map('n', ',l', builtin.loclist, ext(noremap, { desc = "Location list" }))
+      map('n', ',q', builtin.quickfix, ext(noremap, { desc = "Quickfix list" }))
+      map('n', ',Q', builtin.quickfixhistory, ext(noremap, { desc = "Quickfix list history" }))
 
-      map('n', ',t', '<Cmd>Telescope tags<CR>', noremap)
-      map('n', ',T', '<Cmd>Telescope current_buffer_tags<CR>', noremap)
+      map('n', ',t', builtin.tags, ext(noremap, { desc = "Tags" }))
+      map('n', ',T', builtin.current_buffer_tags, ext(noremap, { desc = "Buffer tags" }))
 
-      map('n', ',g', '<Cmd>Telescope git_files<CR>', noremap)
-      map('n', ',gb', '<Cmd>Telescope git_bcommits<CR>', noremap)
-      map('n', ',gs', '<Cmd>Telescope git_status<CR>', noremap)
+      map('n', ',g', builtin.git_files, ext(noremap, { desc = "Git files" }))
+      map('n', ',gb', builtin.git_bcommits, ext(noremap, { desc = "Buffer's git commits" }))
+      map('n', ',gs', builtin.git_status, ext(noremap, { desc = "Git status" }))
     end,
   }
 
@@ -610,10 +621,6 @@ require('packer').startup(function(use)
   use_dev {
     'neovim/nvim-lspconfig',
     config = function()
-      function ext(a, b)
-        return vim.tbl_extend('force', a, b)
-      end
-
       --- BEGIN peek_definition
       -- Based on code from https://teddit.net/r/neovim/comments/jsdox0/builtin_lsp_preview_definition_under_cursor/gbymsts/#c
       local function preview_location_callback(_, result, query)
@@ -689,7 +696,7 @@ require('packer').startup(function(use)
           vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
           vim.keymap.set('v', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
           vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
-          vim.keymap.set('v', '<Leader>la', [[<Cmd>'<,'>lua vim.lsp.buf.code_action()<CR>]], ext(opts, { desc="LSP Code action menu" }))
+          vim.keymap.set('v', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
           vim.keymap.set('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc="LSP Doc symbols" }))
           vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc="LSP Workspace symbols" }))
         end,
