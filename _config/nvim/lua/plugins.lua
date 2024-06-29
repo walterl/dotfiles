@@ -816,15 +816,6 @@ require('packer').startup(function(use)
   use_dev 'tpope/vim-projectionist'
 
   use_dev {
-    'dense-analysis/ale',
-    config = function()
-      vim.g.ale_enabled = 0
-      map('n', '[a', '<Cmd>ALEPrevious<CR>')
-      map('n', ']a', '<Cmd>ALENext<CR>')
-    end,
-  }
-
-  use_dev {
     'walterl/centerfold',
     after = 'vim-sexp', -- For mapping
     config = function()
