@@ -799,6 +799,20 @@ require('packer').startup(function(use)
 
   use_dev 'nvim-treesitter/nvim-treesitter-context'
 
+  use_dev {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          enable = true,
+          delay = 100,
+          duration = 200,
+        },
+      })
+    end
+  }
+
   use_dev 'tpope/vim-projectionist'
 
   use_dev {
