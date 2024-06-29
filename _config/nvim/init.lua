@@ -48,6 +48,11 @@ au!
   au VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 ]]
+
+-- Hightlight yanked text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function() vim.highlight.on_yank {higroup='Visual', timeout=300} end,
+})
 -- }}}
 
 -- {{{ Environment

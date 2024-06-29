@@ -141,8 +141,6 @@ require('packer').startup(function(use)
     end,
   }
 
-  use 'machakann/vim-highlightedyank'
-
   use {
     'mbbill/undotree',
     config = function()
