@@ -144,6 +144,13 @@ require('packer').startup(function(use)
   use 'machakann/vim-highlightedyank'
 
   use {
+    'mbbill/undotree',
+    config = function()
+      map('n', '<leader>u', vim.cmd.UndotreeToggle)
+    end
+  }
+
+  use {
     'nvim-lualine/lualine.nvim',
     config = function()
       local function lsp_connection()
@@ -175,10 +182,7 @@ require('packer').startup(function(use)
               },
             },
           },
-          lualine_c = {
-            {'branch', icon = ""},
-            {'diff'},
-          },
+          lualine_c = {{'diff'}},
           lualine_x = {
             {
               'diagnostics',
@@ -201,10 +205,29 @@ require('packer').startup(function(use)
         inactive_sections = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = {{'filename', filestatus = true, path = 1}},
+          lualine_c = {
+            {
+              'filename',
+              filestatus = true,
+              path = 1,
+              symbols = {
+                modified = " ",
+                readonly = " ",
+                unnamed = "  "
+              },
+            },
+          },
           lualine_x = {},
           lualine_y = {},
           lualine_z = {},
+        },
+        tabline = {
+          lualine_a = {{'tabs', mode = 2, max_length = vim.o.columns, symbols = { modified = ' ⏺' }}},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {'branch'}
         },
       }
     end,
@@ -392,9 +415,9 @@ require('packer').startup(function(use)
   use 'junegunn/gv.vim'
 
   use {
-    'mbbill/undotree',
+    'junkblocker/git-time-lapse',
     config = function()
-      map('n', '<leader>u', vim.cmd.UndotreeToggle)
+      map('n', '<Leader>gt', '<Plug>(git-time-lapse)')
     end
   }
 
@@ -405,13 +428,6 @@ require('packer').startup(function(use)
       map('n', '<Leader>gd', '<Cmd>Gdiffsplit<CR>')
       map('n', '<Leader>gc', '<Cmd>Git commit<CR>')
       map('n', '<Leader>gs', '<Cmd>tab Git<CR>')
-    end,
-  }
-
-  use {
-    'vim-scripts/git-time-lapse',
-    config = function()
-      map('n', '<Leader>gt', '<Cmd>call TimeLapse()<CR>')
     end,
   }
 
