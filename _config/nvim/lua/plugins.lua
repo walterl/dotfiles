@@ -795,7 +795,13 @@ require('packer').startup(function(use)
     end,
   }
 
-  use_dev 'nvim-treesitter/nvim-treesitter-context'
+  use_dev {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      map('n', '[F', function() require("treesitter-context").go_to_context(vim.v.count1) end, silent)
+      vim.cmd [[ highlight! default link TreesitterContext Pmenu ]]
+    end
+  }
 
   use_dev {
     "shellRaining/hlchunk.nvim",
