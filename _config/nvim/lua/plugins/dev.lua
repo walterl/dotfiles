@@ -4,21 +4,23 @@ local is_older_than_nvim_0_10_0 = vim.version.lt(vim.version(), vim.version.pars
 local specs = {
   {
     'AndrewRadev/sideways.vim',
-    config = function()
-      map('n', '<Leader>ah', '<Cmd>SidewaysLeft<CR>', noremap)
-      map('n', '<Leader>al', '<Cmd>SidewaysRight<CR>', noremap)
-    end,
+    keys = {
+      { '<Leader>ah', '<Cmd>SidewaysLeft<CR>', noremap = true },
+      { '<Leader>al', '<Cmd>SidewaysRight<CR>', noremap = true },
+    },
   },
   'AndrewRadev/splitjoin.vim',
   {
     'ckolkey/ts-node-action',
     dependencies = {'nvim-treesitter'},
-    config = function()
-      require("ts-node-action").setup {
+    opts = function()
+      return {
         ['*'] = {
           ['arguments'] = require('ts-node-action.actions').toggle_multiline(),
         },
       }
+    end,
+    config = function()
       map('n', 'X', require("ts-node-action").node_action, { desc = "Trigger Node Action" })
     end
   },
@@ -77,27 +79,26 @@ local specs = {
   },
   {
     'kevinhwang91/nvim-hlslens',
-    config = function()
-      require('hlslens').setup()
-      local kopts = {noremap = true, silent = true}
-      vim.api.nvim_set_keymap('n', 'n',
+    config = true,
+    keys = {
+      {'n',
         [[<Cmd>execute('normal! ' . v:count1 . 'nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
-        kopts)
-      vim.api.nvim_set_keymap('n', 'N',
+        noremap = true, silent = true},
+      {'N',
         [[<Cmd>execute('normal! ' . v:count1 . 'Nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
-        kopts)
-      vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
-      vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
-      vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
-      vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], kopts)
-    end,
+        noremap = true, silent = true},
+      {'*', [[*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
+      {'#', [[#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
+      {'g*', [[g*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
+      {'g#', [[g#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
+    },
   },
   {
     'knsh14/vim-github-link',
-    config = function()
-      map('v', '<Leader>YB', '<Cmd>GetCurrentBranchLink<CR>')
-      map('v', '<Leader>YC', '<Cmd>GetCurrentCommitLink<CR>')
-    end,
+    keys = {
+      {'<Leader>YB', '<Cmd>GetCurrentBranchLink<CR>', mode = 'v'},
+      {'<Leader>YC', '<Cmd>GetCurrentCommitLink<CR>', mode = 'v'},
+    },
   },
   {
     'luochen1990/rainbow',
@@ -157,32 +158,32 @@ local specs = {
           opts = { noremap = true, buffer = bufnr }
           symbols_opts = { fname_width = 50, symbol_width = 50 }
           if is_older_than_nvim_0_10_0 then
-            vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
-            vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
+            map('n', ']d', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
+            map('n', '[d', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
           end
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, ext(opts, { desc="LSP hover" }))
-          vim.keymap.set('n', 'gd', tel_builtin_fn('lsp_definitions'), ext(opts, { desc="LSP definitions" }))
-          vim.keymap.set('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
-          vim.keymap.set('i', '<C-j>', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
-          vim.keymap.set('n', '<Leader>lR', vim.lsp.buf.references, ext(opts, { desc="LSP References QF" }))
-          vim.keymap.set('n', '<Leader>li', vim.lsp.buf.implementation, ext(opts, { desc="LSP Implementations" }))
-          vim.keymap.set('n', '<Leader>ld', vim.lsp.buf.declaration, ext(opts, { desc="LSP Declarations" }))
-          vim.keymap.set('n', '<Leader>lt', vim.lsp.buf.type_definition, ext(opts, { desc="LSP Type Definition" }))
-          vim.keymap.set('n', '<Leader>lh', vim.lsp.buf.signature_help, ext(opts, { desc="LSP Signature" }))
-          vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set('n', '<Leader>ln', vim.lsp.buf.rename, ext(opts, { desc="LSP Rename" }))
-          vim.keymap.set('n', '<Leader>lI', vim.lsp.buf.incoming_calls, ext(opts, { desc="LSP Incoming calls" }))
-          vim.keymap.set('n', '<Leader>lO', vim.lsp.buf.outgoing_calls, ext(opts, { desc="LSP Outgoing calls" }))
-          vim.keymap.set('n', '<Leader>lw', tel_builtin_fn('diagnostics'), ext(opts, { desc="LSP Diagnostics" }))
-          vim.keymap.set('n', '<Leader>le', vim.diagnostic.open_float, ext(opts, { desc="LSP Show diagnostic" }))
-          vim.keymap.set('n', '<Leader>lq', vim.diagnostic.setloclist, ext(opts, { desc="LSP Diagnostics LocList" }))
-          vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
-          vim.keymap.set('v', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
-          vim.keymap.set('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
-          vim.keymap.set('v', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
-          vim.keymap.set('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc="LSP Doc symbols" }))
-          vim.keymap.set('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc="LSP Workspace symbols" }))
+          map('n', 'K', vim.lsp.buf.hover, ext(opts, { desc="LSP hover" }))
+          map('n', 'gd', tel_builtin_fn('lsp_definitions'), ext(opts, { desc="LSP definitions" }))
+          map('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
+          map('i', '<C-j>', vim.lsp.buf.hover, opts)
+          map('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
+          map('n', '<Leader>lR', vim.lsp.buf.references, ext(opts, { desc="LSP References QF" }))
+          map('n', '<Leader>li', vim.lsp.buf.implementation, ext(opts, { desc="LSP Implementations" }))
+          map('n', '<Leader>ld', vim.lsp.buf.declaration, ext(opts, { desc="LSP Declarations" }))
+          map('n', '<Leader>lt', vim.lsp.buf.type_definition, ext(opts, { desc="LSP Type Definition" }))
+          map('n', '<Leader>lh', vim.lsp.buf.signature_help, ext(opts, { desc="LSP Signature" }))
+          map('i', '<C-s>', vim.lsp.buf.signature_help, opts)
+          map('n', '<Leader>ln', vim.lsp.buf.rename, ext(opts, { desc="LSP Rename" }))
+          map('n', '<Leader>lI', vim.lsp.buf.incoming_calls, ext(opts, { desc="LSP Incoming calls" }))
+          map('n', '<Leader>lO', vim.lsp.buf.outgoing_calls, ext(opts, { desc="LSP Outgoing calls" }))
+          map('n', '<Leader>lw', tel_builtin_fn('diagnostics'), ext(opts, { desc="LSP Diagnostics" }))
+          map('n', '<Leader>le', vim.diagnostic.open_float, ext(opts, { desc="LSP Show diagnostic" }))
+          map('n', '<Leader>lq', vim.diagnostic.setloclist, ext(opts, { desc="LSP Diagnostics LocList" }))
+          map('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
+          map('v', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
+          map('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
+          map('v', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
+          map('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc="LSP Doc symbols" }))
+          map('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc="LSP Workspace symbols" }))
         end,
       }
       require('lspconfig').clojure_lsp.setup(config)
@@ -224,34 +225,34 @@ local specs = {
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })()
     end,
+    opts = {
+      highlight = {
+        enable = true,
+        disable = {
+          'clojure', -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
+          'julia', -- Breaks julia-vim's matchit integration
+        },
+        --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
+      },
+      indent = {
+        enable = true,
+        disable = { 'javascript', 'python' },
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "gnn",
+          node_decremental = '-',
+          node_incremental = '+',
+          scope_incremental = '.',
+        },
+      },
+      ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc'},
+    },
     config = function()
       -- https://github.com/nvim-treesitter/nvim-treesitter#folding
       vim.opt.foldmethod = 'expr'
       vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-      require('nvim-treesitter.configs').setup {
-        highlight = {
-          enable = true,
-          disable = {
-            'clojure', -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
-            'julia', -- Breaks julia-vim's matchit integration
-          },
-        },
-        indent = {
-          enable = true,
-          disable = { 'javascript', 'python' },
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_decremental = '-',
-            node_incremental = '+',
-            scope_incremental = '.',
-          },
-        },
-        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc'},
-        --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
-      }
     end,
   },
   {
@@ -276,9 +277,9 @@ local specs = {
   {
     'walterl/centerfold',
     dependencies = {'vim-sexp'},
-    config = function()
-      map('n', '<Leader>jj', 'v<Plug>(sexp_outer_top_list)<Esc><Cmd>CenterFold<CR>', silent)
-    end,
+    keys = {
+      { '<Leader>jj', 'v<Plug>(sexp_outer_top_list)<Esc><Cmd>CenterFold<CR>', silent = true },
+    },
   },
   -- cmp
   {'hrsh7th/cmp-nvim-lsp', dependencies = {'hrsh7th/nvim-cmp'}},
@@ -300,7 +301,6 @@ local specs = {
         "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
         "python", "rust",
       }
-      map('n', 'gD', '<Cmd>ConjureDefWord<CR>')
       vim.api.nvim_create_autocmd('BufEnter', {
         pattern = 'conjure-log-*',
         command = 'setlocal winhighlight=Normal:lualine_c_normal',
@@ -310,6 +310,9 @@ local specs = {
         callback = function() vim.diagnostic.disable(0) end
       })
     end,
+    keys = {
+      { 'gD', '<Cmd>ConjureDefWord<CR>' },
+    }
   },
   {'walterl/conjure-efroot', dependencies = {'Olical/conjure'}},
   {'walterl/conjure-macroexpand', dependencies = {'Olical/conjure'}},
@@ -317,12 +320,12 @@ local specs = {
   {
     'walterl/conjure-tapdance',
     dependencies = {'Olical/conjure'},
-    config = function()
-      map('n', '<Leader>jT', '<Cmd>TapForm<CR>', noremap_silent)
-      map('n', '<Leader>jt', '<Cmd>TapWord<CR>', noremap_silent)
-      map('v', '<Leader>jt', ':TapV<CR>', noremap_silent)
-      map('n', '<Leader>jte', '<Cmd>TapExc<CR>', noremap_silent)
-    end,
+    keys = {
+      { '<Leader>jT', '<Cmd>TapForm<CR>', noremap = true, silent = true },
+      { '<Leader>jt', '<Cmd>TapWord<CR>', noremap = true, silent = true },
+      { '<Leader>jt', ':TapV<CR>', mode = 'v', noremap = true, silent = true },
+      { '<Leader>jT', '<Cmd>TapForm<CR>', noremap = true, silent = true },
+    },
   },
   --- sexp
   {
@@ -334,11 +337,11 @@ local specs = {
   },
   {
     'tpope/vim-sexp-mappings-for-regular-people',
-    config = function()
+    keys = {
       -- Swap multiple selected elements:
-      map('v', '<e', '<Plug>(sexp_swap_element_backward)')
-      map('v', '>e', '<Plug>(sexp_swap_element_forward)')
-    end,
+      {'<e', '<Plug>(sexp_swap_element_backward)', mode = 'v'},
+      {'>e', '<Plug>(sexp_swap_element_forward)', mode = 'v'},
+    },
   },
   -- Fennel
   { 'Olical/aniseed', dependencies = {'bakpakin/fennel.vim'} },

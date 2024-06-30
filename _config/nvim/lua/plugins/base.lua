@@ -40,10 +40,10 @@ return {
   },
   {
     'goolord/alpha-nvim',
+    dependencies = {'walterl/alpha_startify_gst'},
     config = function()
       require'alpha'.setup(require'alpha_startify_gst'.config)
     end,
-    dependencies = {'walterl/alpha_startify_gst'},
   },
   {
     'hgiesel/vim-motion-sickness',
@@ -84,9 +84,9 @@ return {
   },
   {
     'mbbill/undotree',
-    config = function()
-      map('n', '<leader>u', vim.cmd.UndotreeToggle)
-    end
+    keys = {
+      { '<leader>u', vim.cmd.UndotreeToggle },
+    },
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -179,21 +179,25 @@ return {
         python = 'ipython',
         typescript = 'deno',
       }
-      map('n', '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap)
-      map('n', '<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap)
-      map('n', '<Leader>rr', '<Plug>ReplSendLine')
-      map('v', '<Leader>re', '<Plug>ReplSendVisual')
     end,
+    keys = {
+      {'<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true},
+      {'<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true},
+      {'<Leader>rr', '<Plug>ReplSendLine'},
+      {'<Leader>re', '<Plug>ReplSendVisual', mode = 'v'},
+    },
   },
   {
     'scrooloose/nerdtree',
     config = function()
-      map('', '<F2>', '<Cmd>NERDTreeToggle<CR>', silent)
-      map('', '<F3>', '<Cmd>NERDTreeToggle %<CR>', silent)
       vim.g.NERDTreeIgnore = {'\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$'}
       vim.g.NERDTreeShowBookmarks = 1
       vim.g.NERDTreeShowLineNumbers = 1
     end,
+    keys = {
+      {'<F2>', '<Cmd>NERDTreeToggle<CR>', silent = true},
+      {'<F3>', '<Cmd>NERDTreeToggle %<CR>', silent = true},
+    },
   },
   'stevearc/dressing.nvim',
   'tpope/vim-commentary',
@@ -206,9 +210,9 @@ return {
   'vim-scripts/httplog',
   {
     'vim-scripts/Smart-Home-Key',
-    config = function()
-      map('n', '0', '<Cmd>SmartHomeKey<CR>', silent)
-    end,
+    keys = {
+      { '0', '<Cmd>SmartHomeKey<CR>', silent = true },
+    },
   },
   'whiteinge/diffconflicts',
   'walterl/curlod',
@@ -328,24 +332,26 @@ return {
         style = 'minimal',
         border = 'rounded',
       }
-      map('n', '<Leader>gg', '<Cmd>GitGutterToggle<CR>')
     end,
+    keys = {
+      { '<Leader>gg', '<Cmd>GitGutterToggle<CR>' },
+    },
   },
   'junegunn/gv.vim',
   {
     'junkblocker/git-time-lapse',
-    config = function()
-      map('n', '<Leader>gt', '<Plug>(git-time-lapse)')
-    end
+    keys = {
+      {'<Leader>gt', '<Plug>(git-time-lapse)'},
+    },
   },
   {
     'tpope/vim-fugitive',
-    config = function()
-      map('n', '<Leader>gb', '<Cmd>Git blame<CR>')
-      map('n', '<Leader>gd', '<Cmd>Gdiffsplit<CR>')
-      map('n', '<Leader>gc', '<Cmd>Git commit<CR>')
-      map('n', '<Leader>gs', '<Cmd>tab Git<CR>')
-    end,
+    keys = {
+      {'<Leader>gb', '<Cmd>Git blame<CR>'},
+      {'<Leader>gd', '<Cmd>Gdiffsplit<CR>'},
+      {'<Leader>gc', '<Cmd>Git commit<CR>'},
+      {'<Leader>gs', '<Cmd>tab Git<CR>'},
+    },
   },
   -- Markdown
   {

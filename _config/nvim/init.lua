@@ -3,8 +3,8 @@ noremap = {noremap = true}
 silent = {silent = true}
 noremap_silent = {noremap = true, silent = true}
 
-function ext(a, b)
-  return vim.tbl_extend('force', a, b)
+function ext(...)
+  return vim.tbl_extend('force', ...)
 end
 
 -- {{{ General settings
@@ -108,10 +108,10 @@ hi WinSeparator guifg=#3E4452 guibg=#3E4452 ctermbg=237
 -- Center cursor after jumping
 map('n', 'g;', 'g;zvzz')
 map('n', 'g,', 'g,zvzz')
--- Commented out, because it removes the very useful search count '[1/5]' ('shortmess')
-map('n', 'n', 'nzvzz', silent)
-map('n', 'N', 'Nzvzz')
-map('n', '*', '*zvzz')
+-- Handled by kevinhwang91/nvim-hlslens plugin
+-- map('n', 'n', 'nzvzz', silent)
+-- map('n', 'N', 'Nzvzz')
+-- map('n', '*', '*zvzz')
 
 -- Cut/Copy/Paste shortcuts
 map('v', '<Leader>y', '"+y', noremap)
