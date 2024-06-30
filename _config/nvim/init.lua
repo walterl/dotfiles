@@ -3,6 +3,10 @@ noremap = {noremap = true}
 silent = {silent = true}
 noremap_silent = {noremap = true, silent = true}
 
+function ext(a, b)
+  return vim.tbl_extend('force', a, b)
+end
+
 -- {{{ General settings
 map('n', '<Space>', '<NOP>', noremap)
 vim.g.mapleader = ' '
@@ -68,7 +72,19 @@ end
 -- }}}
 
 -- {{{ Plugins
-require('plugins')
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {{ import = "plugins" }},
+  checker = { enabled = false },
+})
 -- }}}
 
 -- {{{ Color scheme settings
