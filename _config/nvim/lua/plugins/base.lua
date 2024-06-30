@@ -1,19 +1,6 @@
 return {
   -- General
   {
-    'alvarosevilla95/luatab.nvim',
-    opts = {
-      windowCount = function(index)
-        local nwins = 0
-        local success, wins = pcall(vim.api.nvim_tabpage_list_wins, index)
-        if success then
-          for _ in pairs(wins) do nwins = nwins + 1 end
-        end
-        return index .. ' ' .. (nwins > 1 and '(' .. nwins .. ') ' or '')
-      end,
-    },
-  },
-  {
     'chrisbra/NrrwRgn',
     config = function()
       vim.g.nrrw_rgn_vert = 1
