@@ -16,13 +16,9 @@ nmap <Leader>jc (i#_<Esc>
 nmap <Leader>jC O(comment<CR><CR>,,,)<CR><Up><Up><Space><Space>
 
 function HasPlugin(plugin)
-  let plugs = luaeval('packer_plugins')
-  return index(keys(l:plugs), a:plugin) > -1 && l:plugs[a:plugin]['loaded']
+  let plugin_names = luaeval('vim.tbl_keys(require("lazy.core.config").plugins)')
+  return index(l:plugin_names, a:plugin) > -1
 endfunction
-
-if HasPlugin('ale')
-  ALEDisableBuffer
-endif
 
 if HasPlugin('auto-pairs')
   " Don't automatically insert closing ' or `
