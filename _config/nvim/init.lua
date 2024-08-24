@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.g.nvim_env_flags = vim.split((vim.env.NVIM_ENV_FLAGS or ''), "%s+")
 
 function flag_is_set(flag)
-  return vim.tbl_contains(vim.g.nvim_env_flag or {}, flag)
+  return vim.tbl_contains(vim.g.nvim_env_flags or {}, flag)
 end
 -- }}}
 
