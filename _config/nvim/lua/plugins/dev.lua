@@ -25,6 +25,17 @@ local specs = {
     end
   },
   {
+    "dustinblackman/oatmeal.nvim",
+    cmd = { "Oatmeal" },
+    keys = {
+      { "<leader>om", mode = "n", desc = "Start Oatmeal session" },
+    },
+    opts = {
+      backend = "ollama",
+      model = "devllama:latest",
+    },
+  },
+  {
     'echasnovski/mini.align',
     version = '*',
     config = true
