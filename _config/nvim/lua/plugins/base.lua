@@ -308,6 +308,7 @@ return {
   -- Git
   {
     'airblade/vim-gitgutter',
+    lazy = false,
     branch = 'main',
     config = function()
       vim.g.gitgutter_floating_window_options = {
