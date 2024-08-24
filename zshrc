@@ -29,6 +29,19 @@ unsetopt correctall
 autoload -U select-word-style
 select-word-style bash
 
+# More zsh customization:
+ZSH_HILITE=$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $ZSH_HILITE ] && source $ZSH_HILITE
+
+ZSH_AUTOSUGGEST="$HOME/.zsh/zsh-autosuggestions.zsh"
+if [ -f $ZSH_AUTOSUGGEST ]; then
+	source $ZSH_AUTOSUGGEST
+	bindkey -M viins '^ ' autosuggest-accept
+fi
+
+ZSH_VIMODE="$HOME/.zsh/vi-mode.zsh"
+[ -f $VIMODE ] && source $VIMODE
+
 # Tweaks
 export TERM=xterm-256color # More colorful terminal vim :)
 
@@ -110,10 +123,6 @@ export PATH="$PATH:node_modules/.bin"
 
 # Load host-specific stuff...
 [ -f "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
-
-# Enable vi-mode
-VIMODE="$(dirname $(readlink -f ~/.zshrc))/_vi-mode.zsh"
-[ -f $VIMODE ] && source $VIMODE
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

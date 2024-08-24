@@ -43,6 +43,7 @@ link_dotfiles() {
   mklink "tmux.conf"
   mklink "vimrc"
   mklink "zshrc"
+  mklink "zsh"
 
   mklink "_config/alacritty" ".config"
   mklink "_config/nvim" ".config"
@@ -66,6 +67,7 @@ unlink_dotfiles() {
   rmlink "tmux.conf"
   rmlink "vimrc"
   rmlink "zshrc"
+  rmlink "zsh"
 
   rmlink "_config/alacritty" ".config"
   rmlink "_config/nvim" ".config"
@@ -152,6 +154,8 @@ post_link_cmds() {
     nvim +PlugInstall +qa
     e_success "nvim +PlugInstall +qa"
   fi
+
+  [ -f $HOME/.zsh/zsh-syntax-highlighting/install.sh ] && $HOME/.zsh/zsh-syntax-highlighting/install.sh
 }
 
 load_dconf() {
