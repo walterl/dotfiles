@@ -151,8 +151,8 @@ rmlink() {
 
 post_link_cmds() {
   if command -v nvim > /dev/null; then
-    nvim +PlugInstall +qa
-    e_success "nvim +PlugInstall +qa"
+    nvim +"Lazy install" +qa
+    e_success "nvim +'Lazy install' +qa"
   fi
 
   [ -f $HOME/.zsh/zsh-syntax-highlighting/install.sh ] && $HOME/.zsh/zsh-syntax-highlighting/install.sh
