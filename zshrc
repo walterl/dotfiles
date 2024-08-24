@@ -40,7 +40,7 @@ if [ -f $ZSH_AUTOSUGGEST ]; then
 fi
 
 ZSH_VIMODE="$HOME/.zsh/vi-mode.zsh"
-[ -f $VIMODE ] && source $VIMODE
+[ -f $ZSH_VIMODE ] && source $ZSH_VIMODE
 
 # Tweaks
 export TERM=xterm-256color # More colorful terminal vim :)
