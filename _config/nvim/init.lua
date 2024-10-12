@@ -212,13 +212,6 @@ end
 -- (http://vim.wikia.com/wiki/Selecting_your_pasted_text)
 map('n', 'gp', "'`[' . strpart(getregtype(), 0, 1) . '`]'", {noremap = true, expr = true})
 
--- grep word under cursor
--- (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
-map('n', '<Leader>GG', '<Cmd>grep! <C-R>=shellescape("\\b<C-R><C-W>", 1)<CR><CR><Cmd>cw<CR>', noremap)
-map('v', '<Leader>GG', '"sy<Cmd>grep! <C-R>=shellescape("\\b<C-R>s", 1)<CR><CR><Cmd>cw<CR>', noremap)
-map('n', '<Leader>G', '<Cmd>grep! <C-R>=shellescape("\\b<C-R><C-W>", 1)<CR>', noremap)
-map('v', '<Leader>G', '"sy<Cmd>grep! <C-R>=shellescape("\\b<C-R>s", 1)<CR>', noremap)
-
 -- Expand %% to the current file's directory in commands. This is useful if CWD
 -- is "far" from the current file's directory.
 -- (https://github.com/nathanlong/dotfiles/blob/master/vim/vimrc)
