@@ -239,7 +239,6 @@ local specs = {
     end,
     config = function()
       require('nvim-treesitter.configs').setup {
-
         highlight = {
           enable = true,
           disable = {
@@ -288,7 +287,9 @@ local specs = {
     keys = {
       {'<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true},
       {'<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true},
+      {'<C-Enter>', '<Plug>ReplSendLine'},
       {'<Leader>rr', '<Plug>ReplSendLine'},
+      {'<C-Enter>', '<Plug>ReplSendVisual', mode = 'v'},
       {'<Leader>re', '<Plug>ReplSendVisual', mode = 'v'},
     },
   },
