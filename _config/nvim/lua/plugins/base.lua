@@ -266,28 +266,16 @@ return {
   {'onsails/lspkind.nvim', dependencies = {'hrsh7th/nvim-cmp'}},
   -- Colors
   {
-    'drewtempelmeyer/palenight.vim',
+    'catppuccin/nvim',
+    name = "catppuccin",
+    priority = 1000,
     config = function()
-      -- Enable italics
-      vim.g.palenight_terminal_italics = 1
-
-      -- Slightly lighter (and bluer) grey, to increase contrast with dark/greyish backgrounds
-      vim.g.palenight_color_overrides = {
-        comment_grey = { gui = "#7583D1", cterm = 59, cterm16 = 15},
-        cursor_grey = { gui = "#232830", cterm = 236, cterm16 = 8 },
-      }
-
-      -- Load color scheme
-      vim.cmd [[colorscheme palenight]]
-      -- Make background transparent
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE', ctermbg = 'NONE' })
-      -- Make floating windows a bit more pronounced
-      vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#4B5263', bg = '#2C323C', ctermbg = 237 })
-      -- Color window separators the same as inactive status lines
-      vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#3E4452', bg = '#3E4452', ctermbg = 237 })
+      vim.cmd.colorscheme "catppuccin"
+      require("catppuccin").setup({
+        transparent_background = true,
+      })
     end,
   },
-  -- 'srcery-colors/srcery-vim',
   -- Git
   {
     'airblade/vim-gitgutter',
