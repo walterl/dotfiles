@@ -118,6 +118,7 @@ local specs = {
       vim.g.rainbow_conf = {guifgs = {'DeepSkyBlue', 'darkorange3', 'LawnGreen', 'ivory1', 'firebrick', 'MistyRose1', 'maroon1'}}
     end,
   },
+  'Matt-A-Bennett/vim-visual-history',
   {
     'neovim/nvim-lspconfig',
     config = function()
@@ -301,6 +302,7 @@ local specs = {
       },
     },
   },
+  'sindrets/diffview.nvim',
   'tpope/vim-projectionist',
   {
     'walterl/centerfold',
