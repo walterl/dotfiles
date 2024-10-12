@@ -223,7 +223,7 @@ local specs = {
         })
       )
       require('lspconfig').pylsp.setup(config)
-      require('lspconfig').tsserver.setup(config)
+      require('lspconfig').ts_ls.setup(config)
       vim.cmd [[
       sign define DiagnosticSignHint text=⍰ texthl=DiagnosticSignHint
       sign define DiagnosticSignInfo text=ⓘ texthl=DiagnosticSignInfo
@@ -237,31 +237,32 @@ local specs = {
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })()
     end,
-    opts = {
-      highlight = {
-        enable = true,
-        disable = {
-          'clojure', -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
-          'julia', -- Breaks julia-vim's matchit integration
-        },
-        --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
-      },
-      indent = {
-        enable = true,
-        disable = { 'javascript', 'python' },
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn",
-          node_decremental = '-',
-          node_incremental = '+',
-          scope_incremental = '.',
-        },
-      },
-      ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc'},
-    },
     config = function()
+      require('nvim-treesitter.configs').setup {
+
+        highlight = {
+          enable = true,
+          disable = {
+            'clojure', -- Breaks string handling: https://github.com/guns/vim-sexp/issues/31
+            'julia', -- Breaks julia-vim's matchit integration
+          },
+          --additional_vim_regex_highlighting = true, -- Could help with some indent/highlighting issues
+        },
+        indent = {
+          enable = true,
+          disable = { 'javascript', 'python' },
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_decremental = '-',
+            node_incremental = '+',
+            scope_incremental = '.',
+          },
+        },
+        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc'},
+      }
       -- https://github.com/nvim-treesitter/nvim-treesitter#folding
       vim.opt.foldmethod = 'expr'
       vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
@@ -347,7 +348,7 @@ local specs = {
     end,
     keys = {
       { 'gD', '<Cmd>ConjureDefWord<CR>' },
-    }
+    },
   },
   {'walterl/conjure-efroot', dependencies = {'Olical/conjure'}},
   {'walterl/conjure-macroexpand', dependencies = {'Olical/conjure'}},
@@ -372,6 +373,7 @@ local specs = {
   },
   {
     'tpope/vim-sexp-mappings-for-regular-people',
+    lazy = false,
     keys = {
       -- Swap multiple selected elements:
       {'<e', '<Plug>(sexp_swap_element_backward)', mode = 'v'},

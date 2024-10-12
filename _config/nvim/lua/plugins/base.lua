@@ -47,7 +47,7 @@ return {
     config = function()
       vim.g.goyo_width = 100
       vim.cmd [[
-      command! WritingMode Goyo | colorscheme palenight | set ft=markdown wrap | lua require('lualine').hide(); MiniMap.close()
+      command! WritingMode Goyo | set ft=markdown wrap | lua require('lualine').hide(); MiniMap.close()
       ]]
     end,
   },
@@ -58,7 +58,7 @@ return {
       mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'}, -- Default without <C-f>, which I remapped
     },
   },
-  'kyazdani42/nvim-web-devicons',
+  'nvim-tree/nvim-web-devicons',
   {
     'kylechui/nvim-surround',
     opts = {
@@ -375,7 +375,7 @@ return {
         builtin.find_files{ search_dirs = { "%:h" } }
       end, ext(noremap, { desc = "Files in current buffer's dir" }))
       map('n', ',f', builtin.find_files, ext(noremap, { desc = "Files in cwd" }))
-      map('n', ',G', builtin.live_grep, ext(noremap, { desc = "Live grep" }))
+      map('n', ',G', builtin.grep_string, ext(noremap, { desc = "Grep string" }))
       map('n', ',L', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
 
       map('n', ',j', builtin.jumplist, ext(noremap, { desc = "Jump list" }))
