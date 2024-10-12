@@ -274,6 +274,23 @@ local specs = {
     end
   },
   {
+    'pappasam/nvim-repl',
+    config = function()
+      vim.g.repl_filetype_commands = {
+        javascript = 'node',
+        julia = 'julia',
+        python = 'ipython',
+        typescript = 'deno',
+      }
+    end,
+    keys = {
+      {'<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true},
+      {'<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true},
+      {'<Leader>rr', '<Plug>ReplSendLine'},
+      {'<Leader>re', '<Plug>ReplSendVisual', mode = 'v'},
+    },
+  },
+  {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
