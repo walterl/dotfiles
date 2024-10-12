@@ -319,6 +319,10 @@ local specs = {
   {
     'Olical/conjure',
     dependencies = {'Olical/aniseed'},
+    ft = {
+      "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
+      "python", "rust",
+    },
     config = function()
       vim.g['conjure#mapping#doc_word'] = "K"
       vim.g['conjure#client#clojure#nrepl#eval#auto_require'] = false
@@ -329,6 +333,7 @@ local specs = {
         "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
         "python", "rust",
       }
+      vim.g['conjure#filetype#julia'] = nil -- Force-disable Julia >:/
       vim.api.nvim_create_autocmd('BufEnter', {
         pattern = 'conjure-log-*',
         command = 'setlocal winhighlight=Normal:lualine_c_normal',
