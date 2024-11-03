@@ -376,7 +376,7 @@ return {
       end, ext(noremap, { desc = "Files in current buffer's dir" }))
       map('n', ',f', builtin.find_files, ext(noremap, { desc = "Files in cwd" }))
       map('n', ',G', builtin.grep_string, ext(noremap, { desc = "Grep string" }))
-      map('n', ',L', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
+      map('n', ',e', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
 
       map('n', ',j', builtin.jumplist, ext(noremap, { desc = "Jump list" }))
       map('n', ',l', builtin.loclist, ext(noremap, { desc = "Location list" }))
