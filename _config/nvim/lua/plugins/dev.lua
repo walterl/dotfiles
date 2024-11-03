@@ -89,6 +89,12 @@ local specs = {
     end,
   },
   {
+    'ellisonleao/dotenv.nvim',
+    opts = {
+      enable_on_load = false,
+    },
+  },
+  {
     'kevinhwang91/nvim-hlslens',
     config = true,
     keys = {
@@ -273,6 +279,27 @@ local specs = {
       map('n', '[F', function() require("treesitter-context").go_to_context(vim.v.count1) end, silent)
       vim.cmd [[ highlight! default link TreesitterContext Pmenu ]]
     end
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = {'nvim-treesitter/nvim-treesitter'},
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        textobjects = {
+          select = {
+            enable = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ic"] = "@call.inner",
+              ["ac"] = "@call.outer",
+              ["ik"] = "@block.inner",
+              ["ak"] = "@block.outer",
+            },
+          },
+        },
+      }
+    end,
   },
   {
     'pappasam/nvim-repl',
