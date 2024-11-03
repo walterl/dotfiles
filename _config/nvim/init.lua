@@ -43,6 +43,7 @@ vim.opt.updatetime = 1000
 vim.opt.pumblend = 20 -- Transparency for pop-up menu
 vim.opt.winblend = 20 -- Transparency for floating windows
 vim.opt.mouse = '' -- :help disable-mouse
+vim.opt.redrawtime = 1000
 
 -- Highlight trailing space
 vim.cmd [[
