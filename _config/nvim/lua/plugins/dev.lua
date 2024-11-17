@@ -95,6 +95,24 @@ local specs = {
     },
   },
   {
+    "harrisoncramer/gitlab.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "stevearc/dressing.nvim",
+      "nvim-tree/nvim-web-devicons"
+    },
+    enabled = true,
+    build = function () require("gitlab.server").build(true) end, -- Builds the Go binary
+    config = function()
+      require("gitlab").setup()
+    end,
+    keys = {
+      {'<Leader>gmr', [[<Cmd>lua require("gitlab").choose_merge_request()<CR>]], noremap = true}
+    },
+  },
+  {
     'kevinhwang91/nvim-hlslens',
     config = true,
     keys = {
@@ -124,7 +142,6 @@ local specs = {
       vim.g.rainbow_conf = {guifgs = {'DeepSkyBlue', 'darkorange3', 'LawnGreen', 'ivory1', 'firebrick', 'MistyRose1', 'maroon1'}}
     end,
   },
-  'Matt-A-Bennett/vim-visual-history',
   {
     'neovim/nvim-lspconfig',
     config = function()
@@ -338,6 +355,71 @@ local specs = {
     dependencies = {'vim-sexp'},
     keys = {
       { '<Leader>jj', 'v<Plug>(sexp_outer_top_list)<Esc><Cmd>CenterFold<CR>', silent = true },
+    },
+  },
+  {
+    "yetone/avante.nvim",
+    -- Config adapted from https://github.com/yetone/avante.nvim#installation
+    event = "VeryLazy",
+    lazy = false,
+    opts = {
+      provider = "ollama",
+      vendors = {
+        ---@type AvanteProvider
+        ollama = {
+          ["local"] = true,
+          endpoint = "127.0.0.1:11434/v1",
+          model = "llama3.1:8b-instruct-q5_K_M",
+          parse_curl_args = function(opts, code_opts)
+            return {
+              url = opts.endpoint .. "/chat/completions",
+              headers = {
+                ["Accept"] = "application/json",
+                ["Content-Type"] = "application/json",
+              },
+              body = {
+                model = opts.model,
+                messages = require("avante.providers").copilot.parse_messages(code_opts), -- you can make your own message, but this is very advanced
+                max_tokens = 4096,
+                stream = true,
+              },
+            }
+          end,
+          parse_response_data = function(data_stream, event_state, opts)
+            require("avante.providers").copilot.parse_response(data_stream, event_state, opts)
+          end,
+        },
+      },
+    },
+    build = "make",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+          },
+        },
+      },
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
     },
   },
   -- cmp
