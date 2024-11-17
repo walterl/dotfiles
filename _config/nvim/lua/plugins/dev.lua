@@ -308,7 +308,7 @@ local specs = {
         javascript = 'node',
         julia = 'julia',
         python = 'ipython',
-        typescript = 'deno',
+        typescript = 'tsx',
       }
     end,
     keys = {
