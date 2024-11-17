@@ -49,6 +49,7 @@ link_dotfiles() {
   mklink "_config/nvim" ".config"
   mklink "_config/starship.toml" ".config"
   mklink "_config/terminator" ".config"
+  mklink "_config/tmux" ".config"
 
   mklink "_fonts/DejaVu Sans Mono for Powerline.ttf" ".fonts"
   mklink "_fonts/DejaVu Sans Mono Bold for Powerline.ttf" ".fonts"
