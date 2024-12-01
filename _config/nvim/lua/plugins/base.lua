@@ -41,7 +41,6 @@ return {
   },
   'itchyny/vim-cursorword',
   'jiangmiao/auto-pairs',
-  'JuliaEditorSupport/julia-vim',
   {
     'junegunn/goyo.vim',
     config = function()
@@ -239,6 +238,9 @@ return {
               item.menu = '[' .. item.menu .. ']'
             end
 
+            if not lspkind then
+              return item
+            end
             return lspkind.cmp_format({ mode = 'symbol_text' })(entry, item)
           end,
         },
@@ -261,9 +263,7 @@ return {
   },
   {'hrsh7th/cmp-buffer', dependencies = {'hrsh7th/nvim-cmp'}},
   {'hrsh7th/cmp-path', dependencies = {'hrsh7th/nvim-cmp'}},
-  {'hrsh7th/cmp-nvim-lsp-signature-help', dependencies = {'hrsh7th/nvim-cmp'}},
   {'kdheepak/cmp-latex-symbols', dependencies = {'hrsh7th/nvim-cmp'}},
-  {'onsails/lspkind.nvim', dependencies = {'hrsh7th/nvim-cmp'}},
   -- Colors
   {
     'catppuccin/nvim',

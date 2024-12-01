@@ -112,6 +112,7 @@ local specs = {
       {'<Leader>gmr', [[<Cmd>lua require("gitlab").choose_merge_request()<CR>]], noremap = true}
     },
   },
+  'JuliaEditorSupport/julia-vim',
   {
     'kevinhwang91/nvim-hlslens',
     config = true,
@@ -144,6 +145,10 @@ local specs = {
   },
   {
     'neovim/nvim-lspconfig',
+    dependencies = {
+      {'hrsh7th/cmp-nvim-lsp-signature-help', dependencies = {'hrsh7th/nvim-cmp'}},
+      {'onsails/lspkind.nvim', dependencies = {'hrsh7th/nvim-cmp'}},
+    },
     config = function()
       --- BEGIN peek_definition
       -- Based on code from https://teddit.net/r/neovim/comments/jsdox0/builtin_lsp_preview_definition_under_cursor/gbymsts/#c
