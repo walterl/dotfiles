@@ -9,7 +9,13 @@ local specs = {
       { '<Leader>al', '<Cmd>SidewaysRight<CR>', noremap = true },
     },
   },
-  'AndrewRadev/splitjoin.vim',
+  {
+    'AndrewRadev/splitjoin.vim',
+    keys = {
+      { "<Leader>ss", [[<Cmd>SplitjoinSplit<CR>]], mode = "n", desc = "SplitjoinSplit", noremap = true },
+      { "<Leader>sj", [[<Cmd>SplitjoinJoin<CR>]],  mode = "n", desc = "SplitjoinJoin",  noremap = true },
+    },
+  },
   {
     'ckolkey/ts-node-action',
     dependencies = {'nvim-treesitter'},
