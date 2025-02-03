@@ -204,8 +204,11 @@ return {
       if not flag_is_set('nodev') then
         sources = vim.list_extend(
           {
-            {name = 'nvim_lsp'},
             {name = 'nvim_lsp_signature_help'},
+            {name = 'nvim_lsp'},
+            per_filetype = {
+              codecompanion = { "codecompanion" },
+            },
           },
           sources
         )

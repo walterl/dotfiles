@@ -294,7 +294,7 @@ local specs = {
             scope_incremental = '.',
           },
         },
-        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc'},
+        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc', "yaml"},
       }
       -- https://github.com/nvim-treesitter/nvim-treesitter#folding
       vim.opt.foldmethod = 'expr'
@@ -328,6 +328,49 @@ local specs = {
         },
       }
     end,
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "codecompanion" },
+        },
+        ft = { "markdown", "codecompanion" },
+      },
+    },
+    opts = {
+      adapters = {
+        myollama = function()
+          return require("codecompanion.adapters").extend("ollama", {
+            schema = {
+              model = {
+                default = "deepseek-r1:7b",
+              },
+              -- num_ctx = {
+              --   default = 16384,
+              -- },
+              -- num_predict = {
+              --   default = -1,
+              -- },
+            },
+          })
+        end,
+      },
+      strategies = {
+        chat = { adapter = "myollama" },
+        inline = { adapter = "myollama" },
+      },
+    },
+    keys = {
+      { "<C-a>", mode = {"n", "v"}, "<Cmd>CodeCompanionActions<CR>", noremap = true, silent = true },
+      { "<LocalLeader>a", mode = {"n", "v"}, "<Cmd>CodeCompanionChat Toggle<CR>", noremap = true, silent = true },
+      { "ga", mode = "v", "<Cmd>CodeCompanionChat Add<CR>", noremap = true, silent = true },
+    },
   },
   {
     'pappasam/nvim-repl',
@@ -366,56 +409,6 @@ local specs = {
     dependencies = {'vim-sexp'},
     keys = {
       { '<Leader>jj', 'v<Plug>(sexp_outer_top_list)<Esc><Cmd>CenterFold<CR>', silent = true },
-    },
-  },
-  {
-    "yetone/avante.nvim",
-    -- Config adapted from https://github.com/yetone/avante.nvim#installation
-    event = "VeryLazy",
-    lazy = false,
-    opts = {
-      provider = "ollama",
-      vendors = {
-        ollama = {
-          __inherited_from = "openai",
-          api_key_name = "",
-          endpoint = "http://127.0.0.1:11434/v1",
-          model = "llama3.2:3b-instruct-fp16",
-          max_tokens = 128000,
-          -- temperature = 0.5,
-        },
-      },
-      hints = { enabled = false },
-    },
-    build = "make",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-          },
-        },
-      },
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
     },
   },
   -- cmp
