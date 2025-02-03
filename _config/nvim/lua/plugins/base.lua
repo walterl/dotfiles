@@ -370,7 +370,10 @@ return {
       map('n', ',R', builtin.resume, ext(noremap, { desc = "Resume last search" }))
 
       map('n', ',b', builtin.buffers, ext(noremap, { desc = "Buffers" }))
-      map('n', ',B', builtin.oldfiles, ext(noremap, { desc = "Previously open files" }))
+      map('n', ',o', function()
+        builtin.oldfiles{ cwd = vim.fn.getcwd(), only_cwd = false }
+      end, ext(noremap, { desc = "Previously open files" }))
+      map('n', ',O', builtin.oldfiles, ext(noremap, { desc = "Previously open files" }))
       map('n', ',d', function()
         builtin.find_files{ search_dirs = { "%:h" } }
       end, ext(noremap, { desc = "Files in current buffer's dir" }))
