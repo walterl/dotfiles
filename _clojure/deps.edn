@@ -6,14 +6,14 @@
    :extra-paths ["dev"]}
 
   :nrepl
-  {:extra-deps {cider/cider-nrepl {:mvn/version "0.52.0"}}
+  {:extra-deps {cider/cider-nrepl {:mvn/version "0.52.1"}}
    :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :portal
   {:extra-deps {djblue/portal {:mvn/version "0.58.5"}}}
 
   :nrepl+portal
-  {:extra-deps {cider/cider-nrepl {:mvn/version "0.52.0"}
+  {:extra-deps {cider/cider-nrepl {:mvn/version "0.52.1"}
                 djblue/portal {:mvn/version "0.58.5"}}
    :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware portal.nrepl/wrap-portal]"]}
 
@@ -25,10 +25,9 @@
 
   :debug
   {:extra-deps {;; https://github.com/flow-storm/flow-storm-debugger#artifacts
-                com.github.flow-storm/flow-storm-dbg {:mvn/version "4.1.1"}
-                com.github.flow-storm/flow-storm-inst {:mvn/version "4.1.1"}}}
+                com.github.flow-storm/flow-storm-dbg {:mvn/version "4.2.0"}}}
 
   :profiler
-  {:extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "1.6.0"}}
+  {:extra-deps {com.clojure-goes-fast/clj-async-profiler {:mvn/version "1.6.1"}}
    :jvm-opts ["-Djdk.attach.allowAttachSelf"]}
   }}
