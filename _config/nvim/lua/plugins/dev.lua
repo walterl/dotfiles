@@ -262,12 +262,23 @@ local specs = {
       )
       require('lspconfig').pylsp.setup(config)
       require('lspconfig').ts_ls.setup(config)
-      vim.cmd [[
-      sign define DiagnosticSignHint text=⍰ texthl=DiagnosticSignHint
-      sign define DiagnosticSignInfo text=ⓘ texthl=DiagnosticSignInfo
-      sign define DiagnosticSignWarn text=⚠ texthl=DiagnosticSignWarn
-      sign define DiagnosticSignError text=✕ texthl=DiagnosticSignError
-      ]]
+
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.HINT] = '⍰',
+            [vim.diagnostic.severity.INFO] = 'ⓘ',
+            [vim.diagnostic.severity.WARN] = '⚠',
+            [vim.diagnostic.severity.ERROR] = '✕',
+          },
+          numhl = {
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+          },
+        },
+      })
     end,
   },
   {
@@ -446,7 +457,7 @@ local specs = {
       })
       vim.api.nvim_create_autocmd('BufNewFile', {
         pattern = 'conjure-log-*',
-        callback = function() vim.diagnostic.disable(0) end
+        callback = function() vim.diagnostic.enable(false, { bufnr = 0 }) end
       })
     end,
     keys = {
