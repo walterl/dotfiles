@@ -162,7 +162,7 @@ post_link_cmds() {
 }
 
 load_dconf() {
-  dconf load /apps/guake/ < dconf/guake.dconf
+  cat dconf/*.dconf | dconf load /
 }
 
 print_messages() {

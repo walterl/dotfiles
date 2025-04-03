@@ -1,40 +1,47 @@
-[general]
-prompt-on-quit=true
-window-height=82
-mouse-display=true
-window-width=100
-max-tab-name-length=20
-window-losefocus=false
-quick-open-enable=false
-history-size=10000
-open-tab-cwd=true
-window-tabbar=true
-window-halignment=0
-quick-open-command-line="terminator --command='vi \"%(file_path)s\"'"
+[apps/guake/general]
 compat-delete='delete-sequence'
-scroll-keystroke=true
-abbreviate-tab-names=false
 display-n=0
-use-audible-bell=true
+display-tab-names=0
+gtk-use-system-default-theme=true
+hide-tabs-if-one-tab=false
+history-size=1000
+infinite-history=true
+max-tab-name-length=100
+mouse-display=true
+open-tab-cwd=true
+prompt-on-quit=true
+quick-open-command-line='gedit %(file_path)s'
+restore-tabs-notify=true
+restore-tabs-startup=true
+save-tabs-when-changed=true
+scroll-keystroke=true
+start-at-login=true
 use-default-font=false
-use-trayicon=true
-use-scrollbar=true
-window-refocus=false
 use-popup=true
+use-scrollbar=true
+use-trayicon=false
+window-halignment=0
+window-height=76
+window-losefocus=false
+window-refocus=false
+window-tabbar=true
+window-width=100
 
-[keybindings/local]
-move-tab-right='<Primary><Shift>Right'
-rename-current-tab='<Primary>F2'
-previous-tab='<Primary><Shift><Alt><Super>h'
-next-tab='<Primary><Shift><Alt><Super>l'
+[apps/guake/keybindings/local]
 move-tab-left='<Primary><Shift>Left'
+move-tab-right='<Primary><Shift>Right'
 new-tab='<Primary><Shift>n'
+next-tab='<Primary><Alt>period'
+next-tab-alt='<Primary><Shift><Alt><Super>l'
+previous-tab='<Primary><Alt>comma'
+previous-tab-alt='<Primary><Shift><Alt><Super>h'
+rename-current-tab='<Primary><Shift>t'
 
-[style/background]
-transparency=75
+[apps/guake/style/background]
+transparency=90
 
-[style/font]
+[apps/guake/style/font]
 allow-bold=true
-style='Fira Code 10'
 palette='#000000000000:#cccc00000000:#4e4e9a9a0606:#c4c4a0a00000:#34346565a4a4:#757550507b7b:#060698209a9a:#d3d3d7d7cfcf:#555557575353:#efef29292929:#8a8ae2e23434:#fcfce9e94f4f:#72729f9fcfcf:#adad7f7fa8a8:#3434e2e2e2e2:#eeeeeeeeecec:#ffffffffffff:#000000000000'
 palette-name='Tango'
+style='FiraCode Nerd Font 10'
