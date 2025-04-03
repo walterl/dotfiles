@@ -100,24 +100,6 @@ local specs = {
       enable_on_load = false,
     },
   },
-  {
-    "harrisoncramer/gitlab.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "stevearc/dressing.nvim",
-      "nvim-tree/nvim-web-devicons"
-    },
-    enabled = true,
-    build = function () require("gitlab.server").build(true) end, -- Builds the Go binary
-    config = function()
-      require("gitlab").setup()
-    end,
-    keys = {
-      {'<Leader>gmr', [[<Cmd>lua require("gitlab").choose_merge_request()<CR>]], noremap = true}
-    },
-  },
   'JuliaEditorSupport/julia-vim',
   {
     'kevinhwang91/nvim-hlslens',
