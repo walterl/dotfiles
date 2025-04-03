@@ -20,6 +20,7 @@
 .vagrant
 .venv
 ignoreme*
+localdev.clj
 node_modules
 session.vim
 tags
