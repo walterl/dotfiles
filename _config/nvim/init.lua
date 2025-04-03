@@ -256,6 +256,26 @@ iabbrev :shrug: ¯\_(ツ)_/¯
 map('n', '<Leader>T', '<Cmd>ToggleWord<CR>', silent) -- toggle_words.vim
 -- }}}
 
+-- {{{ Neovide
+if vim.g.neovide then
+  vim.g.neovide_opacity = 0.8
+  vim.g.neovide_normal_opacity = 0.8
+
+  vim.g.neovide_floating_shadow = true
+  vim.g.neovide_floating_z_height = 10
+  vim.g.neovide_light_angle_degrees = 45
+  vim.g.neovide_light_radius = 5
+
+  vim.g.neovide_position_animation_length = 0.05
+  vim.g.neovide_scroll_animation_length = 0.1
+
+  map('n', '<C-S-V>', '"+p')
+  map('i', '<C-S-V>', '<C-r>+')
+  map('n', '<C-S-Insert>', '"*p')
+  map('i', '<S-Insert>', '<C-r>*')
+end
+-- }}}
+
 -- {{{ Miscellaneous functionality
 -- Use rg/ag/ack-grep for the :grep command
 if vim.fn.executable('rg') then
