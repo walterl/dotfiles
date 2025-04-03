@@ -35,6 +35,7 @@ run() {
 
 link_dotfiles() {
   mklink "bashrc"
+  mklink "clojure"
   mklink "dircolors"
   mklink "gitconfig"
   mklink "gitexcludes"
@@ -60,6 +61,7 @@ link_dotfiles() {
 
 unlink_dotfiles() {
   rmlink "bashrc"
+  rmlink "clojure"
   rmlink "dircolors"
   rmlink "gitconfig"
   rmlink "gitexcludes"
