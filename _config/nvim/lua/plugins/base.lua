@@ -299,7 +299,7 @@ return {
       { '<Leader>gg', '<Cmd>GitGutterToggle<CR>' },
     },
   },
-  'junegunn/gv.vim',
+  {'junegunn/gv.vim', dependencies = {'tpope/vim-fugitive'}},
   {
     'junkblocker/git-time-lapse',
     keys = {
