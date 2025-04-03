@@ -11,6 +11,7 @@ local specs = {
   },
   {
     'AndrewRadev/splitjoin.vim',
+    lazy = false,
     keys = {
       { "<Leader>ss", [[<Cmd>SplitjoinSplit<CR>]], mode = "n", desc = "SplitjoinSplit", noremap = true },
       { "<Leader>sj", [[<Cmd>SplitjoinJoin<CR>]],  mode = "n", desc = "SplitjoinJoin",  noremap = true },
