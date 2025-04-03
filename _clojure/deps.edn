@@ -2,8 +2,7 @@
  {:mydev
   {:extra-deps {dev.weavejester/cljfmt {:mvn/version "0.13.0"}
                 org.clojure/test.check {:mvn/version "1.1.1"}
-                org.exupero/clipboard {:mvn/version "0.1.0"}}
-   :extra-paths ["dev"]}
+                org.exupero/clipboard {:mvn/version "0.1.0"}}}
 
   :nrepl
   {:extra-deps {cider/cider-nrepl {:mvn/version "0.52.1"}}
