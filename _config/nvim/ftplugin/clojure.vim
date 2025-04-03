@@ -85,6 +85,10 @@ if HasPlugin('conjure')
   vmap <Leader>jE <LocalLeader>wdef <Esc><LocalLeader>eeu
 endif
 
+if HasPlugin('telescope')
+  nmap <Leader>js <Cmd>Telescope live_grep cwd=~/.clojure/snippets<CR>
+endif
+
 if executable('jet')
   " Format with jet
   nnoremap <Leader>Fe <Cmd>%!jet --pretty<CR>
