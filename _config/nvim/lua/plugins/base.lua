@@ -167,6 +167,11 @@ return {
     end,
   },
   {
+    "ovk/endec.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     'scrooloose/nerdtree',
     config = function()
       vim.g.NERDTreeIgnore = { '\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$' }
@@ -334,12 +339,6 @@ return {
     },
   },
   { 'junegunn/gv.vim', dependencies = { 'tpope/vim-fugitive' } },
-  {
-    'junkblocker/git-time-lapse',
-    keys = {
-      { '<Leader>gt', '<Plug>(git-time-lapse)' },
-    },
-  },
   {
     'tpope/vim-fugitive',
     keys = {
