@@ -135,7 +135,6 @@ local specs = {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      {'hrsh7th/cmp-nvim-lsp-signature-help', dependencies = {'hrsh7th/nvim-cmp'}},
       {'onsails/lspkind.nvim', dependencies = {'hrsh7th/nvim-cmp'}},
     },
     config = function()
@@ -171,10 +170,6 @@ local specs = {
           ),
           ['textDocument/hover'] = vim.lsp.with(
             vim.lsp.handlers.hover,
-            { border = 'single' }
-          ),
-          ['textDocument/signatureHelp'] = vim.lsp.with(
-            vim.lsp.handlers.signature_help,
             { border = 'single' }
           ),
         },
@@ -387,6 +382,21 @@ local specs = {
       {'<Leader>rr', '<Plug>ReplSendLine'},
       {'<LocalLeader>r', '<Plug>ReplSendVisual', mode = 'v'},
       {'<Leader>re', '<Plug>ReplSendVisual', mode = 'v'},
+    },
+  },
+  {
+    'ray-x/lsp_signature.nvim',
+    event = "InsertEnter",
+    opts = {
+      hint_prefix = "○ ",
+      ignore_error = function(err, ctx, config)
+        if ctx and ctx.client_id then
+          local client = vim.lsp.get_client_by_id(ctx.client_id)
+          if client and vim.tbl_contains({ 'clojure_lsp' }, client.name) and err.message == 'Internal error' then
+            return true
+          end
+        end
+      end,
     },
   },
   {

@@ -85,6 +85,13 @@ return {
         end
       end
 
+      local function sig_hint()
+        if not pcall(require, 'lsp_signature') then return "" end
+        local sig = pcall(require('lsp_signature').status_line, width)
+        if not sig or not sig.label or #sig.label == 0 then return "" end
+        return sig.label .. " ○ "  .. sig.hint
+      end
+
       require('lualine').setup {
         options = {
           theme = 'palenight',
@@ -106,7 +113,10 @@ return {
               },
             },
           },
-          lualine_c = {{'diff'}},
+          lualine_c = {
+            { 'diff' },
+            { sig_hint },
+          },
           lualine_x = {
             {
               'diagnostics',
@@ -192,7 +202,6 @@ return {
         buffer = 'buf',
         latex_symbols = 'texsym',
         nvim_lsp = 'lsp',
-        nvim_lsp_signature_help = 'sig',
       }
 
       local sources = {
@@ -204,7 +213,6 @@ return {
       if not flag_is_set('nodev') then
         sources = vim.list_extend(
           {
-            {name = 'nvim_lsp_signature_help'},
             {name = 'nvim_lsp'},
             per_filetype = {
               codecompanion = { "codecompanion" },
