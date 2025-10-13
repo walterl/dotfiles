@@ -27,7 +27,7 @@ return {
   },
   {
     'goolord/alpha-nvim',
-    dependencies = {'walterl/alpha_startify_gst'},
+    dependencies = { 'walterl/alpha_startify_gst' },
     config = function()
       require'alpha'.setup(require'alpha_startify_gst'.config)
     end,
@@ -54,7 +54,7 @@ return {
     'karb94/neoscroll.nvim',
     opts = {
       easing_function = 'quartic',
-      mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb'}, -- Default without <C-f>, which I remapped
+      mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' }, -- Default without <C-f>, which I remapped
     },
   },
   'nvim-tree/nvim-web-devicons',
@@ -100,7 +100,7 @@ return {
           section_separators = { left = "", right = "" },
         },
         sections = {
-          lualine_a = {'mode'},
+          lualine_a = { 'mode' },
           lualine_b = {
             {
               'filename',
@@ -121,19 +121,19 @@ return {
             {
               'diagnostics',
               {
-                sections = {'error', 'warn', 'info', 'hint'},
-                sources = {'nvim_lsp'},
-                symbols = {error='', warn='', info='', hint=''}
+                sections = { 'error', 'warn', 'info', 'hint' },
+                sources = { 'nvim_lsp' },
+                symbols = { error='', warn='', info='', hint='' }
               },
             },
-            {lsp_connection},
+            { lsp_connection },
           },
           lualine_y = {
             'filetype',
           },
           lualine_z = {
-            {'progress'},
-            {'location', padding = { left = 0, right = 0}},
+            { 'progress' },
+            { 'location', padding = { left = 0, right = 0} },
           },
         },
         inactive_sections = {
@@ -156,12 +156,12 @@ return {
           lualine_z = {},
         },
         tabline = {
-          lualine_a = {{'tabs', mode = 2, max_length = vim.o.columns, symbols = { modified = ' ⏺' }}},
+          lualine_a = {{ 'tabs', mode = 2, max_length = vim.o.columns, symbols = { modified = ' ⏺' } }},
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = {'branch'}
+          lualine_z = { 'branch' }
         },
       }
     end,
@@ -169,13 +169,13 @@ return {
   {
     'scrooloose/nerdtree',
     config = function()
-      vim.g.NERDTreeIgnore = {'\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$'}
+      vim.g.NERDTreeIgnore = { '\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$' }
       vim.g.NERDTreeShowBookmarks = 1
       vim.g.NERDTreeShowLineNumbers = 1
     end,
     keys = {
-      {'<F2>', '<Cmd>NERDTreeToggle<CR>', silent = true},
-      {'<F3>', '<Cmd>NERDTreeToggle %<CR>', silent = true},
+      { '<F2>', '<Cmd>NERDTreeToggle<CR>', silent = true },
+      { '<F3>', '<Cmd>NERDTreeToggle %<CR>', silent = true },
     },
   },
   'stevearc/dressing.nvim',
@@ -231,15 +231,15 @@ return {
       }
 
       local sources = {
-        {name = 'buffer'},
-        {name = 'path'},
-        {name = 'latex_symbols', option = {strategy = 0}}
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'latex_symbols', option = { strategy = 0 } }
       }
 
       if not flag_is_set('nodev') then
         sources = vim.list_extend(
           {
-            {name = 'nvim_lsp'},
+            { name = 'nvim_lsp' },
             per_filetype = {
               codecompanion = { "codecompanion" },
             },
@@ -252,7 +252,7 @@ return {
       local lspkind = require('lspkind')
       cmp.setup {
         view = {
-          entries = {name = 'custom', selection_order = 'near_cursor'}
+          entries = { name = 'custom', selection_order = 'near_cursor' }
         },
         snippet = {
           expand = function(args)
@@ -294,13 +294,13 @@ return {
           ['<C-e>'] = cmp.mapping.close(),
           ['<C-t>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert }),
         },
-        sources = sources,
+        sources = cmp.config.sources(sources),
       }
     end,
   },
-  {'hrsh7th/cmp-buffer', dependencies = {'hrsh7th/nvim-cmp'}},
-  {'hrsh7th/cmp-path', dependencies = {'hrsh7th/nvim-cmp'}},
-  {'kdheepak/cmp-latex-symbols', dependencies = {'hrsh7th/nvim-cmp'}},
+  { 'hrsh7th/cmp-buffer', dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'hrsh7th/cmp-path', dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'kdheepak/cmp-latex-symbols', dependencies = { 'hrsh7th/nvim-cmp' } },
   -- Colors
   {
     'catppuccin/nvim',
@@ -333,20 +333,20 @@ return {
       { '<Leader>gg', '<Cmd>GitGutterToggle<CR>' },
     },
   },
-  {'junegunn/gv.vim', dependencies = {'tpope/vim-fugitive'}},
+  { 'junegunn/gv.vim', dependencies = { 'tpope/vim-fugitive' } },
   {
     'junkblocker/git-time-lapse',
     keys = {
-      {'<Leader>gt', '<Plug>(git-time-lapse)'},
+      { '<Leader>gt', '<Plug>(git-time-lapse)' },
     },
   },
   {
     'tpope/vim-fugitive',
     keys = {
-      {'<Leader>gb', '<Cmd>Git blame<CR>'},
-      {'<Leader>gd', '<Cmd>Gdiffsplit<CR>'},
-      {'<Leader>gc', '<Cmd>Git commit<CR>'},
-      {'<Leader>gs', '<Cmd>tab Git<CR>'},
+      { '<Leader>gb', '<Cmd>Git blame<CR>' },
+      { '<Leader>gd', '<Cmd>Gdiffsplit<CR>' },
+      { '<Leader>gc', '<Cmd>Git commit<CR>' },
+      { '<Leader>gs', '<Cmd>tab Git<CR>' },
     },
   },
   -- Markdown
@@ -378,16 +378,16 @@ return {
   -- Telescope
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim', 'nvim-telescope/telescope-symbols.nvim'},
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim', 'nvim-telescope/telescope-symbols.nvim' },
     config = function()
       require("telescope").setup {
         defaults = {
-          file_ignore_patterns = {"node_modules"},
+          file_ignore_patterns = { "node_modules" },
           scroll_strategy = "limit",
         },
         pickers = {
           find_files = {
-            find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"},
+            find_command = { "rg", "--files", "--iglob", "!.git", "--hidden" },
           },
         },
       }
@@ -402,7 +402,7 @@ return {
       map('n', ',k', builtin.keymaps, ext(noremap, { desc = "Neovim keymaps" }))
       map('n', ',S', builtin.spell_suggest, ext(noremap, { desc = "Spelling suggestions" }))
       map('n', ',s', function()
-        builtin.symbols{ sources = {'emoji', 'kaomoji'} }
+        builtin.symbols{ sources = { 'emoji', 'kaomoji' } }
       end, ext(noremap, { desc = "Emoji" }))
       map('n', ',R', builtin.resume, ext(noremap, { desc = "Resume last search" }))
 
@@ -415,7 +415,7 @@ return {
         builtin.find_files{ search_dirs = { "%:h" } }
       end, ext(noremap, { desc = "Files in current buffer's dir" }))
       map('n', ',f', builtin.find_files, ext(noremap, { desc = "Files in cwd" }))
-      map({'n', 'v'}, ',F', builtin.grep_string, ext(noremap, { desc = "Grep string under cursor" }))
+      map({ 'n', 'v' }, ',F', builtin.grep_string, ext(noremap, { desc = "Grep string under cursor" }))
       map('n', ',G', builtin.live_grep, ext(noremap, { desc = "Grep string" }))
       map('n', ',e', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
 

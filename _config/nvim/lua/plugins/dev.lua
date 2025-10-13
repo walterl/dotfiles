@@ -19,7 +19,7 @@ local specs = {
   },
   {
     'ckolkey/ts-node-action',
-    dependencies = {'nvim-treesitter'},
+    dependencies = { 'nvim-treesitter' },
     opts = function()
       return {
         ['*'] = {
@@ -106,36 +106,42 @@ local specs = {
     'kevinhwang91/nvim-hlslens',
     config = true,
     keys = {
-      {'n',
+      {
+        'n',
         [[<Cmd>execute('normal! ' . v:count1 . 'nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
-        noremap = true, silent = true},
-      {'N',
+        noremap = true, silent = true
+      },
+      {
+        'N',
         [[<Cmd>execute('normal! ' . v:count1 . 'Nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
-        noremap = true, silent = true},
-      {'*', [[*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
-      {'#', [[#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
-      {'g*', [[g*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
-      {'g#', [[g#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true},
+        noremap = true, silent = true
+      },
+      { '*', [[*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
+      { '#', [[#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
+      { 'g*', [[g*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
+      { 'g#', [[g#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
     },
   },
   {
     'knsh14/vim-github-link',
     keys = {
-      {'<Leader>YB', '<Cmd>GetCurrentBranchLink<CR>', mode = 'v'},
-      {'<Leader>YC', '<Cmd>GetCurrentCommitLink<CR>', mode = 'v'},
+      { '<Leader>YB', '<Cmd>GetCurrentBranchLink<CR>', mode = 'v' },
+      { '<Leader>YC', '<Cmd>GetCurrentCommitLink<CR>', mode = 'v' },
     },
   },
   {
     'luochen1990/rainbow',
     config = function()
       vim.g.rainbow_active = 1 -- Toggle with :RainbowToggle
-      vim.g.rainbow_conf = {guifgs = {'DeepSkyBlue', 'darkorange3', 'LawnGreen', 'ivory1', 'firebrick', 'MistyRose1', 'maroon1'}}
+      vim.g.rainbow_conf = {
+        guifgs = { 'DeepSkyBlue', 'darkorange3', 'LawnGreen', 'ivory1', 'firebrick', 'MistyRose1', 'maroon1' },
+      }
     end,
   },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      {'onsails/lspkind.nvim', dependencies = {'hrsh7th/nvim-cmp'}},
+      { 'onsails/lspkind.nvim', dependencies = { 'hrsh7th/nvim-cmp' } },
     },
     config = function()
       --- BEGIN peek_definition
@@ -287,7 +293,7 @@ local specs = {
             scope_incremental = '.',
           },
         },
-        ensure_installed = {'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc', "yaml"},
+        ensure_installed = { 'bash', 'clojure', 'javascript', 'json', 'julia', 'lua', 'python', 'typescript', 'vimdoc', 'yaml' },
       }
       -- https://github.com/nvim-treesitter/nvim-treesitter#folding
       vim.opt.foldmethod = 'expr'
@@ -303,7 +309,7 @@ local specs = {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    dependencies = {'nvim-treesitter/nvim-treesitter'},
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require'nvim-treesitter.configs'.setup {
         textobjects = {
@@ -360,8 +366,8 @@ local specs = {
       },
     },
     keys = {
-      { "<C-a>", mode = {"n", "v"}, "<Cmd>CodeCompanionActions<CR>", noremap = true, silent = true },
-      { "<LocalLeader>a", mode = {"n", "v"}, "<Cmd>CodeCompanionChat Toggle<CR>", noremap = true, silent = true },
+      { "<C-a>", mode = { "n", "v" }, "<Cmd>CodeCompanionActions<CR>", noremap = true, silent = true },
+      { "<LocalLeader>a", mode = { "n", "v" }, "<Cmd>CodeCompanionChat Toggle<CR>", noremap = true, silent = true },
       { "ga", mode = "v", "<Cmd>CodeCompanionChat Add<CR>", noremap = true, silent = true },
     },
   },
@@ -376,12 +382,12 @@ local specs = {
       }
     end,
     keys = {
-      {'<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true},
-      {'<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true},
-      {'<LocalLeader>r', '<Plug>ReplSendLine'},
-      {'<Leader>rr', '<Plug>ReplSendLine'},
-      {'<LocalLeader>r', '<Plug>ReplSendVisual', mode = 'v'},
-      {'<Leader>re', '<Plug>ReplSendVisual', mode = 'v'},
+      { '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true },
+      { '<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true },
+      { '<LocalLeader>r', '<Plug>ReplSendLine' },
+      { '<Leader>rr', '<Plug>ReplSendLine' },
+      { '<LocalLeader>r', '<Plug>ReplSendVisual', mode = 'v' },
+      { '<Leader>re', '<Plug>ReplSendVisual', mode = 'v' },
     },
   },
   {
@@ -414,21 +420,21 @@ local specs = {
   'tpope/vim-projectionist',
   {
     'walterl/centerfold',
-    dependencies = {'vim-sexp'},
+    dependencies = { 'vim-sexp' },
     keys = {
       { '<Leader>jj', 'v<Plug>(sexp_outer_top_list)<Esc><Cmd>CenterFold<CR>', silent = true },
     },
   },
   -- cmp
-  {'hrsh7th/cmp-nvim-lsp', dependencies = {'hrsh7th/nvim-cmp'}},
+  { 'hrsh7th/cmp-nvim-lsp', dependencies = { 'hrsh7th/nvim-cmp' } },
   --- snippet support
-  {'hrsh7th/cmp-vsnip', dependencies = {'hrsh7th/nvim-cmp'}},
+  { 'hrsh7th/cmp-vsnip', dependencies = { 'hrsh7th/nvim-cmp' } },
   'hrsh7th/vim-vsnip',
   -- Clojure
   'clojure-vim/clojure.vim',
   {
     'Olical/conjure',
-    dependencies = {'Olical/aniseed'},
+    dependencies = { 'Olical/aniseed' },
     ft = {
       "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
       "python", "rust",
@@ -457,12 +463,12 @@ local specs = {
       { 'gD', '<Cmd>ConjureDefWord<CR>' },
     },
   },
-  {'walterl/conjure-efroot', dependencies = {'Olical/conjure'}},
-  {'walterl/conjure-macroexpand', dependencies = {'Olical/conjure'}},
-  {'walterl/conjure-locstack', dependencies = {'Olical/conjure'}},
+  { 'walterl/conjure-efroot', dependencies = { 'Olical/conjure' } },
+  { 'walterl/conjure-macroexpand', dependencies = { 'Olical/conjure' } },
+  { 'walterl/conjure-locstack', dependencies = { 'Olical/conjure' } },
   {
     'walterl/conjure-tapdance',
-    dependencies = {'Olical/conjure'},
+    dependencies = { 'Olical/conjure' },
     keys = {
       { '<Leader>jT', '<Cmd>TapForm<CR>', noremap = true, silent = true },
       { '<Leader>jt', '<Cmd>TapWord<CR>', noremap = true, silent = true },
@@ -483,12 +489,12 @@ local specs = {
     lazy = false,
     keys = {
       -- Swap multiple selected elements:
-      {'<e', '<Plug>(sexp_swap_element_backward)', mode = 'v'},
-      {'>e', '<Plug>(sexp_swap_element_forward)', mode = 'v'},
+      { '<e', '<Plug>(sexp_swap_element_backward)', mode = 'v' },
+      { '>e', '<Plug>(sexp_swap_element_forward)', mode = 'v' },
     },
   },
   -- Fennel
-  { 'Olical/aniseed', dependencies = {'bakpakin/fennel.vim'} },
+  { 'Olical/aniseed', dependencies = { 'bakpakin/fennel.vim' } },
   'bakpakin/fennel.vim',
   -- HTML
   'mattn/emmet-vim',
