@@ -137,12 +137,12 @@ map('n', '[r', 'gT', noremap)
 map('n', ']r', 'gt', noremap)
 
 -- Move tabs left/right
-map('n', '<C-S-PageUp>', '<Cmd>tabm -<CR>')
-map('n', '<C-S-PageDown>', '<Cmd>tabm +<CR>')
+map('n', '<C-S-PageUp>', '<Cmd>tabmove -<CR>')
+map('n', '<C-S-PageDown>', '<Cmd>tabmove +<CR>')
 
+map('n', '<Leader>tc', '<Cmd>tabclose<CR>') -- Close tab
 map('n', '<Leader>td', '<Cmd>tab split<CR>') -- Duplicate tab
-map('n', '<Leader>tn', '<Cmd>tabe<CR>') -- New tab
-map('n', '<Leader>.', '<Cmd>tabnext #<CR>', noremap) -- Switch to last accessed tab
+map('n', '<Leader>tn', '<Cmd>tabedit<CR>') -- New tab
 map('n', '<M-1>', '<Cmd>tabfirst<CR>')
 map('n', '<M-0>', '<Cmd>tablast<CR>')
 for x = 2,9 do
@@ -273,6 +273,10 @@ if vim.g.neovide then
   map('i', '<C-S-V>', '<C-r>+')
   map('n', '<C-S-Insert>', '"*p')
   map('i', '<S-Insert>', '<C-r>*')
+
+  map({ "n", "v" }, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+  map({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+  map({ "n", "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
 end
 -- }}}
 

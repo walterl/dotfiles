@@ -7,7 +7,7 @@ setlocal conceallevel=2
 nmap <Leader>lg EF/yEBi[#<C-r>"]<Esc>lvESbF/x
 
 if executable("pandoc")
-  command! -buffer -nargs=0 WriteHTML :exe "!pandoc -t html % -o %:r.html"
+  command! -buffer -nargs=0 WriteHTML :exe "!pandoc -t html \"%\" -o \"%:r.html\""
   command! -buffer -nargs=0 EditHTML :WriteHTML | :e %:r.html
 
   " Insert copied HTML as Markdown

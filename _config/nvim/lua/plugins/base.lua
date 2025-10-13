@@ -381,7 +381,8 @@ return {
         builtin.find_files{ search_dirs = { "%:h" } }
       end, ext(noremap, { desc = "Files in current buffer's dir" }))
       map('n', ',f', builtin.find_files, ext(noremap, { desc = "Files in cwd" }))
-      map('n', ',G', builtin.grep_string, ext(noremap, { desc = "Grep string" }))
+      map({'n', 'v'}, ',F', builtin.grep_string, ext(noremap, { desc = "Grep string under cursor" }))
+      map('n', ',G', builtin.live_grep, ext(noremap, { desc = "Grep string" }))
       map('n', ',e', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
 
       map('n', ',j', builtin.jumplist, ext(noremap, { desc = "Jump list" }))
