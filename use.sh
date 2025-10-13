@@ -47,6 +47,7 @@ link_dotfiles() {
   mklink "zsh"
 
   mklink "_config/alacritty" ".config"
+  mklink "_config/ghostty" ".config"
   mklink "_config/nvim" ".config"
   mklink "_config/starship.toml" ".config"
   mklink "_config/terminator" ".config"

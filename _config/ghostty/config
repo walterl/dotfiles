@@ -1,0 +1,104 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /home/cody/.config/ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+# font-family = Iosevka
+# window-padding-x = 2
+#
+# # Spacing around the equals sign does not matter.
+# # All of these are identical:
+# key=value
+# key= value
+# key =value
+# key = value
+#
+# # Any line beginning with a # is a comment. It's not possible to put
+# # a comment after a config option, since it would be interpreted as a
+# # part of the value. For example, this will have a value of "#123abc":
+# background = #123abc
+#
+# # Empty values are used to reset config keys to default.
+# key =
+#
+# # Some config options have unique syntaxes for their value,
+# # which is explained in the docs for that config option.
+# # Just for example:
+# resize-overlay-duration = 4s 200ms
+
+# (w)
+font-family = "FiraCode Nerd Font Mono"
+font-size = 10
+font-feature = "-calt, -liga, -dlig"
+adjust-cell-height = 8%
+cursor-opacity = 0.4
+window-decoration = "none"
+
+## KEYBINDINGS
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
+keybind = alt+five=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind
+keybind = alt+eight=unbind
+keybind = alt+nine=unbind
+keybind = ctrl+page_down=unbind
+keybind = ctrl+page_up=unbind
+
+keybind = ctrl+shift+n=new_tab
+keybind = ctrl+shift+i=new_window
+
+keybind = ctrl+shift+alt+super+h=previous_tab
+keybind = ctrl+shift+alt+super+l=next_tab
+keybind = ctrl+alt+,=previous_tab
+keybind = ctrl+alt+.=next_tab
+keybind = ctrl+shift+left=move_tab:-1
+keybind = ctrl+shift+right=move_tab:1
+
+keybind = ctrl+shift+t=toggle_tab_overview
+
+keybind = shift+alt+k=goto_split:up
+keybind = shift+alt+j=goto_split:down
+keybind = shift+alt+h=goto_split:left
+keybind = shift+alt+l=goto_split:right
+
+keybind = ctrl+shift+r=reset
+
+keybind = ctrl+shift+alt+super+,=open_config
+
+## THEME
+
+theme = "Argonaut"
+background-opacity = 0.8
+background = 000000
+
+# Other candidates:
+# theme = "PaulMillr"
+# background-opacity = 0.7
+
+# theme = "Firefly Traditional"
+# background-opacity = 0.6
+
+# theme = "GitHub-Dark-Default"
+# background-opacity = 0.7
+
+# theme = "Wez"
+# background-opacity = 0.6
