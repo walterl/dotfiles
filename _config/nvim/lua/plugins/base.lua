@@ -183,6 +183,7 @@ return {
       { '<F3>', '<Cmd>NERDTreeToggle %<CR>', silent = true },
     },
   },
+  'sindrets/diffview.nvim',
   'stevearc/dressing.nvim',
   'tpope/vim-commentary',
   'tpope/vim-dadbod',

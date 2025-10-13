@@ -416,7 +416,6 @@ local specs = {
       },
     },
   },
-  'sindrets/diffview.nvim',
   'tpope/vim-projectionist',
   {
     'walterl/centerfold',
