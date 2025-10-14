@@ -41,9 +41,9 @@ vim.opt.splitbelow = true -- Split windows below the current window
 vim.opt.splitright = true -- Split vertical windows on the right
 vim.opt.updatetime = 1000
 vim.opt.pumblend = 20 -- Transparency for pop-up menu
-vim.opt.winblend = 20 -- Transparency for floating windows
 vim.opt.mouse = '' -- :help disable-mouse
 vim.opt.redrawtime = 1000
+vim.opt.winborder = 'rounded'
 
 -- Highlight trailing space
 vim.cmd [[
@@ -97,9 +97,6 @@ end
 vim.cmd [[
 " Make background transparent
 hi Normal guibg=NONE ctermbg=NONE
-
-" Make floating windows a bit more pronounced
-hi FloatBorder guifg=#4B5263 guibg=#2C323C ctermbg=237
 
 " Color window separators the same as inactive status lines
 hi WinSeparator guifg=#3E4452 guibg=#3E4452 ctermbg=237
@@ -261,8 +258,10 @@ map('n', '<Leader>T', '<Cmd>ToggleWord<CR>', silent) -- toggle_words.vim
 
 -- {{{ Neovide
 if vim.g.neovide then
-  vim.g.neovide_opacity = 0.8
-  vim.g.neovide_normal_opacity = 0.8
+  vim.g.neovide_opacity = 0.9
+  vim.g.neovide_normal_opacity = 0.9
+
+  vim.g.neovide_foating_blur = false
 
   vim.g.neovide_floating_shadow = true
   vim.g.neovide_floating_z_height = 10

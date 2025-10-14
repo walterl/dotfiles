@@ -82,7 +82,7 @@ if HasPlugin('conjure')
   nmap <Leader>jy <LocalLeader>wtype<Esc><LocalLeader>eeu
   " Execute a def binding the selected value to the symbol preceding it. E.g. selelct `x (inc 1)` to execute `(def x (inc 1))`
   " Meant for `def`-ing intermediate values in `let` binding vectors.
-  vmap <Leader>jE <LocalLeader>wdef <Esc><LocalLeader>eeu
+  vmap <Leader>jd <LocalLeader>wdef <Esc><LocalLeader>eeu
 endif
 
 if HasPlugin('telescope')
