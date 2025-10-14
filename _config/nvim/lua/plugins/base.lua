@@ -41,6 +41,10 @@ return {
   },
   'itchyny/vim-cursorword',
   {
+    'j-hui/fidget.nvim',
+    opts = {},
+  },
+  {
     'jessekelighine/vindent.nvim',
     config = function()
       local vindent = require('vindent')
