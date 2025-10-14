@@ -98,3 +98,7 @@ if executable('jet')
   " doing the PrettyJetSplit thing above.
   nnoremap <silent> <leader>EF va}y<Cmd>call PrettyJetSplit()<CR>
 endif
+
+if executable('zprint')
+  vmap <Leader>ff <Cmd>'<,'>!zprint "{:style :community}"<CR><Esc>
+endif

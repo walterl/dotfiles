@@ -200,6 +200,9 @@ map('n', '<Leader>in2', '<Cmd>set ts=2 sts=2 sw=2<CR>')
 map('n', '<Leader>in4', '<Cmd>set ts=4 sts=4 sw=4<CR>')
 
 -- Formatting with external tools
+if vim.fn.executable('zprint') then
+  map('n', '<Leader>Fc', ':%!zprint "{:style :community}"<CR>')
+end
 if vim.fn.executable('python') then
   map('n', '<Leader>Fj', ':%!python -m json.tool<CR>')
 end
