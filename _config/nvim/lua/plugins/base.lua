@@ -258,6 +258,7 @@ return {
     config = function()
       local cmp_src_menu_items = {
         buffer = 'buf',
+        latex_symbols = 'tex',
         latex_symbols = 'texsym',
         nvim_lsp = 'lsp',
       }
@@ -265,6 +266,7 @@ return {
       local sources = {
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'emoji' },
         { name = 'latex_symbols', option = { strategy = 0 } }
       }
 
@@ -272,6 +274,7 @@ return {
         sources = vim.list_extend(
           {
             { name = 'nvim_lsp' },
+            { name = 'vsnip' },
             per_filetype = {
               codecompanion = { 'codecompanion' },
             },
@@ -331,6 +334,7 @@ return {
     end,
   },
   { 'hrsh7th/cmp-buffer', dependencies = { 'hrsh7th/nvim-cmp' } },
+  { 'hrsh7th/cmp-emoji', dependencies = {'hrsh7th/nvim-cmp' } },
   { 'hrsh7th/cmp-path', dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'kdheepak/cmp-latex-symbols', dependencies = { 'hrsh7th/nvim-cmp' } },
   -- Colors
