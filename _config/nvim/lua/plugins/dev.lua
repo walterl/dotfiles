@@ -163,10 +163,6 @@ local specs = {
               virtual_text = false,
             }
           ),
-          ['textDocument/hover'] = vim.lsp.with(
-            vim.lsp.handlers.hover,
-            { border = 'single' }
-          ),
         },
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(_client, bufnr)
@@ -227,6 +223,7 @@ local specs = {
         }
         return julia_config
       end)())
+      require('lspconfig').bashls.setup(config)
       require('lspconfig').ltex.setup(
         ext(config, {
           filetypes = { 'tex', 'bib', 'markdown', 'rst' },
@@ -404,6 +401,9 @@ local specs = {
         delay = 100,
         duration = 200,
       },
+      line_num = {
+        enable = true,
+      }
     },
   },
   'tpope/vim-projectionist',
@@ -432,6 +432,8 @@ local specs = {
       vim.g['conjure#mapping#doc_word'] = 'K'
       vim.g['conjure#client#clojure#nrepl#eval#auto_require'] = false
       vim.g['conjure#client#clojure#nrepl#connection#auto_repl#enabled'] = false
+      vim.g['conjure#highlight#enabled'] = true
+      vim.g['conjure#log#hud#border'] = 'rounded'
       vim.g['conjure#log#hud#height'] = 0.6
       vim.g['conjure#client#clojure#nrepl#completion#with_context'] = false
       vim.g['conjure#filetypes'] = {
@@ -467,7 +469,8 @@ local specs = {
   },
   --- sexp
   {
-    'guns/vim-sexp',
+    'bpstahlman/vim-sexp',
+    branch = 'enhanced-sexp-objects',
     config = function()
       vim.g.sexp_enable_insert_mode_mappings = 0
       vim.g.sexp_filetypes = 'clojure,scheme,lisp,timl,fennel,janet'
