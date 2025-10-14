@@ -1,5 +1,5 @@
 local dev_mode = not flag_is_set('nodev')
-local is_older_than_nvim_0_10_0 = vim.version.lt(vim.version(), vim.version.parse("0.10.0"))
+local is_older_than_nvim_0_10_0 = vim.version.lt(vim.version(), vim.version.parse('0.10.0'))
 
 local specs = {
   {
@@ -13,8 +13,8 @@ local specs = {
     'AndrewRadev/splitjoin.vim',
     lazy = false,
     keys = {
-      { "<Leader>ss", [[<Cmd>SplitjoinSplit<CR>]], mode = "n", desc = "SplitjoinSplit", noremap = true },
-      { "<Leader>sj", [[<Cmd>SplitjoinJoin<CR>]],  mode = "n", desc = "SplitjoinJoin",  noremap = true },
+      { '<Leader>ss', [[<Cmd>SplitjoinSplit<CR>]], mode = 'n', desc = 'SplitjoinSplit', noremap = true },
+      { '<Leader>sj', [[<Cmd>SplitjoinJoin<CR>]],  mode = 'n', desc = 'SplitjoinJoin',  noremap = true },
     },
   },
   {
@@ -28,7 +28,7 @@ local specs = {
       }
     end,
     config = function()
-      map('n', 'X', require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+      map('n', 'X', require('ts-node-action').node_action, { desc = 'Trigger Node Action' })
     end
   },
   {
@@ -84,12 +84,12 @@ local specs = {
           MiniMap.close()
         end
       end
-      vim.keymap.set('n', '<Leader>mc', close_minimap, { desc = "MiniMap » Close" })
-      vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = "MiniMap » Toggle focus" })
-      vim.keymap.set('n', '<Leader>mm', toggle_minimap, { desc = "MiniMap » Toggle Open/Close" })
-      vim.keymap.set('n', '<Leader>mo', open_minimap, { desc = "MiniMap » Open" })
-      vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, { desc = "MiniMap » Refresh" })
-      vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, { desc = "MiniMap » Toggle side" })
+      vim.keymap.set('n', '<Leader>mc', close_minimap, { desc = 'MiniMap » Close' })
+      vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = 'MiniMap » Toggle focus' })
+      vim.keymap.set('n', '<Leader>mm', toggle_minimap, { desc = 'MiniMap » Toggle Open/Close' })
+      vim.keymap.set('n', '<Leader>mo', open_minimap, { desc = 'MiniMap » Open' })
+      vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, { desc = 'MiniMap » Refresh' })
+      vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, { desc = 'MiniMap » Toggle side' })
       vim.api.nvim_create_autocmd('WinEnter', {
         callback = on_winenter,
       })
@@ -188,36 +188,36 @@ local specs = {
           opts = { noremap = true, buffer = bufnr }
           symbols_opts = { fname_width = 50, symbol_width = 50 }
           if is_older_than_nvim_0_10_0 then
-            map('n', ']d', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc="LSP Next diagnostic" }))
-            map('n', '[d', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc="LSP Prev diagnostic" }))
+            map('n', ']d', function() vim.diagnostic.goto_next({ wrap = false }) end, ext(opts, { desc = 'LSP Next diagnostic' }))
+            map('n', '[d', function() vim.diagnostic.goto_prev({ wrap = false }) end, ext(opts, { desc = 'LSP Prev diagnostic' }))
           end
-          map('n', 'K', vim.lsp.buf.hover, ext(opts, { desc="LSP hover" }))
-          map('n', 'gd', tel_builtin_fn('lsp_definitions'), ext(opts, { desc="LSP definitions" }))
-          map('n', '<Leader>lD', peek_definition, ext(opts, { desc="Peek definition" }))
+          map('n', 'K', vim.lsp.buf.hover, ext(opts, { desc = 'LSP hover' }))
+          map('n', 'gd', tel_builtin_fn('lsp_definitions'), ext(opts, { desc = 'LSP definitions' }))
+          map('n', '<Leader>lD', peek_definition, ext(opts, { desc = 'Peek definition' }))
           map('i', '<C-j>', vim.lsp.buf.hover, opts)
-          map('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc="LSP References" }))
-          map('n', '<Leader>lqr', vim.lsp.buf.references, ext(opts, { desc="LSP References QF" }))
-          map('n', '<Leader>lm', tel_builtin_fn('lsp_implementations'), ext(opts, { desc="LSP Implementations" }))
-          map('n', '<Leader>lqm', vim.lsp.buf.implementation, ext(opts, { desc="LSP Implementations QF" }))
-          map('n', '<Leader>ld', vim.lsp.buf.declaration, ext(opts, { desc="LSP Declarations" }))
-          map('n', '<Leader>lt', tel_builtin_fn('lsp_type_definitions'), ext(opts, { desc="LSP Type Definition" }))
-          map('n', '<Leader>lqt', vim.lsp.buf.type_definition, ext(opts, { desc="LSP Type Definition QF" }))
-          map('n', '<Leader>lh', vim.lsp.buf.signature_help, ext(opts, { desc="LSP Signature" }))
+          map('n', '<Leader>lr', tel_builtin_fn('lsp_references'), ext(opts, { desc = 'LSP References' }))
+          map('n', '<Leader>lqr', vim.lsp.buf.references, ext(opts, { desc = 'LSP References QF' }))
+          map('n', '<Leader>lm', tel_builtin_fn('lsp_implementations'), ext(opts, { desc = 'LSP Implementations' }))
+          map('n', '<Leader>lqm', vim.lsp.buf.implementation, ext(opts, { desc = 'LSP Implementations QF' }))
+          map('n', '<Leader>ld', vim.lsp.buf.declaration, ext(opts, { desc = 'LSP Declarations' }))
+          map('n', '<Leader>lt', tel_builtin_fn('lsp_type_definitions'), ext(opts, { desc = 'LSP Type Definition' }))
+          map('n', '<Leader>lqt', vim.lsp.buf.type_definition, ext(opts, { desc = 'LSP Type Definition QF' }))
+          map('n', '<Leader>lh', vim.lsp.buf.signature_help, ext(opts, { desc = 'LSP Signature' }))
           map('i', '<C-s>', vim.lsp.buf.signature_help, opts)
-          map('n', '<Leader>ln', vim.lsp.buf.rename, ext(opts, { desc="LSP Rename" }))
-          map('n', '<Leader>li', tel_builtin_fn('lsp_incoming_calls'), ext(opts, { desc="LSP Incoming calls" }))
-          map('n', '<Leader>lqi', vim.lsp.buf.incoming_calls, ext(opts, { desc="LSP Incoming calls QF" }))
-          map('n', '<Leader>lo', tel_builtin_fn('lsp_outgoing_calls'), ext(opts, { desc="LSP Outgoing calls" }))
-          map('n', '<Leader>lqo', vim.lsp.buf.outgoing_calls, ext(opts, { desc="LSP Outgoing calls QF" }))
-          map('n', '<Leader>lw', tel_builtin_fn('diagnostics'), ext(opts, { desc="LSP Diagnostics" }))
-          map('n', '<Leader>le', vim.diagnostic.open_float, ext(opts, { desc="LSP Show diagnostic" }))
-          map('n', '<Leader>lqd', vim.diagnostic.setloclist, ext(opts, { desc="LSP Diagnostics LocList" }))
-          map('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
-          map('v', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc="LSP Format" }))
-          map('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
-          map('v', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc="LSP Code action menu" }))
-          map('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc="LSP Doc symbols" }))
-          map('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc="LSP Workspace symbols" }))
+          map('n', '<Leader>ln', vim.lsp.buf.rename, ext(opts, { desc = 'LSP Rename' }))
+          map('n', '<Leader>li', tel_builtin_fn('lsp_incoming_calls'), ext(opts, { desc = 'LSP Incoming calls' }))
+          map('n', '<Leader>lqi', vim.lsp.buf.incoming_calls, ext(opts, { desc = 'LSP Incoming calls QF' }))
+          map('n', '<Leader>lo', tel_builtin_fn('lsp_outgoing_calls'), ext(opts, { desc = 'LSP Outgoing calls' }))
+          map('n', '<Leader>lqo', vim.lsp.buf.outgoing_calls, ext(opts, { desc = 'LSP Outgoing calls QF' }))
+          map('n', '<Leader>lw', tel_builtin_fn('diagnostics'), ext(opts, { desc = 'LSP Diagnostics' }))
+          map('n', '<Leader>le', vim.diagnostic.open_float, ext(opts, { desc = 'LSP Show diagnostic' }))
+          map('n', '<Leader>lqd', vim.diagnostic.setloclist, ext(opts, { desc = 'LSP Diagnostics LocList' }))
+          map('n', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc = 'LSP Format' }))
+          map('v', '<Leader>lf', vim.lsp.buf.format, ext(opts, { desc = 'LSP Format' }))
+          map('n', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc = 'LSP Code action menu' }))
+          map('v', '<Leader>la', vim.lsp.buf.code_action, ext(opts, { desc = 'LSP Code action menu' }))
+          map('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc = 'LSP Doc symbols' }))
+          map('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc = 'LSP Workspace symbols' }))
         end,
       }
       require('lspconfig').clojure_lsp.setup(config)
@@ -241,7 +241,7 @@ local specs = {
       require('lspconfig').ltex.setup(
         ext(config, {
           filetypes = { 'tex', 'bib', 'markdown', 'rst' },
-          settings = { ltex = { language = "en" } },
+          settings = { ltex = { language = 'en' } },
         })
       )
       require('lspconfig').pylsp.setup(config)
@@ -268,7 +268,7 @@ local specs = {
   {
     'nvim-treesitter/nvim-treesitter',
     build = function()
-      require("nvim-treesitter.install").update({ with_sync = true })()
+      require('nvim-treesitter.install').update({ with_sync = true })()
     end,
     config = function()
       require('nvim-treesitter.configs').setup {
@@ -287,7 +287,7 @@ local specs = {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "gl",
+            init_selection = 'gl',
             node_decremental = '-',
             node_incremental = '+',
             scope_incremental = '.',
@@ -303,7 +303,7 @@ local specs = {
   {
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
-      map('n', '[F', function() require("treesitter-context").go_to_context(vim.v.count1) end, silent)
+      map('n', '[F', function() require('treesitter-context').go_to_context(vim.v.count1) end, silent)
       vim.cmd [[ highlight! default link TreesitterContext Pmenu ]]
     end
   },
@@ -316,12 +316,12 @@ local specs = {
           select = {
             enable = true,
             keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ic"] = "@call.inner",
-              ["ac"] = "@call.outer",
-              ["ik"] = "@block.inner",
-              ["ak"] = "@block.outer",
+              ['af'] = '@function.outer',
+              ['if'] = '@function.inner',
+              ['ic'] = '@call.inner',
+              ['ac'] = '@call.outer',
+              ['ik'] = '@block.inner',
+              ['ak'] = '@block.outer',
             },
           },
         },
@@ -329,26 +329,27 @@ local specs = {
     end,
   },
   {
-    "olimorris/codecompanion.nvim",
+    'olimorris/codecompanion.nvim',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'stevearc/dressing.nvim',
       {
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
-          file_types = { "markdown", "codecompanion" },
+          file_types = { 'markdown', 'codecompanion' },
         },
-        ft = { "markdown", "codecompanion" },
+        ft = { 'markdown', 'codecompanion' },
       },
     },
     opts = {
       adapters = {
         myollama = function()
-          return require("codecompanion.adapters").extend("ollama", {
+          return require('codecompanion.adapters').extend('ollama', {
             schema = {
               model = {
-                default = "deepseek-r1:7b",
+                default = 'qwen2.5-coder:7b-instruct',
+                -- default = 'deepseek-r1:7b',
               },
               -- num_ctx = {
               --   default = 16384,
@@ -361,14 +362,14 @@ local specs = {
         end,
       },
       strategies = {
-        chat = { adapter = "myollama" },
-        inline = { adapter = "myollama" },
+        chat = { adapter = 'myollama' },
+        inline = { adapter = 'myollama' },
       },
     },
     keys = {
-      { "<C-a>", mode = { "n", "v" }, "<Cmd>CodeCompanionActions<CR>", noremap = true, silent = true },
-      { "<LocalLeader>a", mode = { "n", "v" }, "<Cmd>CodeCompanionChat Toggle<CR>", noremap = true, silent = true },
-      { "ga", mode = "v", "<Cmd>CodeCompanionChat Add<CR>", noremap = true, silent = true },
+      { '<C-a>', mode = { 'n', 'v' }, '<Cmd>CodeCompanionActions<CR>', noremap = true, silent = true },
+      { '<LocalLeader>a', mode = { 'n', 'v' }, '<Cmd>CodeCompanionChat Toggle<CR>', noremap = true, silent = true },
+      { 'ga', mode = 'v', '<Cmd>CodeCompanionChat Add<CR>', noremap = true, silent = true },
     },
   },
   {
@@ -392,9 +393,9 @@ local specs = {
   },
   {
     'ray-x/lsp_signature.nvim',
-    event = "InsertEnter",
+    event = 'InsertEnter',
     opts = {
-      hint_prefix = "○ ",
+      hint_prefix = '○ ',
       ignore_error = function(err, ctx, config)
         if ctx and ctx.client_id then
           local client = vim.lsp.get_client_by_id(ctx.client_id)
@@ -406,8 +407,8 @@ local specs = {
     },
   },
   {
-    "shellRaining/hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    'shellRaining/hlchunk.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
       chunk = {
         enable = true,
@@ -435,18 +436,18 @@ local specs = {
     'Olical/conjure',
     dependencies = { 'Olical/aniseed' },
     ft = {
-      "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
-      "python", "rust",
+      'clojure', 'fennel', 'janet', 'hy', 'racket', 'scheme', 'lua', 'lisp',
+      'python', 'rust',
     },
     config = function()
-      vim.g['conjure#mapping#doc_word'] = "K"
+      vim.g['conjure#mapping#doc_word'] = 'K'
       vim.g['conjure#client#clojure#nrepl#eval#auto_require'] = false
       vim.g['conjure#client#clojure#nrepl#connection#auto_repl#enabled'] = false
       vim.g['conjure#log#hud#height'] = 0.6
       vim.g['conjure#client#clojure#nrepl#completion#with_context'] = false
       vim.g['conjure#filetypes'] = {
-        "clojure", "fennel", "janet", "hy", "racket", "scheme", "lua", "lisp",
-        "python", "rust",
+        'clojure', 'fennel', 'janet', 'hy', 'racket', 'scheme', 'lua', 'lisp',
+        'python', 'rust',
       }
       vim.g['conjure#filetype#julia'] = nil -- Force-disable Julia >:/
       vim.api.nvim_create_autocmd('BufEnter', {
@@ -480,7 +481,7 @@ local specs = {
     'guns/vim-sexp',
     config = function()
       vim.g.sexp_enable_insert_mode_mappings = 0
-      vim.g.sexp_filetypes = "clojure,scheme,lisp,timl,fennel,janet"
+      vim.g.sexp_filetypes = 'clojure,scheme,lisp,timl,fennel,janet'
     end,
   },
   {
@@ -510,7 +511,7 @@ for k, v in pairs(specs) do
     dev_specs[k] = v
     dev_specs[k].enabled = dev_mode
   else
-    print("Unknown spec:", vim.inspect(v))
+    print('Unknown spec:', vim.inspect(v))
   end
 end
 

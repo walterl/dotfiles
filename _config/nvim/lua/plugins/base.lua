@@ -86,8 +86,8 @@ return {
     opts = {
       surrounds = {
         -- Markdown links!
-        ["l"] = { add = function() return { { '[' }, { ']()' } } end },
-        ["L"] = { add = function() return { { '[](' }, { ')' } } end },
+        ['l'] = { add = function() return { { '[' }, { ']()' } } end },
+        ['L'] = { add = function() return { { '[](' }, { ')' } } end },
       },
     },
   },
@@ -102,25 +102,24 @@ return {
     config = function()
       local function lsp_connection()
         if vim.tbl_isempty(vim.lsp.get_clients()) then
-          return ""
+          return ''
         else
-          return ""
+          return ''
         end
       end
 
       local function sig_hint()
-        if not pcall(require, 'lsp_signature') then return "" end
+        if not pcall(require, 'lsp_signature') then return '' end
         local sig = pcall(require('lsp_signature').status_line, width)
-        if not sig or not sig.label or #sig.label == 0 then return "" end
-        return sig.label .. " ○ "  .. sig.hint
+        if not sig or not sig.label or #sig.label == 0 then return '' end
+        return sig.label .. ' ○ '  .. sig.hint
       end
 
       require('lualine').setup {
         options = {
-          theme = 'palenight',
           icons_enabled = true,
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
         },
         sections = {
           lualine_a = { 'mode' },
@@ -130,9 +129,9 @@ return {
               filestatus = true,
               path = 1,
               symbols = {
-                modified = " ",
-                readonly = " ",
-                unnamed = "  "
+                modified = ' ',
+                readonly = ' ',
+                unnamed = '  '
               },
             },
           },
@@ -168,9 +167,9 @@ return {
               filestatus = true,
               path = 1,
               symbols = {
-                modified = " ",
-                readonly = " ",
-                unnamed = "  "
+                modified = ' ',
+                readonly = ' ',
+                unnamed = '  '
               },
             },
           },
@@ -190,8 +189,8 @@ return {
     end,
   },
   {
-    "ovk/endec.nvim",
-    event = "VeryLazy",
+    'ovk/endec.nvim',
+    event = 'VeryLazy',
     opts = {},
   },
   {
@@ -270,7 +269,7 @@ return {
           {
             { name = 'nvim_lsp' },
             per_filetype = {
-              codecompanion = { "codecompanion" },
+              codecompanion = { 'codecompanion' },
             },
           },
           sources
@@ -401,56 +400,56 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim', 'nvim-telescope/telescope-symbols.nvim' },
     config = function()
-      require("telescope").setup {
+      require('telescope').setup {
         defaults = {
-          file_ignore_patterns = { "node_modules" },
-          scroll_strategy = "limit",
+          file_ignore_patterns = { 'node_modules' },
+          scroll_strategy = 'limit',
         },
         pickers = {
           find_files = {
-            find_command = { "rg", "--files", "--iglob", "!.git", "--hidden" },
+            find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
           },
         },
       }
 
       local builtin = require('telescope.builtin')
 
-      map('n', ',/', builtin.search_history, ext(noremap, { desc = "Search history" }))
-      map('n', ',:', builtin.command_history, ext(noremap, { desc = "Command history" }))
-      map('n', ',c', builtin.commands, ext(noremap, { desc = "Commands" }))
-      map('n', ',h', builtin.help_tags, ext(noremap, { desc = "Help tags" }))
-      map('n', ',m', builtin.marks, ext(noremap, { desc = "Marks" }))
-      map('n', ',k', builtin.keymaps, ext(noremap, { desc = "Neovim keymaps" }))
-      map('n', ',S', builtin.spell_suggest, ext(noremap, { desc = "Spelling suggestions" }))
+      map('n', ',/', builtin.search_history, ext(noremap, { desc = 'Search history' }))
+      map('n', ',:', builtin.command_history, ext(noremap, { desc = 'Command history' }))
+      map('n', ',c', builtin.commands, ext(noremap, { desc = 'Commands' }))
+      map('n', ',h', builtin.help_tags, ext(noremap, { desc = 'Help tags' }))
+      map('n', ',m', builtin.marks, ext(noremap, { desc = 'Marks' }))
+      map('n', ',k', builtin.keymaps, ext(noremap, { desc = 'Neovim keymaps' }))
+      map('n', ',S', builtin.spell_suggest, ext(noremap, { desc = 'Spelling suggestions' }))
       map('n', ',s', function()
         builtin.symbols{ sources = { 'emoji', 'kaomoji' } }
-      end, ext(noremap, { desc = "Emoji" }))
-      map('n', ',R', builtin.resume, ext(noremap, { desc = "Resume last search" }))
+      end, ext(noremap, { desc = 'Emoji' }))
+      map('n', ',R', builtin.resume, ext(noremap, { desc = 'Resume last search' }))
 
-      map('n', ',b', builtin.buffers, ext(noremap, { desc = "Buffers" }))
+      map('n', ',b', builtin.buffers, ext(noremap, { desc = 'Buffers' }))
       map('n', ',o', function()
         builtin.oldfiles{ cwd = vim.fn.getcwd(), only_cwd = false }
-      end, ext(noremap, { desc = "Previously open files" }))
-      map('n', ',O', builtin.oldfiles, ext(noremap, { desc = "Previously open files" }))
+      end, ext(noremap, { desc = 'Previously open files' }))
+      map('n', ',O', builtin.oldfiles, ext(noremap, { desc = 'Previously open files' }))
       map('n', ',d', function()
-        builtin.find_files{ search_dirs = { "%:h" } }
+        builtin.find_files{ search_dirs = { '%:h' } }
       end, ext(noremap, { desc = "Files in current buffer's dir" }))
-      map('n', ',f', builtin.find_files, ext(noremap, { desc = "Files in cwd" }))
-      map({ 'n', 'v' }, ',F', builtin.grep_string, ext(noremap, { desc = "Grep string under cursor" }))
-      map('n', ',G', builtin.live_grep, ext(noremap, { desc = "Grep string" }))
-      map('n', ',e', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = "Buffer lines (fuzzy)" }))
+      map('n', ',f', builtin.find_files, ext(noremap, { desc = 'Files in cwd' }))
+      map({ 'n', 'v' }, ',F', builtin.grep_string, ext(noremap, { desc = 'Grep string under cursor' }))
+      map('n', ',G', builtin.live_grep, ext(noremap, { desc = 'Grep string' }))
+      map('n', ',e', builtin.current_buffer_fuzzy_find, ext(noremap, { desc = 'Buffer lines (fuzzy)' }))
 
-      map('n', ',j', builtin.jumplist, ext(noremap, { desc = "Jump list" }))
-      map('n', ',l', builtin.loclist, ext(noremap, { desc = "Location list" }))
-      map('n', ',q', builtin.quickfix, ext(noremap, { desc = "Quickfix list" }))
-      map('n', ',Q', builtin.quickfixhistory, ext(noremap, { desc = "Quickfix list history" }))
+      map('n', ',j', builtin.jumplist, ext(noremap, { desc = 'Jump list' }))
+      map('n', ',l', builtin.loclist, ext(noremap, { desc = 'Location list' }))
+      map('n', ',q', builtin.quickfix, ext(noremap, { desc = 'Quickfix list' }))
+      map('n', ',Q', builtin.quickfixhistory, ext(noremap, { desc = 'Quickfix list history' }))
 
-      map('n', ',t', builtin.tags, ext(noremap, { desc = "Tags" }))
-      map('n', ',T', builtin.current_buffer_tags, ext(noremap, { desc = "Buffer tags" }))
+      map('n', ',t', builtin.tags, ext(noremap, { desc = 'Tags' }))
+      map('n', ',T', builtin.current_buffer_tags, ext(noremap, { desc = 'Buffer tags' }))
 
-      map('n', ',g', builtin.git_files, ext(noremap, { desc = "Git files" }))
+      map('n', ',g', builtin.git_files, ext(noremap, { desc = 'Git files' }))
       map('n', ',gb', builtin.git_bcommits, ext(noremap, { desc = "Buffer's git commits" }))
-      map('n', ',gs', builtin.git_status, ext(noremap, { desc = "Git status" }))
+      map('n', ',gs', builtin.git_status, ext(noremap, { desc = 'Git status' }))
     end,
   },
 }
