@@ -147,11 +147,13 @@ local specs = {
           vim.lsp.util.preview_location(result)
         end
       end
+
       function peek_definition()
         local params = vim.lsp.util.make_position_params()
         return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
       end
       --- END peek_definition
+
       local config = {
         handlers = {
           ['textDocument/publishDiagnostics'] = vim.lsp.with(
@@ -205,33 +207,34 @@ local specs = {
           map('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc = 'LSP Workspace symbols' }))
         end,
       }
-      require('lspconfig').clojure_lsp.setup(config)
-      require('lspconfig').julials.setup((function()
-        local julia_config = vim.deepcopy(config)
-        julia_config.capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown' }
-        julia_config.capabilities.textDocument.codeAction = {
-          dynamicRegistration = true,
-          codeActionLiteralSupport = {
-            codeActionKind = {
-              valueSet = (function()
-                local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
-                table.sort(res)
-                return res
-              end)(),
+      vim.lsp.config('*', config)
+      vim.lsp.config.julials = {
+        capabilities = {
+          textDocument = {
+            completion = {
+              documentationFormat = { 'markdown' }
             },
-          },
+            codeAction = {
+              dynamicRegistration = true,
+              codeActionLiteralSupport = {
+                codeActionKind = {
+                  valueSet = (function()
+                    local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
+                    table.sort(res)
+                    return res
+                  end)(),
+                },
+              },
+            },
+          }
         }
-        return julia_config
-      end)())
-      require('lspconfig').bashls.setup(config)
-      require('lspconfig').ltex.setup(
-        ext(config, {
-          filetypes = { 'tex', 'bib', 'markdown', 'rst' },
-          settings = { ltex = { language = 'en' } },
-        })
-      )
-      require('lspconfig').pylsp.setup(config)
-      require('lspconfig').ts_ls.setup(config)
+      }
+      vim.lsp.config.ltex = {
+        filetypes = { 'tex', 'bib', 'markdown', 'rst' },
+        settings = { ltex = { language = 'en' } },
+      }
+
+      vim.lsp.enable({ 'bashls', 'clojure_lsp', 'julials', 'ltex', 'pylsp', 'ts_ls' })
 
       vim.diagnostic.config({
         signs = {
