@@ -90,7 +90,7 @@ local specs = {
       enable_on_load = false,
     },
   },
-  'JuliaEditorSupport/julia-vim',
+  -- 'JuliaEditorSupport/julia-vim',
   {
     'kevinhwang91/nvim-hlslens',
     config = true,
