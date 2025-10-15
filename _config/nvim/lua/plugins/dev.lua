@@ -458,7 +458,6 @@ local specs = {
     },
   },
   { 'walterl/conjure-efroot', dependencies = { 'Olical/conjure' } },
-  { 'walterl/conjure-macroexpand', dependencies = { 'Olical/conjure' } },
   { 'walterl/conjure-locstack', dependencies = { 'Olical/conjure' } },
   {
     'walterl/conjure-tapdance',
