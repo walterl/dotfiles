@@ -461,6 +461,7 @@ local specs = {
   { 'walterl/conjure-locstack', dependencies = { 'Olical/conjure' } },
   {
     'walterl/conjure-tapdance',
+    lazy = false,
     dependencies = { 'Olical/conjure' },
     keys = {
       { '<Leader>jT', '<Cmd>TapForm<CR>', noremap = true, silent = true },
