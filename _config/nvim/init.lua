@@ -303,4 +303,11 @@ if vim.fn.exists('&undodir') then
 end
 -- }}}
 
+-- {{{ Site overrides
+local overrides_file = vim.fn.expand('~/.nvim_profile.lua')
+if vim.fn.filereadable(overrides_file) > 0 then
+  vim.cmd.luafile(overrides_file)
+end
+-- }}}
+
 -- vim:fdm=marker:expandtab:ts=2:sw=2:sts=2
