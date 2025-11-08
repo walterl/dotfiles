@@ -367,14 +367,13 @@ local specs = {
   },
   {
     'pappasam/nvim-repl',
-    config = function()
-      vim.g.repl_filetype_commands = {
-        javascript = 'node',
-        julia = 'julia',
-        python = 'ipython',
-        typescript = 'tsx',
+    opts = {
+      filetype_commands = {
+        javascript = { cmd = 'deno repl', filetype = 'javascript' },
+        typescript = { cmd = 'deno repl', filetype = 'typescript' },
+        julia = { cmd = 'julia', filetype = 'julia' },
       }
-    end,
+    },
     keys = {
       { '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true },
       { '<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true },
@@ -442,7 +441,7 @@ local specs = {
       vim.g['conjure#highlight#enabled'] = true
       vim.g['conjure#log#hud#border'] = 'rounded'
       vim.g['conjure#log#hud#height'] = 0.6
-      vim.g['conjure#client#clojure#nrepl#completion#with_context'] = false
+      vim.g['conjure#client#clojure#nrepl#completion#with_context'] = true
       vim.g['conjure#filetypes'] = {
         'clojure', 'fennel', 'janet', 'hy', 'racket', 'scheme', 'lua', 'lisp',
         'python', 'rust',

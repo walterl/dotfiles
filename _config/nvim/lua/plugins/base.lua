@@ -42,7 +42,11 @@ return {
   'itchyny/vim-cursorword',
   {
     'j-hui/fidget.nvim',
-    opts = {},
+    opts = {
+      notification = {
+        override_vim_notify = true,
+      },
+    },
   },
   {
     'jessekelighine/vindent.nvim',
@@ -292,6 +296,7 @@ return {
       'DBUIFindBuffer',
     },
     init = function()
+      vim.g.db_ui_use_nvim_notify = 1
       vim.g.db_ui_execute_on_save = 0
       vim.g.db_ui_use_nerd_fonts = 1
       vim.g.db_ui_hide_schemas = { 'pg_toast.*' }
@@ -346,7 +351,7 @@ return {
       end
 
       local cmp = require('cmp')
-      local lspkind = require('lspkind')
+      local lspkind = pcall(require, 'lsp_signature') and require('lspkind') or nil
       cmp.setup {
         view = {
           entries = { name = 'custom', selection_order = 'near_cursor' }
