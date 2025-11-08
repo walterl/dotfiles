@@ -84,6 +84,80 @@ return {
       mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' }, -- Default without <C-f>, which I remapped
     },
   },
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    lazy = false,
+    opts = {
+      filesystem = {
+        window = {
+          mappings = {
+            ['O'] = function(state) state.tree:expand_all_subnodes() end,
+            ['Z'] = function(state) state.tree:expand_all_nodes() end,
+          }
+        },
+      }
+    },
+    config = function()
+      local get_reveal_file = function()
+        local reveal_file = vim.fn.expand('%:p')
+        if (reveal_file == '') then
+          reveal_file = vim.fn.getcwd()
+        else
+          local f = io.open(reveal_file, "r")
+          if (f) then
+            f.close(f)
+          else
+            reveal_file = vim.fn.getcwd()
+          end
+        end
+        return reveal_file
+      end
+
+      local exec = require('neo-tree.command').execute
+
+      map(
+        'n',
+        '--',
+        function()
+          exec({
+            toggle = true,
+            reveal_file = get_reveal_file(),
+          })
+        end,
+        ext(noremap, { desc = 'Toggle file tree' })
+      )
+      map(
+        'n',
+        '-b',
+        function()
+          exec({
+            toggle = true,
+            source = 'buffers',
+            position = 'right',
+            reveal_file = get_reveal_file(),
+          })
+        end,
+        ext(noremap, { desc = 'Toggle buffers tree' })
+      )
+
+      require('neo-tree').setup({
+        filesystem = {
+          window = {
+            mappings = {
+              ['O'] = 'expand_all_subnodes',
+              ['Z'] = 'expand_all_nodes',
+            }
+          },
+        }
+      })
+    end,
+  },
   'nvim-tree/nvim-web-devicons',
   {
     'kylechui/nvim-surround',
@@ -196,18 +270,6 @@ return {
     'ovk/endec.nvim',
     event = 'VeryLazy',
     opts = {},
-  },
-  {
-    'scrooloose/nerdtree',
-    config = function()
-      vim.g.NERDTreeIgnore = { '\\~$', '\\.exe$', '\\.py[co]$', '\\.s?o$', '\\.sw[op]$' }
-      vim.g.NERDTreeShowBookmarks = 1
-      vim.g.NERDTreeShowLineNumbers = 1
-    end,
-    keys = {
-      { '<F2>', '<Cmd>NERDTreeToggle<CR>', silent = true },
-      { '<F3>', '<Cmd>NERDTreeToggle %<CR>', silent = true },
-    },
   },
   'sindrets/diffview.nvim',
   'stevearc/dressing.nvim',
