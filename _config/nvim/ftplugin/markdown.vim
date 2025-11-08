@@ -1,6 +1,7 @@
 setlocal autoindent
 setlocal spell
 setlocal conceallevel=2
+setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " The mapping below turns GitHub issue/PR URLs into Markdown links:
 " https://github.com/walterl/uroute/pull/1 -> [#1](https://github.com/walterl/uroute/pull/1)
