@@ -376,11 +376,11 @@ local specs = {
     },
     keys = {
       { '<Leader>rt', '<Cmd>ReplToggle<CR>', noremap = true },
-      { '<Leader>rc', '<Cmd>ReplRunCell<CR>', noremap = true },
-      { '<LocalLeader>r', '<Plug>ReplSendLine' },
-      { '<Leader>rr', '<Plug>ReplSendLine' },
-      { '<LocalLeader>r', '<Plug>ReplSendVisual', mode = 'v' },
-      { '<Leader>re', '<Plug>ReplSendVisual', mode = 'v' },
+      { '<Leader>rc', '<Plug>(ReplSendCell)', noremap = true },
+      { '<LocalLeader>r', '<Plug>(ReplSendLine)' },
+      { '<Leader>rr', '<Plug>(ReplSendLine)' },
+      { '<LocalLeader>r', '<Plug>(ReplSendVisual)', mode = 'v' },
+      { '<Leader>re', '<Plug>(ReplSendVisual)', mode = 'v' },
     },
   },
   {

@@ -58,7 +58,7 @@ if HasPlugin('vim-sexp-mappings-for-regular-people')
   " Copies the form under the cursor to a Rich comment BELOW top-level form
   nmap <Leader>je yaf<Plug>(sexp_move_to_prev_top_element)%o<CR>(comment,<Left><CR><CR><Up><Esc>p==
   " Wrap current element in :keys destructuring map
-  nmap <Leader>jk <Plug>(sexp_curly_head_wrap_element):keys [] :as<Esc>F[
+  nmap <Leader>jk <Plug>(sexp_curly_head_wrap_element):as<Esc>Ea, :keys [
   " Wrap current element in an anonymous function
   nmap <Leader>ja i#<Esc>lyswb%
   " Change 'x y' line into '(def x y)'

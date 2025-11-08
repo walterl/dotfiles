@@ -20,10 +20,10 @@ return {
   },
   {
     'ggandor/leap.nvim',
-    config = function()
-      require('leap').setup {}
-      require('leap').set_default_mappings()
-    end,
+    keys = {
+      { 's', '<Plug>(leap)', mode = { 'n', 'x', 'o' }  },
+      { 'S', '<Plug>(leap-from-window)' },
+    },
   },
   {
     'goolord/alpha-nvim',
