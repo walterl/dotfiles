@@ -154,7 +154,7 @@ local specs = {
       end
       --- END peek_definition
 
-      local config = {
+      vim.lsp.config('*', {
         handlers = {
           ['textDocument/publishDiagnostics'] = vim.lsp.with(
             vim.lsp.diagnostic.on_publish_diagnostics,
@@ -167,7 +167,11 @@ local specs = {
           ),
         },
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        on_attach = function(_client, bufnr)
+      })
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(ev)
+          bufnr = ev.buf
           vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
           function tel_builtin_fn(fn_name, builtin_opts)
             return function() require('telescope.builtin')[fn_name](builtin_opts) end
@@ -206,9 +210,9 @@ local specs = {
           map('n', '<Leader>ly', tel_builtin_fn('lsp_document_symbols', symbols_opts), ext(opts, { desc = 'LSP Doc symbols' }))
           map('n', '<Leader>lY', tel_builtin_fn('lsp_dynamic_workspace_symbols', symbols_opts), ext(opts, { desc = 'LSP Workspace symbols' }))
         end,
-      }
-      vim.lsp.config('*', config)
-      vim.lsp.config.julials = {
+      })
+
+      vim.lsp.config('julials', {
         capabilities = {
           textDocument = {
             completion = {
@@ -228,11 +232,11 @@ local specs = {
             },
           }
         }
-      }
-      vim.lsp.config.ltex = {
+      })
+      vim.lsp.config('ltex', {
         filetypes = { 'tex', 'bib', 'markdown', 'rst' },
         settings = { ltex = { language = 'en' } },
-      }
+      })
 
       vim.lsp.enable({ 'bashls', 'clojure_lsp', 'julials', 'ltex', 'pylsp', 'ts_ls' })
 
