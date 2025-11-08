@@ -100,6 +100,8 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " Color window separators the same as inactive status lines
 hi WinSeparator guifg=#3E4452 guibg=#3E4452 ctermbg=237
+
+hi MsgArea guifg=#ffffff guibg=#3E4452 ctermbg=237
 ]]
 -- }}}
 
