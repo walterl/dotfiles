@@ -75,10 +75,39 @@ return {
   {
     'junegunn/goyo.vim',
     config = function()
-      vim.g.goyo_width = 100
-      vim.cmd [[
-      command! WritingMode Goyo | set ft=markdown wrap | lua require('lualine').hide(); MiniMap.close()
-      ]]
+      vim.g.goyo_width = 80
+
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'GoyoEnter',
+        nested = 1,
+        callback = function()
+          if vim.g.colors_name then
+            vim.cmd.colorscheme(vim.g.colors_name)
+          end
+          vim.opt_local.scrolloff = 999
+          vim.opt_local.spell = true
+          vim.opt_local.spelllang = { 'en', 'af' }
+          vim.opt_local.filetype = 'markdown'
+          vim.opt_local.wrap = true
+          vim.opt.showmode = false
+          vim.opt.showcmd = false
+          vim.opt.showtabline = 0
+          require('lualine').hide()
+          vim.cmd.Fidget('suppress')
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'GoyoLeave',
+        nested = 1,
+        callback = function()
+          vim.opt.showmode = true
+          vim.opt.showcmd = true
+          vim.opt.showtabline = 1
+          require('lualine').hide({ unhide = true })
+          vim.cmd.Fidget('suppress')
+        end,
+      })
     end,
   },
   {
