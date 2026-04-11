@@ -100,17 +100,6 @@ local specs = {
       --- END peek_definition
 
       vim.lsp.config('*', {
-        handlers = {
-          ['textDocument/publishDiagnostics'] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics,
-            {
-              severity_sort = true,
-              update_in_insert = false,
-              underline = false,
-              virtual_text = false,
-            }
-          ),
-        },
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
       })
 
@@ -163,6 +152,10 @@ local specs = {
       })
 
       vim.diagnostic.config({
+        severity_sort = true,
+        update_in_insert = false,
+        underline = false,
+        virtual_text = false,
         signs = {
           text = {
             [vim.diagnostic.severity.HINT] = '⍰',
