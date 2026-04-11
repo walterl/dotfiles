@@ -6,7 +6,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	st = status -sb
 [user]
-	name = Walter Leibbrandt
+	name = Walter L
 	email = git@wrl.co.za
 [gui]
 	fontdiff = -family Courier -size 12 -weight normal -slant roman -underline 0 -overstrike 0

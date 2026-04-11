@@ -37,54 +37,6 @@ local specs = {
     config = true
   },
   {
-    'echasnovski/mini.map',
-    branch = 'stable',
-    config = function()
-      local map = require('mini.map')
-      map.setup {
-        symbols = {
-          encode = map.gen_encode_symbols.dot('4x2'),
-        },
-        integrations = {
-          map.gen_integration.builtin_search(),
-          map.gen_integration.diagnostic(),
-        }
-      }
-      function open_minimap()
-        MiniMap.open()
-        vim.w.minimap_opened = 0
-      end
-      function close_minimap()
-        MiniMap.close()
-        vim.w.minimap_opened = 1
-      end
-      function toggle_minimap()
-        MiniMap.toggle()
-        if MiniMap.current.win_data[1] then
-          vim.w.minimap_opened = 0
-        else
-          vim.w.minimap_opened = 1
-        end
-      end
-      function on_winenter()
-        if vim.w.minimap_opened and MiniMap.current.win_data[1] then
-          MiniMap.open()
-        else
-          MiniMap.close()
-        end
-      end
-      vim.keymap.set('n', '<Leader>mc', close_minimap, { desc = 'MiniMap » Close' })
-      vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = 'MiniMap » Toggle focus' })
-      vim.keymap.set('n', '<Leader>mm', toggle_minimap, { desc = 'MiniMap » Toggle Open/Close' })
-      vim.keymap.set('n', '<Leader>mo', open_minimap, { desc = 'MiniMap » Open' })
-      vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, { desc = 'MiniMap » Refresh' })
-      vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, { desc = 'MiniMap » Toggle side' })
-      vim.api.nvim_create_autocmd('WinEnter', {
-        callback = on_winenter,
-      })
-    end,
-  },
-  {
     'ellisonleao/dotenv.nvim',
     opts = {
       enable_on_load = false,
@@ -97,18 +49,18 @@ local specs = {
     keys = {
       {
         'n',
-        [[<Cmd>execute('normal! ' . v:count1 . 'nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
+        [[<Cmd>execute('normal! ' . v:count1 . 'nzvzz')<CR><Cmd>lua require('hlslens').start()<CR>]],
         noremap = true, silent = true
       },
       {
         'N',
-        [[<Cmd>execute('normal! ' . v:count1 . 'Nzvzz')<CR><Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]],
+        [[<Cmd>execute('normal! ' . v:count1 . 'Nzvzz')<CR><Cmd>lua require('hlslens').start()<CR>]],
         noremap = true, silent = true
       },
-      { '*', [[*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
-      { '#', [[#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
-      { 'g*', [[g*<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
-      { 'g#', [[g#<Cmd>lua require('hlslens').start(); MiniMap.refresh({}, {lines = false, scrollbar = false})<CR>]], noremap = true, silent = true },
+      { '*', [[*<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
+      { '#', [[#<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
+      { 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
+      { 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], noremap = true, silent = true },
     },
   },
   {
