@@ -335,8 +335,8 @@ local specs = {
     'pappasam/nvim-repl',
     opts = {
       filetype_commands = {
-        javascript = { cmd = 'deno repl', filetype = 'javascript' },
-        typescript = { cmd = 'deno repl', filetype = 'typescript' },
+        javascript = { cmd = 'deno repl --allow-env --allow-read --allow-write', filetype = 'javascript' },
+        typescript = { cmd = 'deno repl --allow-env --allow-read --allow-write', filetype = 'typescript' },
         julia = { cmd = 'julia', filetype = 'julia' },
       }
     },
