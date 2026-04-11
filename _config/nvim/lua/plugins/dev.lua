@@ -114,6 +114,11 @@ local specs = {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
       })
 
+      vim.lsp.config('ltex', {
+        filetypes = { 'tex', 'bib', 'markdown', 'rst' },
+        settings = { ltex = { language = 'en' } },
+      })
+
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(ev)
           bufnr = ev.buf
@@ -157,34 +162,6 @@ local specs = {
         end,
       })
 
-      vim.lsp.config('julials', {
-        capabilities = {
-          textDocument = {
-            completion = {
-              documentationFormat = { 'markdown' }
-            },
-            codeAction = {
-              dynamicRegistration = true,
-              codeActionLiteralSupport = {
-                codeActionKind = {
-                  valueSet = (function()
-                    local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
-                    table.sort(res)
-                    return res
-                  end)(),
-                },
-              },
-            },
-          }
-        }
-      })
-      vim.lsp.config('ltex', {
-        filetypes = { 'tex', 'bib', 'markdown', 'rst' },
-        settings = { ltex = { language = 'en' } },
-      })
-
-      vim.lsp.enable({ 'bashls', 'clojure_lsp', 'julials', 'ltex', 'pylsp', 'ts_ls' })
-
       vim.diagnostic.config({
         signs = {
           text = {
@@ -201,6 +178,8 @@ local specs = {
           },
         },
       })
+
+      vim.lsp.enable({ 'bashls', 'clojure_lsp', 'ltex', 'pylsp', 'ts_ls' })
     end,
   },
   {
