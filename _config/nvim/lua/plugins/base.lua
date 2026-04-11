@@ -260,7 +260,7 @@ return {
           lualine_z = {},
         },
         tabline = {
-          lualine_a = {{ 'tabs', mode = 2, max_length = vim.o.columns, symbols = { modified = ' ⏺' } }},
+          lualine_a = {{ 'tabs', mode = 2, path = 1, max_length = vim.o.columns, symbols = { modified = ' ⏺' } }},
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
