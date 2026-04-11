@@ -45,6 +45,11 @@ vim.opt.mouse = '' -- :help disable-mouse
 vim.opt.redrawtime = 1000
 vim.opt.winborder = 'rounded'
 
+vim.opt.fillchars = 'diff:⋅'
+vim.cmd [[
+hi DiffDelete guifg=#5e455e
+]]
+
 -- Highlight trailing space
 vim.cmd [[
 augroup TrailingSpace
@@ -56,7 +61,9 @@ augroup END
 
 -- Hightlight yanked text
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function() vim.highlight.on_yank {higroup='Visual', timeout=300} end,
+  callback = function()
+    vim.highlight.on_yank {higroup='Visual', timeout=300}
+  end,
 })
 -- }}}
 
@@ -168,6 +175,7 @@ map('n', '<Leader>V', '<Cmd>vsplit<CR>')
 
 map('n', '<C-f>', 'za', noremap) -- Toggle folds
 map('n', 'zB', 'zCzO') -- Open all folds for top-level fold under the cursor
+map('n', 'zf', 'zCzO') -- Open all folds for top-level fold under the cursor -- more ergonomic for common operation
 
 -- Move up and down by folds
 map('', '<C-j>', 'zj', silent)
@@ -253,6 +261,7 @@ iabbrev Noen None
 iabbrev NOne None
 iabbrev sefl self
 iabbrev :shrug: ¯\_(ツ)_/¯
+iabbrev Bitcion Bitcoin
 ]]
 
 map('n', '<Leader>T', '<Cmd>ToggleWord<CR>', silent) -- toggle_words.vim
