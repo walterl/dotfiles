@@ -271,6 +271,18 @@ local specs = {
               ['<Leader>ah'] = '@parameter.inner',
             },
           },
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              [']m'] = '@function.outer',
+              [']o'] = { query = '@local.scope', query_group = 'locals', desc = 'Next scope' },
+            },
+            goto_previous_start = {
+              ['[m'] = '@function.outer',
+              ['[o'] = { query = '@local.scope', query_group = 'locals', desc = 'Previous scope' },
+            },
+          },
         },
       }
     end,
