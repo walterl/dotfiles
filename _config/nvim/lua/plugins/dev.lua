@@ -3,13 +3,6 @@ local is_older_than_nvim_0_10_0 = vim.version.lt(vim.version(), vim.version.pars
 
 local specs = {
   {
-    'AndrewRadev/sideways.vim',
-    keys = {
-      { '<Leader>ah', '<Cmd>SidewaysLeft<CR>', noremap = true },
-      { '<Leader>al', '<Cmd>SidewaysRight<CR>', noremap = true },
-    },
-  },
-  {
     'AndrewRadev/splitjoin.vim',
     lazy = false,
     keys = {
@@ -267,6 +260,15 @@ local specs = {
               ['ac'] = '@call.outer',
               ['ik'] = '@block.inner',
               ['ak'] = '@block.outer',
+            },
+          },
+          swap = {
+            enable = true,
+            swap_next = {
+              ['<Leader>al'] = '@parameter.inner',
+            },
+            swap_previous = {
+              ['<Leader>ah'] = '@parameter.inner',
             },
           },
         },
