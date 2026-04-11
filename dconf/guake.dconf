@@ -1,4 +1,4 @@
-[apps/guake/general]
+[org/guake/general]
 compat-delete='delete-sequence'
 display-n=0
 display-tab-names=0
@@ -27,7 +27,7 @@ window-refocus=false
 window-tabbar=true
 window-width=100
 
-[apps/guake/keybindings/local]
+[org/guake/keybindings/local]
 move-tab-left='<Primary><Shift>Left'
 move-tab-right='<Primary><Shift>Right'
 new-tab='<Primary><Shift>n'
@@ -37,10 +37,10 @@ previous-tab='<Primary><Alt>comma'
 previous-tab-alt='<Primary><Shift><Alt><Super>h'
 rename-current-tab='<Primary><Shift>t'
 
-[apps/guake/style/background]
+[org/guake/style/background]
 transparency=90
 
-[apps/guake/style/font]
+[org/guake/style/font]
 allow-bold=true
 palette='#000000000000:#cccc00000000:#4e4e9a9a0606:#c4c4a0a00000:#34346565a4a4:#757550507b7b:#060698209a9a:#d3d3d7d7cfcf:#555557575353:#efef29292929:#8a8ae2e23434:#fcfce9e94f4f:#72729f9fcfcf:#adad7f7fa8a8:#3434e2e2e2e2:#eeeeeeeeecec:#ffffffffffff:#000000000000'
 palette-name='Tango'
