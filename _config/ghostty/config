@@ -49,19 +49,35 @@ font-feature = "-calt, -liga, -dlig"
 adjust-cell-height = 8%
 cursor-opacity = 0.4
 window-decoration = "none"
+# 128 MB, or about 328k lines at current resolution
+scrollback-limit = 134217728
+window-inherit-working-directory = false
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
 
 ## KEYBINDINGS
-keybind = alt+one=unbind
-keybind = alt+two=unbind
-keybind = alt+three=unbind
-keybind = alt+four=unbind
-keybind = alt+five=unbind
-keybind = alt+six=unbind
-keybind = alt+seven=unbind
-keybind = alt+eight=unbind
-keybind = alt+nine=unbind
+keybind = alt+1=unbind
+keybind = alt+2=unbind
+keybind = alt+3=unbind
+keybind = alt+4=unbind
+keybind = alt+5=unbind
+keybind = alt+6=unbind
+keybind = alt+7=unbind
+keybind = alt+8=unbind
+keybind = alt+9=unbind
+keybind = alt+digit_1=unbind
+keybind = alt+digit_2=unbind
+keybind = alt+digit_3=unbind
+keybind = alt+digit_4=unbind
+keybind = alt+digit_5=unbind
+keybind = alt+digit_6=unbind
+keybind = alt+digit_7=unbind
+keybind = alt+digit_8=unbind
+keybind = alt+digit_9=unbind
 keybind = ctrl+page_down=unbind
 keybind = ctrl+page_up=unbind
+keybind = ctrl+shift+page_down=unbind
+keybind = ctrl+shift+page_up=unbind
 
 keybind = ctrl+shift+n=new_tab
 keybind = ctrl+shift+i=new_window
